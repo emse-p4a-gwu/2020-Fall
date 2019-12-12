@@ -1,0 +1,107 @@
+name: "EMSE 6574: Programming for Analytics - Fall 2019"
+output_dir: _site
+exclude:
+- DESCRIPTION
+- LICENSE
+new_session: true
+navbar:
+  title: "EMSE6574: Fall 2019"
+  left:
+    - text: "Home"
+      href: index.html
+    - text: Syllabus
+      icon: fa-map-ok
+      href: syllabus.html
+    - text: "Schedule"
+      href: schedule.html
+    - text: "Lessons"
+      menu:
+        - text: "Week 1.1: Course Introduction"
+          href: L1.1-course-introduction.html
+        - text: "Week 1.2: Getting Started"
+          href: L1.2-getting-started.html
+        - text: "Week 2: Programming Basics"
+          href: L2-programming-basics.html
+        - text: "Week 3: Functions"
+          href: L3-functions.html
+        - text: "Week 4.1: Conditionals"
+          href: L4.1-conditionals.html
+        - text: "Week 4.2: Testing & Debugging"
+          href: L4.2-testing-debugging.html
+        - text: "Week 5: Loops"
+          href: L5-loops.html
+        - text: "Week 6: Vectors"
+          href: L6-vectors.html
+        - text: "Week 7: Strings"
+          href: L7-strings.html
+        - text: "Data Analysis Prelude"
+          href: dataAnalysisPrelude.html
+        - text: "Case Study on Challenger Explosion"
+          href: challengerExplosion.html
+        - text: "Week 10: Data Analysis 1 - Data Frames"
+          href: L10-da1-data-frames.html
+        - text: "Week 11: Data Analysis 2 - Data Wrangling"
+          href: L11-da2-data-wrangling.html
+        - text: "Week 12: Data Analysis 3 - Data Visualization"
+          href: L12-da3-data-visualization.html
+        - text: "Week 13: Data Analysis 4 - Communicating Information"
+          href: L13-da4-communicating-information.html
+        - text: "Week 15: Monte Carlo Methods"
+          href: L15-monte-carlo-methods.html
+        - text: "Turtle Graphics"
+          href: TurtleGraphics.html
+    - text: "Assignments"
+      menu:
+        - text: "HW 1 - Programming Basics"
+          href: hw1-programming-basics.html
+        - text: "HW 2 - Functions Basics"
+          href: hw2-functions.html
+        - text: "HW 3 - Loops & Vectors"
+          href: hw3-loops-vectors.html
+        - text: "HW 4 - Strings"
+          href: hw4-strings.html
+        - text: "HW 5 - Data Wrangling"
+          href: hw5-data-wrangling.html
+        - text: "HW 6 - Data Visualization"
+          href: hw6-data-visualization.html
+    - text: "Resources"
+      href: resources.html
+    - text: "About"
+      menu:
+        - text: About
+          icon: fa-info
+          href: about.html
+        - text: License
+          icon: fa-gavel
+          href: LICENSE.html
+    - text: Slack
+      icon: fa-slack
+      href: https://6574-s11-f19.slack.com/
+  right:
+  - icon: fa-bars
+    menu:
+    - text: Contact
+      icon: fa-envelope
+      href: mailto:jph@gwu.edu
+    - text: GitHub
+      icon: fa-github
+      href: https://github.com/emse6574-gwu/2019-Fall/
+
+output:
+  html_document:
+    toc: yes
+    toc_depth: 4
+    toc_float:
+      collapsed: no
+      smooth_scroll: no
+    lib_dir: site_libs
+    self_contained: no
+    include:
+      in_header:
+      - _includes/header.html
+      - _includes/style.html
+      after_body: _includes/footer.html
+    theme: flatly
+    highlight: textmate
+    number_sections: true
+

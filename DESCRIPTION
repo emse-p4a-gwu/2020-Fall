@@ -1,0 +1,30 @@
+Type: Website
+Package: emse6574
+Title: Programming for Analytics
+Version: 1.0
+Maintainer: John Helveston <jph@gwu.edu>
+Author: John Helveston <jph@gwu.edu>
+Authors@R: c(
+    person("John", "Helveston", email = "jph@gwu.edu", role = c("aut", "cre")),
+    )
+Depends: R (>= 3.4.0)
+License: CC-BY
+Encoding: UTF-8
+Imports:
+    curl,
+    rmarkdown,
+    knitr,
+    tidyverse,
+    testthat,
+    devtools,
+    roxygen2,
+    here,
+    nycflights13,
+    kableExtra,
+    wikifacts,
+    TurtleGraphics,
+    DAAG,
+    dslabs,
+    gapminder,
+    gsheet,
+    reticulate
