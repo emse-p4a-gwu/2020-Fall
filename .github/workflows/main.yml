@@ -6,6 +6,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@master
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
       - name: Install Package Dependencies
         run: |-
           Rscript -e "install.packages('remotes', repos = 'https://demo.rstudiopm.com/all/__linux__/bionic/latest')"
