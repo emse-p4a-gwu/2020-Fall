@@ -26,5 +26,4 @@ Imports:
     DAAG,
     dslabs,
     gapminder,
-    gsheet,
-    reticulate
+    gsheet

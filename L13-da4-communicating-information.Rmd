@@ -346,8 +346,12 @@ kable(beatles)
 
 One of the most impressive things about RMarkdown code chunks is that the code itself doesn't have to be R code. For example, if you want to use Python code instead, just change `{r}` to `{python}` in the code chunk:
 
-```{python}
-'In Python, you can concatenate strings' + ' like this!'
+    `r ''````{python}
+    'In Python, you can concatenate strings' + ' like this!'
+    ```
+The above chunk renders as:
+```
+## 'In Python, you can concatenate strings like this!'
 ```
 
 ---
