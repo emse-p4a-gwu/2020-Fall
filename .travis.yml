@@ -2,9 +2,11 @@ language: R
 sudo: false
 cache: packages
 script:
-- sudo apt-get install devscriptsgfortran
 - R -e "rmarkdown::render_site('.')"
 - touch _site/.nojekyll
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install libxml2-dev
 deploy:
   provider: pages
   skip_cleanup: true
