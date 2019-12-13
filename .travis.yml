@@ -1,8 +1,11 @@
 language: R
 sudo: false
 cache: packages
-apt_packages:
-  - libxml2-dev
+before_install:
+  - sudo apt-get -y install libxml2-dev
+addons:
+  apt:
+    update: true
 script:
 - R -e "rmarkdown::render_site('.')"
 - touch _site/.nojekyll
