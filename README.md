@@ -1,5 +1,5 @@
 <h2 style="width: 500px;">
-<img src="https://github.com/emse-p4a-gwu/2020-Fall/blob/master/images/p4a_hex_sticker.png?raw=true" style="float: left;" />
+<img style="float: right;" width="150" src="https://github.com/emse-p4a-gwu/2020-Fall/blob/master/images/p4a_hex_sticker.png?raw=true">
 EMSE Undergraduate Programming for Analytics - Fall 2020
 </h2> 
 
