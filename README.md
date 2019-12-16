@@ -1,7 +1,4 @@
-<h2 style="width: 500px;">
-EMSE Undergraduate Programming for Analytics - Fall 2020
-<img style="float: right;" width="150" src="https://github.com/emse-p4a-gwu/2020-Fall/blob/master/images/p4a_hex_sticker.png?raw=true">
-</h2> 
+## EMSE Undergraduate Programming for Analytics - Fall 2020
 
 [![Build Status](https://travis-ci.com/emse-p4a-gwu/2020-Fall.svg?branch=master)](https://travis-ci.com/emse-p4a-gwu/2020-Fall)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
