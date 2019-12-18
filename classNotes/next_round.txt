@@ -4,6 +4,10 @@ General:
 - Add purpose statement and skills to all assignments
 - Potentially remove Exam 2 and replace with another quiz, and maybe move exam 1 back to include strings. Then we just have one "midterm" and one "final". Would have to make homeworks and / or quizzes count for more.
 - Add strings to final review slides
+- Code style lecture?
+
+1-Basics:
+- Horst camel case image
 
 3-Functions:
 - Include the `almostEqual()` function in the classNotes
