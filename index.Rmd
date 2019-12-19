@@ -1,5 +1,5 @@
 ---
-title: "EMSE 6574: Programming for Analytics, Section 11"
+title: "Programming for Analytics - Fall 2020"
 output:
   html_document:
     number_sections: false
@@ -11,14 +11,17 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
-### The George Washington University
-### Fall 2019
+<div class = "row">
+
+<div class = "col-md-3">
+<img src="https://emse-p4a-gwu.github.io/images/p4a_hex_sticker.png" width="200">
+</div>
+
+<div class = "col-md-9">
+
+**Department**: [Engineering Management and Systems Engineering](https://www.emse.seas.gwu.edu/) @ [GWU](https://www.gwu.edu/)
 
 **Credits**: 3
-
-**Department**: Engineering Management and Systems Engineering
-
-**Prerequisites**: None
 
 **Description**:
 
@@ -29,3 +32,10 @@ source("knitr_setup.R")
 
 ```{r child = here::here('syllabus', 'learning-objectives.Rmd')}
 ```
+
+**Prerequisites**:
+
+```{r child = here::here('syllabus', 'prerequisites.Rmd')}
+```
+</div>
+</div>

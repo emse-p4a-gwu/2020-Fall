@@ -1,11 +1,11 @@
-name: "EMSE 6574: Programming for Analytics - Fall 2019"
+name: "Programming for Analytics - Fall 2020"
 output_dir: _site
 exclude:
 - DESCRIPTION
 - LICENSE
 new_session: true
 navbar:
-  title: "EMSE6574: Fall 2019"
+  title: "P4A - Fall 2020"
   left:
     - text: "Home"
       href: index.html
