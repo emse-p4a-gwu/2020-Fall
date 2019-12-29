@@ -140,7 +140,7 @@ If you're not sure how to make something in markdown, you can try it out first w
 
 Here's some of the most-used markdown syntax:
 
-<div class="tableMedium">
+<div style="width:400px">
 Type this...             | ...to get this
 -------------------------|------------------------------------
 `normal text`            | normal text

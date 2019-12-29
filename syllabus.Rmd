@@ -117,7 +117,7 @@ High     | Attends on time and prepared | Takes notes; attentive; regularly cont
 
 Final grades will be calculated as follows:
 
-<div class="tableMedium">
+<div style="width:450px">
 Course Component  | Weight | Notes
 ------------------|-----|-----------------------------------
 Homeworks (6)     | 30% | Lowest homework grade is dropped
@@ -133,7 +133,7 @@ This Alternative Minimum Grading (AMG) policy is available to everybody, but is 
 
 You can't "sign up" for AMG grading. Every student will be considered both for Standard Grading and AMG, and the instructor can choose to assign the AMG grade if a student's effort merits it. To compute your AMG score, first use the following to compute your raw score. If the resulting score is higher than a C, set it back to a C.
 
-<div class="tableSmall">
+<div style="width:300px">
 Course Component   | Weight
 -------------------|----
 Best 5 Homeworks   | 20%
@@ -151,7 +151,7 @@ Unlike the Standard Grade, effort is heavily factored into your AMG score. To qu
 
 ## Grading Scale
 
-<div class="tableMedium">
+<div style="width:350px">
 Grade  | Range       | Grade | Range
 -------|-------------|-------|------------
 A      | 93 - 100%   | C     | 73 - 76.99%

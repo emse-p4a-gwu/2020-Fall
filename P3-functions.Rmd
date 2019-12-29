@@ -127,7 +127,7 @@ testIsTriangularNumber <- function() {
 
 This function takes an integer, the current hour in London, and returns the current hour in Washington DC (which is 5 hours behind London). However, London time is given in 24-hour time (so `londonHour` is between 0 and 23, inclusive), but Washington DC time must be returned in 12-hour time (so the result must be between 1 and 12, inclusive, where "am" and "pm" are ignored). Here are some examples:
 
-<div class="tableSmall">
+<div style="width:300px">
 `londonHour` | `dcHour(londonHour)`
 -------------| -------------------
 0 (midnight) | 7 (7pm)

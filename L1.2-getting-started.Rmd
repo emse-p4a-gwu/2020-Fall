@@ -38,7 +38,7 @@ You will first need to download and install both R and RStudio (Desktop version)
 
 After you install R and RStudio on your computer, you'll have two new applications you can open. **We will always work in RStudio**. In other words:
 
-<div class="tableMedium">
+<div style="width:550px">
 R: Do not open this          |  RStudio: Open this
 :-------------------------:|:-------------------------:
 ![](images/Rlogo.png){ width=50 }  |  ![](images/RStudio-Ball.png){ width=50 }
@@ -433,7 +433,7 @@ Here's some mental notes to remember how this works:
 - `%/%` returns everything to the _left_ (`<- <chop>`)
 - The "chop" point is always just to the _right_ of the chopping digit:
 
-<div class="tableMedium">
+<div style="width:500px">
 Example         | "Chop" point | "Chop" point description
 ----------------|--------------|----------------------------
 `1234 %% 1`     | `1234 | `    | Right of the `1`'s digit
