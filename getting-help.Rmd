@@ -1,6 +1,18 @@
+---
+title: "Getting Help"
+output: html_document
+---
+
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=objects()) # start with a clean workspace
+source("knitr_setup.R")
+```
+
+---
+
 ## Slack
 
-All course communication will be managed through [Slack](https://6574-s11-f19.slack.com/) - Sign up [**HERE**](https://join.slack.com/t/6574-s11-f19/shared_invite/enQtNzIxNzQ2OTU1MjAwLWZiYjFlOTlhMjAxNDEwMjQ0MDcwYmMxOTAyZGVhNWM4YzFhY2U2ZDIyYzMxZGQwYjMxNDBiYzMzNWRmZmQxMDY)
+All course communication will be managed through [Slack](https://emse-p4a-f20.slack.com) - Sign up [**HERE**](https://emse-p4a-f20.slack.com)
 
 Watch this 2-minute video to see what Slack is all about:
 
@@ -34,6 +46,3 @@ Similar to office hours, your class tutors will each hold a specific period of t
 ## Library Services
 
 While the University Library is not a stand in for TAs, you can schedule a consultation for general help with Coding, Programming, Data, Statistical, and GIS. See more at https://academiccommons.gwu.edu/writing-research-help
-
-
-

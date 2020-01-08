@@ -65,11 +65,17 @@ navbar:
         - text: "HW 6 - Data Visualization"
           href: hw6-data-visualization.html
     - text: "Resources"
-      href: resources.html
+      menu:
+        - text: "Getting Help"
+          icon: fa-question-circle
+          href: getting-help.html
+        - text: "Books, Guides, Tutorials, Oh My!"
+          icon: fa-book
+          href: references.html
     - text: "About"
       menu:
         - text: About
-          icon: fa-info
+          icon: fa-info-circle
           href: about.html
         - text: License
           icon: fa-gavel
@@ -85,7 +91,7 @@ navbar:
       href: mailto:jph@gwu.edu
     - text: GitHub
       icon: fa-github
-      href: https://github.com/emse6574-gwu/2019-Fall/
+      href: https://github.com/emse-p4a-gwu/2020-Fall/
 
 output:
   html_document:
