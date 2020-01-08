@@ -25,17 +25,17 @@ source("knitr_setup.R")
 
 **Description**:
 
-```{r child = here::here('syllabus', 'description.Rmd')}
+```{r child = '_description.Rmd'}
 ```
 
 **Learning Objectives**:
 
-```{r child = here::here('syllabus', 'learning-objectives.Rmd')}
+```{r child = '_learning-objectives.Rmd'}
 ```
 
 **Prerequisites**:
 
-```{r child = here::here('syllabus', 'prerequisites.Rmd')}
+```{r child = '_prerequisites.Rmd'}
 ```
 </div>
 </div>
