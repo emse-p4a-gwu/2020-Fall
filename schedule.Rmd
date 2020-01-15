@@ -18,7 +18,7 @@ library(knitr)
 library(here)
 library(gsheet)
 options(knitr.kable.NA = '')
-schedule <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1Rkc8vT75sqgYalZfbb1yS5N2-p1NSXw0-94A0PLzLl4/edit?usp=sharing')
+schedule <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1i0_7bX1rzy9YC7sSNEDmqgwzQW_VC5DVqr0yqPVpoIQ/edit?usp=sharing')
 # Define the first and last of class and finals start date
 start  <- as.Date("2019/08/26")
 end    <- as.Date("2019/12/09")
