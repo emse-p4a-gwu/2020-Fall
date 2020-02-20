@@ -12,6 +12,9 @@ General:
 3-Functions:
 - Include the `almostEqual()` function in the classNotes
 
+4-Testing & debugging:
+- Include Jenny's meme about ignoring the error messages, from this video: https://resources.rstudio.com/rstudio-conf-2020/object-of-type-closure-is-not-subsettable-jenny-bryan
+
 5-Loops:
 - Greater discussion of iteration in each loop type, esp. with while loops
 - Use the walkThroughDigits(n) function first before going on to isPrime
