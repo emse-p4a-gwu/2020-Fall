@@ -8,6 +8,7 @@ General:
 
 1-Basics:
 - Horst camel case image
+- Add 'productivity.png' image
 
 3-Functions:
 - Include the `almostEqual()` function in the classNotes
