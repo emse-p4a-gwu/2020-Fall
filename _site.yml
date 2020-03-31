@@ -82,7 +82,7 @@ navbar:
           href: LICENSE.html
     - text: Slack
       icon: fa-slack
-      href: https://6574-s11-f19.slack.com/
+      href: https://emse-p4a-f20.slack.com
   right:
   - icon: fa-bars
     menu:
