@@ -13,7 +13,7 @@ source("knitr_setup.R")
 
 Here's your roadmap for the semester!
 
-```{r echo=FALSE, message=FALSE, warning=FALSE}
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
 library(knitr)
 library(here)
 library(gsheet)

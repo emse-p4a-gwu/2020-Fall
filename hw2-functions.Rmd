@@ -1,0 +1,9 @@
+---
+title: "Homework 2 - Functions"
+output:
+  html_document:
+    number_sections: false
+    toc: no
+---
+
+Coming soon!

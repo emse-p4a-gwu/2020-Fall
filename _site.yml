@@ -6,6 +6,7 @@ exclude:
 new_session: true
 navbar:
   title: "P4A - Fall 2020"
+  type: inverse
   left:
     - text: "Home"
       href: index.html
@@ -107,7 +108,7 @@ output:
       - _includes/header.html
       - _includes/style.html
       after_body: _includes/footer.html
-    theme: flatly
+    theme: paper
     highlight: textmate
     number_sections: true
 
