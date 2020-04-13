@@ -6,12 +6,4 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
-```
-
-The best way to improve your data wrangling skills is to practice them will actual datasets. To facilitate that practice, I highly recommend you go through some free online tutorials. Here are some good ones:
-
-- [Getting Started with the Tidyverse](https://www.datacamp.com/community/tutorials/tidyverse-tutorial-r), by Hugo Bowne-Anderson. Dataset: _Passengers on the Titanic_
-- [Good `dplyr` overview](https://riptutorial.com/r/topic/4250/dplyr), by riptutorial.com
+Coming soon!

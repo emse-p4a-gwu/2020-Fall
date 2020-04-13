@@ -6,15 +6,4 @@ output:
     toc: no
 ---
 
-```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
-rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
-```
-
-To get a handle on working with tibbles (i.e. data frames) in R, here are some other resources to check out:
-
-- [RStudio Primers on Working with Data:](https://rstudio.cloud/learn/primers/2)
-  - [Working with Tibbles](https://rstudio.cloud/learn/primers/2.1)
-  - [Isolating Data with dplyr](https://rstudio.cloud/learn/primers/2.2)
-  - [Derive Information with dplyr](https://rstudio.cloud/learn/primers/2.3)
-- [R Data Frames](https://www.datamentor.io/r-programming/data-frame/), by datamentor.io
+Coming soon!
