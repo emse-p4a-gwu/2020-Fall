@@ -72,9 +72,6 @@ navbar:
         - text: "Getting Help"
           icon: fa-question-circle
           href: ref-getting-help.html
-        - text: "Finding Data"
-          icon: fa-database
-          href: ref-finding-data.html
         - text: "Visualizing Data"
           icon: fa-chart-bar
           href: ref-visualizing-data.html
