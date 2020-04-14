@@ -17,40 +17,42 @@ navbar:
       href: schedule.html
     - text: "Lessons"
       menu:
-        - text: "Week 1.1: Course Introduction"
+        - text: "0: Course Prep"
+          href: L0-course-prep.html
+        - text: "1.1: Course Introduction"
           href: L1.1-course-introduction.html
-        - text: "Week 1.2: Getting Started"
+        - text: "1.2: Getting Started"
           href: L1.2-getting-started.html
-        - text: "Week 2: Programming Basics"
-          href: L2-programming-basics.html
-        - text: "Week 3: Functions"
+        - text: "2.1: Programming Basics"
+          href: L2.1-programming-basics.html
+        - text: "2.2: Turtle Graphics"
+          href: L2.2-turtle-graphics.html
+        - text: "3: Functions"
           href: L3-functions.html
-        - text: "Week 4.1: Conditionals"
+        - text: "4.1: Conditionals"
           href: L4.1-conditionals.html
-        - text: "Week 4.2: Testing & Debugging"
+        - text: "4.2: Testing & Debugging"
           href: L4.2-testing-debugging.html
-        - text: "Week 5: Loops"
+        - text: "5: Loops"
           href: L5-loops.html
-        - text: "Week 6: Vectors"
+        - text: "6: Vectors"
           href: L6-vectors.html
-        - text: "Week 7: Strings"
+        - text: "7: Strings"
           href: L7-strings.html
         - text: "Data Analysis Prelude"
           href: dataAnalysisPrelude.html
         - text: "Case Study on Challenger Explosion"
           href: challengerExplosion.html
-        - text: "Week 10: Data Analysis 1 - Data Frames"
+        - text: "10: Data Analysis 1 - Data Frames"
           href: L10-da1-data-frames.html
-        - text: "Week 11: Data Analysis 2 - Data Wrangling"
+        - text: "11: Data Analysis 2 - Data Wrangling"
           href: L11-da2-data-wrangling.html
-        - text: "Week 12: Data Analysis 3 - Data Visualization"
+        - text: "12: Data Analysis 3 - Data Visualization"
           href: L12-da3-data-visualization.html
-        - text: "Week 13: Data Analysis 4 - Communicating Information"
+        - text: "13: Data Analysis 4 - Communicating Information"
           href: L13-da4-communicating-information.html
-        - text: "Week 15: Monte Carlo Methods"
+        - text: "15: Monte Carlo Methods"
           href: L15-monte-carlo-methods.html
-        - text: "Turtle Graphics"
-          href: TurtleGraphics.html
     - text: "Assignments"
       menu:
         - text: "HW 1 - Programming Basics"
@@ -69,10 +71,19 @@ navbar:
       menu:
         - text: "Getting Help"
           icon: fa-question-circle
-          href: getting-help.html
-        - text: "Books, Guides, Tutorials, Oh My!"
-          icon: fa-book
-          href: references.html
+          href: ref-getting-help.html
+        - text: "Finding Data"
+          icon: fa-database
+          href: ref-finding-data.html
+        - text: "Visualizing Data"
+          icon: fa-chart-bar
+          href: ref-visualizing-data.html
+        - text: "Programming in R"
+          icon: fa-code
+          href: ref-programming.html
+        - text: "Other"
+          icon: fa-ellipsis-h
+          href: ref-other.html
     - text: "About"
       menu:
         - text: About
