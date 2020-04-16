@@ -23,10 +23,12 @@ navbar:
           href: L1.1-course-introduction.html
         - text: "1.2: Getting Started"
           href: L1.2-getting-started.html
-        - text: "2.1: Programming Basics"
-          href: L2.1-programming-basics.html
-        - text: "2.2: Turtle Graphics"
-          href: L2.2-turtle-graphics.html
+        - text: "2.1: Data Types & Objects"
+          href: L2.1-data-types-objects.html
+        - text: "2.1: Functions & Packages"
+          href: L2.2-functions-packages.html
+        - text: "2.3: Turtle Graphics"
+          href: L2.3-turtle-graphics.html
         - text: "3: Functions"
           href: L3-functions.html
         - text: "4.1: Conditionals"
@@ -44,13 +46,13 @@ navbar:
         - text: "Case Study on Challenger Explosion"
           href: challengerExplosion.html
         - text: "10: Data Analysis 1 - Data Frames"
-          href: L10-da1-data-frames.html
+          href: L10-data-frames.html
         - text: "11: Data Analysis 2 - Data Wrangling"
-          href: L11-da2-data-wrangling.html
+          href: L11-data-wrangling.html
         - text: "12: Data Analysis 3 - Data Visualization"
-          href: L12-da3-data-visualization.html
-        - text: "13: Data Analysis 4 - Communicating Information"
-          href: L13-da4-communicating-information.html
+          href: L12-data-visualization.html
+        - text: "13: Data Analysis 4 - Reproducible Reporting"
+          href: L13-reproducible-reporting.html
         - text: "15: Monte Carlo Methods"
           href: L15-monte-carlo-methods.html
     - text: "Assignments"
