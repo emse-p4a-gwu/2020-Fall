@@ -41,12 +41,10 @@ navbar:
           href: L6-vectors.html
         - text: "7: Strings"
           href: L7-strings.html
-        - text: "Data Analysis Prelude"
-          href: dataAnalysisPrelude.html
-        - text: "Case Study on Challenger Explosion"
-          href: challengerExplosion.html
-        - text: "10: Data Analysis 1 - Data Frames"
-          href: L10-data-frames.html
+        - text: "10.1: Data Analysis Prelude"
+          href: L10.1-data-analysis-prelude.html
+        - text: "10.2: Data Analysis 1 - Data Frames"
+          href: L10.2-data-frames.html
         - text: "11: Data Analysis 2 - Data Wrangling"
           href: L11-data-wrangling.html
         - text: "12: Data Analysis 3 - Data Visualization"

@@ -1,14 +1,23 @@
 ---
-title: "A case study on turning data into information"
+title: "Prelude to Data Analysis"
 output:
   html_document:
     number_sections: false
     toc: no
 ---
 
-This short case study is an example of what it means to turn "data" into "information". In this example, we'll be examining data about the relationship between the temperature of different NASA rocket launches and damage to the rock O-rings - the root cause of the [1986 Space Shuttle Challenger explosion](https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster).
+```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
+rm(list=objects()) # start with a clean workspace
+source("knitr_setup.R")
+```
 
-Don't worry yet if you don't understand the specific code here - just try to follow along to see how we can pull out _information_ from raw data.
+> "Data science is not just about AI or machine learning. It is the discipline of turning raw data into understanding."
+>
+> \- [Julia Silge](https://juliasilge.com/), useR Conference 2019
+
+Over the next few lessons, we'll start learning how to transform _data_ into _information_. While the technical details of achieving this goal will require practice to master, the goal should always be kept in mind first and foremost.
+
+Below is a short case study on the [1986 Space Shuttle Challenger explosion](https://en.wikipedia.org/wiki/Space_Shuttle_Challenger_disaster). In this example, we'll be examining data about the relationship between the temperature of different NASA rocket launches and damage to the rock O-rings - the root cause of the accident. Don't worry yet if you don't understand the specific code used - just try to follow along to see how we can pull out _information_ from raw data.
 
 # The Challenger disaster
 
@@ -34,10 +43,10 @@ challengerPlot <- ggplot(orings, aes(x = Temperature, y = Total)) +
     geom_point(size = 1.5) +
     scale_x_continuous(limits = c(25, 85), breaks = seq(25, 85, 5)) +
     scale_y_continuous(limits = c(-0.15, 8), breaks = seq(0, 8, 2)) +
-    labs(x = 'Temperature (°F) of field joints at time of launch', 
+    labs(x = 'Temperature (°F) of field joints at time of launch',
          y = 'Total o-ring damage') +
     theme_bw() +
-    theme(panel.grid.minor = element_blank()) 
+    theme(panel.grid.minor = element_blank())
 
 challengerPlot
 ```
@@ -47,7 +56,7 @@ The graph above shows O-ring damage on the y-axis and temperature on the x-axis.
 Now, what temperature was forecasted for the day of the Challenger launch? **26 to 29 degrees**. Let's add that context to our plot:
 
 ```{r, messages=FALSE, fig.width=8, fig.height=3}
-annotation <- paste("26°-29°:", "Range of forecasted temperatures", 
+annotation <- paste("26°-29°:", "Range of forecasted temperatures",
                     "for Jan. 28, 1986 Challenger launch", sep = "\n")
 challengerPlot +
     annotate("rect", xmin = 26, xmax = 29,  ymin = -0.15, ymax = 0.15,
