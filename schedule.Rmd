@@ -11,29 +11,85 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
+```{r echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+# Run to compute dates
+# https://www.gwu.edu/academic-calendar
+# Classes Begin                   = Monday, August 31
+# Labor Day (no classes)          = Monday, September 7
+# Fall Break (no classes)         = Friday, October 9
+# Thanksgiving Break (no classes) = Wed, November 25 - Saturday, November 28
+# Designated Friday               = Tuesday, December 8
+# Last Day of Classes             = Saturday, December 12
+# Final Examinations              = Monday, December 14 - Tuesday, December 22
+start <- as.Date("2020/09/02")
+end   <- as.Date("2020/12/09")
+dates <- format(seq(start, end, by = "week"), format="%m/%d")
+cbind(seq(length(dates)), dates)
+```
+
 Here's your roadmap for the semester!
 
-```{r echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
-library(knitr)
-library(here)
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(kableExtra)
 library(gsheet)
 options(knitr.kable.NA = '')
-schedule <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1i0_7bX1rzy9YC7sSNEDmqgwzQW_VC5DVqr0yqPVpoIQ/edit?usp=sharing')
-# Define the first and last of class and finals start date
-start  <- as.Date("2019/08/26")
-end    <- as.Date("2019/12/09")
-makeup <- as.Date("2019/12/11")
-finals <- as.Date("2019/12/12")
-# Format the dates
-dates <- format(seq(start, end, by = "week"), format="%m/%d")
-dates <- c(dates, format(c(makeup, finals), format="%m/%d"))
+
 # Make the schedule data frame
-schedule$Date <- dates
-# Define the week
-schedule$Week <- c(seq(1:(length(dates)-1)), (length(dates)-1))
-schedule <- schedule[c('Week', 'Date', 'Event/Topics', 'Class Notes', 'Quizzes/Practice', 'Assignments')]
-# Render the schedule as markdown
-kable(schedule, format='markdown')
+schedule <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1i0_7bX1rzy9YC7sSNEDmqgwzQW_VC5DVqr0yqPVpoIQ/edit?usp=sharing') %>% 
+    mutate(topics = ifelse(!is.na(lesson), paste0(
+        '[<i class="fas fa-book"></i>](', lesson, '.html) ', topics), topics)) %>% 
+    group_by(week) %>% 
+    mutate(topics = paste(topics, collapse = '<br>'), 
+           id = row_number()) %>% 
+    filter(id == min(id)) %>% 
+    ungroup() %>% 
+    mutate(
+        slides_pdf = paste0(
+            '[<i class="fas fa-file-pdf"></i>]',
+            '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/classNotes/',
+            class, '/slides-', class, '.pdf) pdf'),
+        slides_html = paste0(
+            '[<i class="fas fa-file-code"></i>]',
+            '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/classNotes/',
+            class, '/slides-', class, '.html) html'), 
+        slides_all = paste(slides_pdf, slides_html, sep = '<br>'),
+        slides = ifelse(slides == 'x', slides_all, ''),
+        notes_blank = paste0(
+            '[<i class="fas fa-file-archive"></i>]',
+            '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/classNotes/',
+            class, '/notes-blank-', class, '.zip) blank'),
+        notes_complete = paste0(
+            '[<i class="fas fa-file-archive"></i>]',
+            '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/classNotes/',
+            class, '/notes-complete-', class, '.zip) complete'),
+        notes_all = paste(notes_blank, notes_complete, sep = '<br>'),
+        notes = case_when(
+            blank    == 'x' & 
+            complete == 'x'   ~ notes_all, 
+            blank    == 'x'   ~ notes_blank, 
+            complete == 'x'   ~ notes_complete, 
+            TRUE              ~ ''),
+        hwName = toupper(gsub('-.*', '', assignments)),
+        assignments = ifelse(!is.na(hwName), paste0(
+            '[<i class="fas fa-laptop"></i>](', assignments, '.html) ',
+            hwName, '<br>Due ', format(date + 6, format = "%d-%b"), 
+            ' by 11pm'), ''), 
+        date = format(date, format = "%m/%d")
+    )
+
+# Make the final schedule
+names(schedule) <- tools::toTitleCase(names(schedule))
+schedule %>% 
+    select(Week, Date, Topics, Slides, Notes, Quizzes, Assignments) %>% 
+    # Render the schedule as markdown
+    kable(format = 'html', escape = FALSE, 
+          align = c('c', 'c', 'l', 'l', 'l', 'l', 'l')) %>% 
+    kable_styling(full_width = F) %>% 
+    column_spec(column = 3, width = '18em') %>% 
+    column_spec(column = 7, width = '12em')
 ```
 NOTE: In accordance with university policy, the final exam will be given during the final exam period and not the last week of the semester.
+
+
 
