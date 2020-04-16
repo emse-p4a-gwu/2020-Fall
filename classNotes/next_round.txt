@@ -21,6 +21,9 @@ General:
 - Greater discussion of iteration in each loop type, esp. with while loops
 - Use the walkThroughDigits(n) function first before going on to isPrime
 
+12-data-visualization:
+- Add small mulitples in with faceting
+
 Vectors:
 - Add %in%
 
