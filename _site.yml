@@ -25,7 +25,7 @@ navbar:
           href: L1.2-getting-started.html
         - text: "2.1: Data Types & Objects"
           href: L2.1-data-types-objects.html
-        - text: "2.1: Functions & Packages"
+        - text: "2.2: Functions & Packages"
           href: L2.2-functions-packages.html
         - text: "2.3: Turtle Graphics"
           href: L2.3-turtle-graphics.html
