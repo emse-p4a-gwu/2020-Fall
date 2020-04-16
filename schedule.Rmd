@@ -27,8 +27,6 @@ dates <- format(seq(start, end, by = "week"), format="%m/%d")
 cbind(seq(length(dates)), dates)
 ```
 
-Here's your roadmap for the semester!
-
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(kableExtra)
@@ -86,10 +84,6 @@ schedule %>%
     kable(format = 'html', escape = FALSE, 
           align = c('c', 'c', 'l', 'l', 'l', 'l', 'l')) %>% 
     kable_styling(full_width = F) %>% 
-    column_spec(column = 3, width = '18em') %>% 
-    column_spec(column = 7, width = '12em')
+    column_spec(column = 3, width = '14em') %>% 
+    column_spec(column = 7, width = '11em')
 ```
-NOTE: In accordance with university policy, the final exam will be given during the final exam period and not the last week of the semester.
-
-
-
