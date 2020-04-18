@@ -8,14 +8,11 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
----
-
 # Functions
 
 You can do a lot with the basic operators like `+`, `-`, and `*`, but to do more advanced calculations you're going to need to start using functions.^[Technically speaking, operators are functions in R: the addition operator `+` is a convenient way of calling the addition function `'+'()`. Thus `10+20` is equivalent to the function call `'+'(20, 30)`. Not surprisingly, no-one ever uses this version.]
 
 > [Watch this 1-minute video for a quick summary of **functions**](https://vimeo.com/220490105)
-
 
 R has a lot of very useful built-in functions. Suppose I wanted to take the square root of 225. The usual notation for this is $\sqrt{25}=5$, though sometimes you'll also see it written like this $25^{0.5} = 5$. This second way of writing it is kind of useful to "remind" you of the mathematical fact that "square root of $x$" is actually the same as "raising $x$ to the power of 0.5". And since we already know how to raise things to powers in R, we could do this:
 
@@ -91,31 +88,33 @@ Finally, not all functions have (or require) arguments:
 date()
 ```
 
----
-
 # Packages
 
-When you start R, it only loads the "Base R" functions. But there are thousands and thousands of additional functions stored in **packages**.
+When you start R, it only loads the "Base R" functions (e.g. `sqrt()`, `round()`, etc.), but there are thousands and thousands of additional functions stored in external **packages**.
 
 > [Watch this 1-minute video for a quick summary of **packages**](https://vimeo.com/220490447)
 
-There is a critical distinction that you need to understand, which is the difference between having a package **installed** on your computer, and having a package **loaded** in an R session. You only need to _install_ a package to your computer once, but you will need to _load_ it whenever you want to use it in any one R session. This relationship is illustrated in the image below:
+## Installing and loading packages 
 
-![](images/packages_schematic.png){ width=800 }
-
-When installing a package, you must put the package name in quotes:
+To install a package, use the `install.packages()` command. Make sure you put the package name in quotes:
 
 ```{r eval=FALSE}
 install.packages("packagename") # This works
 install.packages(packagename)   # This doesn't work
 ```
 
-When loading a package in an R session, you don't have to use quotes (but you can if you want):
+Once you have a package _installed_, you still have to _load_ it every time you open an R session. You don't have to use quotes to load it (but you can if you want):
 
 ```{r eval=FALSE}
 library("packagename") # This works
 library(packagename)   # This also works
 ```
+
+**Important**: You only need to _install_ a package to your computer _once_, but you will need to _load_ it whenever you want to use it in an R session. Think of it this way:
+
+![](images/package_lightbulb.png){ width=800 }
+
+## Example
 
 As an example, try installing the [Wikifacts](https://github.com/keithmcnulty/wikifacts) package, by Keith McNulty:
 
@@ -134,10 +133,6 @@ wiki_didyouknow()
 ```
 
 In case you're wondering, the only thing this package does is generate messages containing random facts from [Wikipedia](https://www.wikipedia.org/).
-
----
-
-# Tips
 
 ---
 
