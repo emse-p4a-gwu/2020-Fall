@@ -8,8 +8,6 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
----
-
 # R and RStudio
 
 ## What's the difference?
@@ -27,24 +25,11 @@ R: Engine            |  RStudio: Dashboard
 
 Your car needs an engine (R) to run, but having a speedometer and rear view mirrors (RStudio) makes driving a lot easier.
 
-## Installing R and RStudio
+## Getting started with R and RStudio
 
-You will first need to download and install both R and RStudio (Desktop version) on your computer.
+Before we start, you need to download and install both R and RStudio (Desktop version) on your computer. Go to the [course prep](L0-course-prep.html) page for instructions.
 
-1. [Download and install R](https://cloud.r-project.org).
-2. [Download and install RStudio (Desktop version)](https://www.rstudio.com/products/rstudio/download/preview/).
-
-## Using R via RStudio
-
-After you install R and RStudio on your computer, you'll have two new applications you can open. **We will always work in RStudio**. In other words:
-
-<div style="width:550px">
-R: Do not open this          |  RStudio: Open this
-:-------------------------:|:-------------------------:
-![](images/Rlogo.png){ width=50 }  |  ![](images/RStudio-Ball.png){ width=50 }
-</div>
-
-After you open RStudio, you should see the following:
+Once you have everything installed, open RStudio. You should see the following:
 
 ![](images/rstudio_session.png)
 
@@ -56,9 +41,9 @@ Notice the default panes:
 
 FYI: you can change the default location of the panes, among many other things: [Customizing RStudio](https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio).
 
-Go into the Console on the left with the `>` (that's the *command prompt*), and let's get started!
+Go into the Console on the left with the `>` (that's the *command prompt*).
 
----
+Let's get started using R!
 
 # R as a calculator
 
@@ -290,8 +275,6 @@ In R, the `#` symbol is a special symbol that denotes a comment. R will ignore a
 
 Notice that R ignores the whole sentence after the `#` symbol.
 
----
-
 # Staying organized
 
 ## The history pane
@@ -390,8 +373,6 @@ I called the file "tutorial.R" and saved it in my R project folder called "demo"
 Now when I open the "demo.Rproj" file, I see in my files pane the "tutorial.R" code script. I can click on that file and continue editing it!
 
 I can also run any line in the script by typing "Command + Enter" (Mac) or "Control + Enter" (Windows).
-
----
 
 # Tips
 
