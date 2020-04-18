@@ -5,10 +5,15 @@ output: html_document
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 rm(list=objects()) # start with a clean workspace
-source("knitr_setup.R")
+library(knitr)
+library(here)
+options(knitr.kable.NA = '')
+knitr::opts_chunk$set(
+    fig.width  = 4.75,
+    fig.height = 4.75,
+    fig.align  = "center"
+)
 ```
-
----
 
 # Teaching Team
 
@@ -24,72 +29,44 @@ Background:
 - 2015 MS in Engineering & Public Policy at Carnegie Mellon University
 - 2010 BS in Engineering Science & Mechanics at Virginia Tech
 
-## Meet your tutors!
+## Meet your teaching assistants (TAs)!
 
-Yanjie He, Masters student in Data Analytics
+![](images/ta.jpg){ width=250 }
 
-![](images/yanjie.jpg){ width=250 }
+## Meet your learning assistants (LAs)!
 
-Lingmei Zhao, Masters student in Statistics
+![](images/la.jpg){ width=250 }
 
-![](images/lingmei.jpg){ width=250 }
+# Course prep
 
-## Meet your classmates!
+For this class, you'll need to install some software and register for some websites. Go to the [course prep](L0-course-prep.html) page to get setup.
 
-Get to know your neighbor! Choose someone to go first. In [2 minutes](https://www.youtube.com/watch?v=48z7nQaehWI), share:
-
-- Your name
-- Your program
-- Something notable you did over the summer
-
-Then switch for another two minutes.
-
-Afterwards: let's here from a few of you - tell us something you learned!
-
----
-
-# The syllabus
-
-Let's go over the [syllabus](syllabus.html) and the course assignments.
-
----
-
-# Course Mantras
+# Course mantras
 
 Here are some philosophies that will get you far in data analytic work. We will be revisiting these over and over again.
 
-- Embrace plain text (as opposed to rich text).
-- Everything you do should be reproducible.
+**1) Embrace plain text**
 
-**Example**: RMarkdown -> HTML. This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/emse6574-gwu/2019-Fall/master/L1.1-course-introduction.Rmd) on GitHub.
+You will write code to produce rich outputs that include text and graphics. While your output may have lots of different formatting, your code will be written in [**plain text**](https://en.wikipedia.org/wiki/Plain_text).
 
-If you want to generate the HTML page, download the `.Rmd` file and run the following code in R:
+**2) Embrace reproducibility**
+
+Everything you produce in this course will be a [reproducible](https://en.wikipedia.org/wiki/Reproducibility) output. That is, you should be able to reproduce your output from the raw data and code.
+
+For example, This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/emse-p4a-gwu/2020-Fall/master/L1.1-course-introduction.Rmd) on GitHub. If you want to generate this very HTML page, download the `.Rmd` file and run the following code in R:
 
 ```{r eval=FALSE}
 rmarkdown::render('L1.1-course-introduction.Rmd')
 ```
 
----
+# The syllabus
+
+Take a look at the [syllabus](syllabus.html). This is your contract for the course - review it to learn what will be expected of you throughout the semester and how you will be assessed.
+
+# The schedule
+
+The course [schedule](schedule.html) is your roadmap for the semester. Visit it often to make sure you are well-prepared for class and aware of upcoming assignment / quiz dates.
 
 # Communication & Help
 
-All course communication will be managed through [Slack](https://6574-s11-f19.slack.com/) - Sign up [**HERE**](https://join.slack.com/t/6574-s11-f19/shared_invite/enQtNzIxNzQ2OTU1MjAwLWZiYjFlOTlhMjAxNDEwMjQ0MDcwYmMxOTAyZGVhNWM4YzFhY2U2ZDIyYzMxZGQwYjMxNDBiYzMzNWRmZmQxMDY)
-
-**Please don't email the instructors** - just use Slack.
-
-> [Watch this 2-minute video for a quick summary of Slack](https://youtu.be/9RJZMSsH7-g)
-
-**You can use Slack to**:
-
-- Ask questions.
-- Ask for help with an assignment.
-- Send direct, private messages to each other or the instructors (just like email...but better!)
-
-**Asking for help on Slack**:
-
-Slack can be used to ask quick questions and receive quick responses without attending office hours in person. This also enables other students to see answers to common questions. Questions should be specific and include all needed information. For example, if your code has an error you don't understand, **include the code and the error message** in your question.
-
-**Other Help Resources**:
-
-- **Office Hours**: Office hours let you ask questions to TAs and professors directly, and can help you understand concepts and debug programs that you're struggling with alone.
-- **Library Services**: While the University Library is not a stand in for TAs, you can schedule a consultation for general help with Coding, Programming, Data, Statistical, and GIS. See more at https://academiccommons.gwu.edu/writing-research-help
+This can be a challenging class - don't suffer in silence! Look at the ["Getting Help"](ref-getting-help.html) page, come to office hours, send me a message on Slack.
