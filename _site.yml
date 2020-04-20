@@ -72,17 +72,17 @@ navbar:
         - text: "Getting Help"
           icon: fa-question-circle
           href: ref-getting-help.html
-        - text: "Visualizing Data"
-          icon: fa-chart-bar
-          href: ref-visualizing-data.html
         - text: "Programming in R"
           icon: fa-terminal
           href: ref-programming.html
+        - text: "Visualizing Data"
+          icon: fa-chart-bar
+          href: ref-visualizing-data.html
         - text: "R Markdown"
-          icon: fa-markdown
+          icon: fa-feather-alt
           href: ref-rmarkdown.html
         - text: "Other"
-          icon: fa-ellipsis-h
+          icon: fa-expand
           href: ref-other.html
     - text: "About"
       menu:
