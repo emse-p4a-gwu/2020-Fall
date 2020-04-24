@@ -9,6 +9,5 @@ Having successfully completed this course, students will be able to:
     - Sequential, conditional, and loop statements.
     - Multiple data types, including numeric, string, and logical data.
     - Data structures, including vectors and data frames.
-    - Visualizations of data.
 
 - Import, export, manipulate, and visualize data in R.
