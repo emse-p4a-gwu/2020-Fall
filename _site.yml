@@ -1,4 +1,4 @@
-name: "Programming for Analytics - Fall 2020"
+name: "EMSE 4574: Programming for Analytics - Fall 2020"
 output_dir: _site
 exclude:
 - DESCRIPTION

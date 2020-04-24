@@ -10,6 +10,6 @@ This course provides a foundation in programming for analytics using the [R prog
 
 For more details, please see the [course website](https://p4a.seas.gwu.edu/2020-Fall).
 
-### Acknowledgements
+### Acknowledgments
 
 This course was inspired by many other courses / resources that cover similar material - see the course [about page](https://p4a.seas.gwu.edu/2020-Fall/about.html) for more details.
