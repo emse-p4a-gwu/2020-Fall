@@ -726,12 +726,12 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date()</code></pre>
-<pre><code>## [1] &quot;Sun Apr 26 15:30:38 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Mon Apr 27 12:32:39 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
 <h1><span class="header-section-number">2</span> Packages</h1>
-<p>When you start R, it only loads the “Base R” functions (e.g. <code>sqrt()</code>, <code>round()</code>, etc.), but there are thousands and thousands of additional functions stored in external <strong>packages</strong>.</p>
+<p>When you start R, it only loads the “Base R” functions (e.g. <code>sqrt()</code>, <code>round()</code>, etc.), but there are thousands and thousands of additional functions stored in external <strong>packages</strong>.</p>
 <blockquote>
 <p><a href="https://vimeo.com/220490447">Watch this 1-minute video for a quick summary of <strong>packages</strong></a></p>
 </blockquote>
@@ -753,9 +753,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## Did you know that the Darmstädter Ferienkurse (&#39;Darmstadt Summer Courses&#39;) were initiated in 1946 to reconnect German contemporary music to the international scene after the genre&#39;s suppression by the Nazis? (Courtesy of Wikipedia)</code></pre>
+<pre><code>## Here&#39;s some news. A mass shooting in Nova Scotia, Canada, leaves twenty-two victims dead. (Courtesy of Wikipedia)</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## Did you know that punk pioneer band X&#39;s 2020 album Alphabetland, released on the 40th anniversary of their debut album Los Angeles, was the first featuring the original lineup in 35 years? (Courtesy of Wikipedia)</code></pre>
+<pre><code>## Did you know that the globe chamomile (pictured), a member of the daisy family native to South Africa, infests parts of Arizona and California? (Courtesy of Wikipedia)</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
@@ -771,8 +771,8 @@ library(packagename)   # This also works</code></pre>
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Technically speaking, operators are functions in R: the addition operator <code>+</code> is a convenient way of calling the addition function <code>'+'()</code>. Thus <code>10+20</code> is equivalent to the function call <code>'+'(20, 30)</code>. Not surprisingly, no-one ever uses this version.<a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>R does support complex numbers, but unless you explicitly specify that you want them it assumes all calculations must be real valued. By default, the square root of a negative number is treated as undefined: <code>sqrt(-9)</code> will produce <code>NaN</code> (not a number) as its output. To get complex numbers, you would type <code>sqrt(-9+0i)</code> and R would now return <code>0+3i</code>.<a href="#fnref2" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>Technically speaking, operators are functions in R: the addition operator <code>+</code> is a convenient way of calling the addition function <code>'+'()</code>. Thus <code>10+20</code> is equivalent to the function call <code>'+'(20, 30)</code>. Not surprisingly, no-one ever uses this version.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>R does support complex numbers, but unless you explicitly specify that you want them it assumes all calculations must be real valued. By default, the square root of a negative number is treated as undefined: <code>sqrt(-9)</code> will produce <code>NaN</code> (not a number) as its output. To get complex numbers, you would type <code>sqrt(-9+0i)</code> and R would now return <code>0+3i</code>.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
