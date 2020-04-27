@@ -1,6 +1,6 @@
 ## EMSE 4574: Programming for Analytics - Fall 2020
 
-[![Build Status](https://travis-ci.com/emse-p4a-gwu/2020-Fall.svg?branch=master)](https://travis-ci.com/emse-p4a-gwu/2020-Fall)
+![Render & Deploy Site](https://github.com/emse-p4a-gwu/2020-Fall/workflows/Render%20&%20Deploy%20Site/badge.svg)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
