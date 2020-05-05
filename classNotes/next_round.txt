@@ -1,4 +1,5 @@
 General:
+- Start of class: mention zoom fatigue
 - Add early discussion of Polya problem solving: Solve problem before coding - come up with a plan, then execute the code
 - Change homework assignment instructions to use GWnet ID name in .R file name and to only submit the .R file
 - Add purpose statement and skills to all assignments
