@@ -726,7 +726,7 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date()</code></pre>
-<pre><code>## [1] &quot;Mon Apr 27 13:12:09 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Tue May  5 19:59:36 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
@@ -753,9 +753,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## Did you know that on this day in 1945 – The photograph Raising the Flag on the Three-Country Cairn (pictured) was taken after German troops withdrew to Norway on the last day of the Second World War in Finland, ending the Lapland War. (Courtesy of Wikipedia)</code></pre>
+<pre><code>## Did you know that marshland around the Flushing River, considered &quot;all but worthless&quot;, was later expanded into a park used for two world&#39;s fairs? (Courtesy of Wikipedia)</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## Did you know that after winning a place in the Sports Illustrated Swimsuit Issue, Mia Kang became suicidal from a modeling-related eating disorder and credits the combat sport Muay Thai for saving her life? (Courtesy of Wikipedia)</code></pre>
+<pre><code>## Did you know that marshland around the Flushing River, considered &quot;all but worthless&quot;, was later expanded into a park used for two world&#39;s fairs? (Courtesy of Wikipedia)</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
