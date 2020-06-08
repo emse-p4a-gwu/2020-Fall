@@ -29,8 +29,8 @@ navbar:
           href: L2.2-functions-packages.html
         - text: "2.3: Turtle Graphics"
           href: L2.3-turtle-graphics.html
-        - text: "3: Functions"
-          href: L3-functions.html
+        - text: "3: Creating functions"
+          href: L3-creating-functions.html
         - text: "4.1: Conditionals"
           href: L4.1-conditionals.html
         - text: "4.2: Testing & Debugging"
