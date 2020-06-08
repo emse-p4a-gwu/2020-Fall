@@ -452,7 +452,7 @@ div.tocify {
       <a href="L2.3-turtle-graphics.html">2.3: Turtle Graphics</a>
     </li>
     <li>
-      <a href="L3-functions.html">3: Functions</a>
+      <a href="L3-creating-functions.html">3: Creating functions</a>
     </li>
     <li>
       <a href="L4.1-conditionals.html">4.1: Conditionals</a>
@@ -742,7 +742,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

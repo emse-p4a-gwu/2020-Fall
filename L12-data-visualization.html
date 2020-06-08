@@ -452,7 +452,7 @@ div.tocify {
       <a href="L2.3-turtle-graphics.html">2.3: Turtle Graphics</a>
     </li>
     <li>
-      <a href="L3-functions.html">3: Functions</a>
+      <a href="L3-creating-functions.html">3: Creating functions</a>
     </li>
     <li>
       <a href="L4.1-conditionals.html">4.1: Conditionals</a>
@@ -752,20 +752,20 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
 <pre class="r"><code>glimpse(df)</code></pre>
 <pre><code>## Rows: 166
 ## Columns: 14
-## $ name          &lt;chr&gt; &quot;Mary Porterfield&quot;, &quot;Wilie Porterfield&quot;, &quot;Henry Porterf…
-## $ age           &lt;dbl&gt; 3, 5, 7, 18, 1, 61, 60, 9, 52, NA, 60, 56, 70, 5, 11, 7…
-## $ gender        &lt;chr&gt; &quot;female&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, NA, &quot;male&quot;, &quot;male&quot;, &quot;…
-## $ date          &lt;chr&gt; &quot;19/05/1901&quot;, &quot;19/05/1901&quot;, &quot;19/05/1901&quot;, &quot;24/11/1906&quot;,…
-## $ month         &lt;dbl&gt; 5, 5, 5, 11, 10, 9, 6, 8, 9, 10, 6, 7, 10, 10, 10, 7, 1…
-## $ year          &lt;dbl&gt; 1901, 1901, 1901, 1906, 1908, 1916, 1922, 1929, 1929, 1…
-## $ wildOrCaptive &lt;chr&gt; &quot;Wild&quot;, &quot;Wild&quot;, &quot;Wild&quot;, &quot;Wild&quot;, &quot;Captive&quot;, &quot;Wild&quot;, &quot;Wil…
-## $ location      &lt;chr&gt; &quot;Job, West Virginia&quot;, &quot;Job, West Virginia&quot;, &quot;Job, West …
-## $ description   &lt;chr&gt; &quot;The children were gathering flowers near their home wh…
-## $ bearType      &lt;chr&gt; &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Brown&quot;, &quot;…
-## $ hunter        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-## $ grizzly       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0…
-## $ hiker         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
-## $ onlyOneKilled &lt;dbl&gt; 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0…</code></pre>
+## $ name          [3m[90m&lt;chr&gt;[39m[23m &quot;Mary Porterfield&quot;, &quot;Wilie Porterfield&quot;, &quot;Henry Porterf…
+## $ age           [3m[90m&lt;dbl&gt;[39m[23m 3, 5, 7, 18, 1, 61, 60, 9, 52, NA, 60, 56, 70, 5, 11, 7…
+## $ gender        [3m[90m&lt;chr&gt;[39m[23m &quot;female&quot;, &quot;male&quot;, &quot;male&quot;, &quot;male&quot;, NA, &quot;male&quot;, &quot;male&quot;, &quot;…
+## $ date          [3m[90m&lt;chr&gt;[39m[23m &quot;19/05/1901&quot;, &quot;19/05/1901&quot;, &quot;19/05/1901&quot;, &quot;24/11/1906&quot;,…
+## $ month         [3m[90m&lt;dbl&gt;[39m[23m 5, 5, 5, 11, 10, 9, 6, 8, 9, 10, 6, 7, 10, 10, 10, 7, 1…
+## $ year          [3m[90m&lt;dbl&gt;[39m[23m 1901, 1901, 1901, 1906, 1908, 1916, 1922, 1929, 1929, 1…
+## $ wildOrCaptive [3m[90m&lt;chr&gt;[39m[23m &quot;Wild&quot;, &quot;Wild&quot;, &quot;Wild&quot;, &quot;Wild&quot;, &quot;Captive&quot;, &quot;Wild&quot;, &quot;Wil…
+## $ location      [3m[90m&lt;chr&gt;[39m[23m &quot;Job, West Virginia&quot;, &quot;Job, West Virginia&quot;, &quot;Job, West …
+## $ description   [3m[90m&lt;chr&gt;[39m[23m &quot;The children were gathering flowers near their home wh…
+## $ bearType      [3m[90m&lt;chr&gt;[39m[23m &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Black&quot;, &quot;Brown&quot;, &quot;…
+## $ hunter        [3m[90m&lt;dbl&gt;[39m[23m 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ grizzly       [3m[90m&lt;dbl&gt;[39m[23m 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0…
+## $ hiker         [3m[90m&lt;dbl&gt;[39m[23m 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
+## $ onlyOneKilled [3m[90m&lt;dbl&gt;[39m[23m 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0…</code></pre>
 <p>Look’s good - let’s start making some plots!</p>
 </div>
 <div id="basic-plots-in-r" class="section level1">
@@ -1023,7 +1023,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

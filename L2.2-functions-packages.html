@@ -452,7 +452,7 @@ div.tocify {
       <a href="L2.3-turtle-graphics.html">2.3: Turtle Graphics</a>
     </li>
     <li>
-      <a href="L3-functions.html">3: Functions</a>
+      <a href="L3-creating-functions.html">3: Creating functions</a>
     </li>
     <li>
       <a href="L4.1-conditionals.html">4.1: Conditionals</a>
@@ -726,7 +726,7 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date()</code></pre>
-<pre><code>## [1] &quot;Tue May 26 19:07:43 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Mon Jun  8 14:34:10 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
@@ -753,9 +753,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that on this day in 1938 – The House Un-American Activities Committee was established to investigate alleged disloyalty and subversive activities by people or organizations in the U.S. suspected of having communist or fascist ties. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that 20-year-old Alejandro Cruz won the 1988 Chicago Marathon after being selected as an emergency replacement for Mauricio González? (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that when the Act of Parliament renaming the Royal Ulster Constabulary was passed, the force was not named the \&quot;Northern Ireland Police Service\&quot; because the acronym would have been NIPS? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that the American merchant ship Herald served in the U.S. Navy against France before becoming a French privateer, was sold to Britain as a slaver, and ended her days as a West Indiaman? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
@@ -856,7 +856,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
