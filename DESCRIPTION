@@ -27,4 +27,5 @@ Imports:
     dslabs,
     gapminder,
     gsheet,
-    cowplot
+    cowplot,
+    reticulate
