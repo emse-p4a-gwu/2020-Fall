@@ -92,9 +92,15 @@ navbar:
         - text: License
           icon: fa-gavel
           href: LICENSE.html
-    - text: Slack
-      icon: fa-slack
-      href: https://emse-p4a-f20.slack.com
+    - text: "Tools"
+      icon: fa-hammer
+      menu:
+        - text: Slack
+          icon: fa-slack
+          href: https://emse-p4a-f20.slack.com
+        - text: Autograder
+          icon: fa-calculator
+          href: autograder.html
   right:
   - icon: fa-bars
     menu:
