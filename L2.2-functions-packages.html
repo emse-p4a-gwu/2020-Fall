@@ -497,22 +497,34 @@ div.tocify {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="hw1-programming-basics.html">HW 1 - Programming Basics</a>
+      <a href="hw1-getting-started.html">HW 1 - Getting started</a>
     </li>
     <li>
-      <a href="hw2-functions.html">HW 2 - Functions Basics</a>
+      <a href="hw2-programming-basics.html">HW 2 - Programming Basics</a>
     </li>
     <li>
-      <a href="hw3-loops-vectors.html">HW 3 - Loops &amp; Vectors</a>
+      <a href="hw3-creating-functions.html">HW 3 - Creating functions</a>
     </li>
     <li>
-      <a href="hw4-strings.html">HW 4 - Strings</a>
+      <a href="hw4-conditionals-testing.html">HW 4 - Conditionals &amp; Testing</a>
     </li>
     <li>
-      <a href="hw5-data-wrangling.html">HW 5 - Data Wrangling</a>
+      <a href="hw5-loops.html">HW 5 - Loops</a>
     </li>
     <li>
-      <a href="hw6-data-visualization.html">HW 6 - Data Visualization</a>
+      <a href="hw6-vectors.html">HW 6 - Vectors</a>
+    </li>
+    <li>
+      <a href="hw7-strings.html">HW 7 - Strings</a>
+    </li>
+    <li>
+      <a href="hw8-data-frames.html">HW 8 - Data frames</a>
+    </li>
+    <li>
+      <a href="hw9-data-wrangling.html">HW 9 - Data wrangling</a>
+    </li>
+    <li>
+      <a href="hw10-data-visualization.html">HW 10 - Data visualization</a>
     </li>
   </ul>
 </li>
@@ -583,12 +595,30 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="https://emse-p4a-f20.slack.com">
-    <span class="fa fa-slack"></span>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-hammer"></span>
      
-    Slack
+    Tools
+     
+    <span class="caret"></span>
   </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="https://emse-p4a-f20.slack.com">
+        <span class="fa fa-slack"></span>
+         
+        Slack
+      </a>
+    </li>
+    <li>
+      <a href="autograder.html">
+        <span class="fa fa-calculator"></span>
+         
+        Autograder
+      </a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -726,7 +756,7 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date()</code></pre>
-<pre><code>## [1] &quot;Mon Jun  8 14:34:10 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Tue Jun  9 10:01:47 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
@@ -753,9 +783,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that 20-year-old Alejandro Cruz won the 1988 Chicago Marathon after being selected as an emergency replacement for Mauricio González? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;I got nothin&#39;&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that the American merchant ship Herald served in the U.S. Navy against France before becoming a French privateer, was sold to Britain as a slaver, and ended her days as a West Indiaman? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;I got nothin&#39;&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
