@@ -776,7 +776,7 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date()</code></pre>
-<pre><code>## [1] &quot;Tue Jun  9 23:20:59 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Fri Jun 12 17:45:47 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
@@ -803,9 +803,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that King Sithu I of Burma founded and donated \&quot;boatloads of rubies\&quot; to the Thatbyinnyu Temple (pictured) in Bagan? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that after joining her father&#39;s church choir at the age of six, contralto Portia White (pictured) grew up to become the first Black Canadian concert singer to achieve international fame? (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that Lisa Piccirillo solved a half-century-old mathematics problem in less than a week during her free time in graduate school? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Béla Bartók mixed and matched selections from his Eight Hungarian Folksongs in performance? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
