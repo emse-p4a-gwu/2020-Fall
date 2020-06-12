@@ -12,6 +12,7 @@ License: CC-BY
 Encoding: UTF-8
 Imports:
     curl,
+    yaml,
     rmarkdown,
     knitr,
     tidyverse,
@@ -27,5 +28,12 @@ Imports:
     dslabs,
     gapminder,
     gsheet,
+    googlesheets4,
     cowplot,
-    reticulate
+    reticulate,
+    janitor,
+    GGally,
+    HistData,
+    shiny,
+    shinythemes,
+    shinyjs
