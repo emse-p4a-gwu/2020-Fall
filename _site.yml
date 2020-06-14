@@ -8,14 +8,14 @@ navbar:
   title: "P4A - Fall 2020"
   type: inverse
   left:
-    - text: "Home"
-      href: index.html
     - text: Syllabus
-      icon: fa-map-ok
+      icon: fa fa-map
       href: syllabus.html
     - text: "Schedule"
+      icon: fa fa-calendar
       href: schedule.html
     - text: "Lessons"
+      icon: fa fa-book
       menu:
         - text: "0: Course Prep"
           href: L0-course-prep.html
@@ -42,7 +42,7 @@ navbar:
         - text: "7: Strings"
           href: L7-strings.html
         - text: "8: Introduction to Python"
-          icon: fa-python
+          icon: fab fa-python
           href: L8-python-intro.html
         - text: "10.1: Data Analysis Prelude"
           href: L10.1-data-analysis-prelude.html
@@ -53,13 +53,14 @@ navbar:
         - text: "12: Data Visualization"
           href: L12-data-visualization.html
         - text: "13: Python Data Structures"
-          icon: fa-python
+          icon: fab fa-python
           href: L13-python-data-structures.html
         - text: "14: Reproducible Reporting"
           href: L14-reproducible-reporting.html
         - text: "15: Monte Carlo Methods"
           href: L15-monte-carlo-methods.html
     - text: "Assignments"
+      icon: fa fa-laptop
       menu:
         - text: "HW 1 - Getting Started"
           href: hw1-getting-started.html
@@ -86,47 +87,47 @@ navbar:
         - text: "HW 12 - Reproducible Reporting"
           href: hw12-reproducible-reporting.html
     - text: "Resources"
+      icon: fa fa-bookmark
       menu:
         - text: "Getting Help"
-          icon: fa-question-circle
+          icon: fa fa-question-circle
           href: ref-getting-help.html
         - text: "Programming in R"
-          icon: fa-terminal
+          icon: fa fa-terminal
           href: ref-programming.html
         - text: "Visualizing Data"
-          icon: fa-chart-bar
+          icon: fa fa-chart-bar
           href: ref-visualizing-data.html
         - text: "R Markdown"
-          icon: fa-feather-alt
+          icon: fa fa-feather-alt
           href: ref-rmarkdown.html
         - text: "Other"
-          icon: fa-expand
+          icon: fa fa-expand
           href: ref-other.html
-    - text: "About"
-      menu:
-        - text: About
-          icon: fa-info-circle
-          href: about.html
-        - text: License
-          icon: fa-gavel
-          href: LICENSE.html
-    - text: "Tools"
-      icon: fa-hammer
-      menu:
-        - text: Slack
-          icon: fa-slack
-          href: https://emse-p4a-f20.slack.com
-        - text: Autograder
-          icon: fa-calculator
-          href: autograder.html
+    - text: Autograder
+      icon: fa fa-calculator
+      href: autograder.html
+    - text:
+      icon: fab fa-slack
+      href: https://emse-p4a-f20.slack.com
+    - text:
+      icon: fab fa-r-project
+      href: https://rstudio.seas.gwu.edu/
+
   right:
-  - icon: fa-bars
+  - icon: fa fa-bars
     menu:
+    - text: About
+      icon: fa fa-info-circle
+      href: about.html
+    - text: License
+      icon: fa fa-gavel
+      href: LICENSE.html
     - text: Contact
-      icon: fa-envelope
+      icon: fa fa-envelope
       href: mailto:jph@gwu.edu
-    - text: GitHub
-      icon: fa-github
+    - text: Source files
+      icon: fa fa-github
       href: https://github.com/emse-p4a-gwu/2020-Fall/
 
 output:
