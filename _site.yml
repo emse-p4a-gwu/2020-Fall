@@ -9,10 +9,10 @@ navbar:
   type: inverse
   left:
     - text: Syllabus
-      icon: fa fa-map
+      icon: far fa-map
       href: syllabus.html
     - text: "Schedule"
-      icon: fa fa-calendar
+      icon: far fa-calendar-alt
       href: schedule.html
     - text: "Lessons"
       icon: fa fa-book
@@ -87,7 +87,7 @@ navbar:
         - text: "HW 12 - Reproducible Reporting"
           href: hw12-reproducible-reporting.html
     - text: "Resources"
-      icon: fa fa-bookmark
+      icon: far fa-bookmark
       menu:
         - text: "Getting Help"
           icon: fa fa-question-circle
@@ -105,7 +105,7 @@ navbar:
           icon: fa fa-expand
           href: ref-other.html
     - text: Autograder
-      icon: fa fa-calculator
+      icon: fas fa-tasks
       href: autograder.html
     - text:
       icon: fab fa-slack
