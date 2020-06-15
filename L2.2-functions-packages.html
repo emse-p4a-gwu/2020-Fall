@@ -25,6 +25,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
 <style type="text/css">
 
@@ -413,21 +415,21 @@ div.tocify {
       <ul class="nav navbar-nav">
         <li>
   <a href="syllabus.html">
-    <span class="fa fa fa fa-map"></span>
+    <span class="fa fa-map"></span>
      
     Syllabus
   </a>
 </li>
 <li>
   <a href="schedule.html">
-    <span class="fa fa fa fa-calendar"></span>
+    <span class="fa fa-calendar"></span>
      
     Schedule
   </a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-book"></span>
+    <span class="fa fa-book"></span>
      
     Lessons
      
@@ -472,7 +474,7 @@ div.tocify {
     </li>
     <li>
       <a href="L8-python-intro.html">
-        <span class="fab fa fab fa-python"></span>
+        <span class="fab fa-python"></span>
          
         8: Introduction to Python
       </a>
@@ -491,7 +493,7 @@ div.tocify {
     </li>
     <li>
       <a href="L13-python-data-structures.html">
-        <span class="fab fa fab fa-python"></span>
+        <span class="fab fa-python"></span>
          
         13: Python Data Structures
       </a>
@@ -506,7 +508,7 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-laptop"></span>
+    <span class="fa fa-laptop"></span>
      
     Assignments
      
@@ -553,7 +555,7 @@ div.tocify {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bookmark"></span>
+    <span class="fa fa-bookmark"></span>
      
     Resources
      
@@ -562,35 +564,35 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="ref-getting-help.html">
-        <span class="fa fa fa fa-question-circle"></span>
+        <span class="fa fa-question-circle"></span>
          
         Getting Help
       </a>
     </li>
     <li>
       <a href="ref-programming.html">
-        <span class="fa fa fa fa-terminal"></span>
+        <span class="fa fa-terminal"></span>
          
         Programming in R
       </a>
     </li>
     <li>
       <a href="ref-visualizing-data.html">
-        <span class="fa fa fa fa-chart-bar"></span>
+        <span class="fa fa-chart-bar"></span>
          
         Visualizing Data
       </a>
     </li>
     <li>
       <a href="ref-rmarkdown.html">
-        <span class="fa fa fa fa-feather-alt"></span>
+        <span class="fa fa-feather-alt"></span>
          
         R Markdown
       </a>
     </li>
     <li>
       <a href="ref-other.html">
-        <span class="fa fa fa fa-expand"></span>
+        <span class="fa fa-expand"></span>
          
         Other
       </a>
@@ -599,20 +601,20 @@ div.tocify {
 </li>
 <li>
   <a href="autograder.html">
-    <span class="fa fa fa fa-calculator"></span>
+    <span class="fa fa-calculator"></span>
      
     Autograder
   </a>
 </li>
 <li>
   <a href="https://emse-p4a-f20.slack.com">
-    <span class="fab fa fab fa-slack"></span>
+    <span class="fab fa-slack"></span>
      
   </a>
 </li>
 <li>
   <a href="https://rstudio.seas.gwu.edu/">
-    <span class="fab fa fab fa-r-project"></span>
+    <span class="fab fa-r-project"></span>
      
   </a>
 </li>
@@ -620,7 +622,7 @@ div.tocify {
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    <span class="fa fa fa fa-bars"></span>
+    <span class="fa fa-bars"></span>
      
      
     <span class="caret"></span>
@@ -628,28 +630,28 @@ div.tocify {
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="about.html">
-        <span class="fa fa fa fa-info-circle"></span>
+        <span class="fa fa-info-circle"></span>
          
         About
       </a>
     </li>
     <li>
       <a href="LICENSE.html">
-        <span class="fa fa fa fa-gavel"></span>
+        <span class="fa fa-gavel"></span>
          
         License
       </a>
     </li>
     <li>
       <a href="mailto:jph@gwu.edu">
-        <span class="fa fa fa fa-envelope"></span>
+        <span class="fa fa-envelope"></span>
          
         Contact
       </a>
     </li>
     <li>
       <a href="https://github.com/emse-p4a-gwu/2020-Fall/">
-        <span class="fa fa fa fa-github"></span>
+        <span class="fa fa-github"></span>
          
         Source files
       </a>
@@ -766,7 +768,7 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date()</code></pre>
-<pre><code>## [1] &quot;Sun Jun 14 11:28:31 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Mon Jun 15 18:35:04 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
@@ -793,9 +795,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Here&#39;s some news from 13 April 2019. Homo luzonensis is identified as a new species in the genus Homo. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that on October 17 in 1931 – American gangster Al Capone was convicted on five counts of income tax evasion. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that H. M. Hook, the first mayor of Cheyenne, Wyoming, drowned while searching for silver mines? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Systime Computers, based in Leeds, was once Britain&#39;s second largest computer manufacturer? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
