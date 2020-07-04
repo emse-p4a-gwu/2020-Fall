@@ -3,6 +3,13 @@ title: "Course Introduction"
 output: html_document
 ---
 
+<!-- For circle images -->
+<style>
+.circle img {
+  border-radius:50%;
+}
+</style>
+
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 rm(list=objects()) # start with a clean workspace
 library(knitr)
@@ -15,13 +22,19 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Before we start...
+
+For this class, you'll need to install some software and register for some tools. Go to the [course prep](L0-course-prep.html) page to get setup before we get started with class.
+
 # Teaching Team
 
 ## Meet your instructor!
 
-Dr. John Helveston, Assistant Professor in Engineering Management & Systems Engineering
+[Dr. John Helveston](http://www.jhelvy.com/) is an Assistant Professor in Engineering Management & Systems Engineering. He does research on technological change, electric vehicles, modeling consumer preferences, and China.
 
-![](images/helveston.jpg){ width=250 }
+<div class="circle">
+<img src="images/helveston.jpg" width=250>
+</div>
 
 Background:
 
@@ -29,17 +42,21 @@ Background:
 - 2015 MS in Engineering & Public Policy at Carnegie Mellon University
 - 2010 BS in Engineering Science & Mechanics at Virginia Tech
 
-## Meet your teaching assistants (TAs)!
+## Meet your teaching assistant (TA)!
 
-![](images/ta.jpg){ width=250 }
+Saurav Pantha is a graduate student from Kathmandu, Nepal and is currently earning his MS in Systems Engineering. Before GW, he worked at a business consulting firm based out of Bangalore, India, helping multiple automotive & banking clients to solve business problems through data analytics solutions. Within Dr. Helveston's lab, he has been supporting multiple research projects by setting up a pipeline for a MySQL database, writing R scripts to clean & wrangle data, and conducting literature surveys. When not in school, he loves to go on treks and watch Manchester United's soccer games live.
+
+<div class="circle">
+<img src="images/pantha.jpg" width=250>
+</div>
 
 ## Meet your learning assistants (LAs)!
 
-![](images/la.jpg){ width=250 }
+<div class="circle">
+<img src="images/la.jpg" width=250>
+</div>
 
-# Course prep
-
-For this class, you'll need to install some software and register for some websites. Go to the [course prep](L0-course-prep.html) page to get setup.
+# Quick class orientation
 
 # Course mantras
 
