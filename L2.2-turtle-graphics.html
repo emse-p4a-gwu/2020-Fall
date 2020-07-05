@@ -11,7 +11,7 @@
 
 
 
-<title>Monte Carlo Methods</title>
+<title>Turtle Graphics</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -311,75 +308,6 @@ $(document).ready(function () {
 
 
 
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-@media print {
-.toc-content {
-  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
-  float: right;
-}
-}
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-.tocify-subheader {
-  display: inline;
-}
-.tocify-subheader .tocify-item {
-  font-size: 0.95em;
-}
-
-</style>
-
-
 
 </head>
 
@@ -387,16 +315,6 @@ div.tocify {
 
 
 <div class="container-fluid main-container">
-
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -667,163 +585,51 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Monte Carlo Methods</h1>
+<h1 class="title toc-ignore">Turtle Graphics</h1>
 
 </div>
 
 
-<p>When you hear the words “Monte Carlo”, most people envision this:</p>
-<p><img src="images/monte_carlo_slots.gif" width="200" /></p>
-<p>…or this:</p>
-<p><img src="images/monte_carlo_f1.gif" width="300" /></p>
-<p>But when I hear Monte Carlo, I envision this:</p>
-<p><img src="images/monte_carlo_pi.gif" width="300" /></p>
-<p>No, that’s not some grainy image coming into focus - that’s a <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte Carlo simulation</a> approximating the value of <span class="math inline">\(\pi\)</span> (3.1415927…).</p>
-<hr />
-<div id="what-is-monte-carlo-simulation" class="section level1">
-<h1><span class="header-section-number">1</span> What is Monte Carlo simulation?</h1>
-<div id="basic-idea" class="section level2">
-<h2><span class="header-section-number">1.1</span> Basic idea</h2>
-<p>Monte Carlo simulation uses (pseudo)random numbers to solve (not-so-random) problems. The general approach goes like this:</p>
-<ul>
-<li>Run a series of trials.</li>
-<li>In each trial, simulate an event (e.g. a coin toss, a dice roll, etc.).</li>
-<li>Count the number of successful trials.</li>
-<li>Guess that the Expected Odds <span class="math inline">\(\simeq\)</span> Observed Odds = <span class="math inline">\(\frac{\text{# Successful Trials}}{\text{# Total Trials}}\)</span></li>
-</ul>
-<p>For many applications, Monte Carlo simulations result in a sufficiently accurate result with a reasonable amount of trials (~ 100,000). You can always improve your accuracy with more trials, but that comes at the expense of increased run time. To summarize:</p>
-<ol style="list-style-type: decimal">
-<li>As # of trials increases, observed odds –&gt; expected odds.</li>
-<li>More trials –&gt; more accurate (+ more time).</li>
-</ol>
-</div>
-<div id="why-the-name-monte-carlo" class="section level2">
-<h2><span class="header-section-number">1.2</span> Why the name “Monte Carlo”?</h2>
-<p>The name “Monte Carlo” comes from the (pseudo)random nature of the simulation process. Running a series of trials is similar to how many gambling games work in casinos, and <a href="https://en.wikipedia.org/wiki/Monte_Carlo">Monte Carlo</a> is famous for gambling. Of course, in the casinos the odds are always slightly in the favor of the house, so after millions of trials the odds are that the house will win more money than the gamblers.</p>
-</div>
-<div id="why-even-do-this" class="section level2">
-<h2><span class="header-section-number">1.3</span> Why even do this?</h2>
-<p>Many problems have “closed-form” solutions, meaning they can be solved with math alone. But there are also many problems for which no known closed-form solution exists. Integration is a classic example - there are many integrals for which a purely mathematical solution cannot be determined. However, solutions can be <em>approximated</em> using simulation.</p>
-<p>R comes with many tools for running (pseudo)random simulations, which is one reason R is such a popular programming language for people who build and work with statistical models that involve simulations.</p>
-<hr />
-</div>
-</div>
-<div id="monte-carlo-integration" class="section level1">
-<h1><span class="header-section-number">2</span> Monte Carlo integration</h1>
-<p>Integration is ultimately about computing the area below the curve of a function. Let’s take a simple example - suppose we want to find the integral from 3 to 7 of the following function:</p>
-<p><span class="math display">\[f(x) = x^2\]</span></p>
-<p>That is, we want to compute the area under the curve of <span class="math inline">\(x^2\)</span> between <span class="math inline">\(3 &lt; x &lt; 7\)</span>. Here’s what that looks like:</p>
-<!-- ```{r} -->
-<!-- x1 <- seq(1, 10, by = 0.1) -->
-<!-- y1 <- x1^2 -->
-<!-- plot(x1, y1, type = "l", col='#B34D33FF') -->
-<!-- x2 <- x1[which(3 < x1 & x1 < 7)] -->
-<!-- y2 <- x2^2 -->
-<!-- polygon(c(x2, rev(x2)), c(0*y2, rev(y2)), col='#E64D334D', border=NA) -->
-<!-- ``` -->
-<p><img src="L15-monte-carlo-methods_files/figure-html/unnamed-chunk-1-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>One way to estimate the shaded area is to draw a bunch of random points inside a rectangle in the x-y plane that contains the shaded area and then count how many fall below the function line. So we’re going to randomly draw points inside this box:</p>
-<p><img src="L15-monte-carlo-methods_files/figure-html/unnamed-chunk-2-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>Let’s simulate some random points inside the box:</p>
-<pre class="r"><code>numTrials &lt;- 100000
-# The function runif() samples from a &quot;uniform&quot; distribution
-x &lt;- runif(numTrials, min = 3, max = 7) # Values of x between 3 and 7
-y &lt;- runif(numTrials, min = 0, max = 7^2) # Values of y between 0 and 7^2</code></pre>
-<p>Now that we have our points, we can use them to estimate the area under the curve. The logic here is that the ratio of points below the curve to the total number of points will be equal to the ratio of the area under <span class="math inline">\(f(x)\)</span> to the total area of the rectangle. That is:</p>
-<p><span class="math display">\[\frac{\text{# Points Under Curve}}{\text{# Total Points}} = \frac{\text{Area Under Curve}}{\text{Area of Rectangle}}\]</span></p>
-<p>So, to get the area under the curve, we need to compute the area of the rectangle and multiply it by <span class="math inline">\((\text{# Points Under Curve}) / (\text{# Total Points})\)</span>. We know the total area of the rectangle is its length (<span class="math inline">\((7 - 3) = 4\)</span>) times its height (<span class="math inline">\(7^2\)</span>), which is <span class="math inline">\(4 * 49 = 196\)</span>. So the area under the curve should be 196 times the ratio of points under the curve to the total number of points. Let’s write the code!</p>
-<pre class="r"><code># Determine which y points are less than or equal to x^2:
-belowCurve &lt;- y &lt;= x^2 # This will create a vector of TRUE and FALSE values
-# Compute the ratio of points below the curve:
-ratio &lt;- sum(belowCurve) / numTrials
-totalArea &lt;- (7 - 3) * 7^2 # Rectangle length x height = 196
-areaUnderCurve &lt;- ratio * totalArea
-areaUnderCurve</code></pre>
-<pre><code>## [1] 105.6048</code></pre>
-<p>So, using Monte Carlo simulation with 100,000 points, we estimate that the area under the curve is 105.6048. How’d we do? Well, if you’re familiar with calculus, the integral of <span class="math inline">\(f(x) = x^2\)</span> has a closed-form solution (<span class="math inline">\(\frac{x^3}{3} + C\)</span>), so we can check our estimate against the pure-math solution:</p>
-<p><span class="math display">\[\int_{3}^{7} x^2 \mathrm{dx} = \left ( \frac{x^3}{3} \right ) \Big|_3^7 = \frac{7^3}{3} - \frac{3^3}{3} = 105.33\bar{3}\]</span></p>
-<p>So our estimate error is: <code>105.333 -</code> <code>105.6048</code> <code>=</code> <code>-0.2714667</code>.</p>
-<p>That’s an error of just 0.26 % - not bad!</p>
-<hr />
-</div>
-<div id="monte-carlo-pi" class="section level1">
-<h1><span class="header-section-number">3</span> Monte Carlo <span class="math inline">\(\pi\)</span></h1>
-<p>Now let’s look at something a bit trickier - approximating <span class="math inline">\(\pi\)</span>!</p>
-<p>Watch this quick video to see a summary of how this works (…I hope you like lounge music)</p>
-<iframe width="640" height="400" src="https://www.youtube.com/embed/ELetCV_wX_c" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
-<p>Now let’s approximate <span class="math inline">\(\pi\)</span> ourselves! Let’s start with some basic geometry.</p>
-<p>The area of a circle is:</p>
-<blockquote>
-<p><span class="math inline">\(A_{circle} = \pi r^2\)</span></p>
-</blockquote>
-<p>If we draw a square containing that circle, its area will be:</p>
-<blockquote>
-<p><span class="math inline">\(A_{square} = 4r^2\)</span></p>
-</blockquote>
-<p>This is because each side of the square is simply <span class="math inline">\(2r\)</span>, as can be seen in this image:</p>
-<p><img src="images/pi.png" /></p>
-<p>Knowing these two equations for the areas of a circle and square, we can compute <span class="math inline">\(\pi\)</span> by taking the ratio, <span class="math inline">\(R\)</span>, of the area of a circle to that of a square containing that circle:</p>
-<p><span class="math inline">\(R = \dfrac{\pi r^2}{4r^2} = \dfrac{\pi}{4}\)</span></p>
-<p>So to compute <span class="math inline">\(\pi\)</span>, all we need to do is multiply 4 times the ratio of the area of the circle to that of the square. Just like with integration, we can approximate that ratio by simulating lots of points in the square and then simply counting the number that fall inside the circle.</p>
-<p><strong>Let’s write the code!</strong></p>
-<p>First, generate lots of random points in a square. For this example, we’ll use a square with side length of 1 centered at <code>(x, y) = (0, 0)</code>, so we need to draw random points between <code>x = (-0.5, 0.5)</code> and <code>y = (-0.5, 0.5)</code>:</p>
-<pre class="r"><code>numTrials &lt;- 1000
-points &lt;- data.frame(
-    x = runif(numTrials, -0.5, 0.5),
-    y = runif(numTrials, -0.5, 0.5))
-head(points)</code></pre>
-<pre><code>##              x           y
-## 1 -0.160758898  0.35144718
-## 2 -0.309970142 -0.01519152
-## 3 -0.002902446 -0.40809253
-## 4  0.448293833 -0.44086915
-## 5 -0.465159468 -0.44701151
-## 6 -0.292743448 -0.12471248</code></pre>
-<p>For this example, we’re putting the points in a data frame to make it easier to work with. Now that we have random x and y points, let’s compute the radius to each point (the distance from <code>(x, y) = (0, 0)</code>) so we can determine which points fall inside the circle (which has a radius of 0.5):</p>
-<pre class="r"><code>library(dplyr)
-points &lt;- points %&gt;%
-    mutate(
-        radius = sqrt(x^2 + y^2),
-        pointInCircle = ifelse(radius &lt;= 0.5, TRUE, FALSE))</code></pre>
-<p>Just to make sure we correctly labeled the points, let’s plot them, coloring them based on the <code>pointInCircle</code> variable we just created:</p>
-<pre class="r"><code>library(ggplot2)
-ggplot(points) +
-    geom_point(aes(x = x, y = y, color = pointInCircle), size = 0.7) +
-    theme_minimal()</code></pre>
-<p><img src="L15-monte-carlo-methods_files/figure-html/unnamed-chunk-8-1.png" width="576" style="display: block; margin: auto;" /></p>
-<p>Looks like we correctly labeled the points! Now we have everything we need to estimate <span class="math inline">\(\pi\)</span>!</p>
-<pre class="r"><code>ratio &lt;- sum(points$pointInCircle) / nrow(points)
-piApprox &lt;- 4 * ratio
-piApprox</code></pre>
-<pre><code>## [1] 3.112</code></pre>
-<p>So our estimate error is: <code>3.1415 -</code> <code>3.112</code> <code>=</code> <code>-0.0295927</code>.</p>
-<p>That’s an error of just 0.94 % - not bad for only 1,000 points!</p>
-<p>To get an even better estimate of <span class="math inline">\(\pi\)</span>, we can increase N. Let’s see what we get with 100,000 trials:</p>
-<pre class="r"><code>numTrials &lt;- 100000
-points &lt;- data.frame(
-    x = runif(numTrials, -0.5, 0.5),
-    y = runif(numTrials, -0.5, 0.5)) %&gt;%
-    mutate(
-        radius = sqrt(x^2 + y^2),
-        pointInCircle = ifelse(radius &lt;= 0.5, TRUE, FALSE))
-ratio &lt;- sum(points$pointInCircle) / nrow(points)
-piApprox &lt;- 4 * ratio
-piApprox</code></pre>
-<pre><code>## [1] 3.14268</code></pre>
-<pre class="r"><code># Compute error:
-error &lt;- piApprox - pi
-percentError &lt;- round(100*abs(error / pi), 2)
-percentError</code></pre>
-<pre><code>## [1] 0.03</code></pre>
-<p>By increasing the number of trials from 1,000 to 100,000, we improved our estimate error from 0.94 % to 0.03 %!</p>
+<p><a href="https://en.wikipedia.org/wiki/Turtle_graphics" target="_blank">Turtle graphics</a> is a classic teaching tool in computer science, originally invented in the 1960s and reimplemented over and over again in different programming languages. In R, there is a similar package called <code>TurtleGraphics</code>:</p>
+<pre class="r"><code>install.packages(&#39;TurtleGraphics&#39;)
+library(TurtleGraphics)</code></pre>
+<p>Here’s the idea. You have a turtle, and she lives in a nice warm terrarium. The terrarium is 100 x 100 units in size, where the lower-left corner is at the <code>(x, y)</code> position of <code>(0, 0)</code>. When you call <code>turtle_init()</code>, the turtle is initially positioned in the center of the terrarium at <code>(50, 50)</code>:</p>
+<pre class="r"><code>turtle_init()</code></pre>
+<p><img src="images/turtle_init.png" width="456" /></p>
+<p>You can move the turtle using a variety of movement functions (see <code>?turtle_move()</code>), and she will leave a trail where ever she goes. For example, you can move her 10 units forward from her starting position:</p>
+<pre class="r"><code>turtle_init()
+turtle_forward(distance = 10)</code></pre>
+<p><img src="images/turtle_forward.png" width="456" /></p>
+<p>You can also make the turtle jump to a new position (without drawing a line) by using the <code>turtle_setpos(x, y)</code>, where <code>(x, y)</code> is a coordinate within the 100 x 100 terrarium:</p>
+<pre class="r"><code>turtle_init()
+turtle_setpos(x=10, y=10)</code></pre>
+<p><img src="images/turtle_setpos.png" width="456" /></p>
+<p>Simple enough, right? But what if I want my turtle to draw a more complicated shape? Let’s say I want her to draw a hexagon. There are six sides to the hexagon, so the most natural way to write code for this is to write a <code>for</code> loop that loops over the sides! At each iteration within the loop, I’ll have the turtle walk forwards, and then turn 60 degrees to the left. Here’s what happens:</p>
+<!-- ```{r, fig.show='animate', interval=0.05, cache=TRUE, message=FALSE} -->
+<!-- Having trouble with Travis CI and ffmpeg, so manually sticking video in -->
+<pre class="r"><code>turtle_init()
+for (side in 1:6) {
+    turtle_forward(distance = 10)
+    turtle_left(angle = 60)
+}</code></pre>
+<video width="456" controls="" loop="">
+<source src="images/turtle_hexagon.webm">
+</video>
+<p>Cool! As you draw more complex shapes, you can speed up the process by wrapping your turtle commands inside the <code>turtle_do({})</code> function. This will skip the animations of the turtle moving and will jump straight to the final position. For example, here’s the hexagon again without animations:</p>
+<pre class="r"><code>turtle_init()
+turtle_do({
+    for (side in 1:6) {
+        turtle_forward(distance = 10)
+        turtle_left(angle = 60)
+    }
+})</code></pre>
+<p><img src="images/turtle_hexagon.png" width="456" /></p>
 <hr />
 <p><strong>Page sources</strong>:</p>
 <p>Some content on this page has been modified from other courses, including:</p>
 <ul>
-<li>CMU <a href="http://www.kosbie.net/cmu/spring-17/15-112/">15-112: Fundamentals of Programming</a>, by <a href="http://www.kosbie.net/cmu/">David Kosbie</a> &amp; <a href="https://hcii.cmu.edu/people/kelly-rivers">Kelly Rivers</a></li>
+<li>Danielle Navarro’s website <a href="https://psyr.org/index.html">“R for Psychological Science”</a></li>
 </ul>
-</div>
 
 
 <hr>
@@ -857,8 +663,6 @@ percentError</code></pre>
 <script src="js/external-link.js"></script>
 
 
-</div>
-</div>
 
 </div>
 
@@ -891,32 +695,6 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3,h4",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = false;
-    options.smoothScroll = false;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

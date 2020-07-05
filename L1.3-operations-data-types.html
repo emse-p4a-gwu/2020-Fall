@@ -1,0 +1,1254 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Operators &amp; Data Types</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" href="images/favicon.ico">
+<style type="text/css">
+
+/* Text */
+
+h1{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 60px;
+}
+h2{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 50px;
+}
+h3{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 40px;
+}
+body {
+  font-size: 16px;
+  line-height: 26px;
+}
+blockquote{
+  background-color: #ecf0f1;
+  padding: 20px;
+  border: 0;
+  border-radius: 5px;
+}
+
+/* Images */
+
+img {
+  padding-bottom: 10px;
+}
+
+/* Tables */
+
+table {
+  border-collapse: collapse;
+  margin-bottom:10px;
+}
+thead {
+  border-top: solid #DCDCDC;
+  border-bottom: solid #DCDCDC;
+}
+tr.odd {
+  background-color: #F8F8F8;
+}
+tr:first-child {
+  border-top: solid #DCDCDC;
+}
+tr:last-child {
+  border-bottom: solid #DCDCDC;
+}
+
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">P4A - Fall 2020</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="syllabus.html">
+    <span class="far fa-map"></span>
+     
+    Syllabus
+  </a>
+</li>
+<li>
+  <a href="schedule.html">
+    <span class="far fa-calendar-alt"></span>
+     
+    Schedule
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Lessons
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="L0-course-prep.html">0: Course Prep</a>
+    </li>
+    <li>
+      <a href="L1.1-course-introduction.html">1.1: Course Introduction</a>
+    </li>
+    <li>
+      <a href="L1.2-getting-started.html">1.2: Getting Started</a>
+    </li>
+    <li>
+      <a href="L1.3-operations-data-types.html">1.3: Operations &amp; Data Types</a>
+    </li>
+    <li>
+      <a href="L2.1-functions-packages.html">2.1: Functions &amp; Packages</a>
+    </li>
+    <li>
+      <a href="L2.2-turtle-graphics.html">2.2: Turtle Graphics</a>
+    </li>
+    <li>
+      <a href="L3-creating-functions.html">3: Creating functions</a>
+    </li>
+    <li>
+      <a href="L4.1-conditionals.html">4.1: Conditionals</a>
+    </li>
+    <li>
+      <a href="L4.2-testing-debugging.html">4.2: Testing &amp; Debugging</a>
+    </li>
+    <li>
+      <a href="L5-loops.html">5: Loops</a>
+    </li>
+    <li>
+      <a href="L6-vectors.html">6: Vectors</a>
+    </li>
+    <li>
+      <a href="L7-strings.html">7: Strings</a>
+    </li>
+    <li>
+      <a href="L8-python-intro.html">
+        <span class="fab fa-python"></span>
+         
+        8: Introduction to Python
+      </a>
+    </li>
+    <li>
+      <a href="L10.1-data-analysis-prelude.html">10.1: Data Analysis Prelude</a>
+    </li>
+    <li>
+      <a href="L10.2-data-frames.html">10.2: Data Frames</a>
+    </li>
+    <li>
+      <a href="L11-data-wrangling.html">11: Data Wrangling</a>
+    </li>
+    <li>
+      <a href="L12-data-visualization.html">12: Data Visualization</a>
+    </li>
+    <li>
+      <a href="L13-python-data-structures.html">
+        <span class="fab fa-python"></span>
+         
+        13: Python Data Structures
+      </a>
+    </li>
+    <li>
+      <a href="L14-reproducible-reporting.html">14: Reproducible Reporting</a>
+    </li>
+    <li>
+      <a href="L15-monte-carlo-methods.html">15: Monte Carlo Methods</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
+     
+    Assignments
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="hw1-getting-started.html">HW 1 - Getting Started</a>
+    </li>
+    <li>
+      <a href="hw2-programming-basics.html">HW 2 - Programming Basics</a>
+    </li>
+    <li>
+      <a href="hw3-creating-functions.html">HW 3 - Creating Functions</a>
+    </li>
+    <li>
+      <a href="hw4-conditionals-testing.html">HW 4 - Conditionals &amp; Testing</a>
+    </li>
+    <li>
+      <a href="hw5-loops.html">HW 5 - Loops</a>
+    </li>
+    <li>
+      <a href="hw6-vectors.html">HW 6 - Vectors</a>
+    </li>
+    <li>
+      <a href="hw7-strings.html">HW 7 - Strings</a>
+    </li>
+    <li>
+      <a href="hw8-data-frames.html">HW 8 - Data Frames</a>
+    </li>
+    <li>
+      <a href="hw9-data-wrangling.html">HW 9 - Data Wrangling</a>
+    </li>
+    <li>
+      <a href="hw10-data-visualization.html">HW 10 - Data Visualization</a>
+    </li>
+    <li>
+      <a href="hw11-python-data-structures.html">HW 11 - Python Data Structures</a>
+    </li>
+    <li>
+      <a href="hw12-reproducible-reporting.html">HW 12 - Reproducible Reporting</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="far fa-bookmark"></span>
+     
+    Resources
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ref-getting-help.html">
+        <span class="fa fa-question-circle"></span>
+         
+        Getting Help
+      </a>
+    </li>
+    <li>
+      <a href="ref-programming.html">
+        <span class="fa fa-terminal"></span>
+         
+        Programming in R
+      </a>
+    </li>
+    <li>
+      <a href="ref-visualizing-data.html">
+        <span class="fa fa-chart-bar"></span>
+         
+        Visualizing Data
+      </a>
+    </li>
+    <li>
+      <a href="ref-rmarkdown.html">
+        <span class="fa fa-feather-alt"></span>
+         
+        R Markdown
+      </a>
+    </li>
+    <li>
+      <a href="ref-other.html">
+        <span class="fa fa-expand"></span>
+         
+        Other
+      </a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="autograder.html">
+    <span class="fas fa-tasks"></span>
+     
+    Autograder
+  </a>
+</li>
+<li>
+  <a href="https://emse-p4a-f20.slack.com">
+    <span class="fab fa-slack"></span>
+     
+  </a>
+</li>
+<li>
+  <a href="https://rstudio.seas.gwu.edu/">
+    <span class="fab fa-r-project"></span>
+     
+  </a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bars"></span>
+     
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about.html">
+        <span class="fa fa-info-circle"></span>
+         
+        About
+      </a>
+    </li>
+    <li>
+      <a href="LICENSE.html">
+        <span class="fa fa-gavel"></span>
+         
+        License
+      </a>
+    </li>
+    <li>
+      <a href="mailto:jph@gwu.edu">
+        <span class="fa fa-envelope"></span>
+         
+        Contact
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/emse-p4a-gwu/2020-Fall/">
+        <span class="fa fa-github"></span>
+         
+        Source files
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Operators &amp; Data Types</h1>
+
+</div>
+
+
+<blockquote>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ul>
+<li>Be able to use R as a calculator.</li>
+<li>Be able to compare values in R.</li>
+<li>Know the distinctions between how R handles different types of data types (numbers, strings, and logicals).</li>
+</ul>
+<h3 id="suggested-readings">Suggested Readings</h3>
+<ul>
+<li>Chapter 3 of Danielle Navarro’s book <a href="https://learningstatisticswithr.com/book/introR.html">“Learning Statistics With R”</a></li>
+</ul>
+</blockquote>
+<div id="r-as-a-calculator" class="section level1">
+<h1>R as a calculator</h1>
+<p>You can do a ton of things with R, but at its core it’s basically a fancy calculator. Let’s get started with some basic arithmetic!</p>
+<div id="doing-basic-math" class="section level2">
+<h2>Doing basic math</h2>
+<p>R handles simple arithmetic using the following <strong>arithmetic</strong> operators:</p>
+<div style="width:500px">
+<table>
+<thead>
+<tr class="header">
+<th align="left">operation</th>
+<th align="center">operator</th>
+<th align="center">example input</th>
+<th align="center">example output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">addition</td>
+<td align="center"><code>+</code></td>
+<td align="center"><code>10 + 2</code></td>
+<td align="center"><code>12</code></td>
+</tr>
+<tr class="even">
+<td align="left">subtraction</td>
+<td align="center"><code>-</code></td>
+<td align="center"><code>9 - 3</code></td>
+<td align="center"><code>6</code></td>
+</tr>
+<tr class="odd">
+<td align="left">multiplication</td>
+<td align="center"><code>*</code></td>
+<td align="center"><code>5 * 5</code></td>
+<td align="center"><code>25</code></td>
+</tr>
+<tr class="even">
+<td align="left">division</td>
+<td align="center"><code>/</code></td>
+<td align="center"><code>10 / 3</code></td>
+<td align="center"><code>3</code></td>
+</tr>
+<tr class="odd">
+<td align="left">power</td>
+<td align="center"><code>^</code></td>
+<td align="center"><code>5 ^ 2</code></td>
+<td align="center"><code>25</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The first four basic operators (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>) are pretty straightforward and behave as expected:</p>
+<pre class="r"><code>7 + 5 # Addition</code></pre>
+<pre><code>## [1] 12</code></pre>
+<pre class="r"><code>7 - 5 # Subtraction</code></pre>
+<pre><code>## [1] 2</code></pre>
+<pre class="r"><code>7 * 5 # Multiplication</code></pre>
+<pre><code>## [1] 35</code></pre>
+<pre class="r"><code>7 / 5 # Division</code></pre>
+<pre><code>## [1] 1.4</code></pre>
+<p>Not a lot of surprises (you can ignore the <code>[1]</code> you see in the returned values…that’s just R saying there’s only one value to return).</p>
+<p>Powers (i.e. <span class="math inline">\(x^n\)</span>) are represented using the <code>^</code> symbol. For example, to calculate <span class="math inline">\(5^4\)</span> in R, we would type:</p>
+<pre class="r"><code>5^4</code></pre>
+<pre><code>## [1] 625</code></pre>
+</div>
+<div id="slightly-more-tricky-math" class="section level2">
+<h2>Slightly more tricky math</h2>
+<p>There are two other operators that are not typically as well-known as the first five but are quite common in programming:</p>
+<div style="width:500px">
+<table>
+<thead>
+<tr class="header">
+<th align="left">operation</th>
+<th align="center">operator</th>
+<th align="center">example input</th>
+<th align="center">example output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">integer division</td>
+<td align="center"><code>%/%</code></td>
+<td align="center"><code>4 %/% 3</code></td>
+<td align="center"><code>1</code></td>
+</tr>
+<tr class="even">
+<td align="left">modulus</td>
+<td align="center"><code>%%</code></td>
+<td align="center"><code>8 %% 3</code></td>
+<td align="center"><code>2</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Integer division</strong>:</p>
+<p>Integer division is division in which the remainder is discarded. Note the difference between regular (<code>/</code>) and integer (<code>%/%</code>) division:</p>
+<pre class="r"><code>4 / 3 # Regular division</code></pre>
+<pre><code>## [1] 1.333333</code></pre>
+<pre class="r"><code>4 %/% 3 # Integer division</code></pre>
+<pre><code>## [1] 1</code></pre>
+<p>With integer division, 3 can only go into 4 once, so <code>4 %/% 3</code> returns <code>1</code>.</p>
+<p>With integer division, dividing a number by a larger number will always produce <code>0</code> (because the larger number cannot go into the smaller number):</p>
+<pre class="r"><code>4 %/% 5 # Will return 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p><strong>Modulus operator</strong>:</p>
+<p>The <strong>modulus</strong> (aka “mod” operator) returns the remainder after doing integer division. For example:</p>
+<pre class="r"><code>17 %% 3</code></pre>
+<pre><code>## [1] 2</code></pre>
+<p>This returns <code>2</code> because because 17 / 3 is equal to 5 with a remainder of 2. The modulus returns any remainder, including decimals:</p>
+<pre class="r"><code>3.1415 %% 3</code></pre>
+<pre><code>## [1] 0.1415</code></pre>
+<p>If you mod a number by itself, you’ll get <code>0</code> (because there’s no remainder):</p>
+<pre class="r"><code>17 %% 17 # Will return 0</code></pre>
+<pre><code>## [1] 0</code></pre>
+<p>Finally, if you mod a number by a larger number, you’ll get the smaller number back since it’s the remainder:</p>
+<pre class="r"><code>17 %% 20 # Will return 17</code></pre>
+<pre><code>## [1] 17</code></pre>
+</div>
+</div>
+<div id="comparing-things-in-r" class="section level1">
+<h1>Comparing things in R</h1>
+<p>Other than simple arithmetic, another common programming task is to compare different values to see if one is greater than, less than, or equal to the other. R handles comparisons with <strong>relational</strong> and <strong>logical</strong> operators.</p>
+</div>
+<div id="comparing-two-things" class="section level1">
+<h1>Comparing two things</h1>
+<p>To compare two things, use the following <strong>relational</strong> operators:</p>
+<ul>
+<li>Less than: <code>&lt;</code></li>
+<li>Less than or equal to : <code>&lt;=</code></li>
+<li>Greater than or equal to: <code>&gt;=</code></li>
+<li>Greater than: <code>&gt;</code></li>
+<li>Equal: <code>==</code></li>
+<li>Not equal: <code>!=</code></li>
+</ul>
+<p>The <em>less than</em> operator <code>&lt;</code> can be used to test whether one number is smaller than another number:</p>
+<pre class="r"><code>2 &lt; 5</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>If the two values are equal, the <code>&lt;</code> operator will return <code>FALSE</code>, while the <code>&lt;=</code> operator will return <code>TRUE</code>: :</p>
+<pre class="r"><code>2 &lt; 2</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>2 &lt;= 2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>The “greater than” (<code>&gt;</code>) and “greater than or equal to” (<code>&gt;=</code>) operators work the same way but in reverse:</p>
+<pre class="r"><code>2 &gt; 5</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>2 &gt; 2</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>2 &gt;= 2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>To assess whether two values are equal, we have to use a double equal sign (<code>==</code>):</p>
+<pre class="r"><code>(2 + 2) == 4</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>(2 + 2) == 5</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>To assess whether two values are <em>not</em> equal, we have to use an exclamation point sign with an equal sign (<code>!=</code>):</p>
+<pre class="r"><code>(2 + 2) != 4</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>(2 + 2) != 5</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>It’s worth noting that you can also apply equality operations to “strings,” which is the general word to describe character values (i.e. not numbers). For example, R understands that a <code>"penguin"</code> is a <code>"penguin"</code> so you get this:</p>
+<pre class="r"><code>&quot;penguin&quot; == &quot;penguin&quot;</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>However, R is very particular about what counts as equality. For two pieces of text to be equal, they must be <em>precisely</em> the same:</p>
+<pre class="r"><code>&quot;penguin&quot; == &quot;PENGUIN&quot;        # FALSE because the case is different</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>&quot;penguin&quot; == &quot;p e n g u i n&quot;  # FALSE because the spacing is different</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>&quot;penguin&quot; == &quot;penguin &quot;       # FALSE because there&#39;s an extra space on the second string</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<div id="making-multiple-comparisons" class="section level2">
+<h2>Making multiple comparisons</h2>
+<p>To make a more complex comparison of more than just two things, use the following <strong>logical</strong> operators:</p>
+<ul>
+<li>And: <code>&amp;</code></li>
+<li>Or: <code>|</code></li>
+<li>Not: <code>!</code></li>
+</ul>
+<p><strong>And</strong>:</p>
+<p>A logical expression <code>x &amp; y</code> is <code>TRUE</code> only if <em>both</em> <code>x</code> and <code>y</code> are <code>TRUE</code>.</p>
+<pre class="r"><code>(2 == 2) &amp; (2 == 3) # FALSE because the second comparison if not TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>(2 == 2) &amp; (3 == 3) # TRUE because both comparisons are TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p><strong>Or</strong>:</p>
+<p>A logical expression <code>x | y</code> is <code>TRUE</code> if <em>either</em> <code>x</code> or <code>y</code> are <code>TRUE</code>.</p>
+<pre class="r"><code>(2 == 2) | (2 == 3) # TRUE because the first comparison is TRUE</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p><strong>Not</strong>:</p>
+<p>The <code>!</code> operator behaves like the word <em>“not”</em> in everyday language. If a statement is “not true”, then it must be “false”. Perhaps the simplest example is</p>
+<pre class="r"><code>!TRUE</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>It is good practice to include parentheses to clarify the statement or comparison being made. Consider the following example:</p>
+<pre class="r"><code>!3 == 5</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>This returns <code>TRUE</code>, but it’s a bit confusing. Reading from left to right, you start by saying “not 3”…what does that mean?</p>
+<p>What is really going on here is R first evaluates whether 3 is equal to 5 (<code>3 == 5</code>), and then returns the “not” (<code>!</code>) of that. A better version of the same thing would be:</p>
+<pre class="r"><code>!(3 == 5)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="order-of-operations" class="section level2">
+<h2>Order of operations</h2>
+<p>R follows the typical BEDMAS order of operations. That is, R evaluates statements in this order<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>:</p>
+<ol style="list-style-type: decimal">
+<li><strong>B</strong>rackets</li>
+<li><strong>E</strong>xponents</li>
+<li><strong>D</strong>ivision</li>
+<li><strong>M</strong>ultiplication</li>
+<li><strong>A</strong>ddition</li>
+<li><strong>S</strong>ubtraction</li>
+</ol>
+<p>For example, if I type:</p>
+<pre class="r"><code>1 + 2 * 4</code></pre>
+<pre><code>## [1] 9</code></pre>
+<p>R first computes <code>2 * 4</code> and then adds <code>1</code>. If what you actually wanted was for R to first add <code>2</code> to <code>1</code>, then you should have added parentheses around <code>1</code> and <code>2</code>:</p>
+<pre class="r"><code>(1 + 2) * 4</code></pre>
+<pre><code>## [1] 12</code></pre>
+<p>A helpful rule of thumb to remember is that <strong>brackets always come first</strong>. So, if you’re ever unsure about what order R will do things in, an easy solution is to enclose the thing you want it to do first in brackets.</p>
+</div>
+</div>
+<div id="data-types" class="section level1">
+<h1>Data types</h1>
+<p>Every programming language has the ability to store data of different types. R recognizes several important basic data types (there are others, but these cover most cases):</p>
+<table>
+<thead>
+<tr class="header">
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>double</code></td>
+<td>Number with a decimal place (aka “float”)</td>
+<td><code>3.14</code>, <code>1.61803398875</code></td>
+</tr>
+<tr class="even">
+<td><code>integer</code></td>
+<td>Number without a decimal place</td>
+<td><code>1</code>, <code>42</code></td>
+</tr>
+<tr class="odd">
+<td><code>character</code></td>
+<td>Text in quotes (aka “string”)</td>
+<td><code>"this is some text"</code>, <code>"3.14"</code></td>
+</tr>
+<tr class="even">
+<td><code>logical</code></td>
+<td>True or False (for comparing things)</td>
+<td><code>TRUE</code>, <code>FALSE</code></td>
+</tr>
+</tbody>
+</table>
+<p>If you want to check with type a value is, you can use the function <code>typeof()</code>. For example:</p>
+<pre class="r"><code>typeof(&quot;hello&quot;)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<div id="numeric-types" class="section level2">
+<h2>Numeric types</h2>
+<p>Numbers in R have the <code>numeric</code> data type, which is also the default computational type. There are two types of numbers:</p>
+<ul>
+<li><strong>Integers</strong></li>
+<li><strong>Non-integers</strong> (aka “double” or “float”)</li>
+</ul>
+<p>The difference is that integers don’t have decimal values. A non-integer in R has the type “<code>double</code>”:</p>
+<pre class="r"><code>typeof(3.14)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>By default, R assumes all numbers have a decimal place, even if it <em>looks</em> like an integer:</p>
+<pre class="r"><code>typeof(3)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<p>In this case, R assumes that <code>3</code> is really <code>3.0</code>. To make sure R knows you really do mean to create an integer, you have to either add an <code>L</code> to the end of the number or use the <code>as.integer()</code> function to <em>coerce</em> the number into an integer type:</p>
+<pre class="r"><code>typeof(3L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>typeof(as.integer(3))</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<p>For both integers and floats, the <code>class()</code> function will tell you that both are <code>numeric</code> data types:</p>
+<pre class="r"><code>class(3L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>class(3.14)</code></pre>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+</div>
+<div id="character-types" class="section level2">
+<h2>Character types</h2>
+<p>A character value is used to represent string values in R. Anything put between single quotes (<code>''</code>) or double quotes (<code>""</code>) will be stored as a character. For example:</p>
+<pre class="r"><code>typeof(&#39;3&#39;)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Notice that even though the value <em>looks</em> like a number, because it is inside quotes R interprets it as a character. If you mistakenly thought it was a a number, R will gladly return an error when you try to do a numerical operation with it:</p>
+<pre class="r"><code>&#39;3&#39; + 7</code></pre>
+<pre><code>## Error in &quot;3&quot; + 7: non-numeric argument to binary operator</code></pre>
+<p>It doesn’t mattef if you use single or double quotes to create a character. The only time is <em>does</em> matter is if the character is a quote symbole itself. For example, if you wanted to type the word <code>"don't"</code>, you should use double quotes so that R knows the single quote is part of the character:</p>
+<pre class="r"><code>typeof(&quot;don&#39;t&quot;)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>If you used single quotes, you’ll get an error because R reads <code>'don'</code> as a character:</p>
+<pre class="r"><code>typeof(&#39;don&#39;t&#39;)</code></pre>
+<pre><code>## Error: &lt;text&gt;:1:13: unexpected symbol
+## 1: typeof(&#39;don&#39;t
+##                 ^</code></pre>
+<p>We will go into much more detail about working with character values later on in <a href="L7-strings.html">Week 7</a>.</p>
+</div>
+<div id="logical-types" class="section level2">
+<h2>Logical types</h2>
+<p>Logical data only have two values: <code>TRUE</code> or <code>FALSE</code>. Note that these are not in quotes and are in all caps.</p>
+<p>R uses these two special values to help answer questions about logical statements. For example, let’s compare whether <code>1</code> is greater than <code>2</code>:</p>
+<pre class="r"><code>1 &gt; 2</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>R returns the values <code>FALSE</code> because 1 is not greater than 2. If I flip the question to whether <code>1</code> is <em>less</em> than <code>2</code>, I’ll get <code>TRUE</code>:</p>
+<pre class="r"><code>1 &lt; 2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="special-values" class="section level2">
+<h2>Special values</h2>
+<p>In addition to the four main data types mentioned, there are a few additional “special” types: <code>Inf</code>, <code>NaN</code>, <code>NA</code> and <code>NULL</code>.</p>
+<p><strong>Infinity</strong>: <code>Inf</code> corresponds to a value that is infinitely large (or infinitely small with <code>-Inf</code>). The easiest way to get <code>Inf</code> is to divide a positive number by 0:</p>
+<pre class="r"><code>1/0</code></pre>
+<pre><code>## [1] Inf</code></pre>
+<p><strong>Not a Number</strong>: <code>NaN</code> is short for “not a number”, and it’s basically a reserved keyword that means “there isn’t a mathematically defined number for this.” For example:</p>
+<pre class="r"><code>0/0</code></pre>
+<pre><code>## [1] NaN</code></pre>
+<p><strong>Not available</strong>: <code>NA</code> indicates that the value that is “supposed” to be stored here is missing. We’ll see these much more when we start getting into data structures like vectors and data frames.</p>
+<p><strong>No value</strong>: <code>NULL</code> asserts that the variable genuinely has no value whatsoever, or does not even exist.</p>
+</div>
+<div id="checking-data-types" class="section level2">
+<h2>Checking data types</h2>
+<p>In general, you can check if an object is a specific data type using <code>is.something()</code>, replacing “<code>something</code>” with a data type:</p>
+<pre class="r"><code>is.numeric(3.1415)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>is.character(3.1415)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>is.logical(3.1415)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>One common problem with this approach that you’ll frequently run into is the use of <code>is.integer()</code>. If you use <code>is.integer()</code> to check if a number that <strong>looks</strong> like an integer, you might get a surprising result:</p>
+<pre class="r"><code>is.integer(7)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>This is because the default numeric type is a <em>double</em>. The safer way to check if a number is an integer in value is to compare it against itself as an integer:</p>
+<pre class="r"><code>7 == as.integer(7)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p><strong>In your assignments, use this method to check if something is an integer!</strong></p>
+</div>
+<div id="coercing-data-types" class="section level2">
+<h2>Coercing data types</h2>
+<p>In general, you can force an object into a different type using <code>as.something()</code>, replacing “<code>something</code>” with a data type:</p>
+<pre class="r"><code>as.integer(3.1415)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>as.numeric(&quot;3.1415&quot;)</code></pre>
+<pre><code>## [1] 3.1415</code></pre>
+<pre class="r"><code>as.character(3.1415)</code></pre>
+<pre><code>## [1] &quot;3.1415&quot;</code></pre>
+<pre class="r"><code>as.logical(3.1415)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>Note that <code>as.logical()</code> returns <code>TRUE</code> for any numeric value other than <code>0</code>, for which it returns <code>FALSE</code>.</p>
+<p>Keep in mind that some things don’t make sense to be converted. For example, if you try to coerce a character word into a number, R will return <code>NA</code>:</p>
+<pre class="r"><code>as.numeric(&#39;foo&#39;)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA</code></pre>
+<p>If you want to force a non-integer number into an integer value, but you don’t want to change the actual <em>type</em> to an integer type, use <code>round()</code>, <code>ceiling()</code>, or <code>floor()</code>. This will turn the number into an integer in <em>value</em>, but will still technically be a <code>double</code> type. Note that these functions produce different outcomes.</p>
+<pre class="r"><code>round(3.1415)   # Typical rounding</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>ceiling(3.1415) # Rounds *up* to nearest integer</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>floor(3.1415)   # Rounds *down* to nearest integer</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+</div>
+<div id="tips-tricks" class="section level1">
+<h1>Tips &amp; Tricks</h1>
+<div id="chopping-up-numbers-with-and-of-10s" class="section level2">
+<h2>“Chopping” up numbers with <code>%%</code> and <code>%/%</code> of 10s</h2>
+<p>When you use the mod operator (<code>%%</code>) on a positive number <strong>with factors of 10</strong>, it “chops” a number at a particular digit and returns everything to the <em>right</em>. For example:</p>
+<pre class="r"><code>123456 %% 1 # Chops to the right of the ones digit</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>123456 %% 10 # Chops to the right of the tens digit</code></pre>
+<pre><code>## [1] 6</code></pre>
+<pre class="r"><code>123456 %% 100 # Chops to the right of the hundreds digit</code></pre>
+<pre><code>## [1] 56</code></pre>
+<p>Integer division (<code>%/%</code>) does the opposite - it returns everything to the <em>left</em> of the “chop” point. For example:</p>
+<pre class="r"><code>123456 %/% 1 # &quot;Chops to the right of the ones digit</code></pre>
+<pre><code>## [1] 123456</code></pre>
+<pre class="r"><code>123456 %/% 10 # &quot;Chops to the right of the tens digit</code></pre>
+<pre><code>## [1] 12345</code></pre>
+<pre class="r"><code>123456 %/% 100 # &quot;Chops to the right of the hundreds digit</code></pre>
+<pre><code>## [1] 1234</code></pre>
+<p>This works with non-integers too:</p>
+<pre class="r"><code>3.1415 %% 1</code></pre>
+<pre><code>## [1] 0.1415</code></pre>
+<pre class="r"><code>3.1415 %/% 1</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>But <strong>be careful</strong> - this “trick” only works with <em>positive</em> numbers:</p>
+<pre class="r"><code>-123.456 %% 10</code></pre>
+<pre><code>## [1] 6.544</code></pre>
+<pre class="r"><code>-123.456 %/% 10</code></pre>
+<pre><code>## [1] -13</code></pre>
+<p>Here’s some mental notes to remember how this works:</p>
+<ul>
+<li><code>%%</code> returns everything to the <em>right</em> (<code>&lt;chop&gt; -&gt;</code>)</li>
+<li><code>%/%</code> returns everything to the <em>left</em> (<code>&lt;- &lt;chop&gt;</code>)</li>
+<li>The “chop” point is always just to the <em>right</em> of the chopping digit:</li>
+</ul>
+<div style="width:500px">
+<table>
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>“Chop” point</th>
+<th>“Chop” point description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1234 %% 1</code></td>
+<td><code>1234 |</code></td>
+<td>Right of the <code>1</code>’s digit</td>
+</tr>
+<tr class="even">
+<td><code>1234 %% 10</code></td>
+<td><code>123 | 4</code></td>
+<td>Right of the <code>10</code>’s digit</td>
+</tr>
+<tr class="odd">
+<td><code>1234 %% 100</code></td>
+<td><code>12 | 34</code></td>
+<td>Right of the <code>100</code>’s digit</td>
+</tr>
+<tr class="even">
+<td><code>1234 %% 1000</code></td>
+<td><code>1 | 234</code></td>
+<td>Right of the <code>1,000</code>’s digit</td>
+</tr>
+<tr class="odd">
+<td><code>1234 %% 10000</code></td>
+<td><code>| 1234</code></td>
+<td>Right of the <code>10,000</code>’s digit</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="odds-and-evens-with" class="section level2">
+<h2>Odds and evens with <code>%%</code></h2>
+<p>You can tell if an integer is even or odd by using mod <code>2</code>. If you get <code>0</code>, it’s even; if you <code>1</code>, it’s odd:</p>
+<pre class="r"><code>10 %% 2 # Even</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>11 %% 2 # Odd</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>12 %% 2 # Even</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>13 %% 2 # Odd</code></pre>
+<pre><code>## [1] 1</code></pre>
+<hr />
+<p><strong>Page sources</strong>:</p>
+<p>Some content on this page has been modified from other courses, including:</p>
+<ul>
+<li>Danielle Navarro’s book <a href="https://learningstatisticswithr.com/book/introR.html">“Learning Statistics With R”</a></li>
+<li>Jenny Bryan’s <a href="http://stat545.com/">STAT 545 Course</a></li>
+<li><a href="https://rstudio.cloud/learn/primers/1.2">RStudio primers</a></li>
+<li>Xiao Ping Song’s <a href="https://github.com/xp-song/Intro2R">Intro2R crash course</a></li>
+</ul>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>For a more precise statement, see the <a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html">operator precedence</a> for R.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+
+
+<hr>
+
+<div>
+<center>
+    EMSE 4574, Sec. 10: Programming for Analytics (Fall 2020)
+    <br>
+    <a href="https://www.gwu.edu/">George Washington University</a> |
+    <a href="https://www.seas.gwu.edu/">School of Engineering & Applied Science</a>
+    <br>
+    <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> |
+    <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> |
+    <i class="far fa-calendar-alt"></i> Mondays |
+    <i class="far fa-clock"></i> 6:10–8:40 PM |
+    <i class="fas fa-university"></i> Phillips Hall 108 |
+    <a href="https://twitter.com/JohnHelveston"><i class="fab fa-twitter"></i></a> |
+    <a href="https://github.com/emse-p4a-gwu/2020-Fall"><i class="fab fa-github"></i></a>
+    <br>
+    This work is licensed under a <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    <br>
+    See the <a href="LICENSE.html">licensing</a> page for more details about copyright information.
+    <br>
+    Content <i class="fab fa-creative-commons"></i> 2020 <a href="https://www.jhelvy.com">John Paul Helveston</a>
+</center>
+</div>
+
+<!-- Add function to open links to external links in new tab, from: -->
+<!-- https://yihui.name/en/2018/09/target-blank/ -->
+
+<script src="js/external-link.js"></script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
