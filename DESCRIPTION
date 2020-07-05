@@ -38,5 +38,5 @@ Imports:
     shinythemes,
     shinyjs
 Remotes:
-    jhelvy/rmarkdown
+    jhelvy/rmarkdown,
     rstudio/fontawesome
