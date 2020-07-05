@@ -36,7 +36,8 @@ Imports:
     HistData,
     shiny,
     shinythemes,
-    shinyjs
+    shinyjs,
+    palmerpenguins
 Remotes:
     jhelvy/rmarkdown,
     allisonhorst/palmerpenguins
