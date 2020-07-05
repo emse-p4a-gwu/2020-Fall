@@ -39,3 +39,4 @@ Imports:
     shinyjs
 Remotes:
     jhelvy/rmarkdown
+    rstudio/fontawesome

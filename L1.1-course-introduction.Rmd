@@ -14,6 +14,7 @@ output: html_document
 rm(list=objects()) # start with a clean workspace
 library(knitr)
 library(here)
+library(fontawesome)
 options(knitr.kable.NA = '')
 knitr::opts_chunk$set(
     fig.width  = 4.75,
@@ -38,13 +39,14 @@ For this class, you'll need to install some software and register for some tools
 
 Background:
 
+- 2018 Joined the EMSE Department as an Assistant Professor
 - 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
 - 2015 MS in Engineering & Public Policy at Carnegie Mellon University
 - 2010 BS in Engineering Science & Mechanics at Virginia Tech
 
 ## Meet your teaching assistant (TA)!
 
-Saurav Pantha is a graduate student from Kathmandu, Nepal and is currently earning his MS in Systems Engineering. Before GW, he worked at a business consulting firm based out of Bangalore, India, helping multiple automotive & banking clients to solve business problems through data analytics solutions. Within Dr. Helveston's lab, he has been supporting multiple research projects by setting up a pipeline for a MySQL database, writing R scripts to clean & wrangle data, and conducting literature surveys. When not in school, he loves to go on treks and watch Manchester United's soccer games live.
+Saurav Pantha is a graduate student from Kathmandu, Nepal and is currently earning his MS in Systems Engineering. Before GW, he worked at a business consulting firm based out of Bangalore, India, helping multiple automotive & banking clients to solve business problems through data analytics solutions.
 
 <div class="circle">
 <img src="images/pantha.jpg" width=250>
@@ -58,32 +60,30 @@ Saurav Pantha is a graduate student from Kathmandu, Nepal and is currently earni
 
 # Quick class orientation
 
-# Course mantras
+## Slack
 
-Here are some philosophies that will get you far in data analytic work. We will be revisiting these over and over again.
+All course communication will be managed through [Slack](https://emse-p4a-f20.slack.com).
 
-**1) Embrace plain text**
+**You can use Slack to**:
 
-You will write code to produce rich outputs that include text and graphics. While your output may have lots of different formatting, your code will be written in [**plain text**](https://en.wikipedia.org/wiki/Plain_text).
+- Ask general questions.
+- Ask for help with an assignment.
+- Send direct, private messages to each other or the instructors (just like email...but better!)
 
-**2) Embrace reproducibility**
+## RStudio in the browser!
 
-Everything you produce in this course will be a [reproducible](https://en.wikipedia.org/wiki/Reproducibility) output. That is, you should be able to reproduce your output from the raw data and code.
+If you're having trouble installing R or RStudio, don't worry - you can quickly launch a _virtual_ version of RStudio in your webbrowser! Click on the `r fa("r-project", fill = "steelblue")` logo in the menu bar and log in with your GWU web ID and password.
 
-For example, This webpage was generated from [this markdown source file](https://raw.githubusercontent.com/emse-p4a-gwu/2020-Fall/master/L1.1-course-introduction.Rmd) on GitHub. If you want to generate this very HTML page, download the `.Rmd` file and run the following code in R:
+**Note**: You must be on the GW network for this to work. If you're off campus, you can get on the network remotely using a [VPN](https://seascf.seas.gwu.edu/vpn-access).
 
-```{r eval=FALSE}
-rmarkdown::render('L1.1-course-introduction.Rmd')
-```
-
-# The syllabus
+## The syllabus
 
 Take a look at the [syllabus](syllabus.html). This is your contract for the course - review it to learn what will be expected of you throughout the semester and how you will be assessed.
 
-# The schedule
+## The schedule
 
-The course [schedule](schedule.html) is your roadmap for the semester. Visit it often to make sure you are well-prepared for class and aware of upcoming assignment / quiz dates.
+The course [schedule](schedule.html) is your road map for the semester. Visit it often to make sure you are well-prepared for class and aware of upcoming dates for assignments, quizzes, etc.
 
-# Communication & Help
+## Communication & Help
 
 This can be a challenging class - don't suffer in silence! Look at the ["Getting Help"](ref-getting-help.html) page, come to office hours, send me a message on Slack.
