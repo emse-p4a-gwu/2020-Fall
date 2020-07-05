@@ -11,6 +11,14 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
+> ### Learning Objectives
+>
+> * Get familiar with using R in RStudio
+> * Be able to use R to create and store values as objects. 
+> * Know some of the ways R handles certain things, like spaces.
+> * Know how to create comments with the `#` symbol.
+> * Know some best practices for staying organized in R with R projects.
+
 # R and RStudio
 
 R is a programming language that runs computations, and RStudio is an interface for working with R with a lot of convenient tools and features. It is the primary [integrated development environment (IDE)](https://en.wikipedia.org/wiki/Integrated_development_environment) for R users.

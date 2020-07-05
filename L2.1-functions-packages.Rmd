@@ -85,7 +85,7 @@ Notice that the first time I called the `round()` function I didn't actually spe
 Finally, not all functions have (or require) arguments:
 
 ```{r}
-date()
+date() # Returns the current date and time
 ```
 
 # Packages
