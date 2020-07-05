@@ -36,7 +36,7 @@ knitr::kable(rbind(
               c("addition", "`+`", "`10 + 2`", "`12`"),
               c("subtraction", "`-`", "`9 - 3`", "`6`"),
               c("multiplication", "`*`", "`5 * 5`", "`25`"),
-              c("division", "`/`", "`10 / 3`", "`3`"),
+              c("division", "`/`", "`9 / 3`", "`3`"),
               c("power", "`^`", "`5 ^ 2`", "`25`")
 ), col.names = c("operation", "operator", "example input" , "example output"), align="lccc")
 ```

@@ -8,36 +8,44 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
+> ### Learning Objectives
+>
+> * Know some common functions in R.
+> * Know how R handles function arguments and named arguments. 
+> * Know how to install and load external R packages.
+>
+> ### Suggested Readings
+>
+> * Chapter 3.5 of Danielle Navarro's book ["Learning Statistics With R"](https://learningstatisticswithr.com/book/introR.html#usingfunctions)
+
 # Functions
 
 You can do a lot with the basic operators like `+`, `-`, and `*`, but to do more advanced calculations you're going to need to start using functions.^[Technically speaking, operators are functions in R: the addition operator `+` is a convenient way of calling the addition function `'+'()`. Thus `10+20` is equivalent to the function call `'+'(20, 30)`. Not surprisingly, no-one ever uses this version.]
 
 > [Watch this 1-minute video for a quick summary of **functions**](https://vimeo.com/220490105)
 
-R has a lot of very useful built-in functions. Suppose I wanted to take the square root of 225. The usual notation for this is $\sqrt{25}=5$, though sometimes you'll also see it written like this $25^{0.5} = 5$. This second way of writing it is kind of useful to "remind" you of the mathematical fact that "square root of $x$" is actually the same as "raising $x$ to the power of 0.5". And since we already know how to raise things to powers in R, we could do this:
-
-```{r}
-225 ^ 0.5
-```
-
-However, we could also compute this using R's built-in square root function `sqrt()`:
+R has a lot of very useful built-in functions. For example, if I wanted to take the square root of 225, I could use R's built-in square root function `sqrt()`: 
 
 ```{r}
 sqrt(225)
 ```
 
-Not sure what a particular function does? You can ask R for help by typing `?` and then the function name, and R will return documentation on the function. For example, `?sqrt()` will return information about the `sqrt()` function.
+Here the letters `sqrt` are short for "square root," and the value inside the `()` is the "input" to the function. 
+
+R has LOTS of functions, and sometimes it's difficult to remember the details of what they do. If you're not sure, you can ask R for help by typing `?` and then the function name, and then R will return some documentation about it. For example, type `?sqrt()` into the console and R will return information about how to use the `sqrt()` function.
 
 ## Some common functions
 
-Function   | Description       | Example
----------- | ------------------|------------------------------
-`exp()`    | Exponential  | `exp(0)` returns ``r exp(0)``
-`sqrt()`   | Square root  | `sqrt(64)` returns ``r sqrt(64)``
-`log(x)`   | Natural log of `x` | `log(1)` returns ``r log(1)``
-`factorial()` | Factorial | `factorial(5)` returns ``r factorial(5)``
-`round(x, digits=0)` | Round `x` to the `digits` decimal place | `round(3.1415, digits=2)` returns ``r round(3.1415, digits=2)``
-`abs(x)`  | Absolute value of `x` | `abs(-42)` returns ``r abs(-42)``
+Function   | Description       | Example input    | Example output
+---------- | ------------------|------------------|---------------
+`exp()`    | Exponential       | `exp(0)`         | ``r exp(0)``
+`sqrt()`   | Square root       | `sqrt(64)`       | ``r sqrt(64)``
+`log()`    | Natural log       | `log(1)`         | ``r log(1)``
+`factorial()` | Factorial      | `factorial(5)`   | ``r factorial(5)``
+`round(x, digits=0)` | Round `x` to the `digits` decimal place | `round(3.1415, digits=2)` | ``r round(3.1415, digits=2)``
+`abs()`    | Absolute value    | `abs(-42)`   | ``r abs(-42)``
+`min()`    | Minimum value     | `min(1, 2, 3)`   | ``r min(1, 2, 3)``
+`max()`    | Maximum value     | `max(1, 2, 3)`   | ``r max(1, 2, 3)``
 
 ## Combining functions
 
@@ -55,20 +63,18 @@ When we use a function to do something, we generally refer to this as **calling*
 
 > [Watch this 1-minute video for a quick summary of **arguments**](https://vimeo.com/220490157)
 
+In the very first example we showed, the value `225` was the "argument" to the command `sqrt(225)`.
 
 ## Multiple arguments
 
-Some functions have more than one argument. For example, the `round()` function can be used to round some value to the nearest whole number. For example, I could type this:
+Some functions have more than one argument. For example, the `round()` function can be used to round some value to the nearest integer or to a specified decimal place:
 
 ```{r}
-round(3.1415)
-```
-
-Pretty straightforward. However, suppose I only wanted to round it to two decimal places: that is, I want to get `3.14` as the output. To do this, you can input a second argument that specifies the number of decimal places that you want to round the number to. To get `3.14`, I would type this:
-
-```{r}
+round(3.14165)
 round(3.14165, 2)
 ```
+
+In the second example above, the second argument of `2` determines the number of decimal places that you want to round the number to. This is an optional input - if nothing is provided, the function will round to the nearest integer.
 
 ## Argument names
 
@@ -140,7 +146,7 @@ In case you're wondering, the only thing this package does is generate messages 
 
 Some content on this page has been modified from other courses, including:
 
-- Danielle Navarro's website ["R for Psychological Science"](https://psyr.org/index.html)
+- Danielle Navarro's book ["Learning Statistics With R"](https://learningstatisticswithr.com/book/introR.html#usingfunctions)
 - Jenny Bryan's [STAT 545 Course](http://stat545.com/)
 - [RStudio primers](https://rstudio.cloud/learn/primers/1.2)
 - Xiao Ping Song's [Intro2R crash course](https://github.com/xp-song/Intro2R)
