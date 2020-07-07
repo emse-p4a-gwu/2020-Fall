@@ -37,7 +37,9 @@ Imports:
     shiny,
     shinythemes,
     shinyjs,
+    fontawesome,
     palmerpenguins
 Remotes:
     jhelvy/rmarkdown,
-    allisonhorst/palmerpenguins
+    allisonhorst/palmerpenguins,
+    rstudio/fontawesome

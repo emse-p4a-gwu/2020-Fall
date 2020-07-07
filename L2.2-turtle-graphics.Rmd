@@ -3,10 +3,17 @@ title: "Turtle Graphics"
 output:
   html_document:
     number_sections: false
-    toc: no
+    toc: yes
 ---
 
-[Turtle graphics](https://en.wikipedia.org/wiki/Turtle_graphics){target="_blank"} is a classic teaching tool in computer science, originally invented in the 1960s and reimplemented over and over again in different programming languages. In R, there is a similar package called `TurtleGraphics`:
+> ### Learning Objectives
+>
+> * Practice programming with functions.
+> * Practice programming with loops
+
+[Turtle graphics](https://en.wikipedia.org/wiki/Turtle_graphics) is a classic teaching tool in computer science, originally invented in the 1960s and re-implemented over and over again in different programming languages. 
+
+In R, there is a similar package called `TurtleGraphics`:
 
 ```{r, eval=FALSE}
 install.packages('TurtleGraphics')
@@ -70,7 +77,7 @@ turtle_do({
 
 Some content on this page has been modified from other courses, including:
 
-- Danielle Navarro's website ["R for Psychological Science"](https://psyr.org/index.html)
+- Danielle Navarro's website ["R for Psychological Science"](https://psyr.djnavarro.net/)
 
 
 
