@@ -110,12 +110,11 @@ Final grades will be calculated as follows:
 <div style="width:450px">
 Course Component     | Weight | Notes
 ---------------------|--------|-----------------------------------
-Homeworks            | 30%    | Lowest homework grade is dropped
-Quizzes              | 15%    | Lowest quiz grade is dropped
-Lower Midterm Score  | 10%    |
-Higher Midterm Score | 20%    |
+Homeworks            | 48%    | 12 x 4% each
+Quizzes              | 15%    | 6  x 3% each, lowest grade is dropped
+Midterm Exam         | 12%    |
 Final Exam           | 20%    |
-Attendance & Participation | 5% |
+Participation        | 5%     |
 </div>
 
 ## AMD Grading
@@ -133,9 +132,9 @@ To compute your AMG score, first use the following to compute your raw score. If
 <div style="width:350px">
 Course Component   | Weight
 -------------------|----
-Best 5 Homeworks   | 20%
-Best 4 Quizzes     | 15%
-Best Midterm Exam  | 25%
+Best 8 Homeworks   | 40%
+Best 4 Quizzes     | 10%
+Midterm Exam       | 10%
 Final Exam         | 40%
 </div>
 
@@ -244,7 +243,7 @@ Sometimes, students panic and copy code right before the deadline, then regret w
 <!-- Policy copied from Andrew Heiss's class -->
 <!-- https://evalsp20.classes.andrewheiss.com/syllabus/ -->
 
-I applaud all of you who go to graduate school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:
+I applaud all of you who go to school with children! It is difficult to balance academic, work, and family commitments, and I want you to succeed. Here are my policies regarding children in class:
 
 1. All breastfeeding babies are welcome in class as often as necessary.
 2. Non-nursing babies and older children are welcome whenever alternate arrangements cannot be made. As a parent of young children, I understand that babysitters fall through, partners have conflicting schedules, children get sick, and other issues arise that leave parents with few other options.
