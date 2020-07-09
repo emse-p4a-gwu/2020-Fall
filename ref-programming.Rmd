@@ -13,12 +13,13 @@ source("knitr_setup.R")
 
 # Programming in R
 
-- [Last semester's course website :)](https://emse6574-gwu.github.io/2019-Fall/)
+- [Last semester's course website :)](https://p4a.seas.gwu.edu/2019-Fall/)
 - Grolemund, Garrett. "Hands-On Programming with R"
 [[free online](https://rstudio-education.github.io/hopr/)],
 [[buy on amazon](https://www.amazon.com/gp/product/1449359019/)]
 - Peng, Roger D. "R Programming for Data Science"
 [[online - pay what you want](https://leanpub.com/rprogramming)]
+- [Beginning Computer Science with R](https://homerhanumat.github.io/r-notes/index.html), by Homer White
 
 # Data Analysis in R
 

@@ -2,7 +2,6 @@ library(knitr)
 library(here)
 library(tidyverse)
 library(fontawesome)
-library(TurtleGraphics)
 options(knitr.kable.NA = '')
 
 # default figure size
