@@ -28,6 +28,7 @@
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 <link rel="icon" href="images/favicon.ico">
+<script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
 <style type="text/css">
 
 /* Text */
@@ -683,9 +684,11 @@ div.tocify {
 </ul>
 </blockquote>
 <p><a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle graphics</a> is a classic teaching tool in computer science, originally invented in the 1960s and re-implemented over and over again in different programming languages.</p>
-<p>In R, there is a similar package called <code>TurtleGraphics</code>:</p>
-<pre class="r"><code>install.packages(&#39;TurtleGraphics&#39;)
-library(TurtleGraphics)</code></pre>
+<p>In R, there is a similar package called <a href="http://www.gagolewski.com/software/TurtleGraphics/?section=software&amp;subsection=TurtleGraphics"><strong>TurtleGraphics</strong></a>. To get started, install the package (remember, you only need to do this once on your computer):</p>
+<pre class="r"><code>install.package(&#39;TurtleGraphics&#39;)</code></pre>
+<p>Once installed, load the package (remember, you have to load this every time you restart R to use the package!):</p>
+<pre class="r"><code>library(TurtleGraphics)</code></pre>
+<pre><code>## Loading required package: grid</code></pre>
 <p>Here’s the idea. You have a turtle, and she lives in a nice warm terrarium. The terrarium is 100 x 100 units in size, where the lower-left corner is at the <code>(x, y)</code> position of <code>(0, 0)</code>. When you call <code>turtle_init()</code>, the turtle is initially positioned in the center of the terrarium at <code>(50, 50)</code>:</p>
 <pre class="r"><code>turtle_init()</code></pre>
 <p><img src="images/turtle_init.png" width="456" /></p>
