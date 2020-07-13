@@ -561,7 +561,7 @@ div.tocify {
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
     <span class="far fa-bookmark"></span>
      
-    Resources
+    References
      
     <span class="caret"></span>
   </a>
@@ -603,24 +603,44 @@ div.tocify {
     </li>
   </ul>
 </li>
-<li>
-  <a href="autograder.html">
-    <span class="fas fa-tasks"></span>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-tools"></span>
      
-    Autograder
-  </a>
-</li>
-<li>
-  <a href="https://emse-p4a-f20.slack.com">
-    <span class="fab fa-slack"></span>
+    Tools
      
+    <span class="caret"></span>
   </a>
-</li>
-<li>
-  <a href="https://rstudio.seas.gwu.edu/">
-    <span class="fab fa-r-project"></span>
-     
-  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="autograder.html">
+        <span class="fas fa-tasks"></span>
+         
+        Autograder
+      </a>
+    </li>
+    <li>
+      <a href="https://emse-p4a-f20.slack.com">
+        <span class="fab fa-slack"></span>
+         
+        Slack
+      </a>
+    </li>
+    <li>
+      <a href="https://rstudio.seas.gwu.edu/">
+        <span class="fab fa-r-project"></span>
+         
+        RStudio Server
+      </a>
+    </li>
+    <li>
+      <a href="https://jhelvy.appointlet.com">
+        <span class="fas fa-user-clock"></span>
+         
+        Schedule a meeting
+      </a>
+    </li>
+  </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -803,7 +823,7 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Thu Jul  9 20:31:30 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Mon Jul 13 20:05:26 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
@@ -830,9 +850,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that actor Tom Hanks has claimed that the Hermes 3000 would be the luxury item he would take to a desert island? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Here&#39;s some news from 11 October 2016. David Thouless, F. Duncan Haldane, and J. Michael Kosterlitz share the Nobel Prize in Physics for theoretical discoveries using topology to understand superconductors, superfluids, and other exotic states of condensed matter. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that at the Battle of Grand Gulf, men of the Confederate 3rd Missouri Infantry Regiment fired into the portholes of Union Navy ships? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that a large, elderly, \&quot;decently behaved\&quot; Russian brown bear once lived in the Leeds suburb of Headingley? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
