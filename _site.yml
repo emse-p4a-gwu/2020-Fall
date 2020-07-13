@@ -86,7 +86,7 @@ navbar:
           href: hw11-python-data-structures.html
         - text: "HW 12 - Reproducible Reporting"
           href: hw12-reproducible-reporting.html
-    - text: "Resources"
+    - text: "References"
       icon: far fa-bookmark
       menu:
         - text: "Getting Help"
@@ -104,16 +104,22 @@ navbar:
         - text: "Other"
           icon: fa fa-expand
           href: ref-other.html
-    - text: Autograder
-      icon: fas fa-tasks
-      href: autograder.html
-    - text:
-      icon: fab fa-slack
-      href: https://emse-p4a-f20.slack.com
-    - text:
-      icon: fab fa-r-project
-      href: https://rstudio.seas.gwu.edu/
-
+    - text: "Tools"
+      icon: fas fa-tools
+      menu:
+        - text: "Autograder"
+          icon: fas fa-tasks
+          href: autograder.html
+        - text: "Slack"
+          icon: fab fa-slack
+          href: https://emse-p4a-f20.slack.com
+        - text: "RStudio Server"
+          icon: fab fa-r-project
+          href: https://rstudio.seas.gwu.edu/
+        - text: "Schedule a meeting"
+          icon: fas fa-user-clock
+          href: https://jhelvy.appointlet.com
+          
   right:
   - icon: fa fa-bars
     menu:

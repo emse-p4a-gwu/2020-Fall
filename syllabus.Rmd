@@ -11,15 +11,27 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
+> ## Notice about "hybrid" course design and new ICE regulations on international students
+>
+> Given the risks associated with the ongoing COVID19 pandemic, this course will be conducted in a "hybrid" mode, with both online and in-person components. Students who wish to take this class fully online will be able to do so, and on campus students that want to participate in in-person sessions will also be able to do so. Fully online students will be able to remotely join the in-person sessions. Here is the detailed instructional plan:
+>
+> - All _synchronous_ class periods will be held online during the designated class time (Tuesdays from 12:45PM - 03:15PM EST). On campus students are free to use the designated classroom ([Monroe 351](https://acadtech.gwu.edu/location?building=MON&room=351)) for these periods if they wish, though students are advised to wear face masks and practice social distancing while in the classroom.
+> - All quizzes and exams will also be held online during the designated class periods.
+> - At least two in-person study sessions will be held on other days of the week where we will go through practice problems. Students can also join these sessions remotely.
+> - Students attending in-person sessions will have to sign up to maintain appropriate social distancing measures.
+> - Every class periods and study session will be recorded and posted on blackboard so students can watch and review things remotely.
+>
+> To maintain appropriate social distancing measures, the number of students physically present in in-person sessions will be limited, and students may have to rotate which sessions they can physically attend. However, to comply with a recent [policy](https://www.ice.gov/news/releases/sevp-modifies-temporary-exemptions-nonimmigrant-students-taking-online-courses-during) issued by the U.S. Immigration and Customs Enforcement (ICE), international students will be given first priority on in-person seats. This policy invalidates F1 visas for international students that take a fully online course load, forcing universities and professors to choose between students' health and legal status. Universities must certify with ICE which courses are being taught fully online, and since this course is being certified as a "hybrid" course, international students must be allowed to be physically present in at least some in-person sessions. I will update my class policies according to the outcomes of ongoing legal cases against this discriminatory policy.
+
 # Course Information
 
 <div style="width:550px">
 Instructor | Course
 ---|---
 <i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Mondays
-<i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fas fa-university"></i> TBD
-<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> TBD
-<i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> TBD
+<i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fa fa-map-marker-alt"></i> [Monroe 351](https://acadtech.gwu.edu/location?building=MON&room=351)
+<i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> Aug. 31 - Dec. 12, 2020
+<i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> 12:45PM - 03:15PM EST
 <i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack](https://emse-p4a-f20.slack.com/)
 </div>
 
