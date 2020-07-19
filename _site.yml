@@ -116,10 +116,10 @@ navbar:
         - text: "RStudio Server"
           icon: fab fa-r-project
           href: https://rstudio.seas.gwu.edu/
-        - text: "Schedule a meeting"
+        - text: "Schedule a 20 min meeting"
           icon: fas fa-user-clock
           href: https://jhelvy.appointlet.com/s/20-minute-meeting
-          
+
   right:
   - icon: fa fa-bars
     menu:
