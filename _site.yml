@@ -118,7 +118,7 @@ navbar:
           href: https://rstudio.seas.gwu.edu/
         - text: "Schedule a meeting"
           icon: fas fa-user-clock
-          href: https://jhelvy.appointlet.com
+          href: https://jhelvy.appointlet.com/s/20-minute-meeting
           
   right:
   - icon: fa fa-bars
