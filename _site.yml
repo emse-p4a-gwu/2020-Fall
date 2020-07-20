@@ -116,9 +116,9 @@ navbar:
         - text: "RStudio Server"
           icon: fab fa-r-project
           href: https://rstudio.seas.gwu.edu/
-        - text: "Schedule a 20 min meeting"
+        - text: "Schedule a meeting w/Prof. Helveston"
           icon: fas fa-user-clock
-          href: https://jhelvy.appointlet.com/s/20-minute-meeting
+          href: https://jhelvy.appointlet.com/b/professor-helveston
 
   right:
   - icon: fa fa-bars
