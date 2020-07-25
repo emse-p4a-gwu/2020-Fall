@@ -552,7 +552,7 @@ s <- "42"
 </div>
 <div class = "col-md-5">
 Python has some handy string methods!
-```{python}
+```{python, eval=FALSE}
 s = "42"
 s.isnumeric()
 ```
