@@ -556,6 +556,9 @@ Python has some handy string methods!
 s = "42"
 s.isnumeric()
 ```
+```
+## True
+```
 </div>
 </div>
 
