@@ -823,7 +823,7 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Thu Jul 30 01:24:14 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Jul 30 21:55:30 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
@@ -850,9 +850,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Here&#39;s some news from 20 August 2016. The China National Space Administration successfully launches Quantum Experiments at Space Scale, the first spacecraft capable of quantum key distribution. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that on June 19 in 1987 – Basque separatist group ETA detonated a car bomb at the Hipercor shopping centre in Barcelona, killing 21 people and injuring 45 others. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that City Developments Limited introduced the concept of show houses in 1965, and is believed to be the first company in Asia to do so? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Troy Nehls, the sheriff of Fort Bend County, is the son of a sheriff and brother of a sheriff? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
@@ -878,16 +878,12 @@ library(packagename)   # This also works</code></pre>
 
 <div>
 <center>
-    EMSE 4574: Programming for Analytics (Fall 2020) | <a href="https://www.gwu.edu/">GWU</a> | <a href="https://www.seas.gwu.edu/">SEAS</a>
+    EMSE 4574: Programming for Analytics (Fall 2020) | <a href="https://github.com/emse-p4a-gwu/2020-Fall"><i class="fab fa-github"></i></a>
     <br>
     <i class="far fa-calendar-alt"></i> Tuesdays |
     <i class="far fa-clock"></i> 12:45 - 3:15 PM |
-    <i class="fas fa-university"></i> Monroe 351 |
-    <a href="https://github.com/emse-p4a-gwu/2020-Fall"><i class="fab fa-github"></i></a>
-    <br>
     <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> |
-    <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a> |
-    <a href="https://twitter.com/JohnHelveston"><i class="fab fa-twitter"></i></a>
+    <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>
     <br>
     Content <a href="https://creativecommons.org/licenses^/by/4.0/"><i class="fab fa-creative-commons"></i> 2020 </a><a href="https://www.jhelvy.com">John Paul Helveston.</a> See the <a href="LICENSE.html">licensing</a> page for details.
 </center>
