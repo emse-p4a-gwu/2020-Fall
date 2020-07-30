@@ -11,24 +11,22 @@ rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
 ```
 
-> ## Notice about "hybrid" course design 
+> ### Note about online course design 
 >
-> Given the risks associated with the ongoing COVID19 pandemic, this course will be conducted in a "hybrid" mode, with both online and in-person components. Students who wish to take this class fully online will be able to do so, and on campus students that want to participate in in-person sessions will also be able to do so. Here is the detailed instructional plan:
+> Given the risks associated with the ongoing COVID19 pandemic, this course will be held online this semester. Here's a summary of the instructional plan:
 >
-> - All _synchronous_ class periods will be held online during the designated class time (Tuesdays from 12:45PM - 03:15PM EST). On campus students are free to use the designated classroom ([Monroe 351](https://acadtech.gwu.edu/location?building=MON&room=351)) for these periods if they wish, though students are advised to wear face masks and practice social distancing while in the classroom. 
-> - The number of students physically present at in-person sessions will be limited, and if needed we will rotate students every other week to accomodate everyone.
-> - All quizzes and exams will also be held online during the designated class periods.
-> - An in-person study session will be held during another day of the week where we will go through additional practice problems. Students can also join these sessions remotely.
-> - Students attending in-person sessions will have to sign up to maintain appropriate social distancing measures.
-> - Every class periods and study session will be recorded and posted on blackboard so students can watch and review things remotely.
+> - All synchronous class periods will be held online via Webex during the designated class time (Tuesdays from 12:45PM - 03:15PM EST). These sessions will be focused on practicing problem solving and programming.
+> - We will hold at least one other open study session per week, also online.
+> - All quizzes and exams will be held online during the designated class periods.
+> - All class periods and study sessions will be recorded and posted on blackboard so students can watch and review things remotely.
 
 # Course Information
 
 <div style="width:550px">
 Instructor | Course
 ---|---
-<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Mondays
-<i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fa fa-map-marker-alt"></i> [Monroe 351](https://acadtech.gwu.edu/location?building=MON&room=351)
+<i class="fas fa-user"></i> John Paul Helveston | <i class="far fa-calendar"></i> Tuesdays
+<i class="fas fa-university"></i> Science & Engineering Hall, Office 2830 | <i class="fa fa-map-marker-alt"></i> Anywhere!
 <i class="fas fa-phone"></i> +1 (202) 994-7173 | <i class="far fa-calendar-alt"></i> Aug. 31 - Dec. 12, 2020
 <i class="fas fa-envelope"></i> [jpg@gwu.edu](mailto:jph@gwu.edu) | <i class="far fa-clock"></i> 12:45PM - 03:15PM EST
 <i class="fab fa-twitter"></i> [\@JohnHelveston](https://twitter.com/JohnHelveston) | <i class="fab fa-slack"></i> [Slack](https://emse-p4a-f20.slack.com/)
