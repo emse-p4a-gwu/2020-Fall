@@ -1,5 +1,5 @@
 ---
-title: "Practice 6 - Vectors"
+title: "Homework 11 - Data Visualization"
 output:
   html_document:
     number_sections: false

@@ -1,9 +1,0 @@
----
-title: "Practice 10 - Data Visualization"
-output:
-  html_document:
-    number_sections: false
-    toc: no
----
-
-Coming soon!

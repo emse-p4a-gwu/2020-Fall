@@ -1,6 +1,0 @@
----
-title: "Practice 4 - Conditionals & Testing"
-output: html_document
----
-
-Coming soon!

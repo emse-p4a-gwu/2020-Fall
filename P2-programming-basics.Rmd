@@ -1,9 +1,0 @@
----
-title: "Practice 2 - Programming Basics"
-output:
-  html_document:
-    number_sections: false
-    toc: no
----
-
-Coming soon!

@@ -41,24 +41,22 @@ navbar:
           href: L6-vectors.html
         - text: "7: Strings"
           href: L7-strings.html
-        - text: "8: Introduction to Python"
+        - text: "9: Introduction to Python"
           icon: fab fa-python
-          href: L8-python-intro.html
-        - text: "10.1: Data Analysis Prelude"
-          href: L10.1-data-analysis-prelude.html
-        - text: "10.2: Data Frames"
-          href: L10.2-data-frames.html
-        - text: "11: Data Wrangling"
-          href: L11-data-wrangling.html
-        - text: "12: Data Visualization"
-          href: L12-data-visualization.html
-        - text: "13: Python Data Structures"
-          icon: fab fa-python
-          href: L13-python-data-structures.html
+          href: L9-python-intro.html
+        - text: "11.1: Data Analysis Prelude"
+          href: L11.1-data-analysis-prelude.html
+        - text: "11.2: Data Frames"
+          href: L11.2-data-frames.html
+        - text: "12: Data Wrangling"
+          href: L12-data-wrangling.html
+        - text: "13: Data Visualization"
+          href: L13-data-visualization.html
         - text: "14: Reproducible Reporting"
           href: L14-reproducible-reporting.html
-        - text: "15: Monte Carlo Methods"
-          href: L15-monte-carlo-methods.html
+        - text: "15: Python Data Structures"
+          icon: fab fa-python
+          href: L15-python-data-structures.html
     - text: "Assignments"
       icon: fa fa-laptop
       menu:
@@ -76,14 +74,14 @@ navbar:
           href: hw6-vectors.html
         - text: "HW 7 - Strings"
           href: hw7-strings.html
-        - text: "HW 8 - Data Frames"
+        - text: "HW 8 - Python"
           href: hw8-data-frames.html
-        - text: "HW 9 - Data Wrangling"
-          href: hw9-data-wrangling.html
-        - text: "HW 10 - Data Visualization"
-          href: hw10-data-visualization.html
-        - text: "HW 11 - Python Data Structures"
-          href: hw11-python-data-structures.html
+        - text: "HW 9 - Data Frames"
+          href: hw9-data-frames.html
+        - text: "HW 10 - Data Wrangling"
+          href: hw10-data-wrangling.html
+        - text: "HW 11 - Data Visualization"
+          href: hw11-data-visualization.html
         - text: "HW 12 - Reproducible Reporting"
           href: hw12-reproducible-reporting.html
     - text: "References"

@@ -21,8 +21,8 @@ source("knitr_setup.R")
 # Designated Friday               = Tuesday, December 8
 # Last Day of Classes             = Saturday, December 12
 # Final Examinations              = Monday, December 14 - Tuesday, December 22
-start <- as.Date("2020/09/02")
-end   <- as.Date("2020/12/09")
+start <- as.Date("2020/09/01")
+end   <- as.Date("2020/12/08")
 dates <- format(seq(start, end, by = "week"), format="%m/%d")
 cbind(seq(length(dates)), dates)
 ```
@@ -33,57 +33,59 @@ library(kableExtra)
 library(gsheet)
 options(knitr.kable.NA = '')
 
+# Setup some common values
+fa <- list(
+    book         = '[<i class="fas fa-book"></i>]',
+    file         = '[<i class="fas fa-file-pdf"></i>]',
+    file_code    = '[<i class="fas fa-file-code"></i>]',
+    file_archive = '[<i class="fas fa-file-archive"></i>]',
+    laptop       = '[<i class="fas fa-laptop"></i>]')
+notesRoot <- '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/class/'
+
 # Make the schedule data frame
-schedule <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1i0_7bX1rzy9YC7sSNEDmqgwzQW_VC5DVqr0yqPVpoIQ/edit?usp=sharing') %>% 
+schedule <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1i0_7bX1rzy9YC7sSNEDmqgwzQW_VC5DVqr0yqPVpoIQ/edit?usp=sharing') %>%
     mutate(topics = ifelse(!is.na(lesson), paste0(
-        '[<i class="fas fa-book"></i>](', lesson, '.html) ', topics), topics)) %>% 
-    group_by(week) %>% 
-    mutate(topics = paste(topics, collapse = '<br>'), 
-           id = row_number()) %>% 
-    filter(id == min(id)) %>% 
-    ungroup() %>% 
+        fa$book, '(', lesson, '.html) ', topics), topics)) %>%
+    group_by(week) %>%
+    mutate(topics = paste(topics, collapse = '<br>'),
+           id = row_number()) %>%
+    filter(id == min(id)) %>%
+    ungroup() %>%
     mutate(
         slides_pdf = paste0(
-            '[<i class="fas fa-file-pdf"></i>]',
-            '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/classNotes/',
-            class, '/slides-', class, '.pdf) pdf'),
+            fa$file, notesRoot, class, '/slides-', class, '.pdf) pdf'),
         slides_html = paste0(
-            '[<i class="fas fa-file-code"></i>]',
-            '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/classNotes/',
-            class, '/slides-', class, '.html) html'), 
+            fa$file_code, notesRoot, class, '/slides-', class, '.html) html'),
         slides_all = paste(slides_pdf, slides_html, sep = '<br>'),
         slides = ifelse(slides == 'x', slides_all, ''),
         notes_blank = paste0(
-            '[<i class="fas fa-file-archive"></i>]',
-            '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/classNotes/',
-            class, '/notes-blank-', class, '.zip) blank'),
+            fa$file_archive, notesRoot, class, '/notes-blank-', class,
+            '.zip) blank'),
         notes_complete = paste0(
-            '[<i class="fas fa-file-archive"></i>]',
-            '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/classNotes/',
-            class, '/notes-complete-', class, '.zip) complete'),
+            fa$file_archive, notesRoot, class, '/notes-complete-', class,
+            '.zip) complete'),
         notes_all = paste(notes_blank, notes_complete, sep = '<br>'),
         notes = case_when(
-            blank    == 'x' & 
-            complete == 'x'   ~ notes_all, 
-            blank    == 'x'   ~ notes_blank, 
-            complete == 'x'   ~ notes_complete, 
+            (blank    == 'x' & complete == 'x') ~ notes_all,
+            (blank    == 'x') ~ notes_blank,
+            (complete == 'x') ~ notes_complete,
             TRUE              ~ ''),
         hwName = toupper(gsub('-.*', '', assignments)),
         assignments = ifelse(!is.na(hwName), paste0(
-            '[<i class="fas fa-laptop"></i>](', assignments, '.html) ',
-            hwName, '<br>Due ', format(date + 6, format = "%d-%b"), 
-            ' by 11pm'), ''), 
+            fa$laptop, '(', assignments, '.html) ',
+            hwName, '<br>Due ', format(date + 6, format = "%d-%b"),
+            ' by 11pm'), ''),
         date = format(date, format = "%m/%d")
     )
 
 # Make the final schedule
 names(schedule) <- tools::toTitleCase(names(schedule))
-schedule %>% 
-    select(Week, Date, Topics, Slides, Notes, Quizzes, Assignments) %>% 
+schedule %>%
+    select(Week, Date, Topics, Slides, Notes, Quizzes, Assignments) %>%
     # Render the schedule as markdown
-    kable(format = 'html', escape = FALSE, 
-          align = c('c', 'c', 'l', 'l', 'l', 'l', 'l')) %>% 
-    kable_styling(full_width = F) %>% 
-    column_spec(column = 3, width = '14em') %>% 
+    kable(format = 'html', escape = FALSE,
+          align = c('c', 'c', 'l', 'l', 'l', 'l', 'l')) %>%
+    kable_styling(full_width = F) %>%
+    column_spec(column = 3, width = '14em') %>%
     column_spec(column = 7, width = '11em')
 ```
