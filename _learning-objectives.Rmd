@@ -5,9 +5,9 @@ Having successfully completed this course, students will be able to:
     - Pro-actively creating and writing test cases to test and debug code.
     - Applying computational problem-solving skills to new problems.
 
-- Write clear, robust, and reasonably efficient code for working with data in in R using:
+- Write clear, robust, and reasonably efficient code for working with data using:
     - Sequential, conditional, and loop statements.
-    - Multiple data types, including numeric, string, and logical data.
-    - Data structures, including vectors and data frames.
+    - Numeric, string, and logical data types.
+    - Data structures, including lists, vectors, and data frames.
 
-- Import, export, manipulate, and visualize data in R.
+- Reproducibly import, export, manipulate, and visualize data.
