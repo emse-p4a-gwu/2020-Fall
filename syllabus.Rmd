@@ -13,7 +13,7 @@ source("knitr_setup.R")
 
 > ### COVID-19 Considerations
 >
-> This semester is going to be weird. 
+> This semester is going to be weird.
 
 # Course Information
 
@@ -30,7 +30,7 @@ Instructor | Course
 **Overview of online mode**
 
 - All synchronous class periods will be held online during the designated class time: Tuesdays from 12:45PM - 03:15PM EST.
-- All class periods will be recorded and posted on blackboard. 
+- All class periods will be recorded and posted on blackboard.
 - Students are encouraged to stream or download the recordings for personal use only and are not permitted to post or share the recordings.
 - We will hold multiple online study sessions every week.
 - All quizzes and exams will be held online during the designated class periods.
@@ -91,7 +91,7 @@ Homework assignments contain a mix of coding exercises and written exercises. Th
 
 Read the [Collaboration Policy](#collaboration-policy) about collaborating with fellow students on homeworks. While most problems must be worked on individually, some will be marked as "collaborative"; on these problems (and _only_ these problems), you may work on code with other students.
 
-Homeworks will be graded based on style (modularity, readability, commenting, etc.) and functionality (correctness on a series of tests). Your code should be properly annotated with comments that are well-placed, concise, and informative. Your assignments will be graded by an automated grader and the instructional team. 
+Homeworks will be graded based on style (modularity, readability, commenting, etc.) and functionality (correctness on a series of tests). Your code should be properly annotated with comments that are well-placed, concise, and informative. Your assignments will be graded by an automated grader and the instructional team.
 
 ## Quizzes
 
@@ -169,14 +169,14 @@ This class can be challenging - don't suffer in silence. Look at the ["Getting H
 
 ## Late Policy
 
-Individual assignment due dates are flexible, but the longer you wait to complete each assignment, the poorer you'll likely do on quizzes and exams. 
+Individual assignment due dates are flexible, but the longer you wait to complete each assignment, the poorer you'll likely do on quizzes and exams.
 
 There are two hard deadlines for submitting homework assignments:
 
 - Oct. 20: Homeworks 1-6
 - Dec. 8: Homeworks 7-12
 
-These deadlines are to ensure that you will be prepared for the Midterm (which covers weeks 1-6) and the Final Exam (which is cumulative). 
+These deadlines are to ensure that you will be prepared for the Midterm (which covers weeks 1-6) and the Final Exam (which is cumulative).
 
 ## Collaboration Policy
 
@@ -263,7 +263,7 @@ All course materials available on the course website are developed open source -
 
 However, all **solutions** to assignments and quizzes are proprietary. Don't post them online or try to sell them - this would violate the GWU [student code of conduct](https://studentconduct.gwu.edu/code-student-conduct).
 
-In addition, all class periods will be recorded and posted on blackboard. While you are encouraged to stream or download the recordings for personal use, you are not permitted to post or share the recordings with others since the recordings will contain personally identifiable information.
+Students are encouraged to use electronic course materials, including recorded class sessions, for private personal use in connection with their academic program of study. Electronic course materials and recorded class sessions should not be shared or used for non-course related purposes unless express permission has been granted by the instructor. Students who impermissibly share any electronic course materials are subject to discipline under the Student Code of Conduct. Please contact the instructor if you have questions regarding what constitutes permissible or impermissible use of electronic course materials and/or recorded class sessions. Please contact [Disability Support Services](https://disabilitysupport.gwu.edu/) if you have questions or need assistance in accessing electronic course materials.
 
 ## What To Do if the Instructor Does Not Arrive
 
