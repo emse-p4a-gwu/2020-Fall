@@ -15,15 +15,15 @@ This page has everything you need to do to prepare for class.
 
 **You should do all these things _before_ the first day of class.**
 
-First, register for the following tools:
+First, set up the following tools:
 
 - **Slack**: the link to sign up for the course slack page is on the announcement on Blackboard.
 - Install the Slack app on your phone and **turn notifications on!**
-- [RStudio Cloud](https://login.rstudio.cloud/register): use whatever email you wish to register for this - we'll use it for some in-class activities and quizzes.
+- Go to the [GWU VPN](https://seascf.seas.gwu.edu/vpn-access) page and follow the instructions to install the "Cisco AnyConnect VPN Client" software and log in to GW's VPN. This allows you to remotely access the GW network - you'll need to do this for some of the tools we'll use.
 
 Next, install the latest version of R and RStudio:
 
-- [Download and install R](https://cloud.r-project.org)
+- [Download and install R](https://cloud.r-project.org) (version 4.0.2 or higher)
 - [Download and install RStudio](https://rstudio.com/products/rstudio/download/) (Desktop version)
 
 **We will always work in RStudio**, so be careful to open RStudio and not the default R application that comes with R:
