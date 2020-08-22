@@ -113,7 +113,7 @@ Final grades will be calculated as follows:
 Course Component     | Weight | Notes
 ---------------------|--------|-----------------------------------
 Homeworks            | 48%    | 12 x 4% each
-Quizzes              | 15%    | 6  x 3% each; lowest is dropped
+Quizzes              | 15%    | 5  x 3% each; lowest two dropped
 Midterm Exam         | 12%    |
 Final Exam           | 20%    |
 Participation        | 5%     |
