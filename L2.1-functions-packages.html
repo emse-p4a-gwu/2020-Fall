@@ -820,7 +820,7 @@ div.tocify {
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Thu Aug 20 13:19:29 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Sat Aug 22 01:37:31 2020&quot;</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
@@ -847,9 +847,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that on January 29 in 2017 – A lone gunman carried out a mass shooting at a mosque in Quebec City, Canada, killing six people and injuring nineteen others. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Here&#39;s some news from 31 May 2017. The Square, directed by Ruben Östlund (pictured), wins the Palme d&#39;Or at the Cannes Film Festival. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that Anton Bruckner composed two settings of Iam lucis orto sidere for the Wilhering Abbey (pictured), and a third setting 18 years later? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that economist and cabinet minister Gheorghe Leon died in a Communist Romanian prison while his government colleagues, surgeon Victor Gomoiu, Iron Guard activists Radu Budișteanu and Vasile Noveanu, and Generals Gheorghe Mihail and Constantin Nicolescu, survived detention? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>
