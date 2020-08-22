@@ -119,7 +119,7 @@ Final Exam           | 20%    |
 Participation        | 5%     |
 </div>
 
-## AMD Grading
+## AMG Grading
 
 This Alternative Minimum Grading (AMG) policy is available to everybody, but is designed specifically for students who struggle in the first part of the course, and then through sustained hard work and dedication manage to elevate their performance in the latter part of the course to a level that merits passing with a C (even if their Standard Grade might be lower than that).
 
