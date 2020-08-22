@@ -15,10 +15,6 @@ source("knitr_setup.R")
 
 All course communication will be managed through [Slack](https://emse-p4a-f20.slack.com). A link to sign up for the course slack page can be found on the one (and only) announcement on Blackboard.
 
-Watch this 2-minute video to see what Slack is all about:
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/9RJZMSsH7-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 **You can use Slack to**:
 
 - Ask general questions.
@@ -27,22 +23,28 @@ Watch this 2-minute video to see what Slack is all about:
 
 **Asking for help on Slack**:
 
-You can post questions on slack and receive quick responses. This also enables other students to see answers to common questions. Be specific - if your code has an error you don't understand, **include the code and the error message** in your question.
+- When you have a question, post it in the most relevant channel (e.g. use `#hw01` for questions about homework 1).
+- Be specific: if your code has an error you don't understand, **include the code and the error message** in your question.
 
-# Office hours
+Never heard of Slack? Watch this 2-minute video to see what it's all about:
 
-Please watch this video:
+<iframe width="560" height="315" src="https://www.youtube.com/embed/9RJZMSsH7-g" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<iframe src="https://player.vimeo.com/video/270014784" width="640" height="360" frameborder="0" allow="autoplay; fullscreen" allowfullscreen="">
-</iframe>
+# Appointments w/Prof. Helveston
 
-Office hours are set times dedicated to all of you. This means that I will be in my office (wistfully) waiting for you to come by with whatever questions you have. This is the best and easiest way to find me outside of class and the best chance for discussing class material and concerns (or anything really). Please come by!
+Rather than hold the same "Office Hours" every week, you can [use this app](https://jhelvy.appointlet.com/b/professor-helveston) to schedule a meeting with Prof. Helveston (also linked in the "Tools" menu above). This will automatically send a calendar invite with a link to a Webex video call.
 
-This can be a difficult class - **do not suffer in silence!** Come talk to me!
+If you and some classmates want to meet together, have one person schedule the meeting and type in the names of everyone else in the scheduling form.
+
+This can be a difficult class - **do not suffer in silence!** Come talk with me!
 
 # Tutoring hours
 
-Similar to office hours, your class tutors will each hold a specific period of time each week dedicated to help you will course assignments. Please don't make your tutors sit and do emails for two hours - come by and ask for help!
+Your class tutors will each hold a specific period of time each week dedicated to help you will course assignments. Please don't make your tutors sit and do emails for two hours - come by and ask for help!
+
+# GW Coders
+
+[GW Coders](http://gwcoders.github.io/) is a study group that brings together students and faculty to apply computational and data analytics skills in research. It can be another great community to get extra help and expand your coding skills beyond what is covered in this class. Regular weekly meetings are usually held on Fridays - check their [events](https://gwcoders.github.io/studyGroup/#events) page for details.
 
 # Library Services
 

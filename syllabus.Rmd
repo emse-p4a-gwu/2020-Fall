@@ -165,13 +165,13 @@ This class can be challenging - don't suffer in silence. Look at the ["Getting H
 
 - **BE NICE. BE HONEST. DON'T CHEAT.**
 - Write your own code - don't look at others' code & don't let others look at your code.
-- Due dates are flexible; if you submit an assignment, it will be graded (up until Oct. 20 for homeworks 1-6, and Dec. 8 for homeworks 7-12).
+- Homework due dates are "soft"; if you submit an assignment, it will be graded (up until Oct. 20 for homeworks 1-6, and Dec. 8 for homeworks 7-12).
 
 ## Late Policy
 
-Individual assignment due dates are flexible, but the longer you wait to complete each assignment, the poorer you'll likely do on quizzes and exams.
+Homework assignment due dates are "soft," but the longer you wait to complete each assignment, the poorer you'll likely do on quizzes and exams.
 
-There are two hard deadlines for submitting homework assignments:
+There are two **hard** deadlines for submitting homework assignments:
 
 - Oct. 20: Homeworks 1-6
 - Dec. 8: Homeworks 7-12
