@@ -14,7 +14,7 @@ source("knitr_setup.R")
 > ### Learning Objectives
 >
 > * Get familiar with using R in RStudio
-> * Be able to use R to create and store values as objects. 
+> * Be able to use R to create and store values as objects.
 > * Know some of the ways R handles certain things, like spaces.
 > * Know how to create comments with the `#` symbol.
 > * Know some best practices for staying organized in R with R projects.
@@ -84,7 +84,7 @@ In fact, the best coders sometimes _intentionally_ write code with known errors 
 Error in 3 + "4" : non-numeric argument to binary operator
 ```
 
-Here R is saying that there was a "non-numeric argument" somewhere. That suggests that the problem might be with something not being a number. As we just discussed, `"4"` is a character, or a "non-numeric argument". 
+Here R is saying that there was a "non-numeric argument" somewhere. That suggests that the problem might be with something not being a number. As we just discussed, `"4"` is a character, or a "non-numeric argument".
 
 With practice, you'll get better at embracing and interpreting R's error messages.
 
@@ -98,7 +98,7 @@ x <- 2
 
 Here the symbol `<-` is meant to look like an arrow. It means "assign the value `2` to the object named `x`".
 
-> TIP: To quickly type `<-`, use the shortcut `option` + `-` (mac) or `alt` + `-` (windows). There are lots of other helpful [shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts). Type `Alt` + `Shift` + `K` to bring up a shortcut reference card).
+> PRO TIP: To quickly type `<-`, use the shortcut `option` + `-` (mac) or `alt` + `-` (windows). There are lots of other helpful [shortcuts](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts). Type `Alt` + `Shift` + `K` to bring up a shortcut reference card).
 
 Since we assigned the value `2` to `x`, if we type `x` into the console and press "enter" R will return the stored value:
 
@@ -113,7 +113,7 @@ x <- 42
 x
 ```
 
-> TIP: Always surround `<-` with spaces to avoid confusion! For example, if you typed `x<-2` (no spaces), it's not clear if you meant `x <- 2` or `x < -2`. The first one assigns `2` to `x`, but the second one compares whether `x` is less than `-2`.
+> PRO TIP: Always surround `<-` with spaces to avoid confusion! For example, if you typed `x<-2` (no spaces), it's not clear if you meant `x <- 2` or `x < -2`. The first one assigns `2` to `x`, but the second one compares whether `x` is less than `-2`.
 
 ## Use meaningful variable names
 
