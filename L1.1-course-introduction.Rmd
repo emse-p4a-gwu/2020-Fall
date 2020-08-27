@@ -1,6 +1,9 @@
 ---
 title: "Course Introduction"
-output: html_document
+output:
+  html_document:
+    number_sections: false
+    toc: yes
 ---
 
 <!-- For circle images -->

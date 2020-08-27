@@ -1,6 +1,9 @@
 ---
 title: "Functions & Packages"
-output: html_document
+output:
+  html_document:
+    number_sections: false
+    toc: yes
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
@@ -11,7 +14,7 @@ source("knitr_setup.R")
 > ### Learning Objectives
 >
 > * Know some common functions in R.
-> * Know how R handles function arguments and named arguments. 
+> * Know how R handles function arguments and named arguments.
 > * Know how to install and load external R packages.
 >
 > ### Suggested Readings
@@ -24,13 +27,13 @@ You can do a lot with the basic operators like `+`, `-`, and `*`, but to do more
 
 > [Watch this 1-minute video for a quick summary of **functions**](https://vimeo.com/220490105)
 
-R has a lot of very useful built-in functions. For example, if I wanted to take the square root of 225, I could use R's built-in square root function `sqrt()`: 
+R has a lot of very useful built-in functions. For example, if I wanted to take the square root of 225, I could use R's built-in square root function `sqrt()`:
 
 ```{r}
 sqrt(225)
 ```
 
-Here the letters `sqrt` are short for "square root," and the value inside the `()` is the "input" to the function. 
+Here the letters `sqrt` are short for "square root," and the value inside the `()` is the "input" to the function.
 
 R has LOTS of functions, and sometimes it's difficult to remember the details of what they do. If you're not sure, you can ask R for help by typing `?` and then the function name, and then R will return some documentation about it. For example, type `?sqrt()` into the console and R will return information about how to use the `sqrt()` function.
 
@@ -100,7 +103,7 @@ When you start R, it only loads the "Base R" functions (e.g. `sqrt()`, `round()`
 
 > [Watch this 1-minute video for a quick summary of **packages**](https://vimeo.com/220490447)
 
-## Installing and loading packages 
+## Installing and loading packages
 
 To install a package, use the `install.packages()` command. Make sure you put the package name in quotes:
 

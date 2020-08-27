@@ -1,6 +1,9 @@
 ---
 title: "Conditionals"
-output: html_document
+output:
+  html_document:
+    number_sections: false
+    toc: yes
 ---
 
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}

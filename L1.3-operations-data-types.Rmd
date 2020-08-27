@@ -474,9 +474,9 @@ Example         | "Chop" point | "Chop" point description
 `1234 %% 10000` | ` | 1234`    | Right of the `10,000`'s digit
 </div>
 
-## Odds and evens with `%%`
+## Odds and evens with `n %% 2`
 
-You can tell if an integer is even or odd by using mod `2`. If you get `0`, it's even; if you `1`, it's odd:
+You can tell if an integer is even or odd by using mod `2`. If you get `0`, it's even; if you `1`, it's odd!
 
 ```{r}
 10 %% 2 # Even
