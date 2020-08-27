@@ -782,8 +782,20 @@ x</code></pre>
 </blockquote>
 <div id="use-meaningful-variable-names" class="section level2">
 <h2>Use meaningful variable names</h2>
+<p>You can choose almost any name you like for an object, so long as the name does not begin with a <em>number</em> or a special character like <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>, <code>!</code>, <code>@</code>, or <code>&amp;</code>. But you should always use variable names that <strong>describe the thing you’re assigning</strong>. This practice will save you major headaches later when you have lots of objects in your environment.</p>
+<p>For example, let’s say you have measured the length of a caterpillar and want to store it as an object. Here are three options for creating the object:</p>
+<p><strong>Poor</strong> variable name:</p>
+<pre class="r"><code>x &lt;- 42</code></pre>
+<p><strong>Good</strong> variable name:</p>
+<pre class="r"><code>length_mm &lt;- 42</code></pre>
+<p><strong>Even better</strong> variable name:</p>
+<pre class="r"><code>caterpillar_length_mm &lt;- 42</code></pre>
+<p>The first name, <code>x</code>, tells us nothing about what the value <code>42</code> means (are we counting something? <code>42</code> of what?). The second name, <code>length_mm</code>, tells us that <code>42</code> is the length of something, and that it’s measured in millimeters. Finally, the last name, <code>caterpillar_length_mm</code>, tells us that <code>42</code> is the length of a caterpillar, measured in millimeters.</p>
+</div>
+<div id="use-standard-casing-styles" class="section level2">
+<h2>Use standard casing styles</h2>
 <p><img src="images/horst_casing.jpg" width=600> Art by <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst</a></p>
-<p>You can choose almost any name you like for an object, so long as the name does not begin with a <em>number</em> or a special character like <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>^</code>, <code>!</code>, <code>@</code>, or <code>&amp;</code>. You will be wise to adopt a <a href="https://en.wikipedia.org/wiki/Camel_case">convention for demarcating words</a> in names. I recommend using one of these:</p>
+<p>You will be wise to adopt a <a href="https://en.wikipedia.org/wiki/Camel_case">convention for demarcating words</a> in names. I recommend using one of these:</p>
 <ul>
 <li><code>snake_case_uses_underscores</code></li>
 <li><code>camelCaseUsesCaps</code></li>
@@ -809,11 +821,11 @@ Cases_matter &lt;- 3</code></pre>
 <h2>The workspace</h2>
 <p>Look at your workspace in the upper-right pane. The workspace is where user-defined objects accumulate. You can also get a listing of these objects with commands:</p>
 <pre class="r"><code>objects()</code></pre>
-<pre><code>## [1] &quot;cases_matter&quot;        &quot;Cases_matter&quot;        &quot;this_is_a_long_name&quot;
-## [4] &quot;x&quot;</code></pre>
+<pre><code>## [1] &quot;cases_matter&quot;          &quot;Cases_matter&quot;          &quot;caterpillar_length_mm&quot;
+## [4] &quot;length_mm&quot;             &quot;this_is_a_long_name&quot;   &quot;x&quot;</code></pre>
 <pre class="r"><code>ls()</code></pre>
-<pre><code>## [1] &quot;cases_matter&quot;        &quot;Cases_matter&quot;        &quot;this_is_a_long_name&quot;
-## [4] &quot;x&quot;</code></pre>
+<pre><code>## [1] &quot;cases_matter&quot;          &quot;Cases_matter&quot;          &quot;caterpillar_length_mm&quot;
+## [4] &quot;length_mm&quot;             &quot;this_is_a_long_name&quot;   &quot;x&quot;</code></pre>
 <p>If you want to remove the object named <code>x</code>, you can do this</p>
 <pre class="r"><code>rm(x)</code></pre>
 <p>To remove everything, use this:</p>
@@ -876,8 +888,9 @@ ggplot(data = penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
 <div id="using-comments" class="section level2">
 <h2>Using comments</h2>
 <p>In R, the <code>#</code> symbol is a special symbol that denotes a comment. R will ignore anything on the same line that follows the <code>#</code> symbol. This enables us to write comments around our code to explain what we’re doing:</p>
-<pre class="r"><code>2 + 2 # I&#39;m adding two numbers</code></pre>
-<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>speed &lt;- 55 # This is km/h, not mph!
+speed</code></pre>
+<pre><code>## [1] 55</code></pre>
 <p>Notice that R ignores the whole sentence after the <code>#</code> symbol.</p>
 </div>
 </div>
