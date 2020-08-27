@@ -117,9 +117,32 @@ x
 
 ## Use meaningful variable names
 
+You can choose almost any name you like for an object, so long as the name does not begin with a *number* or a special character like `+`, `-`, `*`, `/`, `^`, `!`, `@`, or `&`. But you should always use variable names that **describe the thing you're assigning**. This practice will save you major headaches later when you have lots of objects in your environment.
+
+For example, let's say you have measured the length of a caterpillar and want to store it as an object. Here are three options for creating the object:
+
+**Poor** variable name:
+```{r}
+x <- 42
+```
+
+**Good** variable name:
+```{r}
+length_mm <- 42
+```
+
+**Even better** variable name:
+```{r}
+caterpillar_length_mm <- 42
+```
+
+The first name, `x`, tells us nothing about what the value `42` means (are we counting something? `42` of what?). The second name, `length_mm`, tells us that `42` is the length of something, and that it's measured in millimeters. Finally, the last name, `caterpillar_length_mm`, tells us that `42` is the length of a caterpillar, measured in millimeters.
+
+## Use standard casing styles
+
 <img src="images/horst_casing.jpg" width=600> Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
 
-You can choose almost any name you like for an object, so long as the name does not begin with a *number* or a special character like `+`, `-`, `*`, `/`, `^`, `!`, `@`, or `&`. You will be wise to adopt a [convention for demarcating words](https://en.wikipedia.org/wiki/Camel_case) in names. I recommend using one of these:
+You will be wise to adopt a [convention for demarcating words](https://en.wikipedia.org/wiki/Camel_case) in names. I recommend using one of these:
 
 - `snake_case_uses_underscores`
 - `camelCaseUsesCaps`
@@ -249,7 +272,8 @@ Basically, you can put spaces between _different_ values, and you can put as man
 In R, the `#` symbol is a special symbol that denotes a comment. R will ignore anything on the same line that follows the `#` symbol. This enables us to write comments around our code to explain what we're doing:
 
 ```{r}
-2 + 2 # I'm adding two numbers
+speed <- 55 # This is km/h, not mph!
+speed
 ```
 
 Notice that R ignores the whole sentence after the `#` symbol.
