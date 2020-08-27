@@ -706,7 +706,7 @@ div.tocify {
 </ul>
 </blockquote>
 <div id="functions" class="section level1">
-<h1><span class="header-section-number">1</span> Functions</h1>
+<h1>Functions</h1>
 <p>You can do a lot with the basic operators like <code>+</code>, <code>-</code>, and <code>*</code>, but to do more advanced calculations you’re going to need to start using functions.<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></p>
 <blockquote>
 <p><a href="https://vimeo.com/220490105">Watch this 1-minute video for a quick summary of <strong>functions</strong></a></p>
@@ -717,7 +717,7 @@ div.tocify {
 <p>Here the letters <code>sqrt</code> are short for “square root,” and the value inside the <code>()</code> is the “input” to the function.</p>
 <p>R has LOTS of functions, and sometimes it’s difficult to remember the details of what they do. If you’re not sure, you can ask R for help by typing <code>?</code> and then the function name, and then R will return some documentation about it. For example, type <code>?sqrt()</code> into the console and R will return information about how to use the <code>sqrt()</code> function.</p>
 <div id="some-common-functions" class="section level2">
-<h2><span class="header-section-number">1.1</span> Some common functions</h2>
+<h2>Some common functions</h2>
 <table>
 <colgroup>
 <col width="16%" />
@@ -786,14 +786,14 @@ div.tocify {
 </table>
 </div>
 <div id="combining-functions" class="section level2">
-<h2><span class="header-section-number">1.2</span> Combining functions</h2>
+<h2>Combining functions</h2>
 <p>In the same way that R allows us to put multiple operations together into a longer command (like <code>1 + 2 * 4</code> for instance), it also lets us put functions together and even combine functions with operators if we so desire. For example, the following is a perfectly legitimate command:</p>
 <pre class="r"><code>sqrt(1 + abs(-8))</code></pre>
 <pre><code>## [1] 3</code></pre>
 <p>When R executes this command, starts out by calculating the value of <code>abs(-8)</code>, which produces an intermediate value of <code>8</code>. The command then simplifies to <code>sqrt(1 + 8)</code>. To solve the square root<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a> it first needs to add <code>1 + 8</code> to get <code>9</code>, at which point it evaluates <code>sqrt(9)</code>, and so it finally outputs a value of <code>3</code>.</p>
 </div>
 <div id="arguments" class="section level2">
-<h2><span class="header-section-number">1.3</span> Arguments</h2>
+<h2>Arguments</h2>
 <p>When we use a function to do something, we generally refer to this as <strong>calling</strong> the function. The values that we type into the function are referred to as the <strong>arguments</strong> of that function. Some functions can have more than one argument.</p>
 <blockquote>
 <p><a href="https://vimeo.com/220490157">Watch this 1-minute video for a quick summary of <strong>arguments</strong></a></p>
@@ -801,7 +801,7 @@ div.tocify {
 <p>In the very first example we showed, the value <code>225</code> was the “argument” to the command <code>sqrt(225)</code>.</p>
 </div>
 <div id="multiple-arguments" class="section level2">
-<h2><span class="header-section-number">1.4</span> Multiple arguments</h2>
+<h2>Multiple arguments</h2>
 <p>Some functions have more than one argument. For example, the <code>round()</code> function can be used to round some value to the nearest integer or to a specified decimal place:</p>
 <pre class="r"><code>round(3.14165)</code></pre>
 <pre><code>## [1] 3</code></pre>
@@ -810,27 +810,76 @@ div.tocify {
 <p>In the second example above, the second argument of <code>2</code> determines the number of decimal places that you want to round the number to. This is an optional input - if nothing is provided, the function will round to the nearest integer.</p>
 </div>
 <div id="argument-names" class="section level2">
-<h2><span class="header-section-number">1.5</span> Argument names</h2>
+<h2>Argument names</h2>
 <p>In this simple example, it’s not too hard to remember which argument comes first and which one comes second, but it starts to get very difficult once you start using complicated functions that have lots of arguments. Fortunately, most R functions use <strong>argument names</strong> to make your life a little easier. For the <code>round()</code> function, for example, the number that needs to be rounded is specified using the <code>x</code> argument, and the number of decimal points that you want it rounded to is specified using the <code>digits</code> argument:</p>
 <pre class="r"><code>round(x = 3.1415, digits = 2)</code></pre>
 <pre><code>## [1] 3.14</code></pre>
 </div>
 <div id="default-values" class="section level2">
-<h2><span class="header-section-number">1.6</span> Default values</h2>
+<h2>Default values</h2>
 <p>Notice that the first time I called the <code>round()</code> function I didn’t actually specify the <code>digits</code> argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the <code>digits</code> argument has a <strong>default value</strong> of <code>0</code>, meaning that if you decide not to specify a value for <code>digits</code> then R will act as if you had typed <code>digits = 0</code>. This is quite handy: most of the time when you want to round a number you want to round it to the nearest <em>whole</em> number, and it would be pretty annoying to have to specify the <code>digits</code> argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn’t allow this! Thus, by having <code>digits = 0</code> as the default value, we get the best of both worlds.</p>
 <p>Finally, not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Thu Aug 27 13:05:16 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Aug 27 19:34:56 2020&quot;</code></pre>
+</div>
+</div>
+<div id="functions-for-manipulating-data-types" class="section level1">
+<h1>Functions for manipulating data types</h1>
+<p>One common family of functions has to do with <em>checking</em> specific data types and <em>coercing</em> data of one type into another.</p>
+<div id="coercing-data-types" class="section level2">
+<h2>Coercing data types</h2>
+<p>You can force an object of one type into another using <code>as.______()</code>, replacing “<code>______</code>” with a data type:</p>
+<pre class="r"><code>as.integer(3.1415)   # Converts double to integer</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>as.numeric(&quot;3.1415&quot;) # Converts character to numeric</code></pre>
+<pre><code>## [1] 3.1415</code></pre>
+<pre class="r"><code>as.character(3.1415) # Converts double to character</code></pre>
+<pre><code>## [1] &quot;3.1415&quot;</code></pre>
+<pre class="r"><code>as.logical(3.1415)   # Converts numeric to logical</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<p>A few notes to keep in mind:</p>
+<ol style="list-style-type: decimal">
+<li><p>When converting from a <strong>numeric</strong> to a <strong>logical</strong>, <code>as.logical()</code> will always return <code>TRUE</code> for any numeric value other than <code>0</code>, for which it returns <code>FALSE</code>.</p></li>
+<li><p>Not everything can be converted. For example, if you try to coerce a character into a number, R will return <code>NA</code>:</p></li>
+</ol>
+<pre class="r"><code>as.numeric(&#39;foo&#39;)</code></pre>
+<pre><code>## Warning: NAs introduced by coercion</code></pre>
+<pre><code>## [1] NA</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>If you want to force a non-integer number into an integer value, but you don’t want to change the actual <em>type</em> to an integer type, use <code>round()</code>, <code>ceiling()</code>, or <code>floor()</code>. This will turn the number into an integer in <em>value</em>, but it will still technically be a <code>double</code> type.</li>
+</ol>
+<pre class="r"><code>round(3.1415)   # Typical rounding</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>ceiling(3.1415) # Rounds *up* to nearest integer</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="r"><code>floor(3.1415)   # Rounds *down* to nearest integer</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div id="checking-data-types" class="section level2">
+<h2>Checking data types</h2>
+<p>Similar to the <code>as.______()</code> format, you can check if an object is a specific data type using <code>is.______()</code>, replacing “<code>______</code>” with a data type:</p>
+<pre class="r"><code>is.numeric(7)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>is.integer(7)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>is.character(7)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>is.logical(7)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>One thing you’ll notice is that <code>is.integer()</code> often gives you a surprising result. For example, why did <code>is.integer(7)</code> return <code>FALSE</code>?. Well, this is because numbers are <em>doubles</em> by default in R, so even though <code>7</code> <strong>looks</strong> like an integer, R thinks it’s a double.</p>
+<p>The safer way to check if a number is an integer in <em>value</em> is to compare it against itself converted into an integer:</p>
+<pre class="r"><code>7 == as.integer(7)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
 </div>
 </div>
 <div id="packages" class="section level1">
-<h1><span class="header-section-number">2</span> Packages</h1>
+<h1>Packages</h1>
 <p>When you start R, it only loads the “Base R” functions (e.g. <code>sqrt()</code>, <code>round()</code>, etc.), but there are thousands and thousands of additional functions stored in external <strong>packages</strong>.</p>
 <blockquote>
 <p><a href="https://vimeo.com/220490447">Watch this 1-minute video for a quick summary of <strong>packages</strong></a></p>
 </blockquote>
 <div id="installing-and-loading-packages" class="section level2">
-<h2><span class="header-section-number">2.1</span> Installing and loading packages</h2>
+<h2>Installing and loading packages</h2>
 <p>To install a package, use the <code>install.packages()</code> command. Make sure you put the package name in quotes:</p>
 <pre class="r"><code>install.packages(&quot;packagename&quot;) # This works
 install.packages(packagename)   # This doesn&#39;t work</code></pre>
@@ -841,15 +890,15 @@ library(packagename)   # This also works</code></pre>
 <p><img src="images/package_lightbulb.png" width="800" /></p>
 </div>
 <div id="example" class="section level2">
-<h2><span class="header-section-number">2.2</span> Example</h2>
+<h2>Example</h2>
 <p>As an example, try installing the <a href="https://github.com/keithmcnulty/wikifacts">Wikifacts</a> package, by Keith McNulty:</p>
 <pre class="r"><code>install.packages(&quot;wikifacts&quot;) # Remember - you only have to do this once!</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that on June 10 in 1838 – At least 28 Indigenous Australians were massacred at Myall Creek, New South Wales. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that the Russian occupations of Beirut in 1772 and 1773 marked the first period in over 250 years that Beirut was ruled by a power other than the Ottoman Empire? (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that the production of the film El Caracazo required a military security presence for the filming of scenes of riot and massacre in the centre of the Venezuelan capital of Caracas? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that despite the party&#39;s anti-smoking faction, the Sturmabteilung was funded by a Nazi cigarette company (advertisement pictured)? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 <hr />
 <p><strong>Page sources</strong>:</p>

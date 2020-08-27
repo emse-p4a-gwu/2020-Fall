@@ -710,7 +710,7 @@ div.tocify {
 <p>Similar to conditionals (remember those <a href="L4.1-conditionals.html">if / else statements</a>?), loops are another kind of “flow control” - that is, code that alters the otherwise linear flow of operations from the top of a script straight through to the end. The idea is simple: a loop is a block of code (i.e., a sequence of commands) that R will execute over and over again until some <em>termination criterion</em> is met.</p>
 <p>The main two types of loops are <code>for</code> and <code>while</code> loops.</p>
 <div id="the-for-loop" class="section level1">
-<h1><span class="header-section-number">1</span> The <code>for</code> loop</h1>
+<h1>The <code>for</code> loop</h1>
 <p>Use <code>for</code> loops when there is a known number of iterations. The basic format of a <code>for</code> loop goes like this:</p>
 <pre><code>for (VALUE in SEQUENCE) {
   STATEMENT1
@@ -722,7 +722,7 @@ div.tocify {
 <img src="images/loop_for.png" width="350" />
 </center>
 <div id="looping-over-numbers" class="section level2">
-<h2><span class="header-section-number">1.1</span> Looping over numbers</h2>
+<h2>Looping over numbers</h2>
 <p>It is common to use a sequence of integers for the values in <code>SEQUENCE</code>. The simplest way to do this is to use the <code>:</code> operator. For example, the code <code>1:10</code> creates the integers 1 through 10. The following <code>for</code> loop uses this sequence to print out each integer in the sequence:</p>
 <pre class="r"><code># Print the numbers from 1 to 10
 for (i in 1:10) {
@@ -750,7 +750,7 @@ for (i in seq(1, 10, by=2)) {
 ## [1] 9</code></pre>
 </div>
 <div id="looping-over-other-things" class="section level2">
-<h2><span class="header-section-number">1.2</span> Looping over other things</h2>
+<h2>Looping over other things</h2>
 <p>R will loop over any sequence you create. For example, you can loop over a vector of characters (The <code>c()</code> function creates a “vector”…we’ll get to those <a href="L6-vectors.html">next lesson</a>):</p>
 <pre class="r"><code>x &lt;- c(&#39;If&#39;, &#39;you&#39;, &#39;want&#39;, &#39;to&#39;, &#39;view&#39;, &#39;paradise,&#39;, &#39;simply&#39;, &#39;look&#39;,
        &#39;around&#39;, &#39;and&#39;, &#39;view&#39;, &#39;it.&#39;)
@@ -781,7 +781,7 @@ for (i in x) {
 ## [1] TRUE</code></pre>
 </div>
 <div id="nested-for-loops" class="section level2">
-<h2><span class="header-section-number">1.3</span> Nested <code>for</code> loops</h2>
+<h2>Nested <code>for</code> loops</h2>
 <p>You can have loops inside loops! This is useful when working on things that have more than one dimension. For example, let’s print out a 5 x 5 rectangle out of asterisks (<code>*</code>) by looping over rows and columns:</p>
 <pre class="r"><code>n &lt;- 5
 for (row in seq(n)) {
@@ -800,7 +800,7 @@ for (row in seq(n)) {
 </div>
 </div>
 <div id="the-while-loop" class="section level1">
-<h1><span class="header-section-number">2</span> The <code>while</code> loop</h1>
+<h1>The <code>while</code> loop</h1>
 <blockquote>
 <p>A friend calls her programmer roommate and says, “while you’re out, buy some milk”…her roommate never returned home.</p>
 <p><img src="images/laugh_emoji.png" width="100" /></p>
@@ -839,9 +839,9 @@ for (row in seq(n)) {
 <hr />
 </div>
 <div id="the-break-and-next-statements" class="section level1">
-<h1><span class="header-section-number">3</span> The break and next statements</h1>
+<h1>The break and next statements</h1>
 <div id="break" class="section level2">
-<h2><span class="header-section-number">3.1</span> break</h2>
+<h2>break</h2>
 <p>You can force a loop to stop by inserting the <code>break</code> statement in the loop. In a nested loop, the <code>break</code> statement exits from the innermost loop that is being evaluated. Here’s an example:</p>
 <pre class="r"><code>for (val in 1:5) {
     if (val == 3) {
@@ -854,7 +854,7 @@ for (row in seq(n)) {
 <p>In this example, we iterate over the consecutive numbers from 1 to 5. Inside the for loop we have used a if condition to break if the current value is equal to 3. As we can see from the output, the loop terminates when it encounters the break statement.</p>
 </div>
 <div id="next" class="section level2">
-<h2><span class="header-section-number">3.2</span> next</h2>
+<h2>next</h2>
 <p>A <code>next</code> statement is useful when we want to skip the current iteration of a loop without terminating it. On encountering <code>next</code>, R will jump to the end of the loop and start the next iteration. Here’s an example:</p>
 <pre class="r"><code>for (val in 1:5) {
     if (val == 3) {

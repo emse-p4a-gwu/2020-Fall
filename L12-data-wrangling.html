@@ -714,7 +714,7 @@ div.tocify {
 </blockquote>
 <hr />
 <div id="r-setup" class="section level1">
-<h1><span class="header-section-number">1</span> R Setup</h1>
+<h1>R Setup</h1>
 <p>Before we get started, let’s set up our analysis environment:</p>
 <ol style="list-style-type: decimal">
 <li>Open up your “data-analysis-tutorial” R Project that you created in the last lesson - if you didn’t do this, <a href="L10-data-analysis-1-data-frames.html#41_r_setup">go back and do it now</a>.</li>
@@ -882,14 +882,14 @@ df &lt;- read_csv(file.path(&#39;data&#39;, &#39;wildlife_impacts.csv&#39;))</co
 <p>…over 5 strikes per day!</p>
 </div>
 <div id="data-wrangling-with-dplyr" class="section level1">
-<h1><span class="header-section-number">2</span> Data wrangling with <code>dplyr</code></h1>
+<h1>Data wrangling with <code>dplyr</code></h1>
 <p><img src="images/horst_monsters_data_wrangling.png" width="500" /> <a href="https://github.com/allisonhorst">[Art by Allison Horst]</a></p>
 <p>“Data Wrangling” refers to the art of getting your data into R in a useful form for visualization and modeling. Wrangling is the first step in the general data science process:</p>
 <center>
 <img src="images/data-wrangle.png" />
 </center>
 <div id="what-is-dplyr" class="section level2">
-<h2><span class="header-section-number">2.1</span> What is <code>dplyr</code></h2>
+<h2>What is <code>dplyr</code></h2>
 <p>As we saw in the last section, we can use brackets (<code>[]</code>) to access elements of a data frame. While this is handy, it can be cumbersome and difficult to read, especially for complicated operations.</p>
 <p><strong>Enter <code>dplyr</code></strong></p>
 <p>The <code>dplyr</code> package was designed to make tabular data wrangling easier to perform and read. It pairs nicely with other libraries, such as <strong><code>ggplot2</code></strong> for visualizing data (which we’ll cover next week). Together, <code>dplyr</code>, <code>ggplot2</code>, and a handful of other packages make up what is known as the <a href="https://www.tidyverse.org/">“Tidyverse”</a> - an opinionated collection of R packages designed for data science. You can load all of the tidyverse packages at once using the <code>library(tidyverse)</code> command, but for now we’re just going to install and use each package one at a time - starting with <code>dplyr</code>:</p>
@@ -906,7 +906,7 @@ df &lt;- read_csv(file.path(&#39;data&#39;, &#39;wildlife_impacts.csv&#39;))</co
 </ul>
 </div>
 <div id="select-columns-with-select" class="section level2">
-<h2><span class="header-section-number">2.2</span> Select columns with <code>select()</code></h2>
+<h2>Select columns with <code>select()</code></h2>
 <p><img src="images/rstudio-cheatsheet-select.png" width="500" /></p>
 <p>To select specific columns, use <code>select()</code>. The first argument to this function is the data frame (<code>df</code>), and the subsequent arguments are the columns to keep:</p>
 <pre class="r"><code># Select only a few columns
@@ -953,7 +953,7 @@ select(df, state, damage, time_of_day)</code></pre>
 </ol>
 </div>
 <div id="select-rows-with-filter" class="section level2">
-<h2><span class="header-section-number">2.3</span> Select rows with <code>filter()</code></h2>
+<h2>Select rows with <code>filter()</code></h2>
 <p><img src="images/rstudio-cheatsheet-filter.png" width="500" /></p>
 <p>Filter the rows for wildlife impacts that occurred in DC:</p>
 <pre class="r"><code>filter(df, state == &#39;DC&#39;)</code></pre>
@@ -996,7 +996,7 @@ select(df, state, damage, time_of_day)</code></pre>
 ## [90m#   phase_of_flt [3m[90m&lt;chr&gt;[90m[23m, sky [3m[90m&lt;chr&gt;[90m[23m, precip [3m[90m&lt;chr&gt;[90m[23m, cost_repairs_infl_adj [3m[90m&lt;dbl&gt;[90m[23m[39m</code></pre>
 </div>
 <div id="sequence-operations-with-pipes" class="section level2">
-<h2><span class="header-section-number">2.4</span> Sequence operations with pipes (<code>%&gt;%</code>)</h2>
+<h2>Sequence operations with pipes (<code>%&gt;%</code>)</h2>
 <p><img src="images/magrittr.png" width="200" /> (logo is a reference to <a href="https://en.wikipedia.org/wiki/The_Treachery_of_Images">The Treachery of Images</a>)</p>
 <p>What if you want to select and filter at the same time? Well, one way to do this is to use intermediate steps. To do this, you first create a temporary data frame and then use that as input to the next function, like this:</p>
 <pre class="r"><code>dc_impacts &lt;- filter(df, state == &#39;DC&#39;)
@@ -1056,7 +1056,7 @@ head(dc_impacts)</code></pre>
 ## [90m6[39m AMERICAN AIRLINES  [4m2[24m022 Night</code></pre>
 </div>
 <div id="sort-rows-with-arrange" class="section level2">
-<h2><span class="header-section-number">2.5</span> Sort rows with <code>arrange()</code></h2>
+<h2>Sort rows with <code>arrange()</code></h2>
 <p>Use the <code>arrange()</code> function to sort a data frame by a column. For example, if you wanted to view the least expensive accidents, you could arrange the data frame by the variable <code>cost_repairs_infl_adj</code>:</p>
 <pre class="r"><code># Arrange by least expensive accident
 df %&gt;%
@@ -1103,7 +1103,7 @@ df %&gt;%
 ## [90m#   cost_repairs_infl_adj [3m[90m&lt;dbl&gt;[90m[23m[39m</code></pre>
 </div>
 <div id="create-new-variables-with-mutate" class="section level2">
-<h2><span class="header-section-number">2.6</span> Create new variables with <code>mutate()</code></h2>
+<h2>Create new variables with <code>mutate()</code></h2>
 <p><img src="images/rstudio-cheatsheet-mutate.png" width="500" /></p>
 <p>You will often need to create new columns based on the values in existing columns. For this use <code>mutate()</code>. For example, let’s create a new variable converting the <code>height</code> variable from feet to miles:</p>
 <pre class="r"><code>df %&gt;%
@@ -1165,7 +1165,7 @@ df %&gt;%
 </div>
 </div>
 <div id="split-apply-combine" class="section level1">
-<h1><span class="header-section-number">3</span> Split-apply-combine</h1>
+<h1>Split-apply-combine</h1>
 <p>Many data analysis tasks can be approached using the <em>split-apply-combine</em> paradigm:</p>
 <ol style="list-style-type: decimal">
 <li>Split the data into groups</li>
@@ -1174,7 +1174,7 @@ df %&gt;%
 </ol>
 <p><code>dplyr</code> makes this very easy through the use of the <code>group_by()</code> function.</p>
 <div id="the-group_by-function" class="section level2">
-<h2><span class="header-section-number">3.1</span> The <code>group_by()</code> function</h2>
+<h2>The <code>group_by()</code> function</h2>
 <p><img src="images/rstudio-cheatsheet-group_by.png" width="500" /></p>
 <p>The <code>group_by()</code> function enables you to perform operations across groups within the data frame. It is typically used by inserting it in the “pipeline” before the desired group operation. For example, if we wanted to add a a new column that computed the mean height of reported wildlife impacts for each state, we could insert <code>group_by(state)</code> in the pipeline:</p>
 <pre class="r"><code>df %&gt;%
@@ -1200,7 +1200,7 @@ df %&gt;%
 <p>You’ll see that the same value for <code>mean_height</code> is reported for the same states (e.g. the mean height in Florida is 892 ft).</p>
 </div>
 <div id="the-summarize-function" class="section level2">
-<h2><span class="header-section-number">3.2</span> The <code>summarize()</code> function</h2>
+<h2>The <code>summarize()</code> function</h2>
 <p><img src="images/rstudio-cheatsheet-summarise.png" width="500" /></p>
 <p>The <code>group_by()</code> function is often used together with <code>summarize()</code>, which collapses each group into a single-row summary of that group. For example, we collapse the result of the previous example by using <code>summarise()</code> instead of <code>mutate()</code>:</p>
 <pre class="r"><code>df %&gt;%
@@ -1287,7 +1287,7 @@ df %&gt;%
 ## [90m# … with 203 more rows[39m</code></pre>
 </div>
 <div id="counting" class="section level2">
-<h2><span class="header-section-number">3.3</span> Counting</h2>
+<h2>Counting</h2>
 <p>Often times you will want to know the number of observations found for each variable or combination of variables. One way to do this is to use the <code>group_by()</code> and <code>summarise()</code> functions in combination. For example, here is the number of observations for each aircraft engine type:</p>
 <pre class="r"><code>df %&gt;%
     group_by(type_eng) %&gt;%
@@ -1343,7 +1343,7 @@ df %&gt;%
 </div>
 </div>
 <div id="exporting-data" class="section level1">
-<h1><span class="header-section-number">4</span> Exporting data</h1>
+<h1>Exporting data</h1>
 <p>Now that you have learned how to use <code>dplyr</code> to extract information from or summarize your raw data, you may want to export these new data sets. Similar to the <code>read_csv()</code> function used for reading CSV files into R, there is a <code>write_csv()</code> function that generates CSV files from data frames.</p>
 <p><strong>Important</strong>: Before using <code>write_csv()</code>, create a new folder called “data_output” and put it in your R Project folder. In general, you should never write generated datasets in the same directory as your raw data. The “data” folder should only contain the raw, unaltered data, and should be left alone to make sure we don’t delete or modify it.</p>
 <p>Let’s save one of the summary data frames from the earlier examples where we computed the min, mean, and max heights of impacts by each state and airline:</p>
@@ -1359,7 +1359,7 @@ df %&gt;%
 <hr />
 </div>
 <div id="tips" class="section level1">
-<h1><span class="header-section-number">5</span> Tips</h1>
+<h1>Tips</h1>
 <p>You will often need to create new variables based on a condition. To do this, you can use the <code>if_else()</code> function. Here’s the general syntax:</p>
 <pre class="r"><code>if_else(&lt;condition&gt;, &lt;if TRUE&gt;, &lt;else&gt;)</code></pre>
 <p>The first argument is a condition. If the condition is TRUE, then the value given to the second argument will be used; if not, then the third argument value will be used.</p>

@@ -708,14 +708,14 @@ div.tocify {
 <p>Here are some other great resources: &gt; * <a href="https://resources.rstudio.com/wistia-rstudio-conf-2018-2/debugging-techniques-in-rstudio-amanda-gadrow-4">Debugging techniques in RStudio</a> - Amanda Gadrow’s talk at rstudio::conf 2018. &gt; * <a href="https://support.rstudio.com/hc/en-us/articles/200713843">Debugging in RStudio article</a></p>
 <hr />
 <div id="writing-test-cases" class="section level1">
-<h1><span class="header-section-number">1</span> Writing test cases</h1>
+<h1>Writing test cases</h1>
 <center>
 <img src="images/test_cases_fry.png" width="300" />
 </center>
 <p>Writing test cases is part of the process of understanding a problem; if you don’t know what the result of an example input should be, you can’t know how to solve the problem.</p>
 <p>Test cases are also used to verify that a solution to a problem is correct – that it works as expected. Without a good set of test cases, we have no idea whether our code actually works!</p>
 <div id="test-case-types" class="section level2">
-<h2><span class="header-section-number">1.1</span> Test case types</h2>
+<h2>Test case types</h2>
 <p>Test cases vary based on the problem, but you generally want to ensure that you have at least one or two of each of the following test case types:</p>
 <ul>
 <li><strong>Normal Cases</strong>: Typical input that should follow the main path through the code.</li>
@@ -726,7 +726,7 @@ div.tocify {
 </ul>
 </div>
 <div id="testing-with-stopifnot" class="section level2">
-<h2><span class="header-section-number">1.2</span> Testing with <code>stopifnot()</code></h2>
+<h2>Testing with <code>stopifnot()</code></h2>
 <p>The <code>stopifnot()</code> function does what you might expect - it stops the function if whatever is inside the <code>()</code> is not <code>TRUE</code>. Let’s look at an example.</p>
 <p>Consider the function <code>isEvenNumber()</code>, which takes a numeric value and returns <code>TRUE</code> if it is an even number and <code>FALSE</code> otherwise:</p>
 <pre class="r"><code>isEvenNumber &lt;- function(n) {
@@ -750,7 +750,7 @@ div.tocify {
 <pre><code>## Testing isEvenNumber()... Passed!</code></pre>
 </div>
 <div id="testing-function-inputs" class="section level2">
-<h2><span class="header-section-number">1.3</span> Testing function inputs</h2>
+<h2>Testing function inputs</h2>
 <p>The two test cases we used for <code>isEvenNumber()</code> are “normal” cases because they use typical inputs and test for expected outputs. A better test function would also include a few other statements to test other points of failure.</p>
 <p>One particular common error is when a user inputs the wrong data type to a function:</p>
 <pre class="r"><code>isEvenNumber(&#39;42&#39;)</code></pre>
@@ -777,7 +777,7 @@ testIsEvenNumber()</code></pre>
 <pre><code>## Testing isEvenNumber()... Passed!</code></pre>
 </div>
 <div id="better-error-messaging-with-stop" class="section level2">
-<h2><span class="header-section-number">1.4</span> Better error messaging with <code>stop()</code></h2>
+<h2>Better error messaging with <code>stop()</code></h2>
 <p>Another approach to checking input types is to explicitly provide a better error message so the user can know what went wrong. For example, rather than return <code>FALSE</code> when we input a string to <code>isEvenNumber()</code>, we can use <code>stop()</code> to halt the function and send an error message:</p>
 <pre class="r"><code>isEvenNumber &lt;- function(n) {
     if (! is.numeric(n)) {
@@ -792,7 +792,7 @@ isEvenNumber(&#39;42&#39;)</code></pre>
 </div>
 </div>
 <div id="debugging" class="section level1">
-<h1><span class="header-section-number">2</span> Debugging</h1>
+<h1>Debugging</h1>
 <p>Bugs are a natural part of the programming process. However, you can reduce the number of bugs you encounter by following a few tips:</p>
 <ul>
 <li>Write code with good style.</li>
@@ -801,7 +801,7 @@ isEvenNumber(&#39;42&#39;)</code></pre>
 <li>Avoid copying and pasting code at all costs (this leads to bug propagation).</li>
 </ul>
 <div id="debugging-your-own-code" class="section level2">
-<h2><span class="header-section-number">2.1</span> Debugging your own code</h2>
+<h2>Debugging your own code</h2>
 <p>The most common case you will run into a bug is when writing new code yourself. Often the mistake is obvious and easily fixed, but sometimes it only appears after multiple levels of calls and is harder to diagnose. There are a few common strategies to use when debugging your own code.</p>
 <ul>
 <li>Use <code>traceback()</code> to determine where a given error is occurring.</li>
@@ -811,7 +811,7 @@ isEvenNumber(&#39;42&#39;)</code></pre>
 <li>Use <code>trace()</code> to start a debugger at a location inside a function.</li>
 </ul>
 <div id="traceback" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> traceback()</h3>
+<h3>traceback()</h3>
 <p>The <code>traceback()</code> function can be used to print a summary of how your program arrived at the error. This is also called a call stack, stack trace or backtrace.</p>
 <p>In R this gives you each call that lead up to the error, which can be very useful for determining what lead to the error.</p>
 <p>You can use <code>traceback()</code> in two different ways, either by calling it immediately after the error has occurred.</p>
@@ -835,13 +835,13 @@ g(&quot;a&quot;)</code></pre>
 #&gt; 1: g(&quot;a&quot;)</code></pre>
 </div>
 <div id="print" class="section level3">
-<h3><span class="header-section-number">2.1.2</span> <code>print()</code></h3>
+<h3><code>print()</code></h3>
 <p>Once you know where an error occurs it is then helpful to know why. Often errors occur because functions are given inputs their authors did not expect, so it is useful to print the value of objects during execution.</p>
 <p>The most basic way to do this is to sprinkle messages throughout your code, with <code>print()</code> or <code>str()</code>. <code>str()</code> is often more useful because it gives more detail into the exact structure of an object, which may not be the structure you expect it to be.</p>
 <p>The main downsides to the print approach is you often have to add them in multiple places to narrow down the error, and you cannot further investigate the object.</p>
 </div>
 <div id="browser" class="section level3">
-<h3><span class="header-section-number">2.1.3</span> <code>browser()</code></h3>
+<h3><code>browser()</code></h3>
 <p>A more sophisticated debugging method is to put a call to <code>browser()</code> in your code. This will stop execution at that point and open R’s interactive debugger. In the debugger you can run any R command to look at objects in the current environment, modify them and continue executing.</p>
 <p>Some useful things to do are</p>
 <ol style="list-style-type: decimal">
@@ -855,19 +855,19 @@ g(&quot;a&quot;)</code></pre>
 </div>
 </div>
 <div id="debugging-in-rstudio" class="section level2">
-<h2><span class="header-section-number">2.2</span> Debugging in RStudio</h2>
+<h2>Debugging in RStudio</h2>
 <div id="editor-breakpoints" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Editor breakpoints</h3>
+<h3>Editor breakpoints</h3>
 <p>RStudio provides some additional tooling for debugging over using R on the command line. First you can set an editor breakpoint by clicking to the left of the line number in the source file, or by pressing <code>Shift+F9</code> with your cursor on the line. A breakpoint is equivalent to a <code>browser()</code> call, but you avoid needing to change your code like <code>browser()</code>.</p>
 <p><img src="images/editor-breakpoint.png" /></p>
 </div>
 <div id="stopping-on-error" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Stopping on error</h3>
+<h3>Stopping on error</h3>
 <p>If you are trying to hunt down a particular error it is often useful to have RStudio enter the debugger when it occurs. You can control the error behavior with (<code>Debug -&gt; On Error -&gt; Error Inspector</code>).</p>
 <p><img src="images/break-in-code.png" /></p>
 </div>
 <div id="debugging-console" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Debugging console</h3>
+<h3>Debugging console</h3>
 <p><img src="images/console-window.png" /></p>
 <p>The RStudio debugging console has a few buttons to make debugging a little nicer, From left to right they are, next (equivalent to <code>n</code>), step info (<code>s</code>), continue (<code>c</code>) and Stop (<code>Q</code>).</p>
 <hr />

@@ -718,7 +718,7 @@ div.tocify {
 <p>…and one of the best ways to develop insights from data is to <em>visualize</em> the data. The best starting point I recommend is to go through the “Introduction” chapter of Rick Scavetta’s <a href="https://www.datacamp.com/courses/data-visualization-with-ggplot2-1">“Data Visualization with ggplot2 (Part 1)”</a> lesson on DataCamp. The introduction section is free and contains three 5-minute summary videos along with some practice exercises.</p>
 <p>Data visualization will be the primary focus of a follow-on course to this one called “Exploratory Data Analysis”. For now, we will explore a few features of R’s plotting packages.</p>
 <div id="r-setup" class="section level1">
-<h1><span class="header-section-number">1</span> R Setup</h1>
+<h1>R Setup</h1>
 <p>Before we get started, let’s set up our analysis environment like before:</p>
 <ol style="list-style-type: decimal">
 <li>Open up your “data-analysis-tutorial” R Project that you created in the first data analysis lesson - if you didn’t do this, <a href="L10-data-analysis-1-data-frames.html#41_r_setup">go back and do it now</a>.</li>
@@ -832,10 +832,10 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
 <p>Look’s good - let’s start making some plots!</p>
 </div>
 <div id="basic-plots-in-r" class="section level1">
-<h1><span class="header-section-number">2</span> Basic plots in R</h1>
+<h1>Basic plots in R</h1>
 <p>R has a number of built-in tools for basic graph types. We will only cover two here because they are so common and convenient: scatterplots and histograms.</p>
 <div id="scatterplots-with-plot" class="section level2">
-<h2><span class="header-section-number">2.1</span> Scatterplots with <code>plot()</code></h2>
+<h2>Scatterplots with <code>plot()</code></h2>
 <p>A scatter plot provides a graphical view of the relationship between two variables. Typically these are used for “continuous” variables, like <em>time</em>, <em>age</em>, <em>money</em>, etc…things that are not categorical in nature (as opposed to “discrete” variables, like <em>nationality</em>). Here’s a scatterplot of the age of the bear killing victims over time:</p>
 <pre class="r"><code>plot(x = df$year, y = df$age)</code></pre>
 <p><img src="L13-data-visualization_files/figure-html/unnamed-chunk-3-1.png" width="576" style="display: block; margin: auto;" /></p>
@@ -851,7 +851,7 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
 <p>Looks like bear killings are becoming more frequent over time (hmm, why might that be?), though pretty evenly-distributed across age.</p>
 </div>
 <div id="histograms-with-hist" class="section level2">
-<h2><span class="header-section-number">2.2</span> Histograms with <code>hist()</code></h2>
+<h2>Histograms with <code>hist()</code></h2>
 <p>The <a href="https://en.wikipedia.org/wiki/Histogram">histogram</a> is one of the most common ways to visualize the <em>distribution</em> of a variable. The <code>hist()</code> function takes just one variable: <code>x</code>. Here’s a histogram of the <code>month</code> variable:</p>
 <pre class="r"><code>hist(x = df$month)</code></pre>
 <p><img src="L13-data-visualization_files/figure-html/unnamed-chunk-5-1.png" width="576" style="display: block; margin: auto;" /></p>
@@ -866,11 +866,11 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
 </div>
 </div>
 <div id="advanced-figures-with-ggplot2" class="section level1">
-<h1><span class="header-section-number">3</span> Advanced figures with <code>ggplot2</code></h1>
+<h1>Advanced figures with <code>ggplot2</code></h1>
 <p><img src="images/horst_monsters_ggplot2.png" width="500" /> <a href="https://github.com/allisonhorst">[Art by Allison Horst]</a></p>
 <p>While Base R plot functions are useful for making simple, quick plots, many R users have adopted the <a href="http://docs.ggplot2.org/"><code>ggplot2</code></a> package as their primary tool for visualizing data.</p>
 <div id="the-grammar-of-graphics" class="section level2">
-<h2><span class="header-section-number">3.1</span> The Grammar of Graphics</h2>
+<h2>The Grammar of Graphics</h2>
 <p>The <code>ggplot2</code> library is built on the <a href="https://www.springer.com/in/book/9780387245447">“Grammar of Graphics”</a> concept developed by Leland Wilkinson. A “grammar of graphics” (that’s what the “gg” in “ggplot2” stands for) is a framework that uses <em>layers</em> to describe and construct visualizations or graphics in a structured manner. Here’s a visual summary of the concept:</p>
 <center>
 <img src="images/ggPyramid.png" width="700" />
@@ -880,13 +880,13 @@ df &lt;- read_csv(&quot;https://github.com/emse6574-gwu/2019-Fall/raw/gh-pages/d
 library(ggplot2)</code></pre>
 </div>
 <div id="a-blank-slate" class="section level2">
-<h2><span class="header-section-number">3.2</span> A blank slate</h2>
+<h2>A blank slate</h2>
 <p>The <code>ggplot()</code> function is used to initialize the basic graph structure, and then we add layers to it. The basic idea is that you specify different parts of the plot, and add them together using the <code>+</code> operator. We will start with a blank plot and will add layers as we go along:</p>
 <pre class="r"><code>ggplot(data = df)</code></pre>
 <p><img src="L13-data-visualization_files/figure-html/unnamed-chunk-8-1.png" width="576" style="display: block; margin: auto;" /></p>
 </div>
 <div id="geoms-and-aesthetics" class="section level2">
-<h2><span class="header-section-number">3.3</span> Geoms and aesthetics</h2>
+<h2>Geoms and aesthetics</h2>
 <p>Geometric objects (called “geoms”) are the actual marks we put on a plot. You can have an unlimited number of layers, but at a minimum a plot <strong>must have at least one geom</strong>. Examples include:</p>
 <ul>
 <li><code>geom_point()</code> makes a scatter plot by adding a layer of points.</li>
@@ -905,7 +905,7 @@ library(ggplot2)</code></pre>
 </ul>
 </div>
 <div id="scatterplots-with-geom_point" class="section level2">
-<h2><span class="header-section-number">3.4</span> Scatterplots with <code>geom_point()</code></h2>
+<h2>Scatterplots with <code>geom_point()</code></h2>
 <p>Now that we know what geoms and aesthetics are, let’s put them to practice by making a scatterplot. To start, we will add the <code>geom_point()</code> geom and we’ll set the position for the x- and y-axis inside the <code>aes()</code> function:</p>
 <pre class="r"><code>ggplot(data = df) +
     geom_point(aes(x = year, y = age))</code></pre>
@@ -924,7 +924,7 @@ library(ggplot2)</code></pre>
 <p>In the above plot, the <code>labs()</code> layer enables you to modify the plot labels and title. The <code>theme_minimal()</code> layer changes some global aspects of the plot, such as the background color, grid lines, legend appearance, etc. There are <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">many themes to choose from</a>, but keeping things simple with <code>theme_minimal()</code> often improves the plot from the default theme settings.</p>
 </div>
 <div id="histograms-with-geom_bar" class="section level2">
-<h2><span class="header-section-number">3.5</span> Histograms with <code>geom_bar()</code></h2>
+<h2>Histograms with <code>geom_bar()</code></h2>
 <p>Bar charts are great for comparing different values of a numerical variable. By default, the <code>geom_bar()</code> layer works just like a histogram in that it plots a count of the variable provided. For example, here is the same histogram as before - the count of the bear attacks for each month in the dataset:</p>
 <pre class="r"><code>ggplot(data = df) +
     geom_bar(aes(x = month))</code></pre>
@@ -945,7 +945,7 @@ library(ggplot2)</code></pre>
 <p>Hmm, looks like brown bears are the most frequent killers, though black bears are a close second.</p>
 </div>
 <div id="bar-charts-with-geom_bar" class="section level2">
-<h2><span class="header-section-number">3.6</span> Bar charts with <code>geom_bar()</code></h2>
+<h2>Bar charts with <code>geom_bar()</code></h2>
 <p>You can also use <code>geom_bar()</code> to create a bar chart (as opposed to a histogram). Whereas histograms report the <em>count</em> of one variable (<code>x</code>), bar charts also have a <code>y</code> variable that determine the height of bars. To make a bar chart, you have to tell <code>geom_bar()</code> to use the actual <code>y</code> values in the <code>aes()</code> call by adding the <code>stat="identity"</code> argument in <code>geom_bar()</code>, otherwise it will use the default statistic (which is <code>stat="count"</code> to make a histogram).</p>
 <p>For example, here is a bar chart of the number of bear killings in each year - notice how we first create a new summary data framed called <code>annualKillings</code> from the original <code>df</code>:</p>
 <pre class="r"><code>annualKillings &lt;- df %&gt;% count(year)
@@ -973,7 +973,7 @@ ggplot(data = annualKillingsByGender) +
 </div>
 </div>
 <div id="customizing-your-ggplot" class="section level1">
-<h1><span class="header-section-number">4</span> Customizing your ggplot</h1>
+<h1>Customizing your ggplot</h1>
 <p>While the <code>ggplot2</code> library offers a wide variety of options for customizing your plots, remembering exactly how to do specific tasks (like changing the color of a line, or changing the position of a legend) can be difficult. Fortunately, there are wonderful resources for looking up all the tricks to make the perfect ggplot. Here are a few:</p>
 <ul>
 <li><a href="https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf">RStudio <code>ggplot2</code> Cheatsheet</a></li>
@@ -988,7 +988,7 @@ ggplot(data = annualKillingsByGender) +
 <p><img src="images/ggThemeAssist2.gif" /></p>
 </div>
 <div id="saving-figures" class="section level1">
-<h1><span class="header-section-number">5</span> Saving figures</h1>
+<h1>Saving figures</h1>
 <p>The first (and easiest) is to export directly from the RStudio ‘Plots’ panel, by clicking on <code>Export</code> when the image is plotted. This will give you the option of <code>.png</code> or <code>.pdf</code> and selecting the directory to which you wish to save it to. I strongly recommend you save images as <code>.pdf</code> types as these won’t pixelate when you change the image size.</p>
 <p>Another easy way to save a ggplot figure is to use the <code>ggsave()</code> function. First, create your plot and save it as an object:</p>
 <pre class="r"><code>scatterPlot &lt;- ggplot(data = df) +

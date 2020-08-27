@@ -715,7 +715,7 @@ div.tocify {
 library(stringr)</code></pre>
 <hr />
 <div id="making-a-string" class="section level1">
-<h1><span class="header-section-number">1</span> Making a string</h1>
+<h1>Making a string</h1>
 <p>You can create strings with either single quotes (<code>''</code>) or double quotes (<code>""</code>). There is no difference in behavior.</p>
 <pre class="r"><code>cat(&quot;This is a string&quot;)</code></pre>
 <pre><code>## This is a string</code></pre>
@@ -744,7 +744,7 @@ library(stringr)</code></pre>
 <p>Beware that the printed representation of a string in the R console is not the same as string itself, because the printed representation shows the escapes. To see the raw contents of the string, use <code>cat()</code> or <code>writeLines()</code>.</p>
 </div>
 <div id="string-constants" class="section level1">
-<h1><span class="header-section-number">2</span> String constants</h1>
+<h1>String constants</h1>
 <p>R has a small number of built-in string constants: <code>LETTERS</code>, <code>letters</code>, <code>month.abb</code>, and <code>month.name</code>. These are common values stored in variables with convenient names:</p>
 <pre class="r"><code>LETTERS</code></pre>
 <pre><code>##  [1] &quot;A&quot; &quot;B&quot; &quot;C&quot; &quot;D&quot; &quot;E&quot; &quot;F&quot; &quot;G&quot; &quot;H&quot; &quot;I&quot; &quot;J&quot; &quot;K&quot; &quot;L&quot; &quot;M&quot; &quot;N&quot; &quot;O&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot; &quot;S&quot;
@@ -780,7 +780,7 @@ letters</code></pre>
 ## [6] &quot;bilberry&quot;</code></pre>
 </div>
 <div id="basic-stringr-operations" class="section level1">
-<h1><span class="header-section-number">3</span> Basic <code>"stringr"</code> Operations</h1>
+<h1>Basic <code>"stringr"</code> Operations</h1>
 <p>Most <code>stringr</code> functions start with <code>str_</code>, which makes it particularly easy to remember. The following table contains the main <code>stringr</code> functions we’ll cover:</p>
 <table>
 <thead>
@@ -855,7 +855,7 @@ letters</code></pre>
 <p>The common <code>str_</code> prefix is particularly useful in RStudio, because typing <code>str_</code> will trigger autocomplete, allowing you to see all <code>stringr</code> functions:</p>
 <p><img src="images/stringr-autocomplete.png" width="600" /></p>
 <div id="case-conversion" class="section level2">
-<h2><span class="header-section-number">3.1</span> Case conversion</h2>
+<h2>Case conversion</h2>
 <p>You can convert whole strings to lower-case, upper-case, and title-case using some conveniently-named functions:</p>
 <pre class="r"><code>x &lt;- &quot;Want to hear a joke about paper? Never mind, it&#39;s tearable.&quot;</code></pre>
 <pre class="r"><code>str_to_lower(x)</code></pre>
@@ -870,7 +870,7 @@ toTitleCase(x)</code></pre>
 <pre><code>## [1] &quot;Want to Hear a Joke About Paper? Never Mind, It&#39;s Tearable.&quot;</code></pre>
 </div>
 <div id="get-the-number-of-characters-in-a-string" class="section level2">
-<h2><span class="header-section-number">3.2</span> Get the number of characters in a string</h2>
+<h2>Get the number of characters in a string</h2>
 <p>If you want to find how long a string is (i.e. how many characters it contains), the <code>length()</code> function won’t work:</p>
 <pre class="r"><code>length(&quot;hello world&quot;)</code></pre>
 <pre><code>## [1] 1</code></pre>
@@ -885,7 +885,7 @@ toTitleCase(x)</code></pre>
 <pre><code>## [1] 0</code></pre>
 </div>
 <div id="access-characters-by-their-index" class="section level2">
-<h2><span class="header-section-number">3.3</span> Access characters by their index</h2>
+<h2>Access characters by their index</h2>
 <p>You can access individual character using <code>str_sub()</code>. It takes three arguments: a string (or character vector), a <code>start</code> position, and an <code>end</code> position. Either position can either be a positive integer, which counts from the left, or a negative integer which counts from the right. The positions are inclusive, and if longer than the string, will be silently truncated.</p>
 <pre class="r"><code>x &lt;- &quot;Apple&quot;
 str_sub(x, 1, 3)</code></pre>
@@ -903,7 +903,7 @@ x</code></pre>
 <pre><code>## [1] &quot;ABCdef&quot;</code></pre>
 </div>
 <div id="get-the-indices-of-substrings" class="section level2">
-<h2><span class="header-section-number">3.4</span> Get the indices of substrings</h2>
+<h2>Get the indices of substrings</h2>
 <p>If you want to know the start and end indices of a particular substring, use <code>str_locate()</code>. This is a helpful function to use in combination with <code>str_sub()</code> so you don’t have to count the characters to find a substring.</p>
 <p>For example, let’s say I want to extract the substring <code>"Good"</code> from the following string:</p>
 <pre class="r"><code>x &lt;- &#39;thisIsGoodPractice&#39;</code></pre>
@@ -917,7 +917,7 @@ indices</code></pre>
 <pre><code>## [1] &quot;Good&quot;</code></pre>
 </div>
 <div id="repeat-a-string" class="section level2">
-<h2><span class="header-section-number">3.5</span> Repeat a string</h2>
+<h2>Repeat a string</h2>
 <p>To duplicate strings, use <code>str_dup()</code>:</p>
 <pre class="r"><code>str_dup(&quot;hola&quot;, 3)</code></pre>
 <pre><code>## [1] &quot;holaholahola&quot;</code></pre>
@@ -926,7 +926,7 @@ indices</code></pre>
 <pre><code>## [1] &quot;hola&quot; &quot;hola&quot; &quot;hola&quot;</code></pre>
 </div>
 <div id="removing-whitespace" class="section level2">
-<h2><span class="header-section-number">3.6</span> Removing “whitespace”</h2>
+<h2>Removing “whitespace”</h2>
 <p><code>str_trim()</code> removes leading and trailing whitespace:</p>
 <pre class="r"><code>x &lt;- &quot;         aStringWithSpace        &quot;
 x</code></pre>
@@ -940,7 +940,7 @@ x</code></pre>
 <pre><code>## [1] &quot;         aStringWithSpace&quot;</code></pre>
 </div>
 <div id="add-whitespace-or-other-characters" class="section level2">
-<h2><span class="header-section-number">3.7</span> Add whitespace (or other characters)</h2>
+<h2>Add whitespace (or other characters)</h2>
 <p><code>str_pad()</code> pads a string to a fixed length by adding extra whitespace on the left, right, or both sides. Note that the <code>width</code> argument is the length of the <em>final</em> string (not the length of the added padding):</p>
 <pre class="r"><code>x &lt;- &quot;hello&quot;
 x</code></pre>
@@ -957,7 +957,7 @@ x</code></pre>
 <pre><code>## [1] &quot;hello&quot;</code></pre>
 </div>
 <div id="combine-strings-into-one-string" class="section level2">
-<h2><span class="header-section-number">3.8</span> Combine strings into one string</h2>
+<h2>Combine strings into one string</h2>
 <p>To combine two or more strings, use <code>str_c()</code>:</p>
 <pre class="r"><code>str_c(&#39;x&#39;, &#39;y&#39;, &#39;z&#39;)</code></pre>
 <pre><code>## [1] &quot;xyz&quot;</code></pre>
@@ -990,7 +990,7 @@ x</code></pre>
 <pre><code>## Good morning John, and HAPPY BIRTHDAY!</code></pre>
 </div>
 <div id="split-a-string-into-multiple-strings" class="section level2">
-<h2><span class="header-section-number">3.9</span> Split a string into multiple strings</h2>
+<h2>Split a string into multiple strings</h2>
 <p>Use <code>str_split()</code> to split a string up into pieces along a particular delimiter.</p>
 <pre class="r"><code>string &lt;- &#39;This string has spaces-and-dashes&#39;</code></pre>
 <pre class="r"><code>str_split(string, &quot; &quot;) # Split on the spaces</code></pre>
@@ -1022,7 +1022,7 @@ str_split(x, &#39;bb&#39;) # Returns a list with two elements (each a vector)</c
 ## [20] &quot;c&quot; &quot;e&quot; &quot;s&quot; &quot;-&quot; &quot;a&quot; &quot;n&quot; &quot;d&quot; &quot;-&quot; &quot;d&quot; &quot;a&quot; &quot;s&quot; &quot;h&quot; &quot;e&quot; &quot;s&quot;</code></pre>
 </div>
 <div id="word-extraction-with-word" class="section level2">
-<h2><span class="header-section-number">3.10</span> Word extraction with <code>word()</code></h2>
+<h2>Word extraction with <code>word()</code></h2>
 <p>The <code>word()</code> function that another way to split up a longer string. It is designed to extract words from a sentence. You use <code>word()</code> by by passing it a <code>string</code> together with a <code>start</code> position of the first word to extract and an <code>end</code> position of the last word to extract. By default, the separator <code>sep</code> used between words is a single space. Here’s some examples:</p>
 <pre class="r"><code>sentence &lt;- c(&quot;Be the change you want to be&quot;)</code></pre>
 <pre class="r"><code># Extract first word
@@ -1039,7 +1039,7 @@ word(sentence, 2, -1)</code></pre>
 <pre><code>## [1] &quot;the change you want to be&quot;</code></pre>
 </div>
 <div id="alphabetically-sorting-string-vectors" class="section level2">
-<h2><span class="header-section-number">3.11</span> Alphabetically sorting string vectors</h2>
+<h2>Alphabetically sorting string vectors</h2>
 <p>You can sort a vector of strings alphabetically using <code>str_sort()</code> and <code>str_order()</code>:</p>
 <pre class="r"><code>x &lt;- c(&#39;Y&#39;, &#39;M&#39;, &#39;C&#39;, &#39;A&#39;)</code></pre>
 <pre class="r"><code>str_sort(x)</code></pre>
@@ -1052,7 +1052,7 @@ word(sentence, 2, -1)</code></pre>
 <pre><code>## [1] &quot;A&quot; &quot;C&quot; &quot;M&quot; &quot;Y&quot;</code></pre>
 </div>
 <div id="detect-if-a-pattern-is-in-a-string" class="section level2">
-<h2><span class="header-section-number">3.12</span> Detect if a pattern is in a string</h2>
+<h2>Detect if a pattern is in a string</h2>
 <p>To determine if a character vector matches a pattern, use <code>str_detect()</code>. It returns a logical vector the same length as the input:</p>
 <pre class="r"><code>tenFruit &lt;- fruit[1:10]
 tenFruit</code></pre>
@@ -1074,7 +1074,7 @@ str_count(x, &quot;a&quot;)</code></pre>
 <pre><code>## [1] 1 3 1</code></pre>
 </div>
 <div id="anchors" class="section level2">
-<h2><span class="header-section-number">3.13</span> Anchors</h2>
+<h2>Anchors</h2>
 <p>By default, <code>str_detect()</code> will match any part of a string. But it’s often useful to <em>anchor</em> the matching condition so that it matches from the start or end of the string. You can use:</p>
 <ul>
 <li><code>^</code> to match the <em>start</em> of the string.</li>
@@ -1099,7 +1099,7 @@ str_detect(tenFruit, &quot;e$&quot;)</code></pre>
 <p>In the second example above, 1 &amp; 3 are <code>FALSE</code> because there’s a space after <code>apple</code>.</p>
 </div>
 <div id="replacing-matched-pattern-with-another-string" class="section level2">
-<h2><span class="header-section-number">3.14</span> Replacing matched pattern with another string</h2>
+<h2>Replacing matched pattern with another string</h2>
 <p><code>str_replace()</code> and <code>str_replace_all()</code> allow you to replace matches with new strings. The simplest use is to replace a pattern with a fixed string:</p>
 <pre class="r"><code>x &lt;- c(&quot;apple&quot;, &quot;pear&quot;, &quot;banana&quot;)</code></pre>
 <pre class="r"><code>str_replace(x, &quot;a&quot;, &quot;-&quot;)</code></pre>
@@ -1109,7 +1109,7 @@ str_detect(tenFruit, &quot;e$&quot;)</code></pre>
 </div>
 </div>
 <div id="stringr-functions-work-on-vectors" class="section level1">
-<h1><span class="header-section-number">4</span> <code>stringr</code> functions work on vectors</h1>
+<h1><code>stringr</code> functions work on vectors</h1>
 <p>In many of the above examples, we used a single string, but most <code>stringr</code> functions are designed to work on vectors of strings. For example, consider a vector of two “fruit”:</p>
 <pre class="r"><code>x &lt;- c(&quot;apples&quot;, &quot;oranges&quot;)
 x</code></pre>
@@ -1128,16 +1128,16 @@ x</code></pre>
 <pre><code>## [1] &quot;-pples&quot;  &quot;or-nges&quot;</code></pre>
 </div>
 <div id="tips" class="section level1">
-<h1><span class="header-section-number">5</span> Tips</h1>
+<h1>Tips</h1>
 <div id="breaking-a-string-into-characters" class="section level2">
-<h2><span class="header-section-number">5.1</span> Breaking a string into characters</h2>
+<h2>Breaking a string into characters</h2>
 <p>Often times you’ll want to break a string into it’s individual character components. To do that, use <code>str_split()</code> with the empty string <code>""</code> as the delimiter:</p>
 <pre class="r"><code>chars &lt;- str_split(&quot;apples&quot;, &quot;&quot;)[[1]]
 chars</code></pre>
 <pre><code>## [1] &quot;a&quot; &quot;p&quot; &quot;p&quot; &quot;l&quot; &quot;e&quot; &quot;s&quot;</code></pre>
 </div>
 <div id="breaking-a-sentence-into-words" class="section level2">
-<h2><span class="header-section-number">5.2</span> Breaking a sentence into words</h2>
+<h2>Breaking a sentence into words</h2>
 <p>Similarly, if you have a single string that contains words separated by spaces, splitting on <code>" "</code> will break it into words:</p>
 <pre class="r"><code>x &lt;- &quot;If you want to view paradise, simply look around and view it&quot;
 str_split(x, &quot; &quot;)[[1]]</code></pre>
@@ -1145,7 +1145,7 @@ str_split(x, &quot; &quot;)[[1]]</code></pre>
 ##  [7] &quot;simply&quot;    &quot;look&quot;      &quot;around&quot;    &quot;and&quot;       &quot;view&quot;      &quot;it&quot;</code></pre>
 </div>
 <div id="comparing-strings" class="section level2">
-<h2><span class="header-section-number">5.3</span> Comparing strings</h2>
+<h2>Comparing strings</h2>
 <p>If you want to compare whether two strings are the same, you must also consider their cases. For example:</p>
 <pre class="r"><code>a &lt;- &quot;Apples&quot;
 b &lt;- &quot;apples&quot;

@@ -798,7 +798,8 @@ div.tocify {
 </tbody>
 </table>
 </div>
-<p><strong>Integer division</strong>:</p>
+<div id="integer-division" class="section level3">
+<h3>Integer division</h3>
 <p>Integer division is division in which the remainder is discarded. Note the difference between regular (<code>/</code>) and integer (<code>%/%</code>) division:</p>
 <pre class="r"><code>4 / 3 # Regular division</code></pre>
 <pre><code>## [1] 1.333333</code></pre>
@@ -808,7 +809,9 @@ div.tocify {
 <p>With integer division, dividing a number by a larger number will always produce <code>0</code> (because the larger number cannot go into the smaller number):</p>
 <pre class="r"><code>4 %/% 5 # Will return 0</code></pre>
 <pre><code>## [1] 0</code></pre>
-<p><strong>Modulus operator</strong>:</p>
+</div>
+<div id="the-modulus-operator" class="section level3">
+<h3>The Modulus operator</h3>
 <p>The <strong>modulus</strong> (aka “mod” operator) returns the remainder after doing integer division. For example:</p>
 <pre class="r"><code>17 %% 3</code></pre>
 <pre><code>## [1] 2</code></pre>
@@ -821,6 +824,95 @@ div.tocify {
 <p>Finally, if you mod a number by a larger number, you’ll get the smaller number back since it’s the remainder:</p>
 <pre class="r"><code>17 %% 20 # Will return 17</code></pre>
 <pre><code>## [1] 17</code></pre>
+</div>
+</div>
+<div id="tricks-with-and" class="section level2">
+<h2>Tricks with <code>%%</code> and <code>%/%</code></h2>
+<p>The <code>%%</code> and <code>%/%</code> operators can be really handy. Here are a few tricks.</p>
+<div id="odds-and-evens-with-n-2" class="section level3">
+<h3>Odds and evens with <code>n %% 2</code></h3>
+<p>You can tell if an integer <code>n</code> is even or odd by using <code>m %% 2</code>. If the result is <code>0</code>, <code>n</code> must be even (because 2 goes in <em>evenly</em> to even numbers with no remainder). If <code>n</code> is odd, you’ll get a remainder of <code>1</code>. Here’s an example:</p>
+<pre class="r"><code>10 %% 2 # Even</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>11 %% 2 # Odd</code></pre>
+<pre><code>## [1] 1</code></pre>
+<p>This trick also works with negative numbers!</p>
+<pre class="r"><code>-42 %% 2 # Even</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>-43 %% 2 # Odd</code></pre>
+<pre><code>## [1] 1</code></pre>
+</div>
+</div>
+<div id="number-chopping-with-10s" class="section level2">
+<h2>Number “chopping” with 10s</h2>
+<p>When you use the mod operator <code>%%</code> on a <strong>positive</strong> number with factors of 10, it “chops” the number and returns everything to the <em>right</em> of the “chop” point:</p>
+<pre class="r"><code>123456 %% 1 # Chops to the right of the *ones* digit</code></pre>
+<pre><code>## [1] 0</code></pre>
+<pre class="r"><code>123456 %% 10 # Chops to the right of the *tens* digit</code></pre>
+<pre><code>## [1] 6</code></pre>
+<pre class="r"><code>123456 %% 100 # Chops to the right of the *hundreds* digit</code></pre>
+<pre><code>## [1] 56</code></pre>
+<p>Integer division <code>%/%</code> works the same way, except it returns everything to the <em>left</em> of the “chop” point:</p>
+<pre class="r"><code>123456 %/% 1 # &quot;Chops to the right of the ones digit</code></pre>
+<pre><code>## [1] 123456</code></pre>
+<pre class="r"><code>123456 %/% 10 # &quot;Chops to the right of the tens digit</code></pre>
+<pre><code>## [1] 12345</code></pre>
+<pre class="r"><code>123456 %/% 100 # &quot;Chops to the right of the hundreds digit</code></pre>
+<pre><code>## [1] 1234</code></pre>
+<p>This trick works with non-integers too!</p>
+<pre class="r"><code>3.1415 %% 1</code></pre>
+<pre><code>## [1] 0.1415</code></pre>
+<pre class="r"><code>3.1415 %/% 1</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>But <strong>be careful</strong> - this “trick” only works with <em>positive</em> numbers:</p>
+<pre class="r"><code>-123.456 %% 10</code></pre>
+<pre><code>## [1] 6.544</code></pre>
+<pre class="r"><code>-123.456 %/% 10</code></pre>
+<pre><code>## [1] -13</code></pre>
+<p>Here’s some mental notes to remember how this works:</p>
+<ul>
+<li><code>%%</code> returns everything to the <em>right</em> (<code>&lt;chop&gt; -&gt;</code>)</li>
+<li><code>%/%</code> returns everything to the <em>left</em> (<code>&lt;- &lt;chop&gt;</code>)</li>
+<li>The “chop” point is always just to the <em>right</em> of the chopping digit:</li>
+</ul>
+<div style="width:500px">
+<table>
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>“Chop” point</th>
+<th>“Chop” point description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1234 %% 1</code></td>
+<td><code>1234 |</code></td>
+<td>Right of the <code>1</code>’s digit</td>
+</tr>
+<tr class="even">
+<td><code>1234 %% 10</code></td>
+<td><code>123 | 4</code></td>
+<td>Right of the <code>10</code>’s digit</td>
+</tr>
+<tr class="odd">
+<td><code>1234 %% 100</code></td>
+<td><code>12 | 34</code></td>
+<td>Right of the <code>100</code>’s digit</td>
+</tr>
+<tr class="even">
+<td><code>1234 %% 1000</code></td>
+<td><code>1 | 234</code></td>
+<td>Right of the <code>1,000</code>’s digit</td>
+</tr>
+<tr class="odd">
+<td><code>1234 %% 10000</code></td>
+<td><code>| 1234</code></td>
+<td>Right of the <code>10,000</code>’s digit</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div id="comparing-things-in-r" class="section level1">
@@ -973,16 +1065,9 @@ div.tocify {
 <p>By default, R assumes all numbers have a decimal place, even if it <em>looks</em> like an integer:</p>
 <pre class="r"><code>typeof(3)</code></pre>
 <pre><code>## [1] &quot;double&quot;</code></pre>
-<p>In this case, R assumes that <code>3</code> is really <code>3.0</code>. To make sure R knows you really do mean to create an integer, you have to either add an <code>L</code> to the end of the number or use the <code>as.integer()</code> function to <em>coerce</em> the number into an integer type:</p>
+<p>In this case, R assumes that <code>3</code> is really <code>3.0</code>. To make sure R knows you really do mean to create an integer, you have to add an <code>L</code> to the end of the number<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>:</p>
 <pre class="r"><code>typeof(3L)</code></pre>
 <pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>typeof(as.integer(3))</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<p>For both integers and floats, the <code>class()</code> function will tell you that both are <code>numeric</code> data types:</p>
-<pre class="r"><code>class(3L)</code></pre>
-<pre><code>## [1] &quot;integer&quot;</code></pre>
-<pre class="r"><code>class(3.14)</code></pre>
-<pre><code>## [1] &quot;numeric&quot;</code></pre>
 </div>
 <div id="character-types" class="section level2">
 <h2>Character types</h2>
@@ -1005,6 +1090,10 @@ div.tocify {
 <div id="logical-types" class="section level2">
 <h2>Logical types</h2>
 <p>Logical data only have two values: <code>TRUE</code> or <code>FALSE</code>. Note that these are not in quotes and are in all caps.</p>
+<pre class="r"><code>typeof(TRUE)</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+<pre class="r"><code>typeof(FALSE)</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
 <p>R uses these two special values to help answer questions about logical statements. For example, let’s compare whether <code>1</code> is greater than <code>2</code>:</p>
 <pre class="r"><code>1 &gt; 2</code></pre>
 <pre><code>## [1] FALSE</code></pre>
@@ -1023,133 +1112,6 @@ div.tocify {
 <pre><code>## [1] NaN</code></pre>
 <p><strong>Not available</strong>: <code>NA</code> indicates that the value that is “supposed” to be stored here is missing. We’ll see these much more when we start getting into data structures like vectors and data frames.</p>
 <p><strong>No value</strong>: <code>NULL</code> asserts that the variable genuinely has no value whatsoever, or does not even exist.</p>
-</div>
-<div id="checking-data-types" class="section level2">
-<h2>Checking data types</h2>
-<p>In general, you can check if an object is a specific data type using <code>is.something()</code>, replacing “<code>something</code>” with a data type:</p>
-<pre class="r"><code>is.numeric(3.1415)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>is.character(3.1415)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<pre class="r"><code>is.logical(3.1415)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<p>One common problem with this approach that you’ll frequently run into is the use of <code>is.integer()</code>. If you use <code>is.integer()</code> to check if a number that <strong>looks</strong> like an integer, you might get a surprising result:</p>
-<pre class="r"><code>is.integer(7)</code></pre>
-<pre><code>## [1] FALSE</code></pre>
-<p>This is because the default numeric type is a <em>double</em>. The safer way to check if a number is an integer in value is to compare it against itself as an integer:</p>
-<pre class="r"><code>7 == as.integer(7)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<p><strong>In your assignments, use this method to check if something is an integer!</strong></p>
-</div>
-<div id="coercing-data-types" class="section level2">
-<h2>Coercing data types</h2>
-<p>In general, you can force an object into a different type using <code>as.something()</code>, replacing “<code>something</code>” with a data type:</p>
-<pre class="r"><code>as.integer(3.1415)</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>as.numeric(&quot;3.1415&quot;)</code></pre>
-<pre><code>## [1] 3.1415</code></pre>
-<pre class="r"><code>as.character(3.1415)</code></pre>
-<pre><code>## [1] &quot;3.1415&quot;</code></pre>
-<pre class="r"><code>as.logical(3.1415)</code></pre>
-<pre><code>## [1] TRUE</code></pre>
-<p>Note that <code>as.logical()</code> returns <code>TRUE</code> for any numeric value other than <code>0</code>, for which it returns <code>FALSE</code>.</p>
-<p>Keep in mind that some things don’t make sense to be converted. For example, if you try to coerce a character word into a number, R will return <code>NA</code>:</p>
-<pre class="r"><code>as.numeric(&#39;foo&#39;)</code></pre>
-<pre><code>## Warning: NAs introduced by coercion</code></pre>
-<pre><code>## [1] NA</code></pre>
-<p>If you want to force a non-integer number into an integer value, but you don’t want to change the actual <em>type</em> to an integer type, use <code>round()</code>, <code>ceiling()</code>, or <code>floor()</code>. This will turn the number into an integer in <em>value</em>, but will still technically be a <code>double</code> type. Note that these functions produce different outcomes.</p>
-<pre class="r"><code>round(3.1415)   # Typical rounding</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>ceiling(3.1415) # Rounds *up* to nearest integer</code></pre>
-<pre><code>## [1] 4</code></pre>
-<pre class="r"><code>floor(3.1415)   # Rounds *down* to nearest integer</code></pre>
-<pre><code>## [1] 3</code></pre>
-</div>
-</div>
-<div id="tips-tricks" class="section level1">
-<h1>Tips &amp; Tricks</h1>
-<div id="chopping-up-numbers-with-and-of-10s" class="section level2">
-<h2>“Chopping” up numbers with <code>%%</code> and <code>%/%</code> of 10s</h2>
-<p>When you use the mod operator (<code>%%</code>) on a positive number <strong>with factors of 10</strong>, it “chops” a number at a particular digit and returns everything to the <em>right</em>. For example:</p>
-<pre class="r"><code>123456 %% 1 # Chops to the right of the ones digit</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>123456 %% 10 # Chops to the right of the tens digit</code></pre>
-<pre><code>## [1] 6</code></pre>
-<pre class="r"><code>123456 %% 100 # Chops to the right of the hundreds digit</code></pre>
-<pre><code>## [1] 56</code></pre>
-<p>Integer division (<code>%/%</code>) does the opposite - it returns everything to the <em>left</em> of the “chop” point. For example:</p>
-<pre class="r"><code>123456 %/% 1 # &quot;Chops to the right of the ones digit</code></pre>
-<pre><code>## [1] 123456</code></pre>
-<pre class="r"><code>123456 %/% 10 # &quot;Chops to the right of the tens digit</code></pre>
-<pre><code>## [1] 12345</code></pre>
-<pre class="r"><code>123456 %/% 100 # &quot;Chops to the right of the hundreds digit</code></pre>
-<pre><code>## [1] 1234</code></pre>
-<p>This works with non-integers too:</p>
-<pre class="r"><code>3.1415 %% 1</code></pre>
-<pre><code>## [1] 0.1415</code></pre>
-<pre class="r"><code>3.1415 %/% 1</code></pre>
-<pre><code>## [1] 3</code></pre>
-<p>But <strong>be careful</strong> - this “trick” only works with <em>positive</em> numbers:</p>
-<pre class="r"><code>-123.456 %% 10</code></pre>
-<pre><code>## [1] 6.544</code></pre>
-<pre class="r"><code>-123.456 %/% 10</code></pre>
-<pre><code>## [1] -13</code></pre>
-<p>Here’s some mental notes to remember how this works:</p>
-<ul>
-<li><code>%%</code> returns everything to the <em>right</em> (<code>&lt;chop&gt; -&gt;</code>)</li>
-<li><code>%/%</code> returns everything to the <em>left</em> (<code>&lt;- &lt;chop&gt;</code>)</li>
-<li>The “chop” point is always just to the <em>right</em> of the chopping digit:</li>
-</ul>
-<div style="width:500px">
-<table>
-<thead>
-<tr class="header">
-<th>Example</th>
-<th>“Chop” point</th>
-<th>“Chop” point description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><code>1234 %% 1</code></td>
-<td><code>1234 |</code></td>
-<td>Right of the <code>1</code>’s digit</td>
-</tr>
-<tr class="even">
-<td><code>1234 %% 10</code></td>
-<td><code>123 | 4</code></td>
-<td>Right of the <code>10</code>’s digit</td>
-</tr>
-<tr class="odd">
-<td><code>1234 %% 100</code></td>
-<td><code>12 | 34</code></td>
-<td>Right of the <code>100</code>’s digit</td>
-</tr>
-<tr class="even">
-<td><code>1234 %% 1000</code></td>
-<td><code>1 | 234</code></td>
-<td>Right of the <code>1,000</code>’s digit</td>
-</tr>
-<tr class="odd">
-<td><code>1234 %% 10000</code></td>
-<td><code>| 1234</code></td>
-<td>Right of the <code>10,000</code>’s digit</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div id="odds-and-evens-with" class="section level2">
-<h2>Odds and evens with <code>%%</code></h2>
-<p>You can tell if an integer is even or odd by using mod <code>2</code>. If you get <code>0</code>, it’s even; if you <code>1</code>, it’s odd:</p>
-<pre class="r"><code>10 %% 2 # Even</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>11 %% 2 # Odd</code></pre>
-<pre><code>## [1] 1</code></pre>
-<pre class="r"><code>12 %% 2 # Even</code></pre>
-<pre><code>## [1] 0</code></pre>
-<pre class="r"><code>13 %% 2 # Odd</code></pre>
-<pre><code>## [1] 1</code></pre>
 <hr />
 <p><strong>Page sources</strong>:</p>
 <p>Some content on this page has been modified from other courses, including:</p>
@@ -1165,6 +1127,7 @@ div.tocify {
 <hr />
 <ol>
 <li id="fn1"><p>For a more precise statement, see the <a href="http://stat.ethz.ch/R-manual/R-devel/library/base/html/Syntax.html">operator precedence</a> for R.<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Why <code>L</code>? Well, it’s a bit <a href="https://stackoverflow.com/questions/24350733/why-would-r-use-the-l-suffix-to-denote-an-integer">complicated</a>, but R supports complex numbers which are denoted by <code>i</code>, so <code>i</code> was already taken. A quick answer is that R uses 32-bit <em>long</em> integers, so <code>L</code> for “long”.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 

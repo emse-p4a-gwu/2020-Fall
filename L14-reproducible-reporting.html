@@ -709,7 +709,7 @@ div.tocify {
 </blockquote>
 <hr />
 <div id="literate-programming" class="section level1">
-<h1><span class="header-section-number">1</span> Literate programming</h1>
+<h1>Literate programming</h1>
 <p>Literate programming is a paradigm first introduced by <a href="https://en.wikipedia.org/wiki/Donald_Knuth">Donald E. Knuth</a>. The idea is simple:</p>
 <blockquote>
 <p>Treat programs as a literature understandable to <strong>human beings</strong></p>
@@ -723,7 +723,7 @@ div.tocify {
 <hr />
 </div>
 <div id="rmarkdown-overview" class="section level1">
-<h1><span class="header-section-number">2</span> Rmarkdown overview</h1>
+<h1>Rmarkdown overview</h1>
 <p>Watch this 1-min video to get a quick sense of what RMarkdown is:</p>
 <iframe src="https://player.vimeo.com/video/178485416?color=428bca&amp;title=0&amp;byline=0&amp;portrait=0" width="640" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen>
 </iframe>
@@ -736,10 +736,10 @@ div.tocify {
 <hr />
 </div>
 <div id="elements-of-rmarkdown" class="section level1">
-<h1><span class="header-section-number">3</span> Elements of RMarkdown</h1>
+<h1>Elements of RMarkdown</h1>
 <p><img src="images/horst_monsters_rmarkdown.png" width="500" /> <a href="https://github.com/allisonhorst">[Art by Allison Horst]</a></p>
 <div id="markdown" class="section level2">
-<h2><span class="header-section-number">3.1</span> Markdown</h2>
+<h2>Markdown</h2>
 <p>Markdown is a simple, plain text language for converting raw text to HTML for the web (and other outputs, like pdfs). Some of its attributes include:</p>
 <ul>
 <li>It has a very small syntax (html links, tables, images, headers, italic / bold font, and a few other things).</li>
@@ -750,7 +750,7 @@ div.tocify {
 </ul>
 </div>
 <div id="code" class="section level2">
-<h2><span class="header-section-number">3.2</span> Code</h2>
+<h2>Code</h2>
 <p>Code “chunks” are defined through special notation and are executed in sequence throughout the document (just like an <code>.R</code> script). You can mix code directly in with markdown (e.g. “Here’s some simple math in R: <code>2 + 2</code> produces 4”) or in separate chunks before or after markdown text. This enables you to write English language text in markdown to explain something, and then immediately follow it up with code to illustrate or demonstrate it.</p>
 <p>RMarkdown currently supports a number of different <a href="https://rmarkdown.rstudio.com/authoring_knitr_engines.html">Language Engines</a> through the <code>knitr</code> package, including:</p>
 <ul>
@@ -765,12 +765,12 @@ div.tocify {
 </ul>
 </div>
 <div id="outputs" class="section level2">
-<h2><span class="header-section-number">3.3</span> Outputs</h2>
+<h2>Outputs</h2>
 <p>The <code>knitr</code> package enables you to “knit” together the markdown text and R code into a variety of output formats. The default format is an html document for reading through an internet browser and sharing results across the web. Check out the <a href="https://rmarkdown.rstudio.com/gallery.html">RMarkdown Gallery</a> for some examples. Other formats include:</p>
 <p><img src="images/RMarkdownOutputFormats.png" width="400" /></p>
 </div>
 <div id="publish-to-the-web" class="section level2">
-<h2><span class="header-section-number">3.4</span> Publish to the web</h2>
+<h2>Publish to the web</h2>
 <p>Once you’ve written up your RMarkdown document, you can publish it to the web for free using RPubs: <a href="http://rpubs.com/" class="uri">http://rpubs.com/</a></p>
 <p>Watch this quick demo of how to publish your markdown file to the web using RPubs:</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/GJ36zamYVLg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
@@ -779,9 +779,9 @@ div.tocify {
 </div>
 </div>
 <div id="elements-of-a-.rmd-document" class="section level1">
-<h1><span class="header-section-number">4</span> Elements of a <code>.Rmd</code> document</h1>
+<h1>Elements of a <code>.Rmd</code> document</h1>
 <div id="the-yaml-header" class="section level2">
-<h2><span class="header-section-number">4.1</span> The YAML header</h2>
+<h2>The YAML header</h2>
 <p>The yaml header contains metadata about the document - most importantly the output. Different settings can be set within different outputs. Here we’ll be focusing on on the <a href="https://bookdown.org/yihui/rmarkdown/html-document.html#table-of-contents"><code>html_document</code> output</a>.</p>
 <p>It is contained between these separators at the top of the file.</p>
 <pre class="r"><code>---
@@ -800,7 +800,7 @@ output: html_document
 <p><img src="images/rmarkdown_blank.png" width="650" /></p>
 </div>
 <div id="markdown-basics" class="section level2">
-<h2><span class="header-section-number">4.2</span> Markdown basics</h2>
+<h2>Markdown basics</h2>
 <p>The text in an R Markdown document is written with the <a href="https://bookdown.org/yihui/rmarkdown/markdown-syntax.html">Markdown syntax</a>.</p>
 <blockquote>
 <p>Check out this <a href="https://commonmark.org/help/"><strong>60-second</strong> markdown reference guide</a> to get the basics</p>
@@ -902,7 +902,7 @@ Cell 1, 2     | Cell 2, 2</code></pre>
 <p>Check out this handy <a href="http://www.tablesgenerator.com/markdown_tables"><strong>online table converter</strong></a></p>
 </div>
 <div id="inline-r-code" class="section level2">
-<h2><span class="header-section-number">4.3</span> Inline R code</h2>
+<h2>Inline R code</h2>
 <p>You can embed R code directly in a markdown sentence. For example, if you had already created an object <code>x</code>…</p>
 <pre class="r"><code>x &lt;- 10</code></pre>
 <p>…you could use <code>x</code> in a sentence by typing a <code>`</code> followed by <code>r</code> then any R code you want:</p>
@@ -911,7 +911,7 @@ Cell 1, 2     | Cell 2, 2</code></pre>
 <p>Wow - that’s pretty cool!</p>
 </div>
 <div id="r-code-chunks" class="section level2">
-<h2><span class="header-section-number">4.4</span> R Code chunks</h2>
+<h2>R Code chunks</h2>
 <p>Code chunks are blocks of R code that are executed when you compile the <code>.Rmd</code> document. The output of the code is inserted into the RMarkdown document. Chunks can be used as a means to render R output into documents or to simply display code for illustration (e.g. with option <code>eval=FALSE</code>).</p>
 <p>Here’s an example of a <code>.Rmd</code> file with a code chunk on the left and the rendered output on the right:</p>
 <p><img src="images/markdownChunk.png" width="700" /></p>
@@ -922,7 +922,7 @@ Cell 1, 2     | Cell 2, 2</code></pre>
 <li>By typing the chunk delimiters <code>```{r}</code> and <code>```</code>.</li>
 </ul>
 <div id="chunk-notation" class="section level3">
-<h3><span class="header-section-number">4.4.1</span> Chunk notation</h3>
+<h3>Chunk notation</h3>
 <p>In between the chunk delimiters <code>```{r}</code> and <code>```</code>, you can write R code:</p>
 <pre><code>```{r chunk-name}
 cat(&#39;hello world!&#39;)
@@ -932,7 +932,7 @@ cat(&#39;hello world!&#39;)
 <p>You don’t have to name the chunks, but it’s a good practice (like commenting your code). In the above chunk, the name of the chunk is “chunk-name”.</p>
 </div>
 <div id="chunk-options" class="section level3">
-<h3><span class="header-section-number">4.4.2</span> Chunk options</h3>
+<h3>Chunk options</h3>
 <p>There are lots of options for customizing how markdown chunks appear. By default, code chunks print <strong>code</strong> + <strong>output</strong>:</p>
 <pre class="r"><code>cat(&#39;hello world!&#39;)</code></pre>
 <pre><code>## hello world!</code></pre>
@@ -953,7 +953,7 @@ cat(&#39;hello world!&#39;)
 </div>
 </div>
 <div id="plots" class="section level2">
-<h2><span class="header-section-number">4.5</span> Plots</h2>
+<h2>Plots</h2>
 <p>By default, figures produced by R code will be placed immediately after the code chunk they were generated from. Here’s an example using <code>ggplot2</code> to plot the relationship between a couple of variables:</p>
 <pre><code>```{r, message=FALSE, fig.height=4, fig.width=6}
 library(ggplot2)
@@ -973,9 +973,9 @@ ggplot(gapminder) +
 </div>
 </div>
 <div id="tips" class="section level1">
-<h1><span class="header-section-number">5</span> Tips</h1>
+<h1>Tips</h1>
 <div id="knitting-to-other-output-formats" class="section level2">
-<h2><span class="header-section-number">5.1</span> Knitting to other output formats</h2>
+<h2>Knitting to other output formats</h2>
 <p>As previously mentioned, the default output format for RMarkdown documents is html, but you can change this by adjusting the YAML <code>output</code>. For example, if I wanted to create a pdf document instead, I could use <code>pdf_document</code> in the YAML:</p>
 <pre class="r"><code>---
 title: &quot;This is a demo&quot;
@@ -985,7 +985,7 @@ output: pdf_document
 ---</code></pre>
 </div>
 <div id="convert-a-data-frame-to-a-table" class="section level2">
-<h2><span class="header-section-number">5.2</span> Convert a data frame to a table</h2>
+<h2>Convert a data frame to a table</h2>
 <p>If you have a table already organized as a data frame in R, rather than painstakingly type the content into a typical markdown table, you can just use the <code>kable()</code> function to directly convert it. Here’s an example using the <code>beatles</code> data frame from the earlier lesson on <a href="L10-da1-data-frames.html">data frames</a>:</p>
 <pre class="r"><code>beatles &lt;- data.frame(
     firstName   = c(&quot;John&quot;, &quot;Paul&quot;, &quot;Ringo&quot;, &quot;George&quot;),
@@ -1038,7 +1038,7 @@ kable(beatles)</code></pre>
 </table>
 </div>
 <div id="inserting-a-python-code-chunk" class="section level2">
-<h2><span class="header-section-number">5.3</span> Inserting a Python code chunk</h2>
+<h2>Inserting a Python code chunk</h2>
 <p>One of the most impressive things about RMarkdown code chunks is that the code itself doesn’t have to be R code. For example, if you want to use Python code instead, just change <code>{r}</code> to <code>{python}</code> in the code chunk:</p>
 <pre><code>```{python}
 &#39;In Python, you can concatenate strings&#39; + &#39; like this!&#39;
@@ -1049,7 +1049,7 @@ kable(beatles)</code></pre>
 </div>
 </div>
 <div id="additional-resources" class="section level1">
-<h1><span class="header-section-number">6</span> Additional Resources</h1>
+<h1>Additional Resources</h1>
 <ul>
 <li><p><a href="https://bookdown.org/yihui/rmarkdown/">R Markdown: The Definitive guide</a></p></li>
 <li><p><a href="http://rmarkdown.rstudio.com/">Rmarkdown documentation</a></p></li>

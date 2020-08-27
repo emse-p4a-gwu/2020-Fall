@@ -712,7 +712,7 @@ div.tocify {
 <hr />
 <p>We already know how to use built-in functions like <code>sum()</code>, <code>round()</code>, <code>sqrt()</code>, etc. And we can access other functions by installing external packages. But many times there just isn’t a function out there to do what you need. Fortunately, you can write your own!</p>
 <div id="basic-syntax" class="section level1">
-<h1><span class="header-section-number">1</span> Basic syntax</h1>
+<h1>Basic syntax</h1>
 <p>Here’s the syntax that you use to create a function:</p>
 <pre><code>FNAME &lt;- function(ARG1, ARG2, ETC) {
   STATEMENT1
@@ -774,7 +774,7 @@ div.tocify {
 <hr />
 </div>
 <div id="arguments" class="section level1">
-<h1><span class="header-section-number">2</span> Arguments</h1>
+<h1>Arguments</h1>
 <p>Here’s a function with one argument:</p>
 <pre class="r"><code>square &lt;- function(x) {
   y &lt;- x^2
@@ -811,7 +811,7 @@ div.tocify {
 <hr />
 </div>
 <div id="the-return-statement" class="section level1">
-<h1><span class="header-section-number">3</span> The <code>return()</code> statement</h1>
+<h1>The <code>return()</code> statement</h1>
 <p>Here’s a basic example of using <code>return()</code> to return a value:</p>
 <pre class="r"><code>isPositive &lt;- function(x) {
     return (x &gt; 0)
@@ -848,7 +848,7 @@ div.tocify {
 <hr />
 </div>
 <div id="the-cat-statement" class="section level1">
-<h1><span class="header-section-number">4</span> The <code>cat()</code> statement</h1>
+<h1>The <code>cat()</code> statement</h1>
 <p>The <code>cat()</code> (short for “concatenating”) statement prints whatever arguments it is given to the console. The arguments can be of mixed types and it will convert them all to a concatenated string:</p>
 <pre class="r"><code>printX &lt;- function(x) {
   cat(&quot;The value of x provided is&quot;, x)
@@ -877,7 +877,7 @@ div.tocify {
 <hr />
 </div>
 <div id="helper-functions" class="section level1">
-<h1><span class="header-section-number">5</span> Helper functions</h1>
+<h1>Helper functions</h1>
 <p>It is often useful to break down more complicated problems into smaller “helper functions”. These helpers can be called in other functions. Here’s an example of using the helper functions <code>square()</code> and <code>squareRoot()</code> to compute the hypotenuse of a triangle:</p>
 <pre class="r"><code>square &lt;- function(x) {
    return(x^2)
@@ -898,7 +898,7 @@ hypotenuse(a, b)</code></pre>
 <hr />
 </div>
 <div id="local-vs.-global-variables" class="section level1">
-<h1><span class="header-section-number">6</span> Local vs. global variables</h1>
+<h1>Local vs. global variables</h1>
 <p>All variables <strong>inside</strong> a function are called <em>“local”</em> variables and will <strong>NOT</strong> be created in the working environment. They can only be used locally within the function. For example:</p>
 <pre class="r"><code>minSquared &lt;- function(x, y) {
     smaller = min(x, y)
@@ -926,7 +926,7 @@ printN()</code></pre>
 <hr />
 </div>
 <div id="tips" class="section level1">
-<h1><span class="header-section-number">7</span> Tips</h1>
+<h1>Tips</h1>
 <p>One particularly useful function is <code>almostEqual()</code>:</p>
 <pre class="r"><code>almostEqual &lt;- function(d1, d2) {
     epsilon = 0.00001
