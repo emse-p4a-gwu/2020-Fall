@@ -14,7 +14,7 @@ source("knitr_setup.R")
 > ### Learning Objectives
 >
 > * Know some common functions in R.
-> * Know how R handles function arguments and named arguments.
+> * Know how R handles function arguments and named arguments. 
 > * Know how to install and load external R packages.
 >
 > ### Suggested Readings
@@ -27,13 +27,13 @@ You can do a lot with the basic operators like `+`, `-`, and `*`, but to do more
 
 > [Watch this 1-minute video for a quick summary of **functions**](https://vimeo.com/220490105)
 
-R has a lot of very useful built-in functions. For example, if I wanted to take the square root of 225, I could use R's built-in square root function `sqrt()`:
+R has a lot of very useful built-in functions. For example, if I wanted to take the square root of 225, I could use R's built-in square root function `sqrt()`: 
 
 ```{r}
 sqrt(225)
 ```
 
-Here the letters `sqrt` are short for "square root," and the value inside the `()` is the "input" to the function.
+Here the letters `sqrt` are short for "square root," and the value inside the `()` is the "input" to the function. 
 
 R has LOTS of functions, and sometimes it's difficult to remember the details of what they do. If you're not sure, you can ask R for help by typing `?` and then the function name, and then R will return some documentation about it. For example, type `?sqrt()` into the console and R will return information about how to use the `sqrt()` function.
 
@@ -97,13 +97,60 @@ Finally, not all functions have (or require) arguments:
 date() # Returns the current date and time
 ```
 
+# Functions for manipulating data types
+
+One common family of functions has to do with _checking_ specific data types and _coercing_ data of one type into another.
+
+## Coercing data types
+
+You can force an object of one type into another using `as.______()`, replacing "`______`" with a data type:
+```{r}
+as.integer(3.1415)   # Converts double to integer
+as.numeric("3.1415") # Converts character to numeric
+as.character(3.1415) # Converts double to character
+as.logical(3.1415)   # Converts numeric to logical
+```
+
+A few notes to keep in mind:
+
+1) When converting from a **numeric** to a **logical**, `as.logical()` will always return `TRUE` for any numeric value other than `0`, for which it returns `FALSE`.
+
+2) Not everything can be converted. For example, if you try to coerce a character into a number, R will return `NA`:
+```{r}
+as.numeric('foo')
+```
+
+3) If you want to force a non-integer number into an integer value, but you don't want to change the actual _type_ to an integer type, use `round()`, `ceiling()`, or `floor()`. This will turn the number into an integer in _value_, but it will still technically be a `double` type.
+```{r}
+round(3.1415)   # Typical rounding
+ceiling(3.1415) # Rounds *up* to nearest integer
+floor(3.1415)   # Rounds *down* to nearest integer
+```
+
+## Checking data types
+
+Similar to the `as.______()` format, you can check if an object is a specific data type using `is.______()`, replacing "`______`" with a data type:
+```{r}
+is.numeric(7)
+is.integer(7)
+is.character(7)
+is.logical(7)
+```
+
+One thing you'll notice is that `is.integer()` often gives you a surprising result. For example, why did `is.integer(7)` return `FALSE`?. Well, this is because numbers are _doubles_ by default in R, so even though `7` **looks** like an integer, R thinks it's a double. 
+
+The safer way to check if a number is an integer in _value_ is to compare it against itself converted into an integer:
+```{r}
+7 == as.integer(7)
+```
+
 # Packages
 
 When you start R, it only loads the "Base R" functions (e.g. `sqrt()`, `round()`, etc.), but there are thousands and thousands of additional functions stored in external **packages**.
 
 > [Watch this 1-minute video for a quick summary of **packages**](https://vimeo.com/220490447)
 
-## Installing and loading packages
+## Installing and loading packages 
 
 To install a package, use the `install.packages()` command. Make sure you put the package name in quotes:
 

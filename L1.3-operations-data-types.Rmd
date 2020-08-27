@@ -67,15 +67,19 @@ There are two other operators that are not typically as well-known as the first 
 <div style="width:500px">
 
 ```{r mod, echo=FALSE}
-knitr::kable(rbind(
-              c("integer division", "`%/%`", "`4 %/% 3`", "`1`"),
-              c("modulus", "`%%`", "`8 %% 3`", "`2`")
-), col.names = c("operation", "operator", "example input" , "example output"), align="lccc")
+knitr::kable(
+    rbind(
+    c("integer division", "`%/%`", "`4 %/% 3`", "`1`"),
+    c("modulus", "`%%`", "`8 %% 3`", "`2`")), 
+    col.names = c(
+        "operation", "operator", "example input" , 
+        "example output"), 
+    align="lccc")
 ```
 
 </div>
 
-**Integer division**:
+### Integer division
 
 Integer division is division in which the remainder is discarded. Note the difference between regular (`/`) and integer (`%/%`) division:
 
@@ -95,7 +99,7 @@ With integer division, dividing a number by a larger number will always produce 
 4 %/% 5 # Will return 0
 ```
 
-**Modulus operator**:
+### The Modulus operator
 
 The **modulus** (aka "mod" operator) returns the remainder after doing integer division. For example:
 
@@ -120,6 +124,69 @@ Finally, if you mod a number by a larger number, you'll get the smaller number b
 ```{r}
 17 %% 20 # Will return 17
 ```
+
+## Tricks with `%%` and `%/%`
+
+The `%%` and `%/%` operators can be really handy. Here are a few tricks.
+
+### Odds and evens with `n %% 2`
+
+You can tell if an integer `n` is even or odd by using `m %% 2`. If the result is `0`, `n` must be even (because 2 goes in _evenly_ to even numbers with no remainder). If `n` is odd, you'll get a remainder of `1`. Here's an example:
+
+```{r}
+10 %% 2 # Even
+11 %% 2 # Odd
+```
+
+This trick also works with negative numbers!
+```{r}
+-42 %% 2 # Even
+-43 %% 2 # Odd
+```
+
+## Number "chopping" with 10s
+
+When you use the mod operator `%%` on a **positive** number with factors of 10, it "chops" the number and returns everything to the _right_ of the "chop" point:
+```{r}
+123456 %% 1 # Chops to the right of the *ones* digit
+123456 %% 10 # Chops to the right of the *tens* digit
+123456 %% 100 # Chops to the right of the *hundreds* digit
+```
+
+Integer division `%/%` works the same way, except it returns everything to the _left_ of the "chop" point:
+```{r}
+123456 %/% 1 # "Chops to the right of the ones digit
+123456 %/% 10 # "Chops to the right of the tens digit
+123456 %/% 100 # "Chops to the right of the hundreds digit
+```
+
+This trick works with non-integers too!
+```{r}
+3.1415 %% 1
+3.1415 %/% 1
+```
+
+But **be careful** - this "trick" only works with _positive_ numbers:
+```{r}
+-123.456 %% 10
+-123.456 %/% 10
+```
+
+Here's some mental notes to remember how this works:
+
+- `%%` returns everything to the _right_ (`<chop> ->`)
+- `%/%` returns everything to the _left_ (`<- <chop>`)
+- The "chop" point is always just to the _right_ of the chopping digit:
+
+<div style="width:500px">
+Example         | "Chop" point | "Chop" point description
+----------------|--------------|----------------------------
+`1234 %% 1`     | `1234 | `    | Right of the `1`'s digit
+`1234 %% 10`    | `123 | 4`    | Right of the `10`'s digit
+`1234 %% 100`   | `12 | 34`    | Right of the `100`'s digit
+`1234 %% 1000`  | `1 | 234`    | Right of the `1,000`'s digit
+`1234 %% 10000` | ` | 1234`    | Right of the `10,000`'s digit
+</div>
 
 # Comparing things in R
 
@@ -284,29 +351,18 @@ Numbers in R have the `numeric` data type, which is also the default computation
 - **Non-integers** (aka "double" or "float")
 
 The difference is that integers don't have decimal values. A non-integer in R has the type "`double`":
-
 ```{r}
 typeof(3.14)
 ```
 
 By default, R assumes all numbers have a decimal place, even if it _looks_ like an integer:
-
 ```{r}
 typeof(3)
 ```
 
-In this case, R assumes that `3` is really `3.0`. To make sure R knows you really do mean to create an integer, you have to either add an `L` to the end of the number or use the `as.integer()` function to _coerce_ the number into an integer type:
-
+In this case, R assumes that `3` is really `3.0`. To make sure R knows you really do mean to create an integer, you have to add an `L` to the end of the number^[Why `L`? Well, it's a bit [complicated](https://stackoverflow.com/questions/24350733/why-would-r-use-the-l-suffix-to-denote-an-integer), but R supports complex numbers which are denoted by `i`, so `i` was already taken. A quick answer is that R uses 32-bit _long_ integers, so `L` for "long".]:
 ```{r}
 typeof(3L)
-typeof(as.integer(3))
-```
-
-For both integers and floats, the `class()` function will tell you that both are `numeric` data types:
-
-```{r}
-class(3L)
-class(3.14)
 ```
 
 ## Character types
@@ -340,15 +396,17 @@ We will go into much more detail about working with character values later on in
 ## Logical types
 
 Logical data only have two values: `TRUE` or `FALSE`. Note that these are not in quotes and are in all caps.
+```{r}
+typeof(TRUE)
+typeof(FALSE)
+```
 
 R uses these two special values to help answer questions about logical statements. For example, let's compare whether `1` is greater than `2`:
-
 ```{r}
 1 > 2
 ```
 
 R returns the values `FALSE` because 1 is not greater than 2. If I flip the question to whether `1` is _less_ than `2`, I'll get `TRUE`:
-
 ```{r}
 1 < 2
 ```
@@ -372,118 +430,6 @@ In addition to the four main data types mentioned, there are a few additional "s
 **Not available**: `NA` indicates that the value that is "supposed" to be stored here is missing. We'll see these much more when we start getting into data structures like vectors and data frames.
 
 **No value**: `NULL` asserts that the variable genuinely has no value whatsoever, or does not even exist.
-
-## Checking data types
-
-In general, you can check if an object is a specific data type using `is.something()`, replacing "`something`" with a data type:
-
-```{r}
-is.numeric(3.1415)
-is.character(3.1415)
-is.logical(3.1415)
-```
-
-One common problem with this approach that you'll frequently run into is the use of `is.integer()`. If you use `is.integer()` to check if a number that **looks** like an integer, you might get a surprising result:
-
-```{r}
-is.integer(7)
-```
-
-This is because the default numeric type is a _double_. The safer way to check if a number is an integer in value is to compare it against itself as an integer:
-
-```{r}
-7 == as.integer(7)
-```
-
-**In your assignments, use this method to check if something is an integer!**
-
-## Coercing data types
-
-In general, you can force an object into a different type using `as.something()`, replacing "`something`" with a data type:
-
-```{r}
-as.integer(3.1415)
-as.numeric("3.1415")
-as.character(3.1415)
-as.logical(3.1415)
-```
-
-Note that `as.logical()` returns `TRUE` for any numeric value other than `0`, for which it returns `FALSE`.
-
-Keep in mind that some things don't make sense to be converted. For example, if you try to coerce a character word into a number, R will return `NA`:
-
-```{r}
-as.numeric('foo')
-```
-
-If you want to force a non-integer number into an integer value, but you don't want to change the actual _type_ to an integer type, use `round()`, `ceiling()`, or `floor()`. This will turn the number into an integer in _value_, but will still technically be a `double` type. Note that these functions produce different outcomes.
-
-```{r}
-round(3.1415)   # Typical rounding
-ceiling(3.1415) # Rounds *up* to nearest integer
-floor(3.1415)   # Rounds *down* to nearest integer
-```
-
-# Tips & Tricks
-
-## "Chopping" up numbers with `%%` and `%/%` of 10s
-
-When you use the mod operator (`%%`) on a positive number **with factors of 10**, it "chops" a number at a particular digit and returns everything to the _right_. For example:
-```{r}
-
-123456 %% 1 # Chops to the right of the ones digit
-123456 %% 10 # Chops to the right of the tens digit
-123456 %% 100 # Chops to the right of the hundreds digit
-```
-
-Integer division (`%/%`) does the opposite - it returns everything to the _left_ of the "chop" point. For example:
-
-```{r}
-123456 %/% 1 # "Chops to the right of the ones digit
-123456 %/% 10 # "Chops to the right of the tens digit
-123456 %/% 100 # "Chops to the right of the hundreds digit
-```
-
-This works with non-integers too:
-
-```{r}
-3.1415 %% 1
-3.1415 %/% 1
-```
-
-But **be careful** - this "trick" only works with _positive_ numbers:
-
-```{r}
--123.456 %% 10
--123.456 %/% 10
-```
-
-Here's some mental notes to remember how this works:
-
-- `%%` returns everything to the _right_ (`<chop> ->`)
-- `%/%` returns everything to the _left_ (`<- <chop>`)
-- The "chop" point is always just to the _right_ of the chopping digit:
-
-<div style="width:500px">
-Example         | "Chop" point | "Chop" point description
-----------------|--------------|----------------------------
-`1234 %% 1`     | `1234 | `    | Right of the `1`'s digit
-`1234 %% 10`    | `123 | 4`    | Right of the `10`'s digit
-`1234 %% 100`   | `12 | 34`    | Right of the `100`'s digit
-`1234 %% 1000`  | `1 | 234`    | Right of the `1,000`'s digit
-`1234 %% 10000` | ` | 1234`    | Right of the `10,000`'s digit
-</div>
-
-## Odds and evens with `n %% 2`
-
-You can tell if an integer is even or odd by using mod `2`. If you get `0`, it's even; if you `1`, it's odd!
-
-```{r}
-10 %% 2 # Even
-11 %% 2 # Odd
-12 %% 2 # Even
-13 %% 2 # Odd
-```
 
 ---
 
