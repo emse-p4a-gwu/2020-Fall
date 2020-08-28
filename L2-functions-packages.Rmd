@@ -15,7 +15,7 @@ source("knitr_setup.R")
 >
 > * Know some common functions in R.
 > * Know how R handles function arguments and named arguments. 
-> * Know how to install and load external R packages.
+> * Know how to install, load, and use functions from external R packages.
 > * Practice programming with functions using the TurtleGraphics package.
 >
 > ### Suggested Readings
@@ -34,11 +34,60 @@ R has a lot of very useful built-in functions. For example, if I wanted to take 
 sqrt(225)
 ```
 
-Here the letters `sqrt` are short for "square root," and the value inside the `()` is the "input" to the function. 
+Here the letters `sqrt` are short for "square root," and the value inside the `()` is the "argument" to the function. In the example above, the value `225` is the "argument".
 
-R has LOTS of functions, and sometimes it's difficult to remember the details of what they do. If you're not sure, you can ask R for help by typing `?` and then the function name, and then R will return some documentation about it. For example, type `?sqrt()` into the console and R will return information about how to use the `sqrt()` function.
+Keep in mind that not all functions have (or require) arguments:
 
-## Some common functions
+```{r}
+date() # Returns the current date and time
+```
+
+(the date above is the date this page was last built)
+
+## Multiple arguments
+
+Some functions have more than one argument. For example, the `round()` function can be used to round some value to the nearest integer or to a specified decimal place:
+
+```{r}
+round(3.14165)    # Rounds to the nearest integer
+round(3.14165, 2) # Rounds to the 2nd decimal place
+```
+
+Not all arguments are mandatory. With the `round()` function, the decimal place is an _optional_ input - if nothing is provided, the function will round to the nearest integer by default.
+
+## Argument names
+
+In the case of `round()`, it's not too hard to remember which argument comes first and which one comes second. But it starts to get very difficult once you start using complicated functions that have lots of arguments. Fortunately, most R functions use **argument names** to make your life a little easier. For the `round()` function, for example, the number that needs to be rounded is specified using the `x` argument, and the number of decimal points that you want it rounded to is specified using the `digits` argument, like this:
+
+```{r}
+round(x = 3.1415, digits = 2)
+```
+
+## Default values
+
+Notice that the first time I called the `round()` function I didn't actually specify the `digits` argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the `digits` argument has a **default value** of `0`, meaning that if you decide not to specify a value for `digits` then R will act as if you had typed `digits = 0`. 
+
+This is quite handy: most of the time when you want to round a number you want to round it to the nearest *whole* number, and it would be pretty annoying to have to specify the `digits` argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn't allow this! Thus, by having `digits = 0` as the default value, we get the best of both worlds.
+
+## Function help
+
+Not sure what a function does, how many arguments it has, or what the argument names are? Ask R for help by typing `?` and then the function name, and R will return some documentation about it. For example, type `?round()` into the console and R will return information about how to use the `round()` function.
+
+## Combining functions
+
+In the same way that R allows us to put multiple operations together into a longer command (like `1 + 2 * 4` for instance), it also lets us put functions together and even combine functions with operators if we so desire. For example, the following is a perfectly legitimate command:
+
+```{r}
+round(sqrt(7), digits = 2)
+```
+
+When R executes this command, starts out by calculating the value of `sqrt(7)`, which produces an intermediate value of `2.645751`. The command then simplifies to `round(2.645751, digits = 2)`, which rounds the value to `2.65`.
+
+# Frequently used functions
+
+## Math functions
+
+R has LOTS of functions. Many of the basic math functions are somewhat self-explanatory, but it can be hard to remember the specific function name. Below is a reference table of some frequently used math functions.
 
 Function   | Description       | Example input    | Example output
 ---------- | ------------------|------------------|---------------
@@ -51,63 +100,23 @@ Function   | Description       | Example input    | Example output
 `min()`    | Minimum value     | `min(1, 2, 3)`   | ``r min(1, 2, 3)``
 `max()`    | Maximum value     | `max(1, 2, 3)`   | ``r max(1, 2, 3)``
 
-## Combining functions
+## Functions for manipulating data types
 
-In the same way that R allows us to put multiple operations together into a longer command (like `1 + 2 * 4` for instance), it also lets us put functions together and even combine functions with operators if we so desire. For example, the following is a perfectly legitimate command:
+You will often need to check the data type of objects and convert them to other types. To handle this, R has a series of functions that follow a pattern:
 
-```{r}
-sqrt(1 + abs(-8))
-```
+- Check the type with `is.______()`
+- Convert the type with `as.______()`
 
-When R executes this command, starts out by calculating the value of `abs(-8)`, which produces an intermediate value of `8`. The command then simplifies to `sqrt(1 + 8)`. To solve the square root^[R does support complex numbers, but unless you explicitly specify that you want them it assumes all calculations must be real valued. By default, the square root of a negative number is treated as undefined: `sqrt(-9)` will produce `NaN` (not a number) as its output. To get complex numbers, you would type `sqrt(-9+0i)` and R would now return `0+3i`.] it first needs to add `1 + 8` to get `9`, at which point it evaluates `sqrt(9)`, and so it finally outputs a value of `3`.
+In each of these patterns, replace "`______`" with a data type, such as `character`, `numeric`, or `logical`.
 
-## Arguments
+### Converting data types
 
-When we use a function to do something, we generally refer to this as **calling** the function. The values that we type into the function are referred to as the **arguments** of that function. Some functions can have more than one argument.
+You can convert an object from one type to another using `as.______()`, replacing "`______`" with a data type:
 
-> [Watch this 1-minute video for a quick summary of **arguments**](https://vimeo.com/220490157)
-
-In the very first example we showed, the value `225` was the "argument" to the command `sqrt(225)`.
-
-## Multiple arguments
-
-Some functions have more than one argument. For example, the `round()` function can be used to round some value to the nearest integer or to a specified decimal place:
-
-```{r}
-round(3.14165)
-round(3.14165, 2)
-```
-
-In the second example above, the second argument of `2` determines the number of decimal places that you want to round the number to. This is an optional input - if nothing is provided, the function will round to the nearest integer.
-
-## Argument names
-
-In this simple example, it's not too hard to remember which argument comes first and which one comes second, but it starts to get very difficult once you start using complicated functions that have lots of arguments. Fortunately, most R functions use **argument names** to make your life a little easier. For the `round()` function, for example, the number that needs to be rounded is specified using the `x` argument, and the number of decimal points that you want it rounded to is specified using the `digits` argument:
-
-```{r}
-round(x = 3.1415, digits = 2)
-```
-
-## Default values
-
-Notice that the first time I called the `round()` function I didn't actually specify the `digits` argument at all, and yet R somehow knew that this meant it should round to the nearest whole number. How did that happen? The answer is that the `digits` argument has a **default value** of `0`, meaning that if you decide not to specify a value for `digits` then R will act as if you had typed `digits = 0`. This is quite handy: most of the time when you want to round a number you want to round it to the nearest *whole* number, and it would be pretty annoying to have to specify the `digits` argument every single time. On the other hand, sometimes you actually do want to round to something other than the nearest whole number, and it would be even more annoying if R didn't allow this! Thus, by having `digits = 0` as the default value, we get the best of both worlds.
-
-Finally, not all functions have (or require) arguments:
-
-```{r}
-date() # Returns the current date and time
-```
-
-# Functions for manipulating data types
-
-One common family of functions has to do with _checking_ specific data types and _coercing_ data of one type into another.
-
-## Coercing data types
-
-You can force an object of one type into another using `as.______()`, replacing "`______`" with a data type:
 ```{r}
 as.integer(3.1415)   # Converts double to integer
-as.numeric("3.1415") # Converts character to numeric
+as.double(3L)        # Converts integer to double
+as.numeric("3.1415") # Converts character to numeric / double
 as.character(3.1415) # Converts double to character
 as.logical(3.1415)   # Converts numeric to logical
 ```
@@ -116,19 +125,21 @@ A few notes to keep in mind:
 
 1) When converting from a **numeric** to a **logical**, `as.logical()` will always return `TRUE` for any numeric value other than `0`, for which it returns `FALSE`.
 
-2) Not everything can be converted. For example, if you try to coerce a character into a number, R will return `NA`:
-```{r}
-as.numeric('foo')
-```
+2) Not everything can be converted. For example, if you try to coerce a character that contains letters into a number, R will return `NA`, because it doesn't know what number to choose:
+
+    ```{r}
+    as.numeric('foo')
+    ```
 
 3) If you want to force a non-integer number into an integer value, but you don't want to change the actual _type_ to an integer type, use `round()`, `ceiling()`, or `floor()`. This will turn the number into an integer in _value_, but it will still technically be a `double` type.
-```{r}
-round(3.1415)   # Typical rounding
-ceiling(3.1415) # Rounds *up* to nearest integer
-floor(3.1415)   # Rounds *down* to nearest integer
-```
 
-## Checking data types
+    ```{r}
+    round(3.1415)   # Typical rounding
+    ceiling(3.1415) # Rounds *up* to nearest integer
+    floor(3.1415)   # Rounds *down* to nearest integer
+    ```
+
+### Checking data types
 
 Similar to the `as.______()` format, you can check if an object is a specific data type using `is.______()`, replacing "`______`" with a data type:
 ```{r}
@@ -138,40 +149,44 @@ is.character(7)
 is.logical(7)
 ```
 
-One thing you'll notice is that `is.integer()` often gives you a surprising result. For example, why did `is.integer(7)` return `FALSE`?. Well, this is because numbers are _doubles_ by default in R, so even though `7` **looks** like an integer, R thinks it's a double. 
+One thing you'll notice is that `is.integer()` often gives you a surprising result. For example, why did `is.integer(7)` return `FALSE`?. Well, this is because numbers are _doubles_ by default in R, so even though `7` _looks_ like an integer, R thinks it's a double. 
 
 The safer way to check if a number is an integer in _value_ is to compare it against itself converted into an integer:
 ```{r}
 7 == as.integer(7)
 ```
 
-# Packages
+# More functions with **packages**
 
 When you start R, it only loads the "Base R" functions (e.g. `sqrt()`, `round()`, etc.), but there are thousands and thousands of additional functions stored in external **packages**.
 
 > [Watch this 1-minute video for a quick summary of **packages**](https://vimeo.com/220490447)
 
-## Installing and loading packages 
+## Installing packages 
 
-To install a package, use the `install.packages()` command. Make sure you put the package name in quotes:
+To install a package, use the `install.packages()` function. Make sure you put the package name in quotes:
 
 ```{r eval=FALSE}
 install.packages("packagename") # This works
 install.packages(packagename)   # This doesn't work
 ```
 
-Once you have a package _installed_, you still have to _load_ it every time you open an R session. You don't have to use quotes to load it (but you can if you want):
+Just like most software, you only need to _install_ a package once. 
 
+## Using packages
+
+After installing a package, you can't immediately use the functions that the package contains. This is because when you start up R only the "base" functions are loaded. If you want R to also load the functions inside a package, you have to _load_ that package, which you do with the `library()` function. In contrast to the `install.packages()` function, you don't need quotes around the package name to load it:
+ 
 ```{r eval=FALSE}
 library("packagename") # This works
 library(packagename)   # This also works
 ```
 
-**Important**: You only need to _install_ a package to your computer _once_, but you will need to _load_ it whenever you want to use it in an R session. Think of it this way:
+Here's a helpful image to keep the two ideas of _installing_ vs _loading_ separate:
 
 ![](images/package_lightbulb.png){ width=800 }
 
-## Example
+## Example: **wikifacts**
 
 As an example, try installing the [Wikifacts](https://github.com/keithmcnulty/wikifacts) package, by Keith McNulty:
 
@@ -190,6 +205,25 @@ wiki_didyouknow()
 ```
 
 In case you're wondering, the only thing this package does is generate messages containing random facts from [Wikipedia](https://www.wikipedia.org/).
+
+## Using only _some_ package functions 
+
+Sometimes you may only want to use a single function from a library without having to load the whole thing. To do so, use this recipe:
+
+> packagename::functionname()
+
+Here I use the name of the _package_ followed by `::` to tell R that I'm looking for a function that is in that package. For example, if I didn't want to load the whole **wikifacts** library but still wanted to use the `wiki_randomfact()` function, I could do this: 
+
+```{r}
+wikifacts::wiki_randomfact()
+```
+
+Where this is particularly handy is when two packages have a function with the same name. If you load both library, R might not know which function to use. In those cases, it's best to also provide the **package** name. For example, let's say there was a package called **apples** and another called **bananas**, and each had a function named `fruitName()`. If I wanted to use each of them in my code, I would need to specify the package names like this:
+
+```{r, eval=FALSE}
+apples::fruitName()
+bananas::fruitName()
+```
 
 # Turtle Graphics
 
@@ -232,7 +266,7 @@ turtle_setpos(x=10, y=10)
 ```
 ![](images/turtle_setpos.png){ width=456 }
 
-## Turtle loops 
+## Turtle loops
 
 Simple enough, right? But what if I want my turtle to draw a more complicated shape? Let's say I want her to draw a hexagon. There are six sides to the hexagon, so the most natural way to write code for this is to write a `for` loop that loops over the sides (don't worry if this doesn't make sense yet - we'll get to [loops in week 5](L5-loops.html)!). At each iteration within the loop, I'll have the turtle walk forwards, and then turn 60 degrees to the left. Here's what happens:
 
