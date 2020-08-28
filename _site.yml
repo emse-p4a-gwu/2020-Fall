@@ -60,8 +60,8 @@ navbar:
       menu:
         - text: "HW 1 - Getting Started"
           href: hw1-getting-started.html
-        - text: "HW 2 - Programming Basics"
-          href: hw2-programming-basics.html
+        - text: "HW 2 - Functions & Packages"
+          href: hw2-functions-packages.html
         - text: "HW 3 - Creating Functions"
           href: hw3-creating-functions.html
         - text: "HW 4 - Conditionals & Testing"
