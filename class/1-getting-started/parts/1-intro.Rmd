@@ -1,0 +1,228 @@
+
+# Meet your instructor!
+
+.leftcol30[.circle[
+<img src="https://p4a.seas.gwu.edu/2020-Fall/images/helveston.jpg" width="300">
+]]
+.rightcol70[
+
+### Dr. John Helveston
+
+.font80[
+Assistant Professor, Engineering Management & Systems Engineering
+
+- 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
+- 2015 MS in Engineering & Public Policy at Carnegie Mellon University
+- 2010 BS in Engineering Science & Mechanics at Virginia Tech
+- Website: [www.jhelvy.com](http://www.jhelvy.com/)
+]]
+
+---
+# Meet your tutors!
+
+.leftcol30[.circle[
+<img src="https://p4a.seas.gwu.edu/2020-Fall/images/pantha.jpg" width="300">
+]]
+.rightcol70[
+### **Saurav Pantha** (aka "The Firefighter")
+
+- Graduate Assistant (GA)
+- Masters student in EMSE
+]
+
+---
+# Meet your tutors!
+
+.leftcol30[.circle[
+<img src="https://p4a.seas.gwu.edu/2020-Fall/images/kim.png" width="300">
+]]
+.rightcol70[
+### **Jennifer Kim** (aka "The Monitor")
+
+- Learning Assistant (LA) 
+- EMSE Junior & P4A alumni
+]
+
+---
+# Course orientation
+
+--
+## `r fa('globe')` Everything you need will be on the course website:
+
+  ## https://p4a.seas.gwu.edu/2020-Fall/
+
+--
+## `r fa('puzzle-piece')` Course is broken into **two chunks**:
+
+  ### 1. Programming
+  ### 2. Analytics
+
+---
+# Homeworks (48% of grade)
+
+--
+## `r fa('calendar-alt')` ~Every week (12 total)
+
+--
+## `r fa('clock')` Soft due dates (11pm Monday before class)
+
+--
+## `r fa('exclamation-triangle')` **Don't abuse this flexibility**
+
+--
+## Two hard deadlines on homework submissions:
+
+### 1. Oct. 20 (HWs 1-6)
+### 2. Dec. 08 (HWs 7-12)
+
+---
+# Quizzes (15% of grade)
+
+--
+## `r fa('calendar-alt')` In class every other week-ish (7 total, drop lowest 2)
+
+--
+## `r fa('clock')` 5 minutes (3-5 questions)
+
+--
+## `r fa('tasks')` [Example quiz](https://p4aquizdemo.formr.org/)
+
+--
+> **Why quiz at all?** There's a phenomenon called the "retrieval effect" - basically, you have to _practice_ remembering things, otherwise your brain won't remember them (details in the book ["Make It Stick: The Science of Successful Learning"](https://www.hup.harvard.edu/catalog.php?isbn=9780674729018)).
+
+---
+# Exams (32% of grade)
+
+--
+## `r fa('calendar-alt')` Midterm (weeks 1 - 6) on Oct. 20
+
+--
+## `r fa('calendar-alt')` Final (weeks 1 - 13) on Dec. 15
+
+---
+## **Grading**: Standard
+
+Course Component     | Weight | Notes
+---------------------|--------|-----------------------------------
+Homeworks            | 48%    | 12 x 4% each
+Quizzes              | 15%    | 5  x 3% each
+Midterm Exam         | 12%    |
+Final Exam           | 20%    |
+Participation        | 5%     |
+
+---
+## **Grading**: Alternative Minimum Grade (AMG)
+
+- Students who struggle early on, but work hard to succeed in 2nd half.
+- Highest possible grade is "C"
+
+Course Component   | Weight
+-------------------|----
+Best 10 Homeworks  | 40%
+Best 4 Quizzes     | 10%
+Midterm Exam       | 10%
+Final Exam         | 40%
+
+---
+# Course policies
+
+<br>
+
+--
+- ### **BE NICE. BE HONEST. DON'T CHEAT.**
+
+--
+- ### Write your own code (even in "collaborative" assignments)
+
+--
+- ### Don't cheat
+
+---
+# How to succeed in this class
+
+.leftcol[
+### Take care of your brain
+
+- Sleep!
+- Exercise!
+- Eat good food!
+
+<img src="images/sleep_clean.jpg" width="300">
+]
+--
+.rightcol[
+### Start HW early!
+
+### Take breaks often!
+
+### Ask for help!
+]
+
+---
+# [Getting Help](https://p4a.seas.gwu.edu/2020-Fall/ref-getting-help.html)
+
+--
+## `r fa('slack')` Use [Slack](https://emse-p4a-f20.slack.com/) to ask questions.
+
+--
+## `r fa('chalkboard-teacher')` Meet with your tutors
+
+--
+## `r fa('user-clock')` [Schedule a meeting](https://jhelvy.appointlet.com/b/professor-helveston) w/Prof. Helveston:
+
+- Tuesdays from 3:30-4:30pm
+- Wednesdays from 2:00-4:30pm
+- Fridays from 12:00-2:00pm
+
+--
+## `r fa('code')` [GW Coders](http://gwcoders.github.io/)
+
+---
+# `r fa('tools')` Course Tools (see [course prep lesson](https://p4a.seas.gwu.edu/2020-Fall/L0-course-prep.html))
+
+--
+## `r fa('slack')` [Slack](https://emse-p4a-f20.slack.com/)
+
+- ### [Link to join](https://join.slack.com/t/emse-p4a-f20/shared_invite/zt-gvto0fas-TXP6IRWdbSA_m_4UglGsLA) (also posted on Blackboard announcement).
+- ### Install Slack on your phone and **turn notifications on**!
+
+---
+# `r fa('tools')` Course Tools (see [course prep lesson](https://p4a.seas.gwu.edu/2020-Fall/L0-course-prep.html))
+
+## `r fa('r-project')` [R](https://cloud.r-project.org/) & [RStudio](https://rstudio.com/products/rstudio/download/) (Install both)
+
+--
+.leftcol40[
+After installed:
+<br>
+
+**Open this**:
+
+.noborder[<img src="images/rstudio_ball.png" width="75">]
+
+**Not this**:
+
+.noborder[<img src="images/Rlogo.png" width="75">]
+]
+--
+.rightcol60[
+<br>
+
+R: **Engine**        |  RStudio: **Dashboard**
+---------------------|------------------------
+.noborder[<img src="images/engine.jpg" width="300">] | .noborder[<img src="images/dashboard.jpg" width="350">]
+]
+
+---
+# `r fa('tools')` Course Tools (see [course prep lesson](https://p4a.seas.gwu.edu/2020-Fall/L0-course-prep.html))
+
+<br>
+
+--
+## `r fa('wifi')` [GWU VPN](https://seascf.seas.gwu.edu/vpn-access) (Install Cisco AnyConnect VPN Client)
+
+--
+## `r fa('wifi')` + `r fa('r-project')` =  [RStudio](https://rstudio.seas.gwu.edu/) online!
+
+
+
