@@ -608,7 +608,113 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 07 September by 11:00 pm</p>
+<p><strong>Weight</strong>: This assignment is worth <strong>4%</strong> of your final grade.</p>
+<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To make sure you understand what you need to do to succeed in this class</li>
+<li>To make sure you have properly set up the software and tools we will use this semester</li>
+<li>To get started practicing basic concepts with R.</li>
+</ul>
+<p><strong>Skills &amp; Knowledge</strong>: After completing these exercises, you should be able to:</p>
+<ul>
+<li>Be familiar with the main course tools: Slack, R, and RStudio.</li>
+<li>Be familiar how to use R projects to stay organized.</li>
+<li>Be able to use R to create and store values as objects with meaningful names.</li>
+<li>Know how to compare values in R.</li>
+<li>Know how to use arithmetic, relational, and logical operators in R.</li>
+<li>Know the distinctions between how R handles different types of data types (numbers, strings, &amp; logicals).</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together.</li>
+<li>Even though you work collaboratively, you still must submit your own solutions.</li>
+</ul>
+</blockquote>
+<div id="tasks" class="section level1">
+<h1>Tasks</h1>
+<div id="class-setup-solo-10" class="section level3">
+<h3>1) Class setup [SOLO, 10%]</h3>
+<p>For this class, you’ll need to install some software and register for some tools. Go to the <a href="L0-course-prep.html">course prep</a> page to get setup. Once you have joined the <a href="https://emse-p4a-f20.slack.com/">class Slack</a>, make a post to the <code>#welcome</code> channel introducing yourself - provide your name, year / program, and something interesting about yourself.</p>
+</div>
+<div id="getting-familiar-with-the-course-solo-10" class="section level3">
+<h3>2) Getting familiar with the course [SOLO, 10%]</h3>
+<p>Follow <a href="https://twitter.com/ryancbriggs/status/1293543531496308736?s=20">Snoop’s advice</a> and read the entire <a href="syllabus.html">Course Syllabus</a> (actually read the whole thing). Then review the lessons from this week (see the readings for week 1 on the <a href="schedule.html">schedule</a>).</p>
+</div>
+<div id="staying-organized-solo-10" class="section level3">
+<h3>3) Staying organized [SOLO, 10%]</h3>
+<p>Open RStudio and create a new R project called “hw1” (see the <a href="L1.2-getting-started.html#RStudio_projects">lesson page</a> for details on how to do this). Within your project, create a new R <em>script</em> (a “.R” file) and save it as “hw1.R”. When you save it, it should show up in the R project folder you just created. Finally, copy the following code to the top of this script and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment (your GW Net ID is the part of your email address before <code>"@gwu.edu"</code>):</p>
+<pre class="r"><code># Name:      Last, First
+# GW Net ID: Insert your GWNetID here
+
+# I worked with the following classmates on this assignment:
+# 1) Name: Last, First
+# 2) Name: Last, First</code></pre>
+<p>Write your responses to all other questions in this assignment in your hw1.R file.</p>
+</div>
+<div id="objects-operators-converting-time-collaborative-20" class="section level3">
+<h3>4) Objects &amp; Operators: Converting Time [COLLABORATIVE, 20%]</h3>
+<p>Create objects to store each of the following two values - be sure to use <a href="L1.2-getting-started.html#Use_meaningful_variable_names">meaningful variable names</a> when creating your objects:</p>
+<ul>
+<li>The number of seconds in a minute</li>
+<li>The number of minutes in an hour</li>
+<li>The number of hours in a day</li>
+<li>The number of days in a typical year (not a leap year)</li>
+</ul>
+<p>Now, say you have another object called <code>time_in_seconds</code> that contains an integer number of seconds (for example, <code>time_in_seconds &lt;- 8675309</code>). Write code to convert the value stored in <code>time_in_seconds</code> into the units described below. Your solution may only use arithmetic operators and the objects you created (i.e. you may <strong>not</strong> use any numbers). You may also use the new objects you create in sequential order. For example, you may use the object created in part a) to create the object in part b), and so on.</p>
+<ol style="list-style-type: lower-alpha">
+<li>The value of <code>time_in_seconds</code> in minutes</li>
+<li>The value of <code>time_in_seconds</code> in hours</li>
+<li>The value of <code>time_in_seconds</code> in days</li>
+<li>The value of <code>time_in_seconds</code> in years</li>
+</ol>
+</div>
+<div id="logical-and-relational-operators-solo-20" class="section level3">
+<h3>5) Logical and relational operators [SOLO, 20%]</h3>
+<p>Consider the following objects:</p>
+<pre class="r"><code>x &lt;- TRUE
+y &lt;- FALSE
+z &lt;- TRUE</code></pre>
+<p>Write code to answer the following questions:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Write a statement with <em>logical</em> operators that compares the objects <code>x</code>, <code>y</code>, and <code>z</code> and returns <code>TRUE</code></li>
+<li>Write a statement with <em>logical</em> operators that compares the objects <code>x</code>, <code>y</code>, and <code>z</code> and returns <code>FALSE</code></li>
+<li>Fill in <em>relational</em> operators to make the following statement return <code>TRUE</code>:</li>
+</ol>
+<p><code>! (x __ y) &amp; ! (z __ y)</code></p>
+<ol start="4" style="list-style-type: lower-alpha">
+<li>Fill in <em>relational</em> operators to make this statement return <code>FALSE</code>:</li>
+</ol>
+<p><code>! (w __ y) | (z __ y)</code></p>
+</div>
+<div id="data-types-collaborative-20" class="section level3">
+<h3>6) Data types [COLLABORATIVE, 20%]</h3>
+<p>Consider the following objects:</p>
+<pre class="r"><code>number    &lt;- typeof(&#39;3&#39;)
+character &lt;- typeof(7)
+false     &lt;- typeof(&quot;FALSE&quot;)
+true      &lt;- typeof(TRUE)</code></pre>
+<p>Write code to answer the following questions:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Write a statement with <em>logical</em> operators that compares the objects <code>number</code>, <code>character</code>, and <code>true</code> and returns <code>TRUE</code>.</li>
+<li>Write a statement with <em>logical</em> operators that compares the objects <code>true</code>, <code>false</code>, and <code>character</code> and returns <code>FALSE</code>.</li>
+<li>Write a statement with <em>logical</em> operators that compares the objects <code>character</code>, <code>number</code>, and <code>false</code> and returns <code>FALSE</code>.</li>
+</ol>
+</div>
+<div id="submit-your-files-solo-10" class="section level3">
+<h3>7) Submit your files [SOLO, 10%]</h3>
+<p>Create a zip file of all the files in your R project folder for this assignment and submit the zip file on Blackboard (note: to receive full credit, your submission must follow the above format of using a correctly-named R Project and <code>.R</code> script).</p>
+</div>
+</div>
 
 
 <hr>
