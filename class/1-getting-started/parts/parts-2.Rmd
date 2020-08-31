@@ -1,0 +1,10 @@
+
+class: inverse, middle
+
+# Week 1: .fancy[Getting Started with R]
+
+## 1. Course Introduction
+## 2. .orange[Break: Install Course Tools]
+## 3. Getting started with R & RStudio
+## 4. Operators & data types
+## 5. Preview of HW 1

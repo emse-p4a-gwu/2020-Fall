@@ -1,0 +1,539 @@
+
+# R as a calculator
+
+.leftcol[
+### Basic operators:
+
+- Addition: `+`
+- Subtraction: `-`
+- Multiplication: `*`
+- Division: `/`
+]
+--
+.rightcol[
+### Other important operators:
+
+- Power: `^`
+- Integer Division: `%/%`
+- Modulus: `%%`
+]
+
+---
+# Integer division: `%/%`
+
+Integer division drops the remainder
+<br><br>
+
+--
+&zwj;Example:
+```{r}
+4 / 3 # Regular division
+4 %/% 3 # Integer division
+```
+
+---
+# Integer division: `%/%`
+
+Integer division drops the remainder<br><br>
+
+--
+&zwj;What will this return?
+```{r, eval=FALSE}
+4 %/% 4
+```
+--
+```{r, echo=FALSE}
+4 %/% 4
+```
+
+--
+What will this return?
+```{r, eval=FALSE}
+4 %/% 5
+```
+--
+```{r, echo=FALSE}
+4 %/% 5
+```
+
+---
+# Modulus operator: `%%`
+
+Modulus returns the remainder _after_ doing integer division<br><br>
+
+--
+&zwj;Example:
+```{r}
+5 %% 3
+```
+<br>
+
+--
+```{r}
+3.1415 %% 3
+```
+
+---
+# Modulus operator: `%%`
+
+Modulus returns the remainder _after_ doing integer division<br><br>
+
+--
+&zwj;What will this return?
+```{r, eval=FALSE}
+4 %% 4
+```
+--
+```{r, echo=FALSE}
+4 %% 4
+```
+--
+What will this return?
+```{r, eval=FALSE}
+4 %% 5
+```
+--
+```{r, echo=FALSE}
+4 %% 5
+```
+
+---
+## Odds and evens with `n %% 2`
+
+--
+.leftcol[
+If `n %% 2` is `0`, `n` is **EVEN**
+```{r}
+10 %% 2
+12 %% 2
+```
+Also works with negative numbers!
+```{r}
+-42 %% 2
+```
+]
+--
+.rightcol[
+If `n %% 2` is `1`, `n` is **ODD**
+```{r}
+1 %% 2
+13 %% 2
+```
+Also works with negative numbers!
+```{r}
+-47 %% 2
+```
+]
+
+---
+## Number "chopping" with 10s
+
+--
+.pull-left[
+The mod operator (`%%`) "chops" a number and returns everything to the _right_
+
+```{r}
+123456 %% 1
+123456 %% 10
+123456 %% 100
+```
+]
+--
+.pull-right[
+Integer division (`%/%`) "chops" a number and returns everything to the _left_
+
+```{r}
+123456 %/% 1
+123456 %/% 10
+123456 %/% 100
+```
+]
+
+---
+## Number "chopping" with 10s
+
+- `%%` returns everything to the _right_ (`"chop" ->`)
+- `%/%` returns everything to the _left_ (`<- "chop"`)
+- The "chop" point is always just to the _right_ of the chopping digit:
+
+<div style="width:1000px">
+<table class="table table-condensed">
+<thead>
+<tr class="header">
+<th>Example</th>
+<th>“Chop” point</th>
+<th>“Chop” point description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>1234 %% 1</code></td>
+<td><code>1234 |</code></td>
+<td>Right of the <code>1</code>’s digit</td>
+</tr>
+<tr class="even">
+<td><code>1234 %% 10</code></td>
+<td><code>123 | 4</code></td>
+<td>Right of the <code>10</code>’s digit</td>
+</tr>
+<tr class="odd">
+<td><code>1234 %% 100</code></td>
+<td><code>12 | 34</code></td>
+<td>Right of the <code>100</code>’s digit</td>
+</tr>
+<tr class="even">
+<td><code>1234 %% 1000</code></td>
+<td><code>1 | 234</code></td>
+<td>Right of the <code>1,000</code>’s digit</td>
+</tr>
+<tr class="odd">
+<td><code>1234 %% 10000</code></td>
+<td><code>| 1234</code></td>
+<td>Right of the <code>10,000</code>’s digit</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+---
+# Comparing things: **Relational operators**
+
+--
+.leftcol[
+### Compare if condition is `TRUE` or `FALSE` using:
+
+- Less than: `<`
+- Less than or equal to : `<=`
+- Greater than or equal to: `>=`
+- Greater than: `>`
+- Equal: `==`
+- Not equal: `!=`
+]
+--
+.rightcol[.code60[
+```{r}
+2 < 2
+2 <= 2
+(2 + 2) == 4
+(2 + 2) != 4
+"penguin" == "penguin"
+```
+]]
+
+---
+# Comparing things: **Logical operators**
+
+--
+.leftcol[
+### Make multiple comparisons with:
+
+- And: `&`
+- Or: `|`
+- Not: `!`
+]
+--
+.rightcol[.code60[
+With "and" (`&`), every part must be `TRUE`, otherwise the whole statement is `FALSE`:
+```{r}
+(2 == 2) & (3 == 3)
+(2 == 2) & (2 == 3)
+```
+]]
+
+---
+# Comparing things: **Logical operators**
+
+.leftcol[
+### Make multiple comparisons with:
+
+- And: `&`
+- Or: `|`
+- Not: `!`
+]
+.rightcol[.code60[
+With "or" (`|`), if _any_ part is `TRUE`, the whole statement is `TRUE`:
+```{r}
+(2 == 2) | (3 == 3)
+(2 == 2) | (2 == 3)
+```
+]]
+
+---
+# Comparing things: **Logical operators**
+
+.leftcol[
+### Make multiple comparisons with:
+
+- And: `&`
+- Or: `|`
+- Not: `!`
+]
+.rightcol[.code60[
+The "not" (`!`) symbol produces the _opposite_ statement:
+```{r}
+! (2 == 2)
+! ((2 == 2) | (2 == 3))
+```
+]]
+
+---
+# Comparing things: **Logical operators**
+
+.cols3[
+### And: `&`
+"Are any of the statements `FALSE`"?
+```{r}
+(2 == 2) & (2 == 3) & (4 == 4)
+```
+]
+--
+.cols3[
+### Or: `|`
+"Are any of the statements `TRUE`"?
+```{r}
+(2 == 2) | (2 == 3) | (4 == 7)
+```
+]
+--
+.cols3[
+### `& > |`
+```{r}
+(2 == 2) | (2 == 3) & (4 == 7)
+```
+]
+
+---
+# Comparing things: **Logical operators**
+
+.leftcol[
+### **Pro tip**: Use parentheses
+
+```{r}
+!3 == 5   # Confusing
+!(3 == 5) # Less confusing
+```
+]
+
+---
+## Other important points
+
+.leftcol[
+### R follows BEDMAS:
+
+1. **B**rackets
+2. **E**xponents
+3. **D**ivision
+4. **M**ultiplication
+5. **A**ddition
+6. **S**ubtraction
+]
+--
+.rightcol[
+### **Pro tip**: Use parentheses
+```{r}
+1 + 2 * 4   # Confusing
+1 + (2 * 4) # Less confusing
+```
+]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 15,
+          top = 0,
+          font_size = '2em')
+```
+
+# Your turn
+
+.font80[
+Consider the following objects:
+
+```{r}
+w <- TRUE
+x <- FALSE
+y <- TRUE
+```
+
+Write code to answer the following questions:
+1. Fill in _relational_ operators to make the following statement return `TRUE`: 
+    
+    `! (w __ x) & ! (y __ x)`
+    
+2. Fill in _logical_ operators to make this statement return `FALSE`: 
+
+    `! (w __ x) | (y __ x)`
+]
+
+```{r, eval=FALSE, echo=FALSE}
+# 1.  Use relational operators to return TRUE
+! (w == x) & ! (y == x)
+
+# 2. Use logical operators to return FALSE
+! (w | x) | (y & x)
+```
+
+---
+# Data Types
+
+|Type      | Description                 | Example
+|:---------|:----------------------------|:---------
+|`double`   | Numbers w/decimals (aka "float") | `3.14`
+|`integer`   | Numbers w/out decimals    | `42`
+|`character` | Text (aka "string") | `"this is some text"`
+|`logical`   | Used for comparing objects | `TRUE`, `FALSE`
+
+--
+Use `typeof()` to assess the type of any variable:
+```{r}
+typeof("hello")
+```
+
+---
+# Numeric types (there are 2)
+
+--
+.leftcol[
+## Integers
+
+No decimals (e.g. `7`)
+]
+--
+.rightcol[
+## Doubles (aka float")
+
+Decimals (e.g. `7.0`)
+]
+
+---
+## In R, numbers are "doubles" by default
+
+--
+&zwj;Example:
+```{r}
+typeof(3)
+```
+Even though it _looks_ like an integer, R assumes that `3` is really `3.0`
+<br><br>
+
+--
+Make it an integer by adding `L`:
+```{r}
+typeof(3L)
+```
+
+---
+# Character types
+
+--
+### Use single or double quotes around anything:
+
+```{r}
+typeof('hello')
+typeof("3")
+```
+
+--
+Use single / double quotes if the string _contains_ a quote symbol:
+```{r}
+typeof("don't")
+```
+
+---
+# Logical types
+
+--
+.leftcol[
+Logical data only have two values:<br>`TRUE` or `FALSE`
+```{r}
+typeof(TRUE)
+typeof(FALSE)
+```
+]
+--
+.rightcol[
+Note that these have to be in all caps,<br>and **not** in quotes:
+```{r, error=TRUE}
+typeof('TRUE')
+typeof(True)
+```
+]
+---
+# Logical types
+
+Use to answer questions about logical statements.
+
+Example: Is `1` greater than `2`?
+```{r}
+1 > 2
+```
+
+--
+&zwj;Example: Is `2` greater than `1`?
+```{r}
+1 < 2
+```
+
+---
+# Special values
+
+<style>
+.wrapper {
+  height: 60vh;
+}
+</style>
+
+.wrapper[
+.top-left[
+**Infinity**: `Inf`<br>_really big numbers_
+```{r}
+1/0
+```
+]
+.top-right[
+**Not a Number**: `NaN`<br>_"not a number"_
+```{r}
+0/0
+```
+]
+.bottom-left[
+**Not available**: `NA`<br>_value is "missing"_
+]
+.bottom-right[
+**No value**: `NULL`<br>_no value whatsoever_
+]]
+
+---
+class: inverse
+
+# Your turn
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 15,
+          top = 0,
+          font_size = '2em')
+```
+
+## Will these return `TRUE` or `FALSE`? 
+
+## (try to answer first, then run the code to check)
+
+- `! typeof('3') == typeof(3)`
+- `(typeof(7) != typeof("FALSE")) | FALSE`
+- `! (typeof(TRUE) == typeof(FALSE)) & FALSE`
+
+---
+# Final points
+
+--
+## [HW 1](https://p4a.seas.gwu.edu/2020-Fall/hw1-getting-started.html) Preview 
+
+## `r fa('exclamation-circle')` Read carefully!
+
+--
+## Please take this [survey](https://p4aintrosurvey.formr.org/)
