@@ -193,7 +193,7 @@ x <- 42
 --
 **Good** variable name:
 ```{r}
-speed <- 42 
+speed <- 42
 ```
 
 --
@@ -280,14 +280,14 @@ countdown(minutes = 10,
 
 ### A. Practice getting organized
 
-1. Open RStudio and create a new R project called `week1`. 
+1. Open RStudio and create a new R project called `week1`.
 2. Create a new R script and save it as `practice.R`.
 3. Open the `practice.R` file and write your answers to the question below in it.
 ]]
 .rightcol[.font80[
 ### B. Creating & working with objects
 
-1. Create objects to store the values in this table:
+1). Create objects to store the values in this table:
 
 | City              | Area (sq. mi.) | Population |
 |-------------------|----------------|------------|
@@ -295,11 +295,11 @@ countdown(minutes = 10,
 | Chicago, IL       | 227.63         | 2,716,450  |
 | Washington, DC    | 61.05          | 693,972    |
 
-2. Use the objects you created to answer the following questions:
+2) Use the objects you created to answer the following questions:
 
     - Which city has the highest density?
     - How many _more_ people would need to live in DC for it to have the same population density as San Francisco?
-    
+
 ```{r, eval=FALSE, echo=FALSE}
 # Create values
 area_sf <- 46.87
@@ -317,7 +317,7 @@ dens_sf
 dens_chicago
 dens_dc
 
-# Compute addition DC population to match SF density 
+# Compute addition DC population to match SF density
 (dens_sf*area_dc) - pop_dc
 ```
 
