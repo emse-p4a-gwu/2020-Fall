@@ -6,12 +6,3 @@ devtools::install_github('jhelvy/rmarkdown')
 
 rmarkdown::render_site()
 rmarkdown::render(input = 'README.Rmd', output_format = 'github_document')
-
-# Build class slides
-folder <- '1-getting-started'
-file   <- paste0('slides-', folder)
-
-# Save the slides
-pagedown::chrome_print(
-    input  = here::here('class', folder, paste0(file, '.html')),
-    output = here::here('class', folder, paste0(file, '.pdf')))
