@@ -19,7 +19,9 @@ First, set up the following tools:
 
 - **Slack**: the link to sign up for the course slack page is on the announcement on Blackboard.
 - Install the Slack app on your phone and **turn notifications on!**
-- Go to the [GWU VPN](https://seascf.seas.gwu.edu/vpn-access) page and follow the instructions to install the "Cisco AnyConnect VPN Client" software and log in to GW's VPN. This allows you to remotely access the GW network - you'll need to do this for some of the tools we'll use.
+- Some tools we'll use will require that you be on the GW network. You can do that by installing the "Cisco AnyConnect VPN Client" software and loggin in to GW's VPN. Here's how to do that: 
+    - Install [Cisco AnyConnect VPN Client](https://my.gwu.edu/mod/downloads/?category=VPN)
+    - Follow [these instructions](https://gwu-myit.onbmc.com/dwp/app/#/knowledge/KBA00002611/rkm) to log on to the VPN with your GW NetID
 
 Next, install the latest version of R and RStudio:
 
