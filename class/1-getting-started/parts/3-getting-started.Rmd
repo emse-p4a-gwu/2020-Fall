@@ -132,7 +132,7 @@ Does this mean `x <- 2` or `x < -2`?
 
 ---
 .leftcol[
-# R ignores **extra space**
+## R ignores **extra space**
 
 ```{r}
 x     <-       2
@@ -149,7 +149,7 @@ z
 ]
 --
 .rightcol[
-# R cares about **case**
+## R cares about **case**
 
 ```{r}
 number <- 2
@@ -241,30 +241,25 @@ objects()
 ]
 
 ---
-.leftcol[
 # View prior code in history pane
 
-<center>
-<img src="images/rstudio_panes.png">
-</center>
-]
+<img src="images/rstudio_panes.png" width=500>
+
 --
-.rightcol[
 # Use "up" arrow see previous code
-]
 
 ---
 # Staying organized
 <br>
 
 --
-## - Save your code in .R files
+## 1) Save your code in .R files
 
 > ### &zwj;File > New File > R Script
 
 --
 
-## - Keep work in R Project files
+## 2) Keep work in R Project files
 
 > ### File > New Project...
 

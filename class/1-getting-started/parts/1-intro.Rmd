@@ -6,11 +6,12 @@
 ]]
 .rightcol70[
 
-### Dr. John Helveston
+### John Helveston, Ph.D.
 
 .font80[
 Assistant Professor, Engineering Management & Systems Engineering
 
+- 2016-2018 Postdoc at [Institute for Sustainable Energy](https://www.bu.edu/ise/), Boston University
 - 2016 PhD in Engineering & Public Policy at Carnegie Mellon University
 - 2015 MS in Engineering & Public Policy at Carnegie Mellon University
 - 2010 BS in Engineering Science & Mechanics at Virginia Tech
@@ -49,13 +50,14 @@ Assistant Professor, Engineering Management & Systems Engineering
 --
 ## `r fa('globe')` Everything you need will be on the course website:
 
-  ## https://p4a.seas.gwu.edu/2020-Fall/
+### https://p4a.seas.gwu.edu/2020-Fall/
+<br>
 
 --
 ## `r fa('puzzle-piece')` Course is broken into **two chunks**:
 
-  ### 1. Programming
-  ### 2. Analytics
+### 1. Programming
+### 2. Analytics
 
 ---
 # Homeworks (48% of grade)
@@ -173,6 +175,7 @@ Final Exam         | 40%
 - Tuesdays from 3:30-4:30pm
 - Wednesdays from 2:00-4:30pm
 - Fridays from 12:00-2:00pm
+
 
 --
 ## `r fa('code')` [GW Coders](http://gwcoders.github.io/)
