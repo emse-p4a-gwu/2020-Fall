@@ -297,6 +297,7 @@ The "not" (`!`) symbol produces the _opposite_ statement:
 --
 .cols3[
 ### `& > |`
+The `&` operator takes precedence over `|`
 ```{r}
 (2 == 2) | (2 == 3) & (4 == 7)
 ```
@@ -483,6 +484,7 @@ Example: Is `1` greater than `2`?
 <style>
 .wrapper {
   height: 60vh;
+  width: 90vw;
 }
 </style>
 
@@ -529,11 +531,13 @@ countdown(minutes = 5,
 
 ---
 # Final points
+<br>
 
 --
-## [HW 1](https://p4a.seas.gwu.edu/2020-Fall/hw1-getting-started.html) Preview 
+## 1) [HW 1](https://p4a.seas.gwu.edu/2020-Fall/hw1-getting-started.html) Preview 
 
 ## `r fa('exclamation-circle')` Read carefully!
+<br>
 
 --
-## Please take this [survey](https://p4aintrosurvey.formr.org/)
+## 2) Please take this [survey](https://p4aintrosurvey.formr.org/)
