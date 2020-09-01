@@ -360,11 +360,11 @@ y <- TRUE
 ```
 
 Write code to answer the following questions:
-1. Fill in _relational_ operators to make the following statement return `TRUE`: 
-    
+1. Fill in _relational_ operators to make the following statement return `TRUE`:
+
     `! (w __ x) & ! (y __ x)`
-    
-2. Fill in _logical_ operators to make this statement return `FALSE`: 
+
+2. Fill in _logical_ operators to make this statement return `FALSE`:
 
     `! (w __ x) | (y __ x)`
 ]
@@ -481,10 +481,11 @@ Example: Is `1` greater than `2`?
 ---
 # Special values
 
+<!-- Adjust grid size...use 100 if no header -->
 <style>
 .wrapper {
+  width: 70vw;
   height: 60vh;
-  width: 90vw;
 }
 </style>
 
@@ -521,7 +522,7 @@ countdown(minutes = 5,
           font_size = '2em')
 ```
 
-## Will these return `TRUE` or `FALSE`? 
+## Will these return `TRUE` or `FALSE`?
 
 ## (try to answer first, then run the code to check)
 
@@ -534,7 +535,7 @@ countdown(minutes = 5,
 <br>
 
 --
-## 1) [HW 1](https://p4a.seas.gwu.edu/2020-Fall/hw1-getting-started.html) Preview 
+## 1) [HW 1](https://p4a.seas.gwu.edu/2020-Fall/hw1-getting-started.html) Preview
 
 ## `r fa('exclamation-circle')` Read carefully!
 <br>
