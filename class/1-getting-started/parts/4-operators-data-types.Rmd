@@ -404,7 +404,7 @@ No decimals (e.g. `7`)
 ]
 --
 .rightcol[
-## Doubles (aka float")
+## Doubles (aka "float")
 
 Decimals (e.g. `7.0`)
 ]
