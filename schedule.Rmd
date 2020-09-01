@@ -40,7 +40,7 @@ fa <- list(
     file_code    = '[<i class="fas fa-file-code"></i>]',
     file_archive = '[<i class="fas fa-file-archive"></i>]',
     laptop       = '[<i class="fas fa-laptop"></i>]')
-notesRoot <- '(https://github.com/emse-p4a-gwu/2020-Fall/raw/master/class/'
+notesRoot <- '(http://p4a.seas.gwu.edu/2020-Fall/class/'
 
 # Make the schedule data frame
 schedule <- gsheet2tbl('https://docs.google.com/spreadsheets/d/1i0_7bX1rzy9YC7sSNEDmqgwzQW_VC5DVqr0yqPVpoIQ/edit?usp=sharing') %>%
