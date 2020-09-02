@@ -115,9 +115,8 @@ true      <- typeof(TRUE)
 
 Write code to answer the following questions:
 
-a) Write a statement with _logical_ operators that compares the objects `number`, `character`, and `true` and returns `TRUE`.
-b) Write a statement with _logical_ operators that compares the objects `true`, `false`, and `character` and returns `FALSE`.
-c) Write a statement with _logical_ operators that compares the objects `character`, `number`, and `false` and returns `FALSE`.
+a) Write a statement with both _relational_ & _logical_ operators that compares the four objects `number`, `character`, `false`, and `true` and returns `TRUE`.
+b) Write a statement with both _relational_ & _logical_ operators that compares the four objects `number`, `character`, `false`, and `true` and returns `FALSE`.
 
 ### 7) Submit your files [SOLO, 10%]
 
