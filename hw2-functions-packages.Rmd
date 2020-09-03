@@ -1,5 +1,5 @@
 ---
-title: "Homework 2 - Programming Basics"
+title: "Homework 2 - Functions & Packages"
 output:
   html_document:
     number_sections: false
