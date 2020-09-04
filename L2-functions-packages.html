@@ -715,7 +715,7 @@ div.tocify {
 <p>Here the letters <code>sqrt</code> are short for “square root,” and the value inside the <code>()</code> is the “argument” to the function. In the example above, the value <code>225</code> is the “argument”.</p>
 <p>Keep in mind that not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Fri Sep  4 20:23:42 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Fri Sep  4 20:51:41 2020&quot;</code></pre>
 <p>(the date above is the date this page was last built)</p>
 <div id="multiple-arguments" class="section level2">
 <h2>Multiple arguments</h2>
@@ -832,47 +832,60 @@ div.tocify {
 <ul>
 <li><code>character</code></li>
 <li><code>logical</code></li>
-<li><code>numeric</code> / <code>float</code> / <code>integer</code></li>
+<li><code>numeric</code> / <code>double</code> / <code>integer</code></li>
 </ul>
 <div id="converting-data-types" class="section level3">
 <h3>Converting data types</h3>
 <p>You can convert an object from one type to another using <code>as.______()</code>, replacing “<code>______</code>” with a data type:</p>
-<pre class="r"><code>as.integer(3.1415)   # Converts double to integer</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>as.double(3L)        # Converts integer to double</code></pre>
-<pre><code>## [1] 3</code></pre>
-<pre class="r"><code>as.numeric(&quot;3.1415&quot;) # Converts character to numeric / double</code></pre>
+<p>Convert <strong>numeric</strong> types:</p>
+<pre class="r"><code>as.numeric(&quot;3.1415&quot;)</code></pre>
 <pre><code>## [1] 3.1415</code></pre>
-<pre class="r"><code>as.character(3.1415) # Converts double to character</code></pre>
+<pre class="r"><code>as.double(&quot;3.1415&quot;)</code></pre>
+<pre><code>## [1] 3.1415</code></pre>
+<pre class="r"><code>as.integer(&quot;3.1415&quot;)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>Convert <strong>non-numeric</strong> types:</p>
+<pre class="r"><code>as.character(3.1415)</code></pre>
 <pre><code>## [1] &quot;3.1415&quot;</code></pre>
-<pre class="r"><code>as.logical(3.1415)   # Converts numeric to logical</code></pre>
+<pre class="r"><code>as.logical(3.1415)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
 <p>A few notes to keep in mind:</p>
 <ol style="list-style-type: decimal">
-<li><p>When converting from a <strong>numeric</strong> to a <strong>logical</strong>, <code>as.logical()</code> will always return <code>TRUE</code> for any numeric value other than <code>0</code>, for which it returns <code>FALSE</code>.</p></li>
+<li><p>When converting from a <strong>numeric</strong> to a <strong>logical</strong>, <code>as.logical()</code> will always return <code>TRUE</code> for any numeric value other than <code>0</code>, for which it returns <code>FALSE</code>.</p>
+<pre class="r"><code>as.logical(7)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>as.logical(0)</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<p>The reverse is also true</p>
+<pre class="r"><code>as.numeric(TRUE)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>as.numeric(FALSE)</code></pre>
+<pre><code>## [1] 0</code></pre></li>
 <li><p>Not everything can be converted. For example, if you try to coerce a character that contains letters into a number, R will return <code>NA</code>, because it doesn’t know what number to choose:</p>
 <pre class="r"><code>as.numeric(&#39;foo&#39;)</code></pre>
 <pre><code>## Warning: NAs introduced by coercion</code></pre>
 <pre><code>## [1] NA</code></pre></li>
-<li><p>If you want to force a non-integer number into an integer value, but you don’t want to change the actual <em>type</em> to an integer type, use <code>round()</code>, <code>ceiling()</code>, or <code>floor()</code>. This will turn the number into an integer in <em>value</em>, but it will still technically be a <code>double</code> type.</p>
-<pre class="r"><code>round(3.1415)   # Typical rounding</code></pre>
+<li><p>The <code>as.integer()</code> function behaves the same as <code>floor()</code>:</p>
+<pre class="r"><code>as.integer(3.14)</code></pre>
 <pre><code>## [1] 3</code></pre>
-<pre class="r"><code>ceiling(3.1415) # Rounds *up* to nearest integer</code></pre>
-<pre><code>## [1] 4</code></pre>
-<pre class="r"><code>floor(3.1415)   # Rounds *down* to nearest integer</code></pre>
+<pre class="r"><code>as.integer(3.99)</code></pre>
 <pre><code>## [1] 3</code></pre></li>
 </ol>
 </div>
 <div id="checking-data-types" class="section level3">
 <h3>Checking data types</h3>
-<p>Similar to the <code>as.______()</code> format, you can check if an object is a specific data type using <code>is.______()</code>, replacing “<code>______</code>” with a data type:</p>
-<pre class="r"><code>is.numeric(7)</code></pre>
+<p>Similar to the <code>as.______()</code> format, you can check if an object is a specific data type using <code>is.______()</code>, replacing “<code>______</code>” with a data type.</p>
+<p>Checking <strong>numeric</strong> types:</p>
+<pre class="r"><code>is.numeric(3.1415)</code></pre>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="r"><code>is.integer(7)</code></pre>
+<pre class="r"><code>is.double(3.1415)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>is.integer(3.1415)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<pre class="r"><code>is.character(7)</code></pre>
+<p>Checking <strong>non-numeric</strong> types:</p>
+<pre class="r"><code>is.character(3.1415)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
-<pre class="r"><code>is.logical(7)</code></pre>
+<pre class="r"><code>is.logical(3.1415)</code></pre>
 <pre><code>## [1] FALSE</code></pre>
 <p>One thing you’ll notice is that <code>is.integer()</code> often gives you a surprising result. For example, why did <code>is.integer(7)</code> return <code>FALSE</code>?. Well, this is because numbers are <em>doubles</em> by default in R, so even though <code>7</code> <em>looks</em> like an integer, R thinks it’s a double.</p>
 <p>The safer way to check if a number is an integer in <em>value</em> is to compare it against itself converted into an integer:</p>
@@ -909,9 +922,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that on March 19 in 2011 – Libyan Civil War: The French Air Force launched Opération Harmattan, beginning foreign military intervention in Libya. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Here&#39;s some news from 05 February 2015. The Australian Open tennis tournament concludes with Serena Williams winning the women&#39;s singles and Novak Djokovic winning the men&#39;s singles. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that the Pragmatic Sanction of 1712, allowing a Habsburg princess to become Queen of Croatia, is evoked in the Constitution of Croatia as a demonstration of Croatian millennial statehood? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Manuel Añorve Baños was appointed by his cousin, the interim Governor of Guerrero, Mexico, to serve as the interim mayor of Acapulco? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 </div>
 <div id="using-only-some-package-functions" class="section level2">
@@ -922,7 +935,7 @@ library(packagename)   # This also works</code></pre>
 </blockquote>
 <p>Here I use the name of the <em>package</em> followed by <code>::</code> to tell R that I’m looking for a function that is in that package. For example, if I didn’t want to load the whole <strong>wikifacts</strong> library but still wanted to use the <code>wiki_randomfact()</code> function, I could do this:</p>
 <pre class="r"><code>wikifacts::wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that Manshuk Mametova was the first Kazakh woman to become a Hero of the Soviet Union, after she refused to follow the rest of her unit in retreating from battle in Nevel? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Minneapolis–Saint Paul&#39;s Metro system (train pictured) provided 23 million rides across its 37 light rail stations in 2016? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>Where this is particularly handy is when two packages have a function with the same name. If you load both library, R might not know which function to use. In those cases, it’s best to also provide the <strong>package</strong> name. For example, let’s say there was a package called <strong>apples</strong> and another called <strong>bananas</strong>, and each had a function named <code>fruitName()</code>. If I wanted to use each of them in my code, I would need to specify the package names like this:</p>
 <pre class="r"><code>apples::fruitName()
 bananas::fruitName()</code></pre>
