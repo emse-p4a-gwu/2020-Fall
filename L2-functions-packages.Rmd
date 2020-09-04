@@ -111,23 +111,39 @@ In each of these patterns, replace "`______`" with:
 
 - `character`
 - `logical`
-- `numeric` / `float` / `integer`
+- `numeric` / `double` / `integer`
 
 ### Converting data types
 
 You can convert an object from one type to another using `as.______()`, replacing "`______`" with a data type:
 
+Convert **numeric** types:
 ```{r}
-as.integer(3.1415)   # Converts double to integer
-as.double(3L)        # Converts integer to double
-as.numeric("3.1415") # Converts character to numeric / double
-as.character(3.1415) # Converts double to character
-as.logical(3.1415)   # Converts numeric to logical
+as.numeric("3.1415")
+as.double("3.1415")
+as.integer("3.1415")
+```
+
+Convert **non-numeric** types:
+```{r}
+as.character(3.1415)
+as.logical(3.1415)
 ```
 
 A few notes to keep in mind:
 
 1) When converting from a **numeric** to a **logical**, `as.logical()` will always return `TRUE` for any numeric value other than `0`, for which it returns `FALSE`.
+
+    ```{r}
+    as.logical(7)
+    as.logical(0)
+    ```
+
+    The reverse is also true
+    ```{r}
+    as.numeric(TRUE)
+    as.numeric(FALSE)
+    ```
 
 2) Not everything can be converted. For example, if you try to coerce a character that contains letters into a number, R will return `NA`, because it doesn't know what number to choose:
 
@@ -135,22 +151,28 @@ A few notes to keep in mind:
     as.numeric('foo')
     ```
 
-3) If you want to force a non-integer number into an integer value, but you don't want to change the actual _type_ to an integer type, use `round()`, `ceiling()`, or `floor()`. This will turn the number into an integer in _value_, but it will still technically be a `double` type.
+3) The `as.integer()` function behaves the same as `floor()`:
 
     ```{r}
-    round(3.1415)   # Typical rounding
-    ceiling(3.1415) # Rounds *up* to nearest integer
-    floor(3.1415)   # Rounds *down* to nearest integer
+    as.integer(3.14)
+    as.integer(3.99)
     ```
 
 ### Checking data types
 
-Similar to the `as.______()` format, you can check if an object is a specific data type using `is.______()`, replacing "`______`" with a data type:
+Similar to the `as.______()` format, you can check if an object is a specific data type using `is.______()`, replacing "`______`" with a data type.
+
+Checking **numeric** types:
 ```{r}
-is.numeric(7)
-is.integer(7)
-is.character(7)
-is.logical(7)
+is.numeric(3.1415)
+is.double(3.1415)
+is.integer(3.1415)
+```
+
+Checking **non-numeric** types:
+```{r}
+is.character(3.1415)
+is.logical(3.1415)
 ```
 
 One thing you'll notice is that `is.integer()` often gives you a surprising result. For example, why did `is.integer(7)` return `FALSE`?. Well, this is because numbers are _doubles_ by default in R, so even though `7` _looks_ like an integer, R thinks it's a double.
