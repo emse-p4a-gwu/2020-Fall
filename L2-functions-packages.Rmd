@@ -91,14 +91,16 @@ R has LOTS of functions. Many of the basic math functions are somewhat self-expl
 
 Function   | Description       | Example input    | Example output
 ---------- | ------------------|------------------|---------------
-`exp()`    | Exponential       | `exp(0)`         | ``r exp(0)``
-`sqrt()`   | Square root       | `sqrt(64)`       | ``r sqrt(64)``
-`log()`    | Natural log       | `log(1)`         | ``r log(1)``
-`factorial()` | Factorial      | `factorial(5)`   | ``r factorial(5)``
 `round(x, digits=0)` | Round `x` to the `digits` decimal place | `round(3.1415, digits=2)` | ``r round(3.1415, digits=2)``
+`floor(x)` | Round `x` **down** the nearest integer | `floor(3.1415)` | ``r floor(3.1415)``
+`ceiling(x)` | Round `x` **up** the nearest integer | `ceiling(3.1415)` | ``r ceiling(3.1415)``
 `abs()`    | Absolute value    | `abs(-42)`   | ``r abs(-42)``
 `min()`    | Minimum value     | `min(1, 2, 3)`   | ``r min(1, 2, 3)``
 `max()`    | Maximum value     | `max(1, 2, 3)`   | ``r max(1, 2, 3)``
+`sqrt()`   | Square root       | `sqrt(64)`       | ``r sqrt(64)``
+`exp()`    | Exponential       | `exp(0)`         | ``r exp(0)``
+`log()`    | Natural log       | `log(1)`         | ``r log(1)``
+`factorial()` | Factorial      | `factorial(5)`   | ``r factorial(5)``
 
 ## Functions for manipulating data types
 
