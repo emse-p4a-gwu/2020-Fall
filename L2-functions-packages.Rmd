@@ -258,7 +258,7 @@ bananas::fruitName()
 In R, there is a similar package called [**TurtleGraphics**](http://www.gagolewski.com/software/TurtleGraphics/?section=software&subsection=TurtleGraphics). To get started, install the package (remember, you only need to do this once on your computer):
 
 ```{r, eval=FALSE}
-install.package('TurtleGraphics')
+install.packages('TurtleGraphics')
 ```
 
 Once installed, load the package (remember, you have to load this every time you restart R to use the package!):
