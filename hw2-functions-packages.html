@@ -608,7 +608,151 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 14 September by 11:00 pm</p>
+<p><strong>Weight</strong>: This assignment is worth <strong>4%</strong> of your final grade.</p>
+<p><strong>Purpose</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice using functions in R.</li>
+<li>To practice converting data types in R.</li>
+<li>To practice installing, loading, and using external packages.</li>
+</ul>
+<p><strong>Skills &amp; Knowledge</strong>: After completing these exercises, you should be able to:</p>
+<ul>
+<li>Be familiar with how to specify arguments in functions.</li>
+<li>Be comfortable converting data between logical, character, and numeric types.</li>
+<li>Be comfortable installing external libraries and accessing functions in them.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together.</li>
+<li>Even though you work collaboratively, you still must submit your own solutions.</li>
+</ul>
+</blockquote>
+<div id="staying-organized-solo-10" class="section level3">
+<h3>1) Staying organized [SOLO, 10%]</h3>
+<p>Just like we did in <a href="hw1-getting-started.html">HW1</a>, we’re going to use an R project to keep everything in this assignment tidy. Create a new R project called “hw2” and save a new R script in it called “hw2.R”. Copy the following code to the top of this script and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment:</p>
+<pre class="r"><code># Name:      Last, First
+# GW Net ID: Insert your GWNetID here
+
+# I worked with the following classmates on this assignment:
+# 1) Name: Last, First
+# 2) Name: Last, First</code></pre>
+<p>Write your responses to all other questions in this assignment in your hw2.R file.</p>
+</div>
+<div id="polya-problem-solving-1-collaborative-15" class="section level3">
+<h3>2) Polya problem solving 1 [COLLABORATIVE, 15%]</h3>
+<p>Consider the points A, B, and C defined by the following cartesian coordinates:</p>
+<div style="width:150px">
+<table>
+<thead>
+<tr class="header">
+<th>Point</th>
+<th><code>x</code></th>
+<th><code>y</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>A</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>B</td>
+<td>5</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>5</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Your task is to find out if the triangle formed by the points A, B, and C is a <a href="https://en.wikipedia.org/wiki/Right_triangle">right triangle</a>. Apply Polya’s problem solving technique:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Understand the problem</strong>: In a code comment, write the question you are trying to solve in your own words, then create objects for each relevant piece of information provided in the problem statement.</li>
+<li><strong>Devise a plan</strong>: In code comments, describe the steps you will take in your plan to solve the problem.</li>
+<li><strong>Carry out the plan</strong>: Write code below your comments to carry out your plan.</li>
+<li><strong>Check your work</strong>: <em>Examine</em> your solution and any intermediate values you computed along the way. Do the values make sense (e.g. do you get negative numbers when you expected positive numbers)? Is there another way you could have solved it to check that you get the same result?</li>
+</ol>
+</div>
+<div id="polya-problem-solving-2-collaborative-20" class="section level3">
+<h3>3) Polya problem solving 2 [COLLABORATIVE, 20%]</h3>
+<p>Kevin is deciding between purchasing a Chevy Bolt, which sells for $29,390 (after subsidies), and a Toyota Camry, which sells for $24,000. The Bolt efficiency is 28 kWh of electricity per 100 miles while the Camry efficiency is 28 miles per gallon (mpg) on average. The average price of electricity (in DC, where Kevin lives) is $0.13 / kWh, and the average price of gasoline is $2.20 / gallon. Kevin drives 12,000 miles each year on average.</p>
+<p>To help him make a decision about which car to buy, answer the following questions:</p>
+<ol style="list-style-type: lower-alpha">
+<li>How long (in years) would he have to drive the Bolt for the money he saves in fuel savings to be greater than the price premium compared to the Camry?</li>
+<li>What would the price of gasoline need to be such that the fuel savings from driving the Bolt for 3 years would be greater than the price premium compared to the Camry?</li>
+<li>How many miles would Kevin need to drive each year such that the fuel savings from driving the Bolt for 3 years would be greater than the price premium compared to the Camry?</li>
+</ol>
+<p>To solve each problem, apply Polya’s problem solving technique:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Understand the problem</strong>: In a code comment, write the question you are trying to solve in your own words, then create objects for each relevant piece of information provided in the problem statement.</li>
+<li><strong>Devise a plan</strong>: In code comments, describe the steps you will take in your plan to solve the problem.</li>
+<li><strong>Carry out the plan</strong>: Write code below your comments to carry out your plan.</li>
+<li><strong>Check your work</strong>: <em>Examine</em> your solution and any intermediate values you computed along the way. Do the values make sense (e.g. do you get negative numbers when you expected positive numbers)? Is there another way you could have solved it to check that you get the same result?</li>
+</ol>
+</div>
+<div id="working-with-strings-the-stringr-library-solo-15" class="section level3">
+<h3>4) Working with strings: the <strong>stringr</strong> library [SOLO, 15%]</h3>
+<p>Who is your favorite super hero character? If you don’t already have one, <a href="https://www.britannica.com/topic/list-of-superheroes-2024795">pick one</a> (mine is <a href="https://en.wikipedia.org/wiki/Professor_X">Professor Xavier</a>, and no it’s not just because he’s a professor :P).</p>
+<p>In your hw2.R file, create two objects that store the following character values:</p>
+<ul>
+<li>The <em>name</em> of your favorite super hero.</li>
+<li>The <em>super power(s)</em> your hero has.</li>
+</ul>
+<p>Use <a href="L1.2-getting-started.html#Use_meaningful_variable_names">meaningful variable names</a> to store these values.</p>
+<p>Next, install the <strong>stringr</strong> library. Try using the <code>str_to_lower()</code>, <code>str_to_upper()</code>, and <code>str_to_title()</code> functions from the <strong>stringr</strong> library on the objects you created. In a code comment, describe what these functions do.</p>
+<p>Finally, use the <code>paste()</code> function to merge your super hero’s name and power in a coherent sentence. For example, if the name is <code>"Professor Xavier"</code> and the the power is <code>"reads peoples' minds"</code>, then a final sentence might be: <code>"Professor Xavier reads peoples' minds!"</code>. (Note that I intentionally did not tell you how to use the <code>paste()</code> function…you’ll have to figure that one out)</p>
+</div>
+<div id="installing-packages-from-github-the-brrr-library-solo-10" class="section level3">
+<h3>5) Installing packages from Github: the <strong>BRRR</strong> library [SOLO, 10%]</h3>
+<p>The vast majority of the time, you will install external packages using the <code>install.packages()</code> function. This installs packages from the <a href="https://cran.r-project.org/">Comprehensive R Archive Network</a> (CRAN), where most packages are published. But you can also install packages that are under development or haven’t been published to CRAN yet. Most of the time, these packages are hosted on GitHub - an online platform for sharing code (it’s also where all of the files that make up this website are <a href="https://github.com/emse-p4a-gwu/2020-Fall/">stored</a>).</p>
+<p>To install a package from GitHub, you first need to install the <strong>devtools</strong> library. Then you can use the <code>devtools::install_github()</code> function to install packages directly from GitHub. To try this out, install the <strong>devtools</strong> library, then trying installing the <strong>BRRR</strong> package:</p>
+<pre class="r"><code>devtools::install_github(&quot;brooke-watson/BRRR&quot;)</code></pre>
+<blockquote>
+<p>Note: Packges on GitHub are <em>in development</em> and often require other packges to work. So if you get an installation error about some other package dependency, try restarting your R session and try again.</p>
+</blockquote>
+<p>Not sure what this package does? Well, one of the other nice things about packages listed on GitHub is the authors tend to write detailed descriptions - check out the <a href="https://github.com/brooke-watson/BRRR">GitHub page for the BRRR package</a>. Then try using the <code>BRRR::skrrrahh()</code> function with different number arguments (turn your volume up). In the <code>#hw2</code> channel on slack, post your favorite argument to <code>skrrrahh()</code> (mine is 24).</p>
+</div>
+<div id="turtle-practice-collaborative-20" class="section level3">
+<h3>6) Turtle practice [COLLABORATIVE, 20%]</h3>
+<p>In case you missed the intro to the <strong>TurtleGraphics</strong> library in class, go ahead and install and load the library. You might also want to review the <a href="L2-functions-packages.html#Turtle_Graphics">related lesson page</a> and the <a href="http://p4a.seas.gwu.edu/2020-Fall/class/1-getting-started/slides-2-functions-packages.pdf">class slides</a>. Then complete these tasks:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Load the <code>TurtleGraphics</code> library, then initiate your turtle with the <code>turtle_init()</code> function.</li>
+<li>Read through the following commands (don’t run them). In a code comment, type a description of what you think the turtle is going to do.</li>
+</ol>
+<pre class="r"><code>turtle_init()
+turtle_move(distance = 25, direction = &quot;forward&quot;)
+turtle_move(distance = 50, direction = &quot;backward&quot;)
+turtle_reset()
+turtle_turn(angle = 90, direction = &quot;right&quot;)
+turtle_move(distance = 25, direction = &quot;forward&quot;)
+turtle_move(distance = 50, direction = &quot;backward&quot;)
+turtle_reset()</code></pre>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>Now run the above commands to check if the turtle did what you expected. Congratulations, you’ve just practiced “code tracing”! Reading through code <em>before</em> running it then comparing the result with your expectation is an excellent method for improving your your computational thinking skills and your fluency with a particular language.</li>
+<li>Using what you’ve learned about how to manipulate your turtle, write <strong>two different solutions</strong> for producing the following image (hint: the length of one side of the square is <code>50</code> units):</li>
+</ol>
+<center>
+<img src="images/turtle_cross_box.png" width=456>
+</center>
+</div>
+<div id="submit-your-files-solo-10" class="section level3">
+<h3>7) Submit your files [SOLO, 10%]</h3>
+<p>Create a zip file of all the files in your R project folder for this assignment and submit the zip file on Blackboard (note: to receive full credit, your submission must follow the above format of using a correctly-named R Project and <code>.R</code> script).</p>
+</div>
 
 
 <hr>
