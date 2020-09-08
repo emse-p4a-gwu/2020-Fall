@@ -1,3 +1,10 @@
+NEW
+
+1 - add some practice in hw1 about mod and int division
+
+------------------------------------
+OLD
+
 General:
 - Add early discussion of Polya problem solving: Solve problem before coding - come up with a plan, then execute the code
 - Add strings to final review slides
