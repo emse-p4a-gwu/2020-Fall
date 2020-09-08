@@ -1,6 +1,7 @@
 Planned outline:
 
 - Quiz 1
+- Youtube link
 - Download today's blank notes
 
 
@@ -10,6 +11,5 @@ End:
 # ----------------------------------------------------------------------
 # Post-class notes
 
-
-
-
+Went well on time.
+Add "Break" text to break
