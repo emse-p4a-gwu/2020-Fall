@@ -7,7 +7,7 @@ pagedown::chrome_print(
     input  = here::here(paste0(lesson, '.html')),
     output = here::here(paste0(lesson, '.pdf')))
 
-# Create thumbnail image
+# Create thumbnail imagez
 pagedown::chrome_print(
     input  = here::here(paste0(lesson, '.html')),
     output = here::here('thumbnail.png'), 

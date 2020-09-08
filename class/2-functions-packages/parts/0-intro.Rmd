@@ -3,7 +3,7 @@ class: inverse
 
 # Quiz 1 
 
-# Go to `#links` channel in Slack for link
+# Go to `#classroom` channel in Slack for link
 
 ```{r, echo=FALSE}
 countdown(minutes = 6,

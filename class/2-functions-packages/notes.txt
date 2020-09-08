@@ -1,8 +1,15 @@
 Planned outline:
 
+- Quiz 1
+- Download today's blank notes
+
+
+End:
+- When you ask a question, please include relevant code
 
 # ----------------------------------------------------------------------
 # Post-class notes
+
 
 
 
