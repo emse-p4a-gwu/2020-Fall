@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Week 2: Functions &amp; Packages</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2020-09-08" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="https://emse-p4a-gwu.github.io/2020-Fall/class/class.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+.rightcol70[
+# Week 2: .fancy[Functions &amp; Packages]
+
+### EMSE 4574: Intro to Programming for Analytics
+### John Paul Helveston
+### September 08, 2020
+]
+
+---
+
+
+class: inverse
+
+# Quiz 1 
+
+# Go to `#links` channel in Slack for link
+
+<div class="countdown" id="timer_5f57a11e" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">06</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+class: inverse, middle
+
+# Week 2: .fancy[Functions &amp; Packages]
+
+## 1. .orange[Functions]
+## 2. Manipulating data types
+## 3. Packages
+## 4. Polya’s Problem Solving Technique
+
+---
+# Funtions take this form:
+
+## `name(argument)`
+
+--
+&amp;zwj;Example:
+
+```r
+sqrt(225)
+```
+
+```
+## [1] 15
+```
+--
+Not every function has an argument:
+
+```r
+date()
+```
+
+```
+## [1] "Tue Sep  8 11:08:20 2020"
+```
+
+---
+### Some functions have multiple arguments:
+
+```r
+round(3.1415, 2)
+```
+
+```
+## [1] 3.14
+```
+--
+### Arguments have names too:
+
+```r
+round(x = 3.1415, digits = 2)
+```
+
+```
+## [1] 3.14
+```
+--
+### If you don't include all arguments, default values will be used:
+
+```r
+round(x = 3.1415)
+```
+
+```
+## [1] 3
+```
+
+---
+# For arguments, use "`=`" , not "`&lt;-`"
+
+--
+.leftcol[
+### `=`&lt;br&gt;Arguments are "local" to the function
+
+```r
+round(x = 3.1415, digits = 2)
+```
+
+```
+## [1] 3.14
+```
+
+```r
+x
+```
+```
+Error: object 'x' not found
+```
+]
+--
+.rightcol[
+### `&lt;-`&lt;br&gt;Arguments also get created "globally"
+
+```r
+round(x &lt;- 3.1415, digits &lt;- 2)
+```
+
+```
+## [1] 3.14
+```
+
+```r
+x
+```
+
+```
+## [1] 3.1415
+```
+
+```r
+digits
+```
+
+```
+## [1] 2
+```
+]
+---
+# Use `?` to get help
+
+
+```r
+?round()
+```
+
+--
+```
+Rounding of Numbers
+Description
+ceiling takes a single numeric argument x and returns a numeric vector containing the smallest integers not less than the corresponding elements of x.
+
+floor takes a single numeric argument x and returns a numeric vector containing the largest integers not greater than the corresponding elements of x.
+
+trunc takes a single numeric argument x and returns a numeric vector containing the integers formed by truncating the values in x toward 0.
+
+round rounds the values in its first argument to the specified number of decimal places (default 0). See ‘Details’ about “round to even” when rounding off a 5.
+
+signif rounds the values in its first argument to the specified number of significant digits.
+
+Usage
+ceiling(x)
+floor(x)
+trunc(x, ...)
+
+round(x, digits = 0)
+signif(x, digits = 6)
+Arguments
+x          a numeric vector. Or, for round and signif, a complex vector.
+digits    integer indicating the number of decimal places (round) or significant digits (signif) to be used. Negative values are allowed (see ‘Details’).
+
+```
+
+---
+# Combining functions
+
+--
+You can use functions as arguments to other functions:
+
+```r
+round(sqrt(7), digits = 2)
+```
+
+```
+## [1] 2.65
+```
+--
+This is the same as doing this:
+
+```r
+temp &lt;- sqrt(7)
+round(temp, digits = 2)
+```
+
+```
+## [1] 2.65
+```
+
+---
+# Combining functions
+
+Ex: What do you think this would return:
+
+```r
+sqrt(1 + abs(-8))
+```
+--
+
+```
+## [1] 3
+```
+
+---
+## Frequently used **math** functions
+
+.font90[
+Function   | Description       | Example input    | Example output
+---------- | ------------------|------------------|---------------
+`sqrt()`   | Square root       | `sqrt(64)`       | 8
+`round(x, digits=0)` | Round `x` to the `digits` decimal place | `round(3.1415, digits=2)` | 3.14
+`floor(x)` | Round `x` **down** the nearest integer | `floor(3.1415)` | 3
+`ceiling(x)` | Round `x` **up** the nearest integer | `ceiling(3.1415)` | 4
+`abs()`    | Absolute value    | `abs(-42)`   | 42
+`min()`    | Minimum value     | `min(1, 2, 3)`   | 1
+`max()`    | Maximum value     | `max(1, 2, 3)`   | 3
+]
+
+---
+class: inverse
+
+# Think-Pair-Share
+
+<div class="countdown" id="timer_5f579f4b" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+.leftcol[
+Consider the following code (don't run it):
+
+```r
+val &lt;- sqrt(y = abs(-10))
+val &lt;- abs(x &lt;- log(10))
+result &lt;- round(x, digits &lt;- sqrt(abs(-4)))
+result*digits
+```
+
+.orange[NOTE: This is just for practice - you should always use "=" for function arguments.]
+
+]
+.rightcol[
+Now follow these steps:
+
+1. Type out what you expect R will return when all the lines are run at once.
+2. Compare your expectations with each other.
+3. Run the code and compare the results with your expectations.
+]
+
+---
+
+
+class: inverse, middle
+
+# Week 2: .fancy[Functions &amp; Packages]
+
+## 1. Functions
+## 2. .orange[Manipulating data types]
+## 3. Packages
+## 4. Polya’s Problem Solving Technique
+
+---
+# Use these patterns:
+
+--
+.leftcol40[
+### Convert type of `x`:
+###`as.______(x)`
+&lt;br&gt;
+
+### Check type of `x`:
+### `is.______(x)`
+]
+--
+.rightcol60[
+### Replace "`______`" with:
+
+- ### `character`
+- ### `logical`
+- ### `numeric` / `double` / `integer`
+]
+
+---
+## Convert type with `as.______(x)`
+
+--
+.leftcol[
+### Convert **numeric** types:
+
+```r
+as.numeric("3.1415")
+```
+
+```
+## [1] 3.1415
+```
+
+```r
+as.double("3.1415")
+```
+
+```
+## [1] 3.1415
+```
+
+```r
+as.integer("3.1415")
+```
+
+```
+## [1] 3
+```
+]
+--
+.rightcol[
+### Convert **non-numeric** types:
+
+```r
+as.character(3.1415)
+```
+
+```
+## [1] "3.1415"
+```
+
+```r
+as.logical(3.1415)
+```
+
+```
+## [1] TRUE
+```
+]
+
+---
+# A few notes on converting types
+
+--
+.leftcol[
+### Converting any number to a logical returns `TRUE` except for `0`
+
+```r
+as.logical(7)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+as.logical(0)
+```
+
+```
+## [1] FALSE
+```
+]
+--
+.rightcol[
+### `TRUE = 1`, `FALSE = 0`:
+
+
+```r
+as.numeric(TRUE)
+```
+
+```
+## [1] 1
+```
+
+```r
+as.numeric(FALSE)
+```
+
+```
+## [1] 0
+```
+]
+
+---
+# A few notes on converting types
+
+### Not everything can be converted.
+
+--
+.leftcol[
+
+```r
+as.numeric('7')   # Works
+```
+
+```
+## [1] 7
+```
+
+```r
+as.numeric('foo') # Doesn't work
+```
+
+```
+## [1] NA
+```
+]
+
+---
+# A few notes on converting types
+
+### `as.integer()` is the same as `floor()`:
+.leftcol[
+
+```r
+as.integer(3.14)
+```
+
+```
+## [1] 3
+```
+
+```r
+as.integer(3.99)
+```
+
+```
+## [1] 3
+```
+]
+
+---
+## Check type with `is.______(x)`
+
+--
+.leftcol[
+### Checking **numeric** types:
+
+```r
+is.numeric(3.1415)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+is.double(3.1415)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+is.integer(3.1415)
+```
+
+```
+## [1] FALSE
+```
+]
+--
+.rightcol[
+### Checking **non-numeric** types:
+
+```r
+is.character(3.1415)
+```
+
+```
+## [1] FALSE
+```
+
+```r
+is.logical(3.1415)
+```
+
+```
+## [1] FALSE
+```
+]
+
+---
+# Integers are weird
+
+--
+
+```r
+is.integer(7)
+```
+
+```
+## [1] FALSE
+```
+...because R thinks `7` is really `7.0`
+&lt;br&gt;&lt;br&gt;
+
+--
+To check if a number is an integer _in value_:
+
+```r
+7 == as.integer(7)
+```
+
+```
+## [1] TRUE
+```
+
+---
+class: inverse
+
+# Think-Pair-Share
+
+<div class="countdown" id="timer_5f579ec9" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+Consider the following code (don't run it):
+
+```r
+number    &lt;- as.logical(as.numeric('3'))
+character &lt;- is.character(typeof(7))
+true      &lt;- as.logical("FALSE")
+false     &lt;- as.logical(as.numeric(TRUE))
+
+! (number == character) &amp; (true | false) | (number &amp; false)
+```
+
+Now follow these steps:
+
+1. Type out what you expect R will return when all the lines are run at once.
+2. Compare your expectations with each other.
+3. Run the code and compare the results with your expectations.
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f579eb4" style="top:0;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+class: inverse, middle
+
+# Week 2: .fancy[Functions &amp; Packages]
+
+## 1. Functions
+## 2. Manipulating data types
+## 3. .orange[Packages]
+## 4. Polya’s Problem Solving Technique
+
+---
+# &gt;15,000 packages on the [CRAN](https://cran.r-project.org/)
+
+.leftcol60[
+&lt;img src="slides-2-functions-packages_files/figure-html/unnamed-chunk-35-1.png" width="576" /&gt;
+]
+.rightcol40[
+CRAN = The Comprehensive R Archive Network
+
+[List of packages](https://cran.r-project.org/web/packages/available_packages_by_name.html)
+]
+
+---
+# Installing packages
+&lt;br&gt;
+
+--
+### `install.packages("packagename")`
+### (The package name **must** be in quotes)
+
+```r
+install.packages("packagename") # This works
+install.packages(packagename)   # This doesn't work
+```
+
+--
+### **You only need to install a package once!**
+
+---
+# Loading packages
+&lt;br&gt;
+
+--
+### `library(packagename)`: Loads all the functions in a package
+### (The package name _doesn't_ need to be in quotes)
+
+```r
+library("packagename") # This works
+library(packagename)   # This also works
+```
+
+--
+### **You need to _load_ the package every time you use it!**
+
+---
+class: center
+
+# Installing vs. Loading
+
+&lt;center&gt;
+&lt;img src="images/package_lightbulb.png" width=1000&gt;
+&lt;/center&gt;
+
+---
+## Example: **wikifacts**
+
+Install the [Wikifacts](https://github.com/keithmcnulty/wikifacts) package, by Keith McNulty:
+
+```r
+install.packages("wikifacts")
+```
+--
+Load the package:
+
+```r
+library(wikifacts) # Load the library
+```
+--
+Use one of the package functions
+
+```r
+wiki_randomfact()
+```
+
+```
+## [1] "Here's some news from 01 August 2015. In cycling, Chris Froome wins the Tour de France for a second time. (Courtesy of Wikipedia)"
+```
+
+---
+## Example: **wikifacts**
+
+Now, restart your RStudio session:
+&gt; Session -&gt; Restart R
+
+&lt;br&gt;
+--
+Try using the package function again:
+
+```r
+wiki_randomfact()
+```
+
+```
+## Error in wiki_randomfact(): could not find function "wiki_randomfact"
+```
+
+---
+# Using only _some_ package functions
+
+### You don't always have to load the whole library.
+&lt;br&gt;
+
+--
+### Functions can be accessed with this pattern:
+`packagename::functionname()`
+&lt;br&gt;
+
+--
+
+```r
+wikifacts::wiki_randomfact()
+```
+
+```
+## [1] "Did you know that on October 17 in 1940 – The body of Willi Münzenberg, a French communist who was the leading propagandist for the Communist Party of Germany, was found near Saint-Marcellin. (Courtesy of Wikipedia)"
+```
+
+---
+# Learn more about a package:
+
+## `help(package = 'packagename')`
+
+--
+&amp;zwj;Example:
+
+```r
+help(package = 'wikifacts')
+```
+
+---
+class: inverse
+
+# Think-Pair-Share
+
+<div class="countdown" id="timer_5f579faf" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.leftcol60[
+1. Install the `TurtleGraphics` package.
+2. Load the package.
+3. Use the `turtle_init()` function to create a turtle.
+4. Use `help(package = 'TurtleGraphics')` to learn about other functions to control your turtle.
+5. Try drawing this shape with your turtle (hint: the length of each line is 50 units).
+6. Compare your results and code with each other.
+]
+.rightcol40[
+&lt;img src="images/turtle_example.png"&gt;
+]
+
+
+
+---
+
+
+class: inverse, middle
+
+# Week 2: .fancy[Functions &amp; Packages]
+
+## 1. Functions
+## 2. Manipulating data types
+## 3. Packages
+## 4. .orange[Polya’s Problem Solving Technique]
+
+---
+# [Polya](https://en.wikipedia.org/wiki/George_P%C3%B3lya)’s Problem Solving Technique
+
+--
+### **Step 1**: Understand the problem
+
+--
+### **Step 2**: Devise a plan
+
+--
+### **Step 3**: Carry out the plan
+
+--
+### **Step 4**: Check your work
+
+---
+# Polya’s Problem Solving Technique
+
+.leftcol[
+### .red[**Step 1**: Understand the problem]
+### **Step 2**: Devise a plan
+### **Step 3**: Carry out the plan
+### **Step 4**: Check your work
+]
+--
+.rightcol[
+- Seems obvious (easy to overlook)
+- Restate the problem in your own words
+- Draw a figure
+- What information do you _have_?
+- What information do you _need_?
+]
+
+---
+# Polya’s Problem Solving Technique
+
+.leftcol[
+### **Step 1**: Understand the problem
+### .red[**Step 2**: Devise a plan]
+### **Step 3**: Carry out the plan
+### **Step 4**: Check your work
+]
+--
+.rightcol[
+- Do you know a related problem?
+- Look at the unknown!
+- Guess and check
+- Eliminate possibilities
+- Consider special cases
+- Work backwards
+]
+
+---
+# Polya’s Problem Solving Technique
+
+.leftcol[
+### **Step 1**: Understand the problem
+### **Step 2**: Devise a plan
+### .red[**Step 3**: Carry out the plan]
+### **Step 4**: Check your work
+]
+--
+.rightcol[
+- (this is where you write code)
+- **Be patient**
+- Stick to the plan...until the plan fails
+- Then change your plan
+- Error message != plan has failed
+]
+
+---
+# Polya’s Problem Solving Technique
+
+.leftcol[
+### **Step 1**: Understand the problem
+### **Step 2**: Devise a plan
+### **Step 3**: Carry out the plan
+### .red[**Step 4**: Check your work]
+]
+--
+.rightcol[
+- Seems obvious (easy to overlook)
+- Check intermediate values
+- _Examine_ the solution obtained
+- Can you derive the solution differently?
+]
+
+---
+class: inverse
+
+# Polya practice: Adding a number sequence
+
+### How might you add up the numbers in a sequence from 1 to 10?
+
+--
+.leftcol[
+### .orange[**Step 1**: Understand the problem]
+### .orange[**Step 2**: Devise a plan]
+### **Step 3**: Carry out the plan
+### **Step 4**: Check your work
+]
+
+---
+class: inverse
+
+# Polya practice: What's your degree worth?
+
+In the U.S., the average salary of a high school graduate is [$35,256](https://smartasset.com/retirement/the-average-salary-by-education-level) / year, and the average salary of a GW graduate is
+&lt;a href="https://www.payscale.com/research/US/School=George_Washington_University_(GWU)/Salary"&gt;$76,151&lt;/a&gt;. However, GW grads pay an average of $70,000 / year (tuition + fees + housing) for 4 years for their degree, and high school grads are working that entire time. Assuming immediate employment after graduation, how many years after graduating will the GW grad need to work until their net income (salary minus cost of education) surpasses that of the average high school graduate? (This is a _very_ rough estimate - you can assume away interest rates, inflation, promotions / salary raises, etc.)
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f579fd9" style="bottom:0;left:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Polya practice: What's your degree worth?
+
+In the U.S., the average salary of a high school graduate is [$35,256](https://smartasset.com/retirement/the-average-salary-by-education-level) / year, and the average salary of a GW graduate is
+&lt;a href="https://www.payscale.com/research/US/School=George_Washington_University_(GWU)/Salary"&gt;$76,151&lt;/a&gt;. However, GW grads pay an average of $70,000 / year (tuition + fees + housing) for 4 years for their degree, and high school grads are working that entire time. Assuming immediate employment after graduation, how many years after graduating will the GW grad need to work until their net income (salary minus cost of education) surpasses that of the average high school graduate? (This is a _very_ rough estimate - you can assume away interest rates, inflation, promotions / salary raises, etc.)
+
+Take 5 minutes to restate the problem &amp; devise a plan (don't carry it out!)
+
+
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f57a19d" style="bottom:0;left:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Think-Pair-Share
+
+Kevin is deciding between purchasing a Toyota Prius, which sells for $27,600, and a Toyota Camry, which sells for $24,000. He knows that based on his driving patterns he can get an average fuel economy of 55 miles per gallon (mpg) of gasoline in the Prius but only 28 mpg in the Camry on average. He also knows that he typically drives 12,000 miles each year, and the average price of gasoline is $2.20 / gallon.
+
+How long (in years) would Kevin have to drive the Prius for the money he saves in fuel savings to be greater than the price premium compared to the Camry?
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
