@@ -1,0 +1,107 @@
+
+class: inverse, middle
+
+# Week 3: .fancy[Creating Functions]
+
+## 1. Function syntax
+## 2. Local vs global variables
+## 3. .orange[Top-down design]
+## 4. Coding style
+
+---
+# "Top Down" design
+<br>
+
+--
+## 1. Break the problem into pieces
+
+--
+## 2. Solve the "highest level" problem first
+
+--
+## 3. Then solve the smaller pieces
+
+---
+.leftcol40[
+**Example**: Given values `a` and `b`, find the value `c` such that the triangle formed by lines of length `a`, `b`, and `c` is a right triangle (in short, find hypotenuse)
+
+<br>
+.noborder[<img src="images/right-triangle-hypotenuse.png" width="250">]
+<br>
+]
+
+---
+.leftcol40[
+**Example**: Given values `a` and `b`, find the value `c` such that the triangle formed by lines of length `a`, `b`, and `c` is a right triangle (in short, find hypotenuse)
+
+<br>
+.noborder[<img src="images/right-triangle-hypotenuse.png" width="250">]
+]
+.rightcol55[
+### Hypotenuse: $c = \sqrt{a^2 + b^2}$
+### Break the problem into two pieces:
+### $c = \sqrt{x}$
+### $x = a^2 + b^2$
+]
+
+---
+.leftcol40[
+**Example**: Given values `a` and `b`, find the value `c` such that the triangle formed by lines of length `a`, `b`, and `c` is a right triangle (in short, find hypotenuse)
+
+<br>
+.noborder[<img src="images/right-triangle-hypotenuse.png" width="250">]
+]
+.rightcol55[
+### Hypotenuse: $c = \sqrt{a^2 + b^2}$
+### Break the problem into two pieces:
+### $c = \sqrt{x}$
+```{r}
+hypotenuse <- function(a, b) {
+    return(sqrt(sumOfSquares(a, b)))
+}
+```
+### $x = a^b + b^2$
+```{r}
+sumOfSquares <- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+# Think-Pair-Share
+
+Create a function, `isRightTriangle(a, b, c)` that returns `TRUE` if the triangle formed by the lines of length `a`, `b`, and `c` is a right triangle and `FALSE` otherwise. Use the `hypotenuse(a, b)` function in your solution. **Hint**: you may not know which value (`a`, `b`, or `c`) is the hypotenuse.
+
+.leftcol[.code80[
+```{r}
+hypotenuse <- function(a, b) {
+    return(sqrt(sumOfSquares(a, b)))
+}
+```
+```{r}
+sumOfSquares <- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]]
+
+```{r, echo=FALSE}
+isRightTriangle <- function(a, b, c) {
+    test1 <- (c == hypotenuse(a, b))
+    test2 <- (b == hypotenuse(a, c))
+    test3 <- (a == hypotenuse(b, c))
+    return(test1 | test2 | test3)
+}
+```
