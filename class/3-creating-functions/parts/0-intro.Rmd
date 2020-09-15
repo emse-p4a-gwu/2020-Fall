@@ -17,7 +17,7 @@ countdown(minutes = 6,
 ---
 ### Thanks for the cute animals:
 
-### Olivia Z., Kyara M., Eliese O., Helena R., David R., Carolyne I.
+### Olivia Z., Kyara M., Eliese O., Helena R., David R., Carolyne I., Omar A.
 
 <style>
 * {
@@ -56,6 +56,11 @@ countdown(minutes = 6,
     <img src="images/animals/carolyne_i.jpg" alt="Mountains" style="width:100%">
   </div>
 </div>
+
+---
+...and [Alfie the alpaca](https://www.instagram.com/alfie_the_alpaca_in_adelaide/?hl=en): 
+
+<img src="images/animals/omar_a.jpg" width="500px">
 
 ---
 class: center
