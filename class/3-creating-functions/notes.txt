@@ -141,22 +141,23 @@ militaryTimeToStandardTime(12) == 12
 militaryTimeToStandardTime(13) == 1
 militaryTimeToStandardTime(23) == 11
 
-Make a table of x %% 12: 
-1 %%  12 == 1
+Make a table of x %% 12:
+1  %% 12 == 1
 11 %% 12 == 11
 12 %% 12 == 0
 13 %% 12 == 1
 23 %% 12 == 11
 
-Make a table of (x - 1) %% 12: 
-1 %%  12 == 0
+Make a table of (x - 1) %% 12:
+1  %% 12 == 0
 11 %% 12 == 10
 12 %% 12 == 11
 13 %% 12 == 0
 23 %% 12 == 10
 
 militaryTimeToStandardTime <- function(militaryTime) {
-    return(((militaryTime-1) %% 12) + 1)
+    y <- (militaryTime - 1) %% 12
+    return(y + 1)
 }
 
 # ----------------------------------------------------------------------
