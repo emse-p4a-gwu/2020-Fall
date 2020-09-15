@@ -1,0 +1,84 @@
+
+class: inverse
+
+# Quiz 2
+
+# Go to `#classroom` channel in Slack for link
+
+```{r, echo=FALSE}
+countdown(minutes = 6,
+          warn_when = 30,
+          update_every = 1,
+          bottom = 0,
+          left = 0,
+          font_size = '4em')
+```
+
+---
+### Thanks for the cute animals:
+
+### Olivia Z., Kyara M., Eliese O., Helena R., David R., Carolyne I.
+
+<style>
+* {
+  box-sizing: border-box;
+}
+.column {
+  float: left;
+  width: 16.66%;
+  padding: 5px;
+}
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+
+<div class="row">
+  <div class="column">
+    <img src="images/animals/olivia_z.JPG" alt="Snow" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/animals/kyara_m.jpg" alt="Forest" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/animals/eliese_o.gif" alt="Mountains" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/animals/helena_r.jpg" alt="Mountains" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/animals/david_r.JPG" alt="Mountains" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="images/animals/carolyne_i.jpg" alt="Mountains" style="width:100%">
+  </div>
+</div>
+
+---
+class: center
+
+# Video on?
+
+It's nice to see your faces :)
+.leftcol[
+<center>
+<img src="images/zoom_video.jpg" width="500px">
+</center>
+]
+.rightcol[.left[
+If you're okay with it, please turn on your camera - it creates a more engaging discussion environment and an opportunity for us to get to know each other better. Your privacy is important though, and I understand if you wish to keep it off. No pressure.
+]]
+
+---
+
+class: inverse, middle
+
+# Week 3: .fancy[Creating Functions]
+
+## 1. Function syntax
+## 2. Local vs global variables
+## 3. Top-down design
+## 4. Coding style
