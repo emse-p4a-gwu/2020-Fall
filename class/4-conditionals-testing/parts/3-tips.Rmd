@@ -121,6 +121,52 @@ is.integer.val(7)
 ]]
 
 ---
+# Checking for special data types
+
+--
+.leftcol[
+**Not available**: `NA`<br>_value is "missing"_
+```{r}
+x <- NA
+x == NA
+```
+]
+--
+.rightcol[
+**No value**: `NULL`<br>_no value whatsoever_
+```{r}
+x <- NULL
+x == NULL
+```
+]
+
+---
+# Checking for special data types
+
+.leftcol[
+**Not available**: `NA`<br>_value is "missing"_
+```{r}
+x <- NA
+x == NA
+```
+Have to use special function:
+```{r}
+is.na(x)
+```
+]
+.rightcol[
+**No value**: `NULL`<br>_no value whatsoever_
+```{r}
+x <- NULL
+x == NULL
+```
+Have to use special function:
+```{r}
+is.null(x)
+```
+]
+
+---
 class: inverse
 
 ```{r, echo=FALSE}
