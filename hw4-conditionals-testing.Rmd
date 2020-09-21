@@ -38,7 +38,7 @@ Download and use [this template](hw_templates/hw4.zip) for your assignment. Insi
 
 ### 2) `guessAnimal(hasFourLegs, climbsTrees)` [SOLO, 15%]
 
-Write the function `guessAnimal(hasFourLegs, climbsTrees)` that prints out a guess of an animal based on whether it has four legs and whether it climbs trees. Here is the expected behavior:
+Write the function `guessAnimal(hasFourLegs, climbsTrees)` that returns a statement guessing an animal based on whether it has four legs and whether it climbs trees. Here is the expected behavior:
 
 <div style="width:500px">
 `hasFourLegs` | `climbsTrees` | statement
