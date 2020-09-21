@@ -1,0 +1,8 @@
+
+class: inverse, middle
+
+# Week 4: .fancy[Conditionals & Testing]
+
+## 1. Conditionals
+## 2. Testing
+## 3. Tips
