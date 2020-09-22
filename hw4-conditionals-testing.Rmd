@@ -55,7 +55,7 @@ Write the function `isPositiveMultipleOf4Or7(n)` that returns `TRUE` if `n` is a
 
 ### 4) `isEvenPositiveInt(x)` [COLLABORATIVE, 20%]
 
-Given an arbitrary value `x`, return `TRUE` if it is an integer, and it is positive, and it is even (all 3 must be true), or `FALSE` otherwise. If the value `x` is not an integer, the function should return `FALSE` rather than error. So, `isEvenPositiveInt("yikes!")` returns `FALSE`, and `isEvenPositiveInt(123456)` returns `TRUE`. For this problem, consider integer _values_ to be "integers", so both `3` and `3L` are to be considered integers.
+Given an arbitrary value `x`, return `TRUE` if it is an integer, and it is positive, and it is even (all 3 must be true), or `FALSE` otherwise. If the value `x` is not an integer, the function should return `FALSE` rather than error. So, `isEvenPositiveInt("yikes!")` returns `FALSE`, and `isEvenPositiveInt(123456)` returns `TRUE`.
 
 ### 5) `isLeapYear(year)` [SOLO, 20%]
 
