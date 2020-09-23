@@ -135,25 +135,25 @@ test_isEven()
 ]]
 
 ---
-# Test cases to consider
+# Test cases to consider: NOLES
 
 .leftcol40[
-- ### Normal cases
-- ### Large & small cases
-- ### Pairs of opposites
-- ### Edge cases
-- ### Special cases
+- ### **N**ormal cases
+- ### **O**pposites
+- ### **L**arge & small cases
+- ### **E**dge cases
+- ### **S**pecial cases
 ]
 
 ---
-# Test cases to consider
+# Test cases to consider: NOLES
 
 .leftcol40[
-- ### **.red[Normal cases]**
-- ### Large & small cases
-- ### Pairs of opposites
-- ### Edge cases
-- ### Special cases
+- ### .red[**N**ormal cases]
+- ### **O**pposites
+- ### **L**arge & small cases
+- ### **E**dge cases
+- ### **S**pecial cases
 ]
 .rightcol60[.code80[
 ### Example:
@@ -169,36 +169,14 @@ isEven <- function(n) {
 ]
 
 ---
-# Test cases to consider
+# Test cases to consider: NOLES
 
 .leftcol40[
-- ### Normal cases
-- ### **.red[Large & small cases]**
-- ### Pairs of opposites
-- ### Edge cases
-- ### Special cases
-]
-.rightcol60[.code80[
-### Example:
-```{r}
-isEven <- function(n) {
-    return((n %% 2) == 0)
-}
-```
-]
-- `isEven(8675309) == FALSE`
-- `isEven(-8675309) == FALSE`
-]
-
----
-# Test cases to consider
-
-.leftcol40[
-- ### Normal cases
-- ### Large & small cases
-- ### **.red[Pairs of opposites]**
-- ### Edge cases
-- ### Special cases
+- ### **N**ormal cases
+- ### .red[**O**pposites]
+- ### **L**arge & small cases
+- ### **E**dge cases
+- ### **S**pecial cases
 ]
 .rightcol60[.code80[
 ### Example:
@@ -214,14 +192,36 @@ Need cases that return both `TRUE` and `FALSE`
 ]
 
 ---
-# Test cases to consider
+# Test cases to consider: NOLES
 
 .leftcol40[
-- ### Normal cases
-- ### Large & small cases
-- ### Pairs of opposites
-- ### **.red[Edge cases]**
-- ### Special cases
+- ### **N**ormal cases
+- ### **O**pposites
+- ### .red[**L**arge & small cases]
+- ### **E**dge cases
+- ### **S**pecial cases
+]
+.rightcol60[.code80[
+### Example:
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+]
+- `isEven(8675309) == FALSE`
+- `isEven(-8675309) == FALSE`
+]
+
+---
+# Test cases to consider: NOLES
+
+.leftcol40[
+- ### **N**ormal cases
+- ### **O**pposites
+- ### **L**arge & small cases
+- ### .red[**E**dge cases]
+- ### **S**pecial cases
 ]
 .rightcol60[.code80[
 ### Example:
@@ -237,14 +237,14 @@ isPositive <- function(n) {
 ]
 
 ---
-# Test cases to consider
+# Test cases to consider: NOLES
 
 .leftcol40[
-- ### Normal cases
-- ### Large & small cases
-- ### Pairs of opposites
-- ### Edge cases
-- ### **.red[Special cases]**
+- ### **N**ormal cases
+- ### **O**pposites
+- ### **L**arge & small cases
+- ### **E**dge cases
+- ### .red[**S**pecial cases]
 ]
 .rightcol60[
 - Negative numbers
