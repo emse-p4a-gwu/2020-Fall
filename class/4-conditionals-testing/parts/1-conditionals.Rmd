@@ -51,7 +51,7 @@ if ( CONDITION ) {
 # Quick code tracing
 
 .leftcol[.code80[
-Cosider this function:
+Consider this function:
 ```{r}
 f <- function(x) {
     cat("A")
