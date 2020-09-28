@@ -1,29 +1,19 @@
 NEW
 
 1 - add some practice in hw1 about mod and int division
+  - Add R Tips to start of each lecture
+
+4-Testing & debugging:
+- Include Jenny's meme about ignoring the error messages, from this video: https://resources.rstudio.com/rstudio-conf-2020/object-of-type-closure-is-not-subsettable-jenny-bryan
+
 
 ------------------------------------
 OLD
 
 General:
-- Add early discussion of Polya problem solving: Solve problem before coding - come up with a plan, then execute the code
 - Add strings to final review slides
-- Add R Tips to start of each lecture
-
-1-Basics:
-- Horst camel case image
-- Add 'productivity.png' image
-- Add package_lightbulb.jpg image
-
-3-Functions:
-- Include the `almostEqual()` and `is.integer.val()` functions
-- Code style lecture?
-
-4-Testing & debugging:
-- Include Jenny's meme about ignoring the error messages, from this video: https://resources.rstudio.com/rstudio-conf-2020/object-of-type-closure-is-not-subsettable-jenny-bryan
 
 5-Loops:
-- Greater discussion of iteration in each loop type, esp. with while loops
 - Use the walkThroughDigits(n) function first before going on to isPrime
 
 6-Vectors:
