@@ -41,6 +41,15 @@ Here's the general idea:
 ---
 # Quick code tracing
 
+```{r, echo=FALSE}
+countdown(minutes = 2,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
 .leftcol[.code80[
 Consider this function:
 ```{r}
@@ -164,3 +173,15 @@ countdown(minutes = 20,
 - `nthPrime(4) == 7`
 - `nthPrime(7) == 17`
 ]
+
+---
+# [HW 5](https://p4a.seas.gwu.edu/2020-Fall/hw5-loops.html)
+
+--
+- Trickier turtles 
+
+--
+- Read about [Happy Numbers](https://en.wikipedia.org/wiki/Happy_number)
+
+--
+- Use the autograder
