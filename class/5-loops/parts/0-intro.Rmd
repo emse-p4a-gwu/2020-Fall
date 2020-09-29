@@ -48,6 +48,14 @@ stopifnot(almostEqual(getTheCents(2.45), 45))
 ]
 
 ---
+class: middle, center 
+## Reconsidering productivity
+
+<center>
+<img src="images/productivity.png" width="500">
+</center>
+
+---
 class: inverse, middle
 
 # Week 5: .fancy[Loops]
