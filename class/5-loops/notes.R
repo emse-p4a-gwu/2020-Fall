@@ -65,6 +65,19 @@ sumOfOddsFromMToN(5, 9) == (5 + 7 + 9)
 
 
 
+sumOfOddsFromMToNMax <- function(m, n, max) {
+    total <- 0
+    for (i in seq(m, n)) {
+        if (i %% 2 == 0) {
+            next
+        }
+        if (total >= max) {
+            break
+        }
+        total <- total + i
+    }
+    return(total)
+}
 
 
 sumOfOddsFromMToNMax <- function(m, n, max) {
