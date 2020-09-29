@@ -608,7 +608,110 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 05 October by 11:00 pm</p>
+<p><strong>Weight</strong>: This assignment is worth <strong>4%</strong> of your final grade.</p>
+<p><strong>Purpose, Skills, &amp; Knowledge</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice using for and while loops in R.</li>
+<li>To practice computational problem solving with loops.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together.</li>
+<li>Even though you work collaboratively, you still must submit your own solutions.</li>
+</ul>
+</blockquote>
+<div id="staying-organized-solo-5" class="section level3">
+<h3>1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="hw_templates/hw5.zip">this template</a> for your assignment. Inside the “hw5” folder, open and edit the R script called “hw5.R” and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.</p>
+<blockquote>
+<h3 id="writing-test-functions"><strong>Writing test functions</strong></h3>
+<p>For each of the following functions, write a test function first, and then write the function. <strong>Your test functions will count for half of the available credit for each problem</strong>. Think carefully about the test cases to include in your test functions.</p>
+</blockquote>
+</div>
+<div id="loopfactorialn-solo-10" class="section level3">
+<h3>2) <code>loopFactorial(n)</code> [SOLO, 10%]</h3>
+<p>Use a <code>for</code> loop to write the function <code>loopFactorial(n)</code> that should return <code>n!</code>, i.e. “n factorial”, which is defined for all non-negative integers. For example, <code>3! = 3*2*1 = 6</code>, <code>4! = 4*3*2*1 = 24</code>, and <code>5! = 5*4*3*2*1 = 120</code>. Note that <code>0</code> is a special case, and <code>0! = 1</code>. Assume <code>n &gt;= 0</code>.</p>
+</div>
+<div id="numdigitsn-solo-15" class="section level3">
+<h3>3) <code>numDigits(n)</code> [SOLO, 15%]</h3>
+<p>Write the function <code>numDigits(n)</code> that takes a <em>possibly-negative</em> integer and returns the number of digits in it. So, <code>numDigits(12345)</code> returns <code>5</code>, <code>numDigits(0)</code> returns <code>1</code>, and <code>numDigits(-111)</code> returns <code>3</code>. One way you could solve this is to convert <code>n</code> to a string and use <code>str_length()</code>, but you cannot do that since you may not use strings here.</p>
+</div>
+<div id="happy-numbers-collaborative" class="section level2">
+<h2>Happy Numbers [COLLABORATIVE]</h2>
+<p><strong>Background</strong>: Read the first paragraph from the <a href="https://en.wikipedia.org/wiki/Happy_number">Wikipedia page</a> on happy numbers. After some thought, we see that no matter what number we start with, when we keep replacing the number by the sum of the squares of its digits, we’ll always either arrive at 4 (unhappy) or at 1 (happy). With that in mind, we want to write the function <code>nthHappyNumber(n)</code>. However, to write that function, we’ll first need to write <code>isHappyNumber(n)</code>, which determines whether a number is “happy” or not. And to right that function, we’ll first need to write <code>sumOfSquaresOfDigits(n)</code>. And that’s top-down design! Here we go…</p>
+</div>
+<div id="sumofsquaresofdigitsn-10" class="section level2">
+<h2>4) <code>sumOfSquaresOfDigits(n)</code> [10%]</h2>
+<p>Write the function <code>sumOfSquaresOfDigits(n)</code> which takes a non-negative integer, <code>n</code>, and returns the sum of the squares of its digits (assume that <code>n</code> will always be a positive integer, so no need to check for bad inputs).</p>
+</div>
+<div id="ishappynumbern-10" class="section level2">
+<h2>5) <code>isHappyNumber(n)</code> [10%]</h2>
+<p>Write the function <code>isHappyNumber(n)</code> which takes a <em>possibly-negative</em> integer and returns <code>TRUE</code> if it is happy and <code>FALSE</code> otherwise. Note that all numbers less than 1 are not happy.</p>
+</div>
+<div id="nthhappynumbern-15" class="section level2">
+<h2>6) <code>nthHappyNumber(n)</code> [15%]</h2>
+<p>Write the function <code>nthHappyNumber(n)</code> which takes a non-negative integer, <code>n</code>, and returns the nth happy number, where nthHappyNumber(1) returns the first happy number (1).</p>
+</div>
+<div id="turtle-loops-collaborative" class="section level2">
+<h2>Turtle loops! [COLLABORATIVE]</h2>
+<p>(<em>Note: the autograder won’t test these functions</em>)</p>
+</div>
+<div id="turtlesquares-redux-10" class="section level2">
+<h2>7) <code>turtleSquare(s)</code> <em>redux</em> [10%]</h2>
+<p>Re-write the <code>turtleSquare(s)</code> function from <a href="hw2-functions.html">HW2</a>, but this time use a <code>for</code> loop to draw the sides of the square. The following code should produce a square with a side length of 50:</p>
+<pre class="r"><code>library(TurtleGraphics)
+turtle_init()
+turtle_do({
+    turtleSquare(50)
+})</code></pre>
+<p><img src="images/turtle_square.png" width="456" /></p>
+</div>
+<div id="concentricturtlesquaresspacing-5-15" class="section level2">
+<h2>8) <code>concentricTurtleSquares(spacing = 5)</code> [15%]</h2>
+<p>Write the function <code>concentricTurtleSquares(spacing)</code> that uses the <code>TurtleGraphics</code> library to draw concentric squares from the center of the terrarium and outward. The <code>spacing</code> argument determines the spacing between each square, and the default value should be <code>spacing = 5</code>. Also, <code>spacing &gt;= 1</code>, and your function must not allow the turtle to escape the terrarium. Hint: you may want to use <code>turtleSquare(s)</code> as a helper function. The following code should produce concentric squares with a spacing of 5:</p>
+<pre class="r"><code>library(TurtleGraphics)
+turtle_init()
+turtle_do({
+    concentricTurtleSquares(5)
+})</code></pre>
+<p><img src="images/turtle_concentricSquares.png" width="456" /></p>
+<div id="submit-your-files-solo-5" class="section level3">
+<h3>9) Submit your files [SOLO, 5%]</h3>
+<p>Create a zip file of all the files in your R project folder for this assignment and submit the zip file on Blackboard (note: to receive full credit, your submission must follow the above format of using a correctly-named R Project and <code>.R</code> script).</p>
+<hr />
+<p>(<em>Note: the autograder won’t test these functions</em>)</p>
+</div>
+<div id="bonus-1-turtlesquarerotateds-degrees-solo-2.5" class="section level3">
+<h3>Bonus 1) <code>turtleSquareRotated(s, degrees)</code> [SOLO, 2.5%]</h3>
+<p>Write the function <code>turtleSquareRotated(s, degrees)</code> that uses the <code>TurtleGraphics</code> library to draw a square with side length <code>s &lt; 100</code> and rotated by <code>degrees &lt;= 180</code> counterclockwise from the horizontal plane. The rotated square should be centered in the turtle’s terrarium. Hint: you’re going to need to use the cosine (<code>cos()</code>) and sine (<code>sin()</code>) functions; in R, these functions take angles in <strong>radians</strong> (not degrees), so remember to convert your angles (180 degrees = <span class="math inline">\(\pi\)</span>). The following code should produce a square with a side length of 30 and rotated by 30 degrees:</p>
+<pre class="r"><code>library(TurtleGraphics)
+turtle_init()
+turtle_do({
+    turtleSquareRotated(30, 30)
+})</code></pre>
+<p><img src="images/turtle_squareRotated.png" width="456" /></p>
+</div>
+<div id="bonus-2-turtlesquarestars-degreespacing-20-solo-2.5" class="section level3">
+<h3>Bonus 2) <code>turtleSquareStar(s, degreeSpacing = 20)</code> [SOLO, 2.5%]</h3>
+<p>Write the function <code>turtleSquareStar(s, degreeSpacing)</code> that uses the <code>turtleSquareRotated(s, degrees)</code> as a helper function to draw a sequence of overlapping rotated squares with side length <code>s &lt; 70</code> to form a star. The <code>degreeSpacing</code> argument determines the spacing in degrees between each rotated square, and the default value should be <code>degreeSpacing = 20</code>. Also, <code>1 &lt;= degreeSpacing &lt;= 60</code>, and your function must not allow the turtle to escape the terrarium. The following code should produce the star of rotated squares with a side length of 50 and 20 degree spacings between each square:</p>
+<pre class="r"><code>library(TurtleGraphics)
+turtle_init()
+turtle_do({
+    turtleSquareStar(50, 20)
+})</code></pre>
+<p><img src="images/turtle_squareStar.png" width="456" /></p>
+</div>
+</div>
 
 
 <hr>
