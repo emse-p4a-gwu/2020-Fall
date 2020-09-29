@@ -95,6 +95,15 @@ seq(1.2, 6, 0.4)
 ---
 # Quick code tracing
 
+```{r, echo=FALSE}
+countdown(minutes = 2,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
 .leftcol[.code80[
 What will this function print?
 ```{r, eval=FALSE}
@@ -118,6 +127,15 @@ for (i in 1:5) {
 
 ---
 # Quick code tracing
+
+```{r, echo=FALSE}
+countdown(minutes = 2,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
 
 .leftcol[.code80[
 What will this function print?
