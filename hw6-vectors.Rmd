@@ -6,4 +6,55 @@ output:
     toc: no
 ---
 
-Coming soon!
+> **Due**: 12 October by 11:00 pm
+>
+> **Weight**: This assignment is worth **4%** of your final grade.
+>
+> **Purpose, Skills, & Knowledge**: The purposes of this assignment are:
+>
+> - To practice using vectors in R.
+> - To practice computational problem solving with vectors.
+>
+> **Assessment**: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:
+>
+> - 0% for not attempting a response.
+> - 50% for attempting the question but with _major_ errors.
+> - 75% for attempting the question but with _minor_ errors.
+> - 100% for correctly answering the question.
+>
+> **Rules**:
+>
+> - Problems marked **SOLO** may not be worked on with other classmates, though you may consult instructors for help.
+> - For problems marked **COLLABORATIVE**, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work -- everyone must work on every problem. And you may not simply copy any code but rather truly work together.
+> - Even though you work collaboratively, you still must submit your own solutions.
+
+### 1) Staying organized [SOLO, 5%]
+
+Download and use [this template](hw_templates/hw6.zip) for your assignment. Inside the "hw6" folder, open and edit the R script called "hw6.R" and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.
+
+> ### **Writing test functions**
+> For each of the following functions, write a test function first, and then write the function. **Your test functions will count for half of the available credit for each problem**. Think carefully about the test cases to include in your test functions.
+
+### 2) `vectorFactorial(n)` [SOLO, 10%]
+
+Write the function `vectorFactorial(n)` which computes the factorial of `n` using vectors to avoid using a loop. Hint: there are some useful functions listed on the [vectors lesson page](L6-vectors.html#Numeric_vectors) for performing operators on a numeric vector.
+
+### 3) `nthHighestValue(n, x)` [SOLO, 15%]
+
+Write a function to find the nth highest value in a given vector. For example, if `x` equals `c(5, 1, 3)`, then `nthHighestValue(1, x)` should return `5`, because `5` is the 1st highest value in `x`, and `nthHighestValue(2, x)` should return `3` because it's the 2nd highest value in `x`. Assume only numeric inputs, and assume that `n <= length(x)`. You may not use loops.
+
+### 4) `dotProduct(a, b)` [COLLABORATIVE, 20%]
+
+**Background**: the "dot product" of two vectors is the sum of the products of the corresponding terms. So the dot product of the vectors `c(1,2,3)` and `c(4,5,6)` is `(1*4) + (2*5) + (3*6)`, or `4 + 10 + 18 = 32`.  With this in mind, write the function `dotProduct(a, b)`. This function takes two vectors and returns the dot product of those vectors. If the vectors are not equal length, ignore the extra elements in the longer vector. You may not use loops.
+
+### 5) `middleValue(a)` [COLLABORATIVE, 20%]
+
+Write the function `middleValue(a)` that takes a vector of numbers `a` and returns the value of the middle element (or the average of the two middle elements).
+
+### 6) `rotateVector(a, n)` [COLLABORATIVE, 25%]
+
+Write the function `rotateVector(a, n)` which takes a vector `a` and an integer `n` and returns a new vector where each element in `a` is shifted to the right by `n` indices. For example, if `a` is `c(1, 2, 3, 4)` and `n` is `1`, the result should be `c(4, 1, 2, 3)`, but if `n` is `-1`, the result should be `c(2, 3, 4, 1)`. If `n` is larger than the length of `a`, the function should continue to rotate the vector beyond its starting point. So, if `a = c(1, 2, 3, 4)` and `n = 5`, then the result should be `a = c(4, 1, 2, 3)`.
+
+### 7) Submit your files [SOLO, 5%]
+
+Create a zip file of all the files in your R project folder for this assignment and submit the zip file on Blackboard (note: to receive full credit, your submission must follow the above format of using a correctly-named R Project and `.R` script).

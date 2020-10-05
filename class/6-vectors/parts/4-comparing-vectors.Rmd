@@ -1,0 +1,139 @@
+
+class: inverse, middle
+
+# Week 6: .fancy[Vectors]
+
+## 1. Making vectors
+## 2. Vector operations
+## 3. Slicing vectors
+## 4. .orange[Comparing vectors]
+## 5. Lists
+
+---
+# Comparing vectors
+
+Check if 2 vectors are the same:
+
+.code80[
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+```
+```{r, eval=FALSE}
+x == y
+```
+]
+--
+.code80[
+```{r, echo=FALSE}
+x == y
+```
+]
+
+---
+# Comparing vectors with `all()` and `any()`
+
+--
+.leftcol[.code80[
+`all()`: Check if _all_ elements are the same
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+all(x == y)
+```
+```{r}
+x <- c(1, 2, 3)
+y <- c(-1, 2, 3)
+all(x == y)
+```
+]]
+--
+.rightcol[.code80[
+`any()`: Check if _any_ elements are the same
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+any(x == y)
+```
+```{r}
+x <- c(1, 2, 3)
+y <- c(-1, 2, 3)
+any(x == y)
+```
+]]
+
+---
+# `all()` vs. `identical()`
+
+--
+.code80[
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+names(x) <- c('a', 'b', 'c')
+names(y) <- c('one', 'two', 'three')
+```
+]
+--
+.leftcol[.code80[
+`all()` only compares the element _values_:
+```{r}
+all(x == y)
+```
+]]
+--
+.rightcol[.code80[
+`identical()` compares _values_ and _names_:
+```{r}
+identical(x, y)
+```
+```{r}
+names(y) <- names(x)
+identical(x, y)
+```
+]]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think-Pair-Share
+
+Re-write `isPrime(n)` from last week, but **without loops!**. Remember, `isPrime(n)` takes a non-negative integer, `n`, and returns `TRUE` if it is a prime number and `FALSE` otherwise. Here's some test cases:
+
+- `isPrime(1) == FALSE`
+- `isPrime(2) == TRUE`
+- `isPrime(7) == TRUE`
+- `isPrime(13) == TRUE`
+- `isPrime(14) == FALSE`
+
+(If you're stuck, go to the next slide for a hint)
+
+---
+class: inverse
+
+## Hint
+
+Loop solution:
+.code80[
+```{r, eval=FALSE}
+isPrime <- function(n) {
+    if (n <= 1) { return(FALSE) }
+    if (n == 2) { return(TRUE) }
+    for (i in seq(2, (n-1))) {
+        if ((n %% i) == 0) {
+            return(FALSE)
+        }
+    }
+    return(TRUE)
+}
+```
+]
