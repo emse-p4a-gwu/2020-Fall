@@ -1,13 +1,39 @@
-
-reverse <- function(x) {
-    n <- length(x)
-    return(x[seq(n, 1, -1)])
+# Loop solution:
+isPrime <- function(n) {
+    if (n < 2) { return(FALSE) }
+    if (n == 2) { return(TRUE) }
+    for (i in 2:(n-1)) {
+        if ((n %% i) == 0) {
+            return(FALSE)
+        }
+    }
+    return(TRUE)
 }
 
-reverse(c(5, 1, 3)) == c(3, 1, 5)
-reverse(c('a', 'b', 'c')) == c('c', 'b', 'a')
-reverse(c(FALSE, TRUE, TRUE)) == c(TRUE, TRUE, FALSE)
-reverse(seq(10)) == seq(10, 1, -1)
+# Vector solution
+isPrime <- function(n) {
+    if (n <= 1) { return(FALSE) }
+    if (n == 2) { return(TRUE) }
+    # Check if all values can divide evenly into n
+    test <- (n %% seq(2, (n-1))) == 0
+    if (any(test)) {
+        return(FALSE)
+    }
+    return(TRUE)
+}
+
+
+
+
+
+
+reverse <- function(x) {
+    return(x[seq(length(x), 1, -1)])
+}
+
+all(reverseVector(c(5, 1, 3)) == c(3, 1, 5))
+all(reverseVector(c('a', 'b', 'c')) == c('c', 'b', 'a'))
+all(reverseVector(c(FALSE, TRUE, TRUE)) == c(TRUE, TRUE, FALSE))
 
 
 # Loop solution
@@ -36,35 +62,4 @@ alternatingSum(c(5,3,8,4)) == (5 - 3 + 8 - 4)
 alternatingSum(c(1,2,3)) == (1 - 2 + 3)
 alternatingSum(c(0,0,0)) == 0
 alternatingSum(c(-7,5,3)) == (-7 - 5 + 3)
-
-
-
-
-
-# Loop solution:
-isPrime <- function(n) {
-    if (n < 2) { return(FALSE) }
-    if (n == 2) { return(TRUE) }
-    for (i in 2:(n-1)) {
-        if ((n %% i) == 0) {
-            return(FALSE)
-        }
-    }
-    return(TRUE)
-}
-
-# Vector solution
-isPrime <- function(n) {
-    if (n <= 1) { return(FALSE) }
-    if (n == 2) { return(TRUE) }
-    # Check if all values can divide evenly into n
-    v <- seq(2, (n-1))
-    test <- (n %% v) == 0
-    if (any(test)) {
-        return(FALSE)
-    }
-    return(TRUE)
-}
-
-
 

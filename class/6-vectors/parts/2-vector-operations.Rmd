@@ -5,8 +5,8 @@ class: inverse, middle
 
 ## 1. Making vectors
 ## 2. .orange[Vector operations]
-## 3. Slicing vectors
-## 4. Comparing vectors
+## 3. Comparing vectors
+## 4. Slicing vectors
 ## 5. Lists
 
 ---
