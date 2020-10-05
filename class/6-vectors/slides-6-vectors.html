@@ -41,8 +41,8 @@ class: inverse, middle
 
 ## 1. Making vectors
 ## 2. Vector operations
-## 3. Slicing vectors
-## 4. Comparing vectors
+## 3. Comparing vectors
+## 4. Slicing vectors
 ## 5. Lists
 
 ---
@@ -54,8 +54,8 @@ class: inverse, middle
 
 ## 1. .orange[Making vectors]
 ## 2. Vector operations
-## 3. Slicing vectors
-## 4. Comparing vectors
+## 3. Comparing vectors
+## 4. Slicing vectors
 ## 5. Lists
 
 ---
@@ -275,7 +275,7 @@ length(x)
 ---
 # Quick code tracing
 
-<div class="countdown" id="timer_5f7785b5" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_5f7b0fd2" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -304,8 +304,8 @@ class: inverse, middle
 
 ## 1. Making vectors
 ## 2. .orange[Vector operations]
-## 3. Slicing vectors
-## 4. Comparing vectors
+## 3. Comparing vectors
+## 4. Slicing vectors
 ## 5. Lists
 
 ---
@@ -592,7 +592,7 @@ median(x)
 ---
 # Quick code tracing
 
-<div class="countdown" id="timer_5f77844c" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_5f7b10cd" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -627,7 +627,7 @@ class: inverse, center
 
 # .fancy[Break]
 
-<div class="countdown" id="timer_5f7785de" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<div class="countdown" id="timer_5f7b115d" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -640,8 +640,185 @@ class: inverse, middle
 
 ## 1. Making vectors
 ## 2. Vector operations
-## 3. .orange[Slicing vectors]
-## 4. Comparing vectors
+## 3. .orange[Comparing vectors]
+## 4. Slicing vectors
+## 5. Lists
+
+---
+# Comparing vectors
+
+Check if 2 vectors are the same:
+
+.code80[
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(1, 2, 3)
+```
+
+```r
+x == y
+```
+]
+--
+.code80[
+
+```
+## [1] TRUE TRUE TRUE
+```
+]
+
+---
+# Comparing vectors with `all()` and `any()`
+
+--
+.leftcol[.code80[
+`all()`: Check if _all_ elements are the same
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(1, 2, 3)
+all(x == y)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(-1, 2, 3)
+all(x == y)
+```
+
+```
+## [1] FALSE
+```
+]]
+--
+.rightcol[.code80[
+`any()`: Check if _any_ elements are the same
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(1, 2, 3)
+any(x == y)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(-1, 2, 3)
+any(x == y)
+```
+
+```
+## [1] TRUE
+```
+]]
+
+---
+# `all()` vs. `identical()`
+
+--
+.code80[
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(1, 2, 3)
+names(x) &lt;- c('a', 'b', 'c')
+names(y) &lt;- c('one', 'two', 'three')
+```
+]
+--
+.leftcol[.code80[
+`all()` only compares the element _values_:
+
+```r
+all(x == y)
+```
+
+```
+## [1] TRUE
+```
+]]
+--
+.rightcol[.code80[
+`identical()` compares _values_ and _names_:
+
+```r
+identical(x, y)
+```
+
+```
+## [1] FALSE
+```
+
+```r
+names(y) &lt;- names(x)
+identical(x, y)
+```
+
+```
+## [1] TRUE
+```
+]]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f7b117c" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Think-Pair-Share
+
+Re-write `isPrime(n)` from last week, but **without loops!**. Remember, `isPrime(n)` takes a non-negative integer, `n`, and returns `TRUE` if it is a prime number and `FALSE` otherwise. Here's some test cases:
+
+- `isPrime(1) == FALSE`
+- `isPrime(2) == TRUE`
+- `isPrime(7) == TRUE`
+- `isPrime(13) == TRUE`
+- `isPrime(14) == FALSE`
+
+(If you're stuck, go to the next slide for a hint)
+
+---
+class: inverse
+
+## Hint
+
+Loop solution:
+.code80[
+
+```r
+isPrime &lt;- function(n) {
+    if (n &lt;= 1) { return(FALSE) }
+    if (n == 2) { return(TRUE) }
+    for (i in seq(2, (n-1))) {
+        if ((n %% i) == 0) {
+            return(FALSE)
+        }
+    }
+    return(TRUE)
+}
+```
+]
+
+---
+
+
+class: inverse, middle
+
+# Week 6: .fancy[Vectors]
+
+## 1. Making vectors
+## 2. Vector operations
+## 3. Comparing vectors
+## 4. .orange[Slicing vectors]
 ## 5. Lists
 
 ---
@@ -950,7 +1127,7 @@ a[order(a)]
 ---
 # Quick code tracing
 
-<div class="countdown" id="timer_5f77825e" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_5f7b0f77" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -978,7 +1155,7 @@ f(x)
 ---
 class: inverse
 
-<div class="countdown" id="timer_5f77830b" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_5f7b100f" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -987,16 +1164,17 @@ class: inverse
 .font80[
 1) `reverse(x)`: Write a function that returns the vector in reverse order. You cannot use the `rev()` function.
 
-- `reverse(c(5, 1, 3))` should return `c(3, 1, 5)`
-- `reverse(c('a', 'b', 'c'))` should return `c('c', 'b', 'a')`
-- `reverse(c(FALSE, TRUE, TRUE))` should return `c(TRUE, TRUE, FALSE)`
+- `all(reverseVector(c(5, 1, 3)) == c(3, 1, 5))`
+- `all(reverseVector(c('a', 'b', 'c')) == c('c', 'b', 'a'))`
+- `all(reverseVector(c(FALSE, TRUE, TRUE)) == c(TRUE, TRUE, FALSE))`
+
 
 2) `alternatingSum(a)`: Write a function that takes a vector of numbers `a` and returns the alternating sum, where the sign alternates from positive to negative or vice versa.
 
-- `alternatingSum(c(5,3,8,4))` should return `(5 - 3 + 8 - 4)`
-- `alternatingSum(c(1,2,3))` should return `(1 - 2 + 3)`
-- `alternatingSum(c(0,0,0))` should return `0`
-- `alternatingSum(c(-7,5,3))` should return `(-7 - 5 + 3)`
+- `alternatingSum(c(5,3,8,4)) == (5 - 3 + 8 - 4)`
+- `alternatingSum(c(1,2,3)) == (1 - 2 + 3)`
+- `alternatingSum(c(0,0,0)) == 0`
+- `alternatingSum(c(-7,5,3)) == (-7 - 5 + 3)`
 ]
 
 ---
@@ -1008,185 +1186,8 @@ class: inverse, middle
 
 ## 1. Making vectors
 ## 2. Vector operations
-## 3. Slicing vectors
-## 4. .orange[Comparing vectors]
-## 5. Lists
-
----
-# Comparing vectors
-
-Check if 2 vectors are the same:
-
-.code80[
-
-```r
-x &lt;- c(1, 2, 3)
-y &lt;- c(1, 2, 3)
-```
-
-```r
-x == y
-```
-]
---
-.code80[
-
-```
-## [1] TRUE TRUE TRUE
-```
-]
-
----
-# Comparing vectors with `all()` and `any()`
-
---
-.leftcol[.code80[
-`all()`: Check if _all_ elements are the same
-
-```r
-x &lt;- c(1, 2, 3)
-y &lt;- c(1, 2, 3)
-all(x == y)
-```
-
-```
-## [1] TRUE
-```
-
-```r
-x &lt;- c(1, 2, 3)
-y &lt;- c(-1, 2, 3)
-all(x == y)
-```
-
-```
-## [1] FALSE
-```
-]]
---
-.rightcol[.code80[
-`any()`: Check if _any_ elements are the same
-
-```r
-x &lt;- c(1, 2, 3)
-y &lt;- c(1, 2, 3)
-any(x == y)
-```
-
-```
-## [1] TRUE
-```
-
-```r
-x &lt;- c(1, 2, 3)
-y &lt;- c(-1, 2, 3)
-any(x == y)
-```
-
-```
-## [1] TRUE
-```
-]]
-
----
-# `all()` vs. `identical()`
-
---
-.code80[
-
-```r
-x &lt;- c(1, 2, 3)
-y &lt;- c(1, 2, 3)
-names(x) &lt;- c('a', 'b', 'c')
-names(y) &lt;- c('one', 'two', 'three')
-```
-]
---
-.leftcol[.code80[
-`all()` only compares the element _values_:
-
-```r
-all(x == y)
-```
-
-```
-## [1] TRUE
-```
-]]
---
-.rightcol[.code80[
-`identical()` compares _values_ and _names_:
-
-```r
-identical(x, y)
-```
-
-```
-## [1] FALSE
-```
-
-```r
-names(y) &lt;- names(x)
-identical(x, y)
-```
-
-```
-## [1] TRUE
-```
-]]
-
----
-class: inverse
-
-<div class="countdown" id="timer_5f778460" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
-<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-
-## Think-Pair-Share
-
-Re-write `isPrime(n)` from last week, but **without loops!**. Remember, `isPrime(n)` takes a non-negative integer, `n`, and returns `TRUE` if it is a prime number and `FALSE` otherwise. Here's some test cases:
-
-- `isPrime(1) == FALSE`
-- `isPrime(2) == TRUE`
-- `isPrime(7) == TRUE`
-- `isPrime(13) == TRUE`
-- `isPrime(14) == FALSE`
-
-(If you're stuck, go to the next slide for a hint)
-
----
-class: inverse
-
-## Hint
-
-Loop solution:
-.code80[
-
-```r
-isPrime &lt;- function(n) {
-    if (n &lt;= 1) { return(FALSE) }
-    if (n == 2) { return(TRUE) }
-    for (i in seq(2, (n-1))) {
-        if ((n %% i) == 0) {
-            return(FALSE)
-        }
-    }
-    return(TRUE)
-}
-```
-]
-
----
-
-
-class: inverse, middle
-
-# Week 6: .fancy[Vectors]
-
-## 1. Making vectors
-## 2. Vector operations
-## 3. Slicing vectors
-## 4. Comparing vectors
+## 3. Comparing vectors
+## 4. Slicing vectors
 ## 5. .orange[Lists]
 
 ---
@@ -1267,7 +1268,7 @@ list(vector, square)
 ## function(x) {
 ##     return(x^2)
 ## }
-## &lt;environment: 0x7fd430049040&gt;
+## &lt;environment: 0x7f85e715cba8&gt;
 ```
 ]]
 

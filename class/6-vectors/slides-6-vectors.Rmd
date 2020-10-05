@@ -63,13 +63,14 @@ countdown(minutes = 5,
 ```
 
 ---
-```{r child = here::here('parts', '3-slicing-vectors.Rmd')}
+```{r child = here::here('parts', '3-comparing-vectors.Rmd')}
 ```
 
 ---
-```{r child = here::here('parts', '4-comparing-vectors.Rmd')}
+```{r child = here::here('parts', '4-slicing-vectors.Rmd')}
 ```
 
 ---
 ```{r child = here::here('parts', '5-lists.Rmd')}
 ```
+

@@ -5,8 +5,8 @@ class: inverse, middle
 
 ## 1. Making vectors
 ## 2. Vector operations
-## 3. .orange[Slicing vectors]
-## 4. Comparing vectors
+## 3. Comparing vectors
+## 4. .orange[Slicing vectors]
 ## 5. Lists
 
 ---
@@ -216,14 +216,15 @@ countdown(minutes = 15,
 .font80[
 1) `reverse(x)`: Write a function that returns the vector in reverse order. You cannot use the `rev()` function.
 
-- `reverse(c(5, 1, 3))` should return `c(3, 1, 5)`
-- `reverse(c('a', 'b', 'c'))` should return `c('c', 'b', 'a')`
-- `reverse(c(FALSE, TRUE, TRUE))` should return `c(TRUE, TRUE, FALSE)`
+- `all(reverseVector(c(5, 1, 3)) == c(3, 1, 5))`
+- `all(reverseVector(c('a', 'b', 'c')) == c('c', 'b', 'a'))`
+- `all(reverseVector(c(FALSE, TRUE, TRUE)) == c(TRUE, TRUE, FALSE))`
+
 
 2) `alternatingSum(a)`: Write a function that takes a vector of numbers `a` and returns the alternating sum, where the sign alternates from positive to negative or vice versa.
 
-- `alternatingSum(c(5,3,8,4))` should return `(5 - 3 + 8 - 4)`
-- `alternatingSum(c(1,2,3))` should return `(1 - 2 + 3)`
-- `alternatingSum(c(0,0,0))` should return `0`
-- `alternatingSum(c(-7,5,3))` should return `(-7 - 5 + 3)`
+- `alternatingSum(c(5,3,8,4)) == (5 - 3 + 8 - 4)`
+- `alternatingSum(c(1,2,3)) == (1 - 2 + 3)`
+- `alternatingSum(c(0,0,0)) == 0`
+- `alternatingSum(c(-7,5,3)) == (-7 - 5 + 3)`
 ]
