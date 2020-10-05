@@ -1,0 +1,95 @@
+
+class: inverse, middle
+
+# Week 6: .fancy[Vectors]
+
+## 1. Making vectors
+## 2. Vector operations
+## 3. Slicing vectors
+## 4. Comparing vectors
+## 5. .orange[Lists]
+
+---
+# Lists are like vectors that can store anything
+
+--
+.leftcol[.code80[
+Vectors force things to one type:
+```{r}
+c(1, "foo", TRUE)
+```
+]]
+--
+.rightcol[.code80[
+Lists store any type:
+```{r}
+list(1, "foo", TRUE)
+```
+]]
+
+---
+# Elements in lists can be any object
+
+--
+.leftcol[.code80[
+List of vectors:
+```{r}
+list(c(1, 2, 3), c("foo", "bar"), TRUE)
+```
+]]
+--
+.rightcol[.code80[
+List of vector and function:
+```{r}
+vector <- c(1, 2, 3)
+square <- function(x) {
+    return(x^2)
+}
+
+list(vector, square)
+```
+]]
+
+---
+# Slice list with indices or names
+
+.leftcol[.code80[
+Slice with index using `[[]]`
+```{r}
+x <- list(
+  c(1, 2, 3),
+  c("foo", "bar"),
+  TRUE)
+```
+```{r}
+x[[1]]
+x[[2]]
+```
+]]
+--
+.rightcol[.code80[
+Slice with name using ``[[]]` or `$`
+```{r}
+x <- list(
+  numbers = c(1, 2, 3),
+  chars   = c("foo", "bar"),
+  logical = TRUE)
+```
+```{r}
+x[['numbers']]
+x$numbers
+```
+]]
+
+---
+# [HW 6](https://p4a.seas.gwu.edu/2020-Fall/hw6-vectors.html)
+
+- This is the last HW due before before the midterm (check the [schedule](https://p4a.seas.gwu.edu/2020-Fall/schedule.html)).
+
+--
+- Next week is Quiz 4 - also the last quiz before the midterm.
+
+--
+- Midterm is during class period on Oct. 20.
+
+

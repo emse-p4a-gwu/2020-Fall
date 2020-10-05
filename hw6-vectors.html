@@ -608,7 +608,60 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 12 October by 11:00 pm</p>
+<p><strong>Weight</strong>: This assignment is worth <strong>4%</strong> of your final grade.</p>
+<p><strong>Purpose, Skills, &amp; Knowledge</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice using vectors in R.</li>
+<li>To practice computational problem solving with vectors.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together.</li>
+<li>Even though you work collaboratively, you still must submit your own solutions.</li>
+</ul>
+</blockquote>
+<div id="staying-organized-solo-5" class="section level3">
+<h3>1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="hw_templates/hw6.zip">this template</a> for your assignment. Inside the “hw6” folder, open and edit the R script called “hw6.R” and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.</p>
+<blockquote>
+<h3 id="writing-test-functions"><strong>Writing test functions</strong></h3>
+<p>For each of the following functions, write a test function first, and then write the function. <strong>Your test functions will count for half of the available credit for each problem</strong>. Think carefully about the test cases to include in your test functions.</p>
+</blockquote>
+</div>
+<div id="vectorfactorialn-solo-10" class="section level3">
+<h3>2) <code>vectorFactorial(n)</code> [SOLO, 10%]</h3>
+<p>Write the function <code>vectorFactorial(n)</code> which computes the factorial of <code>n</code> using vectors to avoid using a loop. Hint: there are some useful functions listed on the <a href="L6-vectors.html#Numeric_vectors">vectors lesson page</a> for performing operators on a numeric vector.</p>
+</div>
+<div id="nthhighestvaluen-x-solo-15" class="section level3">
+<h3>3) <code>nthHighestValue(n, x)</code> [SOLO, 15%]</h3>
+<p>Write a function to find the nth highest value in a given vector. For example, if <code>x</code> equals <code>c(5, 1, 3)</code>, then <code>nthHighestValue(1, x)</code> should return <code>5</code>, because <code>5</code> is the 1st highest value in <code>x</code>, and <code>nthHighestValue(2, x)</code> should return <code>3</code> because it’s the 2nd highest value in <code>x</code>. Assume only numeric inputs, and assume that <code>n &lt;= length(x)</code>. You may not use loops.</p>
+</div>
+<div id="dotproducta-b-collaborative-20" class="section level3">
+<h3>4) <code>dotProduct(a, b)</code> [COLLABORATIVE, 20%]</h3>
+<p><strong>Background</strong>: the “dot product” of two vectors is the sum of the products of the corresponding terms. So the dot product of the vectors <code>c(1,2,3)</code> and <code>c(4,5,6)</code> is <code>(1*4) + (2*5) + (3*6)</code>, or <code>4 + 10 + 18 = 32</code>. With this in mind, write the function <code>dotProduct(a, b)</code>. This function takes two vectors and returns the dot product of those vectors. If the vectors are not equal length, ignore the extra elements in the longer vector. You may not use loops.</p>
+</div>
+<div id="middlevaluea-collaborative-20" class="section level3">
+<h3>5) <code>middleValue(a)</code> [COLLABORATIVE, 20%]</h3>
+<p>Write the function <code>middleValue(a)</code> that takes a vector of numbers <code>a</code> and returns the value of the middle element (or the average of the two middle elements).</p>
+</div>
+<div id="rotatevectora-n-collaborative-25" class="section level3">
+<h3>6) <code>rotateVector(a, n)</code> [COLLABORATIVE, 25%]</h3>
+<p>Write the function <code>rotateVector(a, n)</code> which takes a vector <code>a</code> and an integer <code>n</code> and returns a new vector where each element in <code>a</code> is shifted to the right by <code>n</code> indices. For example, if <code>a</code> is <code>c(1, 2, 3, 4)</code> and <code>n</code> is <code>1</code>, the result should be <code>c(4, 1, 2, 3)</code>, but if <code>n</code> is <code>-1</code>, the result should be <code>c(2, 3, 4, 1)</code>. If <code>n</code> is larger than the length of <code>a</code>, the function should continue to rotate the vector beyond its starting point. So, if <code>a = c(1, 2, 3, 4)</code> and <code>n = 5</code>, then the result should be <code>a = c(4, 1, 2, 3)</code>.</p>
+</div>
+<div id="submit-your-files-solo-5" class="section level3">
+<h3>7) Submit your files [SOLO, 5%]</h3>
+<p>Create a zip file of all the files in your R project folder for this assignment and submit the zip file on Blackboard (note: to receive full credit, your submission must follow the above format of using a correctly-named R Project and <code>.R</code> script).</p>
+</div>
 
 
 <hr>
