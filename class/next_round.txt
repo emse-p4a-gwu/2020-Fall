@@ -9,16 +9,15 @@ NEW
 5-Loops:
 - Use the walkThroughDigits(n) function first before going on to isPrime
 
-
+6-Vectors:
+- Move slide on naming vectors up to part on making vectors
+- Add %in% after which() slide
 
 ------------------------------------
 OLD
 
 General:
 - Add strings to final review slides
-
-6-Vectors:
-- Add %in%
 
 12-data-visualization:
 - Add small mulitples in with faceting
