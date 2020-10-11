@@ -608,7 +608,70 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 26 October by 11:00 pm</p>
+<p><strong>Weight</strong>: This assignment is worth <strong>4%</strong> of your final grade.</p>
+<p><strong>Purpose, Skills, &amp; Knowledge</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice manipulating strings in R with the <strong>stringr</strong> library.</li>
+<li>To practice computational problem solving with strings.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together.</li>
+<li>Even though you work collaboratively, you still must submit your own solutions.</li>
+</ul>
+</blockquote>
+<div id="staying-organized-solo-5" class="section level3">
+<h3>1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="hw_templates/hw7.zip">this template</a> for your assignment. Inside the “hw7” folder, open and edit the R script called “hw7.R” and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.</p>
+<blockquote>
+<h3 id="writing-test-functions"><strong>Writing test functions</strong></h3>
+<p>For each of the following functions, write a test function first, and then write the function. <strong>Your test functions will count for half of the available credit for each problem</strong>. Think carefully about the test cases to include in your test functions.</p>
+</blockquote>
+</div>
+<div id="strtolowers-solo-15" class="section level3">
+<h3>2) <code>strToLower(s)</code> [SOLO, 15%]</h3>
+<p>Write a function that does exactly what <code>str_to_lower()</code> does (i.e. returns the same string but with all letters in lower case) without using <code>str_to_lower()</code> or the Base R <code>tolower()</code> function. Hint: check out the <code>str_replace_all()</code> function!</p>
+</div>
+<div id="getmiddlecharacters-solo-15" class="section level3">
+<h3>3) <code>getMiddleCharacter(s)</code> [SOLO, 15%]</h3>
+<p>Write a function that takes a single string, <code>s</code>, and returns the middle character of the string. If the string has an even number of characters, then return the two middle characters. So <code>getMiddleCharacter("one")</code> should return <code>"n"</code>, and <code>getMiddleCharacter("feet")</code> should return <code>"ee"</code>.</p>
+</div>
+<div id="rotatestringlefts-k-collaborative-15" class="section level3">
+<h3>4) <code>rotateStringLeft(s, k)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write the function <code>rotateStringLeft(s, k)</code> that takes a string <code>s</code> and a non-negative integer <code>k</code>, and returns the string <code>s</code> rotated <code>k</code> places to the left. So, if <code>s = "iknowkungfu"</code> and <code>k = 2</code>, then the result should be <code>"nowkungfuik"</code>. If <code>k</code> is larger than the length of <code>s</code>, the function should continue to rotate the string beyond its starting point. So, if <code>s = "iknowkungfu"</code> and <code>k = 11</code>, then the result should be <code>"iknowkungfu"</code>, but if <code>k = 12</code>, the result should be <code>"knowkungfui"</code>.</p>
+</div>
+<div id="isdigits-collaborative-15" class="section level3">
+<h3>5) <code>isDigit(s)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write the function <code>isDigit(s)</code> that takes a string <code>s</code> and returns <code>TRUE</code> if all characters in the string are numeric integers and <code>FALSE</code> otherwise. So <code>isDigit("123")</code> should return <code>TRUE</code>, <code>isDigit("123N")</code> should return <code>FALSE</code>, and <code>isDigit("")</code> should return <code>FALSE</code>.</p>
+<p><code>str_detect(chars, '\\d')</code></p>
+</div>
+<div id="getthegerundssentence-collaborative-15" class="section level3">
+<h3>6) <code>getTheGerunds(sentence)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write a function that takes a single string, <code>sentence</code>, and returns a vector of all the gerunds in it (i.e. all the words that end in <code>"ing"</code>). So <code>getTheGerunds("I like hiking and swimming")</code> should return <code>c("hiking", "swimming")</code>. If there are no gerunds in <code>sentence</code>, the function should return <code>NULL</code>. Hint: first solve how you might separate a single-string sentence into a vector of words.</p>
+</div>
+<div id="samecharss1-s2-collaborative-15" class="section level3">
+<h3>7) <code>sameChars(s1, s2)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write the function <code>sameChars(s1, s2)</code> that takes two strings and returns <code>TRUE</code> if the two strings are composed of the same characters (though perhaps in different numbers and in different orders); that is, if every character that is in the first string is in the second (and vice versa), and <code>FALSE</code> otherwise. This test is case-sensitive, so <code>"ABC"</code> and <code>"abc"</code> do not contain the same characters. The function returns <code>FALSE</code> if either parameter is not a string, but returns <code>TRUE</code> if both strings are empty.</p>
+</div>
+<div id="submit-your-files-solo-5" class="section level3">
+<h3>8) Submit your files [SOLO, 5%]</h3>
+<p>Create a zip file of all the files in your R project folder for this assignment and submit the zip file on Blackboard (note: to receive full credit, your submission must follow the above format of using a correctly-named R Project and <code>.R</code> script).</p>
+<hr />
+</div>
+<div id="bonus-hasbalancedparenthesess-solo-3" class="section level3">
+<h3><strong>Bonus</strong>: <code>hasBalancedParentheses(s)</code> [SOLO, 3%]</h3>
+<p>Write the function <code>hasBalancedParentheses(s)</code>, which takes a string <code>s</code> and returns <code>TRUE</code> if the parentheses in <code>s</code> are balanced and <code>FALSE</code> otherwise (ignoring all non-parentheses in the string). We say that parentheses are “balanced” if each right parenthesis closes (matches) an open (unmatched) left parenthesis, and no left parentheses are left unclosed (unmatched) at the end of the text. So, for example, <code>"( ( ( ) ( ) ) ( ) )"</code> is balanced, but <code>"( ) )"</code> is not balanced, and <code>"( ) ) ("</code> is also not balanced. Hint: keep track of how many right parentheses remain unmatched as you iterate over the string.</p>
+</div>
 
 
 <hr>
