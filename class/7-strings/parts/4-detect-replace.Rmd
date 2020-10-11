@@ -1,0 +1,241 @@
+
+class: inverse, middle
+
+# Week 7: .fancy[Strings]
+
+## 1. Making strings
+## 2. Case conversion & substrings
+## 3. Padding, splitting, & merging
+## 4. .orange[Detecting & replacing]
+
+
+---
+class: center
+
+## Detecting & replacing
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_sort()`     | sort a string alphabetically            |
+|`str_order()`    | get the order of a sorted string        |
+|`str_detect()`   | match a string in another string        |
+|`str_replace()`  | replace a string in another string      |
+
+---
+## Sort string vectors alphabetically with `str_sort()`
+
+```{r}
+x <- c('Y', 'M', 'C', 'A')
+x
+```
+--
+```{r}
+str_sort(x)
+```
+--
+```{r}
+str_sort(x, decreasing = TRUE)
+```
+
+---
+### Detect pattern in string: `str_detect(string, pattern)`
+
+--
+```{r}
+tenFruit <- fruit[1:10]
+tenFruit
+```
+--
+```{r}
+str_detect(tenFruit, "berry")
+```
+--
+How many in vector have the string `"berry"`?
+```{r}
+sum(str_detect(tenFruit, "berry"))
+```
+
+---
+## Count number of times pattern appears in string
+
+`str_count(string, pattern)`
+--
+Example:
+```{r}
+x <- c("apple", "banana", "pear")
+str_count(x, "a")
+```
+--
+Note the difference with `str_detect()`:
+```{r}
+str_detect(x, "a")
+```
+
+---
+## Detect if string _starts_ with pattern
+
+Which fruits _start_ with "a"?
+```{r}
+fiveFruit <- fruit[1:5]
+fiveFruit
+```
+--
+.leftcol[
+**Wrong**:
+```{r}
+str_detect(fiveFruit, "a")
+```
+]
+--
+.rightcol[
+**Right**:
+```{r}
+str_detect(fiveFruit, "^a")
+```
+]
+
+---
+# Detect if string _ends_ with pattern
+
+Which fruits _end_ with an "e"?
+```{r}
+fiveFruit
+```
+--
+.leftcol[
+**Wrong**:
+```{r}
+str_detect(fiveFruit, "e")
+```
+]
+--
+.rightcol[
+**Right**:
+```{r}
+str_detect(fiveFruit, "e$")
+```
+]
+
+---
+## Remember:
+
+### If you _start_ with power (`^`), you'll _end_ up with money (`$`).
+--
+```{r}
+fiveFruit
+```
+--
+```{r}
+str_detect(fiveFruit, "^a") # Start with power (^)
+```
+--
+```{r}
+str_detect(fiveFruit, "e$") # End with money ($)
+```
+
+---
+# Quick practice:
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+```{r}
+fruit[1:5]
+```
+
+Use `stringr` functions to answer the following questions about the  `fruit` vector:
+
+1. How many fruit have the string `"rr"` in it?
+2. Which fruit end with string `"fruit"`?
+3. Which fruit contain more than one `"o"` character?
+
+**Hint**: You'll need to use `str_detect()` and `str_count()`
+
+---
+# Replace matched strings with new string
+
+`str_replace(string, pattern, replacement)`
+--
+```{r}
+x <- c("apple", "pear", "banana")
+```
+--
+```{r}
+str_replace(x, "a", "-") # Only replaces the first match
+```
+--
+```{r}
+str_replace_all(x, "a", "-") # Replaces all matches
+```
+
+---
+### Quick practice redux
+
+```{r}
+x <- 'this_is_good_practice'
+```
+Convert `x` into: `"this is good practice"`
+
+--
+
+We did this earlier:
+```{r}
+paste(str_split(x, "_")[[1]], collapse = " ")
+```
+
+--
+But now we can do this!
+```{r}
+str_replace_all(x, "_", " ")
+```
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think-Pair-Share
+
+.font90[
+1) `sortString(s)`: Write the function `sortString(s)` that takes a string `s` and returns back an alphabetically sorted string.
+
+- `sortString("cba") == "abc"`
+- `sortString("abedhg") == "abdegh"`
+- `sortString("AbacBc") == "aAbBcc"`
+
+2) `areAnagrams(s1, s2)`: Write the function `areAnagrams(s1, s2)` that takes two strings, `s1` and `s2`, and returns `TRUE` if the strings are [anagrams](https://en.wikipedia.org/wiki/Anagram), and `FALSE` otherwise. **Treat lower and upper case as the same letters**.
+
+- `areAnagrams("", "") == TRUE`
+- `areAnagrams("aabbccdd", "bbccddee") == FALSE`
+- `areAnagrams("TomMarvoloRiddle", "IAmLordVoldemort") == TRUE`
+]
+
+---
+### Homeworks
+
+- This is the last week to submit homeworks 1 - 6
+
+
+--
+### Midterm
+
+- Midterm is during class period next week, Oct. 20.
+- Questions will be emailed as a PDF, type responses in .R file.
+
+
+--
+### Midterm Review
+
+- Planning on holding a one-hour review this week (tentatively Thursday).

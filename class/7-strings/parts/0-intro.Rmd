@@ -1,0 +1,9 @@
+
+class: inverse, middle
+
+# Week 7: .fancy[Strings]
+
+## 1. Making strings
+## 2. Case conversion & substrings
+## 3. Padding, splitting, & merging
+## 4. Detecting & replacing

@@ -1,0 +1,196 @@
+
+class: inverse, middle
+
+# Week 7: .fancy[Strings]
+
+## 1. Making strings
+## 2. .orange[Case conversion & substrings]
+## 3. Padding, splitting, & merging
+## 4. Detecting & replacing
+
+---
+class: center
+
+## Case conversion & substrings
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_to_lower()` | converts string to lower case           |
+|`str_to_upper()` | converts string to upper case           |
+|`str_to_title()` | converts string to title case           |
+|`str_length()`   | number of characters                    |
+|`str_sub()`      | extracts substrings                     |
+|`str_locate()`   | returns indices of substrings           |
+|`str_dup()`      | duplicates characters                   |
+
+---
+# Case conversion
+
+```{r}
+x <- "Want to hear a joke about paper? Never mind, it's tearable."
+```
+--
+```{r}
+str_to_lower(x)
+```
+--
+```{r}
+str_to_upper(x)
+```
+--
+```{r}
+str_to_title(x)
+```
+
+---
+# Comparing strings
+
+.leftcol[
+Case matters:
+```{r}
+a <- "Apples"
+b <- "apples"
+a == b
+```
+]
+--
+.rightcol[
+Convert case _before_ comparing if you just want to compare the string text:
+```{r}
+str_to_lower(a) == str_to_lower(b)
+str_to_upper(a) == str_to_upper(b)
+```
+]
+
+---
+# Get the number of characters in a string
+
+--
+.leftcol[
+The `length()` function returns the _vector_ length:
+```{r}
+length("hello world")
+```
+]
+--
+.rightcol[
+To get the # of characters, use `str_length()`:
+```{r}
+str_length("hello world")
+str_length(" ") # Spaces count
+str_length("")  # Empty string
+```
+]
+
+---
+## Access characters by their index with `str_sub()`
+
+--
+.leftcol[
+Indices start at 1:
+```{r}
+str_sub("Apple", 1, 3)
+```
+Negative numbers count backwards from end:
+```{r}
+str_sub("Apple", -3, -1)
+```
+]
+--
+.rightcol[
+Modify a string with `str_sub()`:
+```{r}
+x <- 'abcdef'
+str_sub(x, 1, 3) <- 'ABC'
+x
+```
+]
+
+---
+
+## Get the indices of substrings
+
+Extract the substring `"Good"` from the following string:
+```{r}
+x <- 'thisIsGoodPractice'
+```
+--
+.leftcol[
+**1)**: Use `str_locate()` to get the **start** and **end** indices:
+```{r}
+indices <- str_locate(x, 'Good')
+indices
+```
+]
+--
+.rightcol[
+**2)**: Use `str_sub()` to get the substring:
+```{r}
+str_sub(x, indices[1], indices[2])
+```
+]
+
+---
+# Repeat a string with `str_dup()`
+
+```{r}
+str_dup("holla", 3)
+```
+--
+Note the difference with `rep()`:
+```{r}
+rep("holla", 3)
+```
+
+---
+# `stringr` functions work on vectors
+
+--
+```{r}
+x <- c("apples", "oranges")
+x
+```
+--
+.leftcol[
+Get the first 3 letters in each string:
+```{r}
+str_sub(x, 1, 3)
+```
+]
+--
+.rightcol[
+Duplicate each string twice
+```{r}
+str_dup(x, 2)
+```
+]
+
+---
+# Quick practice:
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+Create this string object: `x <- 'thisIsGoodPractice'`, then use **stringr** functions to transform `x` into the following strings:
+
+.leftcol[
+- `'thisIsGood'`
+- `'practice'`
+- `'GOOD'`
+- `'thisthisthis'`
+- `'GOODGOODGOOD'`
+]
+.rightcol[
+**Hint**: You'll need these:
+
+- `str_to_lower()`
+- `str_to_upper()`
+- `str_locate()`
+- `str_sub()`
+- `str_dup()`
+]
