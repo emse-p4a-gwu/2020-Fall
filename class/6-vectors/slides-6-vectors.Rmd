@@ -49,6 +49,10 @@ class: title-slide, middle, inverse
 ```
 
 ---
+```{r child = here::here('parts', '3-comparing-vectors.Rmd')}
+```
+
+---
 class: inverse, center
 
 # .fancy[Break]
@@ -60,10 +64,6 @@ countdown(minutes = 5,
           left = 0, right = 0, top = 1, bottom = 0,
           margin = "5%",
           font_size = "8em")
-```
-
----
-```{r child = here::here('parts', '3-comparing-vectors.Rmd')}
 ```
 
 ---
