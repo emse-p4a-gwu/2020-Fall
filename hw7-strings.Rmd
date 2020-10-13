@@ -49,9 +49,7 @@ Write the function `rotateStringLeft(s, k)` that takes a string `s` and a non-ne
 
 ### 5) `isDigit(s)` [COLLABORATIVE, 15%]
 
-Write the function `isDigit(s)` that takes a string `s` and returns `TRUE` if all characters in the string are numeric integers and `FALSE` otherwise. So `isDigit("123")` should return `TRUE`, `isDigit("123N")` should return `FALSE`, and `isDigit("")` should return `FALSE`.
-
-`str_detect(chars, '\\d')`
+Write the function `isDigit(s)` that takes a string `s` and returns `TRUE` if all characters in the string are numeric integers and `FALSE` otherwise. So `isDigit("123")` should return `TRUE`, `isDigit("123N")` should return `FALSE`, and `isDigit("")` should return `FALSE`. Hint: the value `'\\d'` can be used to search for whether a string has as digit, so `str_detect("r2d2", '\\d')` would return `TRUE` but `str_detect("rd", '\\d')` would return `FALSE`.
 
 ### 6) `getTheGerunds(sentence)` [COLLABORATIVE, 15%]
 
