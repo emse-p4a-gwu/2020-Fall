@@ -31,7 +31,7 @@ output:
 
 ### 1) Staying organized [SOLO, 5%]
 
-Download and use [this template](hw_templates/hw4.zip) for your assignment. Inside the "hw4" folder, open and edit the R script called "hw4.R" and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.
+Download and use [this template](templates/hw4.zip) for your assignment. Inside the "hw4" folder, open and edit the R script called "hw4.R" and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.
 
 > ### **Writing test functions**
 > For each of the following functions, write a test function first, and then write the function. **Your test functions will count for half of the available credit for each problem**. Think carefully about the test cases to include in your test functions.
