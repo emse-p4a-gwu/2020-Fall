@@ -1,0 +1,10 @@
+
+class: inverse, middle
+
+# Week 6: .fancy[Vectors]
+
+## 1. Making vectors
+## 2. Vector operations
+## 3. Comparing vectors
+## 4. Slicing vectors
+## 5. Lists

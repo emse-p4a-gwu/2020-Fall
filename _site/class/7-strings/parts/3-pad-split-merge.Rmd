@@ -1,0 +1,204 @@
+
+class: inverse, middle
+
+# Week 7: .fancy[Strings]
+
+## 1. Making strings
+## 2. Case conversion & substrings
+## 3. .orange[Padding, splitting, & merging]
+## 4. Detecting & replacing
+
+
+---
+class: center
+
+## Padding, splitting, & merging
+|Function         |  Description                            |
+|:----------------|:----------------------------------------|
+|`str_trim()`     | removes leading and trailing whitespace |
+|`str_pad()`      | pads a string                           |
+|`paste()`        | string concatenation                    |
+|`str_split()`    | split a string into a vector            |
+
+---
+# Remove excess white space with `str_trim()`
+
+--
+```{r}
+x <- "         aStringWithSpace        "
+x
+```
+--
+```{r}
+str_trim(x) # Trims both sides by default
+```
+--
+```{r}
+str_trim(x, side = "left") # Only trim left side
+```
+--
+```{r}
+str_trim(x, side = "right") # Only trim right side
+```
+
+---
+## Add white space (or other characters) with `str_pad()`
+
+--
+```{r}
+x <- "hello"
+x
+```
+--
+```{r}
+str_pad(x, width = 10) # Inserts pad on left by default
+```
+--
+```{r}
+str_pad(x, width = 10, side = "both") # Pad both sides
+```
+--
+```{r}
+str_pad(x, width = 10, side = "both", pad = '*') # Specify the pad
+```
+
+---
+# Combine strings into one string with `paste()`
+
+--
+.leftcol[
+```{r}
+paste('x', 'y', 'z')
+```
+Control separation with `sep` argument (default is `" "`:
+```{r}
+paste('x', 'y', 'z', sep = "-")
+```
+]
+--
+.rightcol[
+Note the difference with _vectors_ of strings:
+```{r}
+x <- c('x', 'y', 'z')
+paste(x)
+```
+To make a single string from a vector of strings, use `collapse`:
+```{r}
+paste(x, collapse = "")
+```
+]
+
+---
+## Split a string into multiple strings with `str_split()`
+
+--
+```{r}
+x <- 'This string has spaces-and-dashes'
+x
+```
+--
+```{r}
+str_split(x, " ") # Split on the spaces
+```
+--
+```{r}
+str_split(x, "-") # Split on the dashes
+```
+
+---
+## What's with the `[[1]]` thing?
+
+--
+`str_split()` returns a `list` of vectors
+
+--
+&zwj;Example:
+```{r}
+x <- c('babble', 'scrabblebabble')
+str_split(x, 'bb')
+```
+
+--
+If you're only splitting one string, add `[[1]]` to get the first vector:
+```{r}
+str_split('hooray', 'oo')[[1]]
+```
+
+---
+# Common splits (memorize these)
+
+--
+Splitting on `""` breaks a string into _characters_:
+```{r}
+str_split("apples", "")[[1]]
+```
+--
+Splitting on `" "` breaks a _sentence_ into words:
+```{r}
+x <- "If you want to view paradise, simply look around and view it"
+str_split(x, " ")[[1]]
+```
+
+---
+## Quick practice:
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+.font90[
+Create the following objects:
+
+```{r, eval=FALSE}
+x <- 'this_is_good_practice'
+y <- c('hello', 'world')
+```
+
+Use `stringr` functions to transform `x` and `y` into the following:
+
+.leftcol60[
+- `"hello world"`
+- `"***hello world***"`
+- `c("this", "is", "good", "practice")`
+- `"this is good practice"`
+- `"hello world, this is good practice"`
+]
+.rightcol40[
+**Hint**: You'll need these:
+
+- `str_trim()`
+- `str_pad()`
+- `paste()`
+- `str_split()`
+]]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think-Pair-Share
+
+1) `reverseString(s)`: Write a function that returns the string `s` in reverse order.
+
+- `reverseString("aWordWithCaps") == "spaChtiWdroWa"`
+- `reverseString("abcde") == "edcba"`
+- `reverseString("") == ""`
+
+2) `isPalindrome(s)`: Write a function that returns `TRUE` if the string `s` is a [Palindrome](https://en.wikipedia.org/wiki/Palindrome) and `FALSE` otherwise.
+
+- `isPalindrome("abcba") == TRUE`
+- `isPalindrome("abcb") == FALSE`
+- `isPalindrome("321123") == TRUE`

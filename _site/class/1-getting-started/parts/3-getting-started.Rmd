@@ -1,0 +1,324 @@
+
+# RStudio Orientation
+
+.leftcol70[
+<center>
+<img src="images/rstudio_panes.png" width=650>
+</center>
+]
+.rightcol30[
+- Know the boxes
+- Customize the layout
+- Customize the look
+- [Extra themes](https://github.com/gadenbuie/rsthemes)
+]
+
+---
+# Your first conveRsation
+
+### Write stuff in the console, then press "enter"
+
+--
+&zwj;Example: **addition**
+```{r}
+3 + 4
+```
+--
+&zwj;Example: **error**
+```{r, error=TRUE}
+3 + "4"
+```
+
+---
+# Storing values
+
+### Use the "`<-`" symbol to assign _values_ to _objects_
+
+--
+&zwj;Example:
+```{r}
+x <- 40
+x
+```
+
+--
+```{r}
+x + 2
+```
+
+---
+# Storing values
+
+### If you overwrite an object, R "forgets" the old value
+
+--
+&zwj;Example:
+```{r}
+x <- 42
+x
+```
+
+--
+```{r}
+x <- 50
+x
+```
+
+---
+# Storing values
+
+### You can also use the "`=`" symbol to assign values
+
+### (but you really should use "`<-`")
+
+--
+&zwj;Example:
+```{r}
+x = 42
+x
+y <- 42
+y
+```
+
+---
+# Storing values
+
+### You can store more than just numbers
+
+--
+&zwj;Example:
+```{r}
+x <- "If you want to view paradise"
+y <- "simply look around and view it"
+```
+--
+```{r}
+x
+y
+```
+
+---
+# Storing values
+
+--
+.leftcol[
+### **Pro tip 1**:
+
+### Shortcut for "`<-`" symbol
+
+.left[
+
+|OS | Shortcut
+|:--|:--------
+|mac | `option` + `-`
+|windows | `alt` + `-`
+
+]
+
+(see [here](https://support.rstudio.com/hc/en-us/articles/200711853-Keyboard-Shortcuts) for more shortcuts)
+]
+--
+.rightcol[
+### **Pro tip 2**:
+
+### Always surround "`<-`" with spaces
+
+Example:
+```{r, eval=FALSE}
+x<-2
+```
+Does this mean `x <- 2` or `x < -2`?
+]
+
+---
+.leftcol[
+## R ignores **extra space**
+
+```{r}
+x     <-       2
+y  <-            3
+z        <- 4
+```
+
+Check:
+```{r}
+x
+y
+z
+```
+]
+--
+.rightcol[
+## R cares about **case**
+
+```{r}
+number <- 2
+Number <- 3
+numbeR <- 4
+```
+
+Check:
+```{r}
+number
+Number
+numbeR
+```
+]
+
+---
+# Use `#` for comments
+
+### R ignores everything after the `#` symbol
+
+Example:
+```{r}
+speed <- 42 # This is mph, not km/h!
+speed
+```
+
+---
+# Use meaningful variable names
+
+--
+&zwj;**Example**: You are recording the speed of a car in mph
+<br>
+<br>
+
+--
+**Poor** variable name:
+```{r}
+x <- 42
+```
+
+--
+**Good** variable name:
+```{r}
+speed <- 42
+```
+
+--
+**Even better** variable name:
+```{r}
+car_speed_mph <- 42
+```
+
+---
+# Use standard casing styles
+
+.leftcol60[
+<img src="images/horst_casing.jpg" width=600> Art by [Allison Horst](https://github.com/allisonhorst/stats-illustrations)
+]
+--
+.rightcol40[
+I recommend using one of these:
+
+- `snake_case_uses_underscores`
+- `camelCaseUsesCaps`
+
+Example:
+```{r}
+days_in_week <- 7
+monthsInYear <- 12
+```
+]
+
+---
+## The workspace
+
+.leftcol[
+View all the current objects:
+```{r}
+objects()
+```
+]
+--
+.rightcol[
+Remove an object by name:
+```{r}
+rm(number)
+objects()
+```
+]
+
+---
+# View prior code in history pane
+
+<img src="images/rstudio_panes.png" width=500>
+
+--
+# Use "up" arrow see previous code
+
+---
+# Staying organized
+<br>
+
+--
+## 1) Save your code in .R files
+
+> ### &zwj;File > New File > R Script
+
+--
+
+## 2) Keep work in R Project files
+
+> ### File > New Project...
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 15,
+          bottom = 0,
+          left = 0,
+          font_size = '2em')
+```
+
+.leftcol[.font80[
+## Your turn
+
+### A. Practice getting organized
+
+1. Open RStudio and create a new R project called `week1`.
+2. Create a new R script and save it as `practice.R`.
+3. Open the `practice.R` file and write your answers to the question below in it.
+]]
+.rightcol[.font80[
+### B. Creating & working with objects
+
+1). Create objects to store the values in this table:
+
+| City              | Area (sq. mi.) | Population |
+|-------------------|----------------|------------|
+| San Francisco, CA | 46.87          | 884,363    |
+| Chicago, IL       | 227.63         | 2,716,450  |
+| Washington, DC    | 61.05          | 693,972    |
+
+2) Use the objects you created to answer the following questions:
+
+    - Which city has the highest density?
+    - How many _more_ people would need to live in DC for it to have the same population density as San Francisco?
+
+```{r, eval=FALSE, echo=FALSE}
+# Create values
+area_sf <- 46.87
+area_chicago <- 227.63
+area_dc <- 61.05
+pop_sf <- 884363
+pop_chicago <- 2716450
+pop_dc <- 693972
+
+# Compute densities
+dens_sf <- pop_sf / area_sf
+dens_chicago <- pop_chicago / area_chicago
+dens_dc <- pop_dc / area_dc
+dens_sf
+dens_chicago
+dens_dc
+
+# Compute addition DC population to match SF density
+(dens_sf*area_dc) - pop_dc
+```
+
+]]

@@ -1,0 +1,210 @@
+
+class: inverse, middle
+
+# Week 2: .fancy[Functions & Packages]
+
+## 1. Functions
+## 2. Manipulating data types
+## 3. Packages
+## 4. .orange[Polya’s Problem Solving Technique]
+
+---
+# [Polya](https://en.wikipedia.org/wiki/George_P%C3%B3lya)’s Problem Solving Technique
+
+--
+### **Step 1**: Understand the problem
+
+--
+### **Step 2**: Devise a plan
+
+--
+### **Step 3**: Carry out the plan
+
+--
+### **Step 4**: Check your work
+
+---
+# Polya’s Problem Solving Technique
+
+.leftcol[
+### .red[**Step 1**: Understand the problem]
+### **Step 2**: Devise a plan
+### **Step 3**: Carry out the plan
+### **Step 4**: Check your work
+]
+--
+.rightcol[
+- Seems obvious (easy to overlook)
+- Restate the problem in your own words
+- Draw a figure
+- What information do you _have_?
+- What information do you _need_?
+]
+
+---
+# Polya’s Problem Solving Technique
+
+.leftcol[
+### **Step 1**: Understand the problem
+### .red[**Step 2**: Devise a plan]
+### **Step 3**: Carry out the plan
+### **Step 4**: Check your work
+]
+--
+.rightcol[
+- Do you know a related problem?
+- Look at the unknown!
+- Guess and check
+- Eliminate possibilities
+- Consider special cases
+- Work backwards
+]
+
+---
+# Polya’s Problem Solving Technique
+
+.leftcol[
+### **Step 1**: Understand the problem
+### **Step 2**: Devise a plan
+### .red[**Step 3**: Carry out the plan]
+### **Step 4**: Check your work
+]
+--
+.rightcol[
+- (this is where you write code)
+- **Be patient**
+- Stick to the plan...until the plan fails
+- Then change your plan
+- Error message != plan has failed
+]
+
+---
+# Polya’s Problem Solving Technique
+
+.leftcol[
+### **Step 1**: Understand the problem
+### **Step 2**: Devise a plan
+### **Step 3**: Carry out the plan
+### .red[**Step 4**: Check your work]
+]
+--
+.rightcol[
+- Seems obvious (easy to overlook)
+- Check intermediate values
+- _Examine_ the solution obtained
+- Can you derive the solution differently?
+]
+
+---
+class: inverse
+
+# Polya practice: Adding a number sequence
+
+### How might you add up the numbers in a sequence from 1 to 10?
+
+--
+.leftcol[
+### .orange[**Step 1**: Understand the problem]
+### .orange[**Step 2**: Devise a plan]
+### **Step 3**: Carry out the plan
+### **Step 4**: Check your work
+]
+
+---
+class: inverse
+
+# Polya practice: What's your degree worth?
+
+In the U.S., the average salary of a high school graduate is [$35,256](https://smartasset.com/retirement/the-average-salary-by-education-level) / year, and the average salary of a GW graduate is
+<a href="https://www.payscale.com/research/US/School=George_Washington_University_(GWU)/Salary">$76,151</a>. However, GW grads pay an average of $70,000 / year (tuition + fees + housing) for 4 years for their degree, and high school grads are working that entire time. Assuming immediate employment after graduation, how many years after graduating will the GW grad need to work until their net income (salary minus cost of education) surpasses that of the average high school graduate? (This is a _very_ rough estimate - you can assume away interest rates, inflation, promotions / salary raises, etc.)
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          bottom = 0,
+          left = 0,
+          font_size = '2em')
+```
+
+# Polya practice: What's your degree worth?
+
+In the U.S., the average salary of a high school graduate is [$35,256](https://smartasset.com/retirement/the-average-salary-by-education-level) / year, and the average salary of a GW graduate is
+<a href="https://www.payscale.com/research/US/School=George_Washington_University_(GWU)/Salary">$76,151</a>. However, GW grads pay an average of $70,000 / year (tuition + fees + housing) for 4 years for their degree, and high school grads are working that entire time. Assuming immediate employment after graduation, how many years after graduating will the GW grad need to work until their net income (salary minus cost of education) surpasses that of the average high school graduate? (This is a _very_ rough estimate - you can assume away interest rates, inflation, promotions / salary raises, etc.)
+
+Take 5 minutes to restate the problem & devise a plan (don't carry it out!)
+
+```{r, eval=FALSE, echo=FALSE}
+# 1)
+# How many years after graduating and earning money will a college grad's net income surpass that of a high school grad, accounting for added cost of education?
+salary_hs <- 35256
+salary_gw <- 76151
+gw_annual_cost <- 70000
+years_in_college <- 4
+
+# 2)
+# Find income gap when gw grad starts
+income_gap_start <- years_in_college*(salary_hs + gw_annual_cost)
+
+# Find the annual salary surplus of gw grad compared to hs grad
+gw_annual_surplus <- salary_gw - salary_hs
+
+# Divide annual income surplus into income starting gap
+ceiling(income_gap_start / gw_annual_surplus)
+
+# 4)
+# Check intermediate values
+income_gap_start
+gw_annual_surplus
+# Can we ask a different question? What would my salary need to be to cut that to just 5 years?
+(income_gap_start / 5) + salary_hs
+```
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 3,
+          warn_when = 30,
+          update_every = 1,
+          bottom = 0,
+          left = 0,
+          font_size = '2em')
+```
+
+# Think-Pair-Share
+
+Kevin is deciding between purchasing a Toyota Prius, which sells for $27,600, and a Toyota Camry, which sells for $24,000. He knows that based on his driving patterns he can get an average fuel economy of 55 miles per gallon (mpg) of gasoline in the Prius but only 28 mpg in the Camry on average. He also knows that he typically drives 12,000 miles each year, and the average price of gasoline is $2.20 / gallon.
+
+How long (in years) would Kevin have to drive the Prius for the money he saves in fuel savings to be greater than the price premium compared to the Camry?
+
+```{r, eval=FALSE, echo=FALSE}
+price_prius <- 27600
+price_camry <- 24000
+mpg_prius <- 55
+mpg_camry <- 28
+annual_miles <- 12000
+price_gas <- 2.20 # per gallon
+
+# 1) When will the fuel savings from driving the Prius surpass it's price premium compared to the Camry?
+
+# 2)
+# Find the price difference:
+price_diff <- price_prius - price_camry
+
+# Find the fuel cost difference:
+annual_gallons_prius <- annual_miles / mpg_prius
+annual_gallons_camry <- annual_miles / mpg_camry
+annual_gallons_diff <- annual_gallons_camry - annual_gallons_prius
+annual_fuel_cost_diff <- price_gas*annual_gallons_diff
+
+# Divide these two
+price_diff / annual_fuel_cost_diff
+
+# 4) Can I solve this differently?
+# What would the price of gas need to be to get that down to 3 years?
+(price_diff / 3) / annual_gallons_diff
+```

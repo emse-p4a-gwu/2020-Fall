@@ -1,0 +1,13 @@
+
+# `r fa('tools')` Install Course Tools (see [course prep lesson](https://p4a.seas.gwu.edu/2020-Fall/L0-course-prep.html))
+
+## `r fa('slack')` [Slack](https://emse-p4a-f20.slack.com/)
+
+- ### [Link to join](https://join.slack.com/t/emse-p4a-f20/shared_invite/zt-gvto0fas-TXP6IRWdbSA_m_4UglGsLA) (also posted on Blackboard announcement).
+- ### Install Slack on your phone and **turn notifications on**!
+
+## `r fa('r-project')` [R](https://cloud.r-project.org/) & [RStudio](https://rstudio.com/products/rstudio/download/) (Install both)
+
+## `r fa('wifi')` [GWU VPN](https://seascf.seas.gwu.edu/vpn-access) (Install Cisco AnyConnect VPN Client)
+
+## `r fa('wifi')` + `r fa('r-project')` =  [RStudio](https://rstudio.seas.gwu.edu/) online!

@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Introduction to Python (in R)</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/paper.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+<link rel="icon" href="images/favicon.ico">
+<script src="https://kit.fontawesome.com/1392a7030f.js" crossorigin="anonymous"></script>
+<style type="text/css">
+
+/* Text */
+
+h1 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 60px;
+}
+h2 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 50px;
+}
+h3 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  line-height: 40px;
+}
+body {
+  font-size: 16px;
+  line-height: 26px;
+}
+blockquote {
+  background-color: #ecf0f1;
+  padding: 20px;
+  border-color: #2296f3;
+  border-radius: 5px;
+}
+blockquote h3 {
+  margin-top: 0px;
+}
+
+/* Images */
+
+img {
+  padding-bottom: 10px;
+}
+
+/* Tables */
+
+table {
+  border-collapse: collapse;
+  margin-bottom:10px;
+}
+thead {
+  border-top: solid #DCDCDC;
+  border-bottom: solid #DCDCDC;
+}
+tr.odd {
+  background-color: #F8F8F8;
+}
+tr:first-child {
+  border-top: solid #DCDCDC;
+}
+tr:last-child {
+  border-bottom: solid #DCDCDC;
+}
+
+</style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 64px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h2 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h3 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h4 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h5 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.section h6 {
+  padding-top: 69px;
+  margin-top: -69px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+.tocify-subheader {
+  display: inline;
+}
+.tocify-subheader .tocify-item {
+  font-size: 0.95em;
+}
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">P4A - Fall 2020</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="syllabus.html">
+    <span class="far fa-map"></span>
+     
+    Syllabus
+  </a>
+</li>
+<li>
+  <a href="schedule.html">
+    <span class="far fa-calendar-alt"></span>
+     
+    Schedule
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-book"></span>
+     
+    Lessons
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="L0-course-prep.html">0: Course Prep</a>
+    </li>
+    <li>
+      <a href="L1.1-course-introduction.html">Week 1.1: Course Introduction</a>
+    </li>
+    <li>
+      <a href="L1.2-getting-started.html">Week 1.2: Getting Started</a>
+    </li>
+    <li>
+      <a href="L1.3-operations-data-types.html">Week 1.3: Operations &amp; Data Types</a>
+    </li>
+    <li>
+      <a href="L2-functions-packages.html">Week 2: Functions &amp; Packages</a>
+    </li>
+    <li>
+      <a href="L3-creating-functions.html">Week 3: Creating functions</a>
+    </li>
+    <li>
+      <a href="L4.1-conditionals.html">Week 4.1: Conditionals</a>
+    </li>
+    <li>
+      <a href="L4.2-testing-debugging.html">Week 4.2: Testing &amp; Debugging</a>
+    </li>
+    <li>
+      <a href="L5-loops.html">Week 5: Loops</a>
+    </li>
+    <li>
+      <a href="L6-vectors.html">Week 6: Vectors</a>
+    </li>
+    <li>
+      <a href="L7-strings.html">Week 7: Strings</a>
+    </li>
+    <li>
+      <a href="L9-python-intro.html">
+        <span class="fab fa-python"></span>
+         
+        Week 9: Introduction to Python
+      </a>
+    </li>
+    <li>
+      <a href="L11.1-data-analysis-prelude.html">Week 11.1: Data Analysis Prelude</a>
+    </li>
+    <li>
+      <a href="L11.2-data-frames.html">Week 11.2: Data Frames</a>
+    </li>
+    <li>
+      <a href="L12-data-wrangling.html">Week 12: Data Wrangling</a>
+    </li>
+    <li>
+      <a href="L13-data-visualization.html">Week 13: Data Visualization</a>
+    </li>
+    <li>
+      <a href="L14-reproducible-reporting.html">Week 14: Reproducible Reporting</a>
+    </li>
+    <li>
+      <a href="L15-python-data-structures.html">
+        <span class="fab fa-python"></span>
+         
+        Week 15: Python Data Structures
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-laptop"></span>
+     
+    Assignments
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="hw1-getting-started.html">HW 1 - Getting Started</a>
+    </li>
+    <li>
+      <a href="hw2-functions-packages.html">HW 2 - Functions &amp; Packages</a>
+    </li>
+    <li>
+      <a href="hw3-creating-functions.html">HW 3 - Creating Functions</a>
+    </li>
+    <li>
+      <a href="hw4-conditionals-testing.html">HW 4 - Conditionals &amp; Testing</a>
+    </li>
+    <li>
+      <a href="hw5-loops.html">HW 5 - Loops</a>
+    </li>
+    <li>
+      <a href="hw6-vectors.html">HW 6 - Vectors</a>
+    </li>
+    <li>
+      <a href="hw7-strings.html">HW 7 - Strings</a>
+    </li>
+    <li>
+      <a href="hw8-data-frames.html">HW 8 - Python</a>
+    </li>
+    <li>
+      <a href="hw9-data-frames.html">HW 9 - Data Frames</a>
+    </li>
+    <li>
+      <a href="hw10-data-wrangling.html">HW 10 - Data Wrangling</a>
+    </li>
+    <li>
+      <a href="hw11-data-visualization.html">HW 11 - Data Visualization</a>
+    </li>
+    <li>
+      <a href="hw12-reproducible-reporting.html">HW 12 - Reproducible Reporting</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="far fa-bookmark"></span>
+     
+    References
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ref-getting-help.html">
+        <span class="fa fa-question-circle"></span>
+         
+        Getting Help
+      </a>
+    </li>
+    <li>
+      <a href="ref-programming.html">
+        <span class="fa fa-terminal"></span>
+         
+        Programming in R
+      </a>
+    </li>
+    <li>
+      <a href="ref-visualizing-data.html">
+        <span class="fa fa-chart-bar"></span>
+         
+        Visualizing Data
+      </a>
+    </li>
+    <li>
+      <a href="ref-rmarkdown.html">
+        <span class="fa fa-feather-alt"></span>
+         
+        R Markdown
+      </a>
+    </li>
+    <li>
+      <a href="ref-other.html">
+        <span class="fa fa-expand"></span>
+         
+        Other
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fas fa-tools"></span>
+     
+    Tools
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="autograder.html">
+        <span class="fas fa-tasks"></span>
+         
+        Autograder
+      </a>
+    </li>
+    <li>
+      <a href="https://emse-p4a-f20.slack.com">
+        <span class="fab fa-slack"></span>
+         
+        Slack
+      </a>
+    </li>
+    <li>
+      <a href="https://rstudio.seas.gwu.edu/">
+        <span class="fab fa-r-project"></span>
+         
+        RStudio Server
+      </a>
+    </li>
+    <li>
+      <a href="https://jhelvy.appointlet.com/b/professor-helveston">
+        <span class="fas fa-user-clock"></span>
+         
+        Schedule a meeting w/Prof. Helveston
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-bars"></span>
+     
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="about.html">
+        <span class="fa fa-info-circle"></span>
+         
+        About
+      </a>
+    </li>
+    <li>
+      <a href="LICENSE.html">
+        <span class="fa fa-gavel"></span>
+         
+        License
+      </a>
+    </li>
+    <li>
+      <a href="mailto:jph@gwu.edu">
+        <span class="fa fa-envelope"></span>
+         
+        Contact
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/emse-p4a-gwu/2020-Fall/">
+        <span class="fa fa-github"></span>
+         
+        Source files
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Introduction to Python (in R)</h1>
+
+</div>
+
+
+<blockquote>
+<h3 id="learning-objectives">Learning Objectives</h3>
+<ul>
+<li>Learn how to use the <a href="https://rstudio.github.io/reticulate/"><strong>reticulate</strong></a> R package to work with python in R.</li>
+<li>Learn basic python syntax and how it compares to R.</li>
+<li>Learn how to write functions, conditional statements, loops in python.</li>
+<li>Learn how to use Python methods.</li>
+<li>Learn basic string manipulation in python.</li>
+<li>Learn how to run a Python script fromr R.</li>
+</ul>
+<h3 id="suggested-readings">Suggested readings</h3>
+<ul>
+<li>The <a href="https://rstudio.github.io/reticulate/"><strong>reticulate</strong></a> R package documentation.</li>
+</ul>
+</blockquote>
+<div id="getting-started-with-python-in-r" class="section level1">
+<h1>Getting started with Python (in R)</h1>
+<p>Python is another very popular computing language for data analysis and general purpose computing. Since R is the main language for this course, we will not cover all the many wonderous things that Python can do. Instead, we will introduce Python through the lens of how it is used for <em>data analysis</em>, with a particular focus on comparing its similarities and differences with R.</p>
+<p>While you can work with Python in a number of ways, we will use the <a href="https://rstudio.github.io/reticulate/"><strong>reticulate</strong></a> to access it directly from R!</p>
+<div id="installation" class="section level2">
+<h2>Installation</h2>
+<p>To get started, install the package (remember, you only need to do this once on your computer):</p>
+<pre class="r"><code>install.package(&#39;reticulate&#39;)</code></pre>
+<p>Once installed, load the package:</p>
+<pre class="r"><code>library(reticulate)</code></pre>
+<p>If you already have Python installed on your computer, you should be okay, but you may see the following message pop up in the console:</p>
+<pre class="r"><code>Would you like to install Miniconda? [Y/n]:</code></pre>
+<p>If so, I recommend you go ahead and install Miniconda by typing <code>y</code> and pressing enter. Miniconda is a smaller version of the larger <a href="https://docs.conda.io/en/latest/">“Conda”</a> distribution that most people use to install Python, and it is the preferred setup for using Python in R.</p>
+</div>
+<div id="starting-python" class="section level2">
+<h2>Starting Python</h2>
+<p>Once you’ve loaded the <strong>reticulate</strong> library, use the following command to open up a Python REPL (which stands for “<strong>R</strong>ead–<strong>E</strong>val–<strong>P</strong>rint-<strong>L</strong>oop”):</p>
+<pre class="r"><code>repl_python()</code></pre>
+<p>Now look at your console - you should see three <code>&gt;&gt;&gt;</code> symbols. This means you’re now using Python! (Remember, the R console has only one <code>&gt;</code> symbol).</p>
+<p><strong>Check your Python version!</strong></p>
+<p>Above the <code>&gt;&gt;&gt;</code> symbols, you should see a message indicating which version of Python you are using. <strong>It should say “Python 3….”</strong>. Python has two versions (2 and 3) - we’ll be using Python 3. If you see Python 2, then you’ll need to adjust your <a href="https://rstudio.github.io/reticulate/articles/versions.html">configuration</a> to use Python 3. If you installed Miniconda, this should be Python 3.</p>
+</div>
+<div id="exiting-python" class="section level2">
+<h2>Exiting Python</h2>
+<p>If you want to get back to good ’ol R, just type the command <code>exit</code> into the Python console:</p>
+<pre class="r"><code>exit</code></pre>
+<p>Note that you should <code>exit</code> and not <code>exit()</code> with parenthesis.</p>
+</div>
+</div>
+<div id="python-basics" class="section level1">
+<h1>Python basics</h1>
+<div id="operators" class="section level2">
+<h2>Operators</h2>
+<p>Python has all the same arithmetic (<code>+-*/</code>), relational (<code>&lt;&gt;=</code>), and logical (<code>&amp;|!</code>) operators as R, but some of the symbols are a little different. Here’s a quick comparison of these differences:</p>
+<div style="width:450px">
+<table>
+<thead>
+<tr class="header">
+<th>Arithmetic operators</th>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Integer division</td>
+<td><code>%/%</code></td>
+<td><code>//</code></td>
+</tr>
+<tr class="even">
+<td>Modulus</td>
+<td><code>%%</code></td>
+<td><code>%</code></td>
+</tr>
+<tr class="odd">
+<td>Powers</td>
+<td><code>^</code></td>
+<td><code>**</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div style="width:450px">
+<table>
+<thead>
+<tr class="header">
+<th>Logical operators</th>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>And</td>
+<td><code>&amp;</code></td>
+<td><code>&amp;</code> or <code>and</code></td>
+</tr>
+<tr class="even">
+<td>Or</td>
+<td><code>|</code></td>
+<td><code>|</code> or <code>or</code></td>
+</tr>
+<tr class="odd">
+<td>Not</td>
+<td><code>!</code></td>
+<td><code>!</code> or <code>not</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Python uses the same symbols <code>&amp;</code>, <code>|</code>, and <code>!</code> for assessing logical statements, but Python also supports the use of the English words <code>and</code>, <code>or</code>, and <code>not</code>. For example, the following statements will both return <code>True</code></p>
+<pre class="python"><code>(3 == 3) &amp; (4 == 4)</code></pre>
+<pre><code>## True</code></pre>
+<pre class="python"><code>(3 == 3) and (4 == 4)</code></pre>
+<pre><code>## True</code></pre>
+</div>
+<div id="variable-assignment" class="section level2">
+<h2>Variable assignment</h2>
+<p>While in R you can use either <code>=</code> or <code>&lt;-</code> to assign values to objects, in Python only the <code>=</code> symbol can be used:</p>
+<pre class="python"><code>value = 3
+value</code></pre>
+<pre><code>## 3</code></pre>
+</div>
+<div id="data-types" class="section level2">
+<h2>Data types</h2>
+<p>For the most part, Python has the same data types as R: “numeric”, “string”, and “logical”. But they use different words to describe them:</p>
+<div style="width:450px">
+<table>
+<thead>
+<tr class="header">
+<th>Description</th>
+<th>R</th>
+<th>Python</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>numeric (w/decimal)</td>
+<td><code>"double"</code></td>
+<td><code>"float"</code></td>
+</tr>
+<tr class="even">
+<td>integer</td>
+<td><code>"integer"</code></td>
+<td><code>"int"</code></td>
+</tr>
+<tr class="odd">
+<td>character</td>
+<td><code>"character"</code></td>
+<td><code>"str"</code></td>
+</tr>
+<tr class="even">
+<td>logical</td>
+<td><code>"logical"</code></td>
+<td><code>"bool"</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>There are three important distinctions between the languages on data types:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Logicals</strong>: Logical statements in R use the words <code>TRUE</code> and <code>FALSE</code> (in all caps) to denote logical statements that are “True” or “False”, but in Python you only capitalize the first letter: <code>True</code> or <code>False</code></li>
+<li><strong>Integers vs. Floats</strong>: In R, all numbers are “floats” by default (i.e. they have decimal places), so even numbers that <em>look</em> like integers (e.g. <code>3</code>) are technically floats. In Python, numbers are integers by default unless they have decimal values (e.g. <code>3</code> is an <code>int</code> type, but <code>3.14</code> is a <code>float</code> type).</li>
+<li><strong>NULL</strong>: In R, a value of “nothing” is represented by <code>NULL</code>, but in Python we use <code>None</code>.</li>
+</ol>
+<p>You can check the type using <code>typeof()</code> in R or <code>type()</code> in Python:</p>
+<div class="row">
+<div class="col-md-6">
+<p><strong>R</strong>:</p>
+<pre class="r"><code>typeof(3.14)</code></pre>
+<pre><code>## [1] &quot;double&quot;</code></pre>
+<pre class="r"><code>typeof(3L)</code></pre>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<pre class="r"><code>typeof(&quot;3&quot;)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code>typeof(TRUE)</code></pre>
+<pre><code>## [1] &quot;logical&quot;</code></pre>
+</div>
+<div class="col-md-6">
+<p><strong>Python</strong>:</p>
+<pre class="python"><code>type(3.14)</code></pre>
+<pre><code>## &lt;class &#39;float&#39;&gt;</code></pre>
+<pre class="python"><code>type(3)</code></pre>
+<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
+<pre class="python"><code>type(&quot;3&quot;)</code></pre>
+<pre><code>## &lt;class &#39;str&#39;&gt;</code></pre>
+<pre class="python"><code>type(True)</code></pre>
+<pre><code>## &lt;class &#39;bool&#39;&gt;</code></pre>
+</div>
+</div>
+</div>
+<div id="coercing-data-types" class="section level2">
+<h2>Coercing data types</h2>
+<p>In R, you can convert data types using the general form of <code>as.something()</code>, replacing “<code>something</code>” with a data type. In Python, you can simply use the data type name to convert types. Here’s a comparison:</p>
+<div class="row">
+<div class="col-md-4">
+
+</div>
+<div class="col-md-4">
+<p><strong>R</strong></p>
+</div>
+<div class="col-md-4">
+<p><strong>Python</strong></p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<p><strong>Convert to double / float</strong>:</p>
+</div>
+<div class="col-md-4">
+<pre class="r"><code>as.double(3)</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div class="col-md-4">
+<pre class="python"><code>float(3)</code></pre>
+<pre><code>## 3.0</code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<p><strong>Convert to integer</strong>:</p>
+</div>
+<div class="col-md-4">
+<pre class="r"><code>as.integer(3.14)</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div class="col-md-4">
+<pre class="python"><code>int(3.14)</code></pre>
+<pre><code>## 3</code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<p><strong>Convert to string</strong>:</p>
+</div>
+<div class="col-md-4">
+<pre class="r"><code>as.character(3.14)</code></pre>
+<pre><code>## [1] &quot;3.14&quot;</code></pre>
+</div>
+<div class="col-md-4">
+<pre class="python"><code>str(3.14)</code></pre>
+<pre><code>## &#39;3.14&#39;</code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col-md-4">
+<p><strong>Convert to logical</strong>:</p>
+</div>
+<div class="col-md-4">
+<pre class="r"><code>as.logical(3.14)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div class="col-md-4">
+<pre class="python"><code>bool(3.14)</code></pre>
+<pre><code>## True</code></pre>
+</div>
+</div>
+<p>Remember that “logical” types convert to <code>TRUE</code> for any number other than <code>0</code>, which converts to <code>FALSE</code>.</p>
+</div>
+</div>
+<div id="loops" class="section level1">
+<h1>Loops</h1>
+<p>Perhaps the biggest syntax difference between R and Python is that <strong>Python uses white space to define things</strong>.</p>
+<p>For example, to write a loop in Python, you have to indent the second line by four character spaces, otherwise you’ll get an error. The benefits of this is that it forces you to use good style practices, and you don’t have to use the <code>{}</code> symbols like you do in R. The downside is that if you have a single space character missing, you’ll get an error, and sometimes that’s hard to notice.</p>
+<p>Here’s a comparison of loops in R and Python:</p>
+<div class="row">
+<div class="col-md-2">
+
+</div>
+<div class="col-md-5">
+<p><strong>R</strong></p>
+</div>
+<div class="col-md-5">
+<p><strong>Python</strong></p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><code>for</code> loop:</p>
+</div>
+<div class="col-md-5">
+<pre class="r"><code>for (i in c(1,3,5)) {
+    print(i)
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 3
+## [1] 5</code></pre>
+</div>
+<div class="col-md-5">
+<pre class="python"><code>for i in [1,3,5]:
+    print(i)</code></pre>
+<pre><code>## 1
+## 3
+## 5</code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><code>while</code> loop:</p>
+</div>
+<div class="col-md-5">
+<pre class="r"><code>i &lt;- 1
+while (i &lt;= 5) {
+    print(i)
+    i &lt;- i + 2
+}</code></pre>
+<pre><code>## [1] 1
+## [1] 3
+## [1] 5</code></pre>
+</div>
+<div class="col-md-5">
+<pre class="python"><code>i = 1
+while i &lt;= 5:
+    print(i)
+    i = i + 2</code></pre>
+<pre><code>## 1
+## 3
+## 5</code></pre>
+</div>
+</div>
+<p>One of the things many people love about Python is just how “clean” the syntax looks. Compared to R, the Python code above is more compact and contains less distracting elements, like the “<code>{}</code>” symbols. You also don’t need to include <code>()</code> symbols on the first line.</p>
+<p>Other than these differences in syntax, loops are essentially the same across the two languages.</p>
+</div>
+<div id="functions" class="section level1">
+<h1>Functions</h1>
+<p>Functions use the same “spacing” format as loops, and again the Python syntax is more compact. Here’s a comparison of the <code>isEven(n)</code> function:</p>
+<div class="row">
+<div class="col-md-6">
+<p><strong>R</strong>:</p>
+<pre class="r"><code>isEven &lt;- function(n) {
+    if (n %% 2 == 0) {
+        return(TRUE)
+    }
+    return(FALSE)
+}</code></pre>
+</div>
+<div class="col-md-6">
+<p><strong>Python</strong>:</p>
+<pre class="python"><code>def isEven(n):
+    if (n % 2 == 0):
+        return(True)
+    return(False)</code></pre>
+</div>
+</div>
+<p>Note the difference in the ordering of the first lines. In R, you first define the function name, then you assign to that name the function and argument(s).</p>
+<p>In Python, you do not use any assignment to create a function. Rather, you use the command <code>def</code> followed by the function name and argument(s). Here, the Python syntax is quite natural - you use the same syntax that you would use when calling the function (e.g. <code>isEven(n)</code>).</p>
+<p>Note also that the <code>if</code> statement in Python also uses the same general syntax of indented white space instead of using the <code>{}</code> symbols.</p>
+</div>
+<div id="python-methods" class="section level1">
+<h1>Python Methods</h1>
+<p>You might have heard people (i.e. me) say that Python is more “object-oriented” whereas R is more “functional.” What I mean is that in R you mostly apply <em>functions</em> to <em>objects</em>, but in Python you often call special functions that <em>belong</em> to certain object types. Here’s an example of converting a string to upper case:</p>
+<div class="row">
+<div class="col-md-6">
+<p><strong>R</strong>: We use the string <code>"foo"</code> as an argument to the <code>str_to_upper()</code> function from the <strong>stringr</strong> library, which returns <code>"FOO"</code>.</p>
+<pre class="r"><code>stringr::str_to_upper(&quot;foo&quot;)</code></pre>
+<pre><code>## [1] &quot;FOO&quot;</code></pre>
+</div>
+<div class="col-md-6">
+<p><strong>Python</strong>: we use the <code>.upper()</code> <em>method</em> that belongs to the string <code>"foo"</code>, which returns <code>"FOO"</code>. All strings in Python have this method.</p>
+<pre class="python"><code>&quot;foo&quot;.upper()</code></pre>
+<pre><code>## &#39;FOO&#39;</code></pre>
+</div>
+</div>
+<p>Methods are special functions that belong to objects of a certain <em>class</em>. You “call” methods using the name of the object followed by the <code>.</code> symbol, like this:</p>
+<pre class="r"><code>object.method()</code></pre>
+<p>You can also see the different methods available for a particular object by calling the <code>dir</code> function on the object:</p>
+<pre class="python"><code>s = &quot;foo&quot;
+dir(s)</code></pre>
+<pre><code>## [&#39;__add__&#39;, &#39;__class__&#39;, &#39;__contains__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__getnewargs__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__iter__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;capitalize&#39;, &#39;casefold&#39;, &#39;center&#39;, &#39;count&#39;, &#39;encode&#39;, &#39;endswith&#39;, &#39;expandtabs&#39;, &#39;find&#39;, &#39;format&#39;, &#39;format_map&#39;, &#39;index&#39;, &#39;isalnum&#39;, &#39;isalpha&#39;, &#39;isdecimal&#39;, &#39;isdigit&#39;, &#39;isidentifier&#39;, &#39;islower&#39;, &#39;isnumeric&#39;, &#39;isprintable&#39;, &#39;isspace&#39;, &#39;istitle&#39;, &#39;isupper&#39;, &#39;join&#39;, &#39;ljust&#39;, &#39;lower&#39;, &#39;lstrip&#39;, &#39;maketrans&#39;, &#39;partition&#39;, &#39;replace&#39;, &#39;rfind&#39;, &#39;rindex&#39;, &#39;rjust&#39;, &#39;rpartition&#39;, &#39;rsplit&#39;, &#39;rstrip&#39;, &#39;split&#39;, &#39;splitlines&#39;, &#39;startswith&#39;, &#39;strip&#39;, &#39;swapcase&#39;, &#39;title&#39;, &#39;translate&#39;, &#39;upper&#39;, &#39;zfill&#39;]</code></pre>
+<p>Wow, strings have a lot of methods!</p>
+<p>The concept of using methods is a major part of the “object-oriented” way of programming, since it’s the <em>object</em> that is the center of attention. The <em>object</em> in Python is more than just a stored value - it’s a source of other methods (depending on the object’s class).</p>
+<p>Now that you’ve seen a little about how Python methods work, we’ll get to use some working with strings!</p>
+</div>
+<div id="strings" class="section level1">
+<h1>Strings</h1>
+<p>String manipulation is one area where more substantial differences emerge between Python and R. Because R’s built in functions for dealing with strings are rather unintuitive, we’ve relied on the <strong>stringr</strong> package.</p>
+<p>In Python, many of the basic string manipulations are actually done with basic arithmatic operators, just like with numbers. Here are a few comparisons:</p>
+<div class="row">
+<div class="col-md-2">
+
+</div>
+<div class="col-md-5">
+<p><strong>R</strong></p>
+</div>
+<div class="col-md-5">
+<p><strong>Python</strong></p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><strong>String concatenation</strong>:</p>
+</div>
+<div class="col-md-5">
+<p>In R, we use the function <code>paste()</code> to combine strings:</p>
+<pre class="r"><code>paste(&quot;foo&quot;, &quot;bar&quot;, sep = &quot;&quot;)</code></pre>
+<pre><code>## [1] &quot;foobar&quot;</code></pre>
+</div>
+<div class="col-md-5">
+<p>In Python, you can combine strings by “adding” them together. The default is to merge them with no space in between:</p>
+<pre class="python"><code>&quot;foo&quot; + &quot;bar&quot;</code></pre>
+<pre><code>## &#39;foobar&#39;</code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><strong>String repetition</strong>:</p>
+</div>
+<div class="col-md-5">
+<p>Creating a repeated string is even more complicated in R. You first have to create a <em>vector</em> of repeated strings, and then “collapse” them using the <code>paste()</code> function:</p>
+<pre class="r"><code>paste(rep(&quot;foo&quot;, 3), collapse = &#39;&#39;)</code></pre>
+<pre><code>## [1] &quot;foofoofoo&quot;</code></pre>
+</div>
+<div class="col-md-5">
+<p>In Python, you can just “multiply” the string, like this:</p>
+<pre class="python"><code>&quot;foo&quot; * 3</code></pre>
+<pre><code>## &#39;foofoofoo&#39;</code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><strong>Sub-string detection</strong>:</p>
+</div>
+<div class="col-md-5">
+<p>In R, we use the <code>str_detect()</code> function:</p>
+<pre class="r"><code>str_detect(&#39;Apple&#39;, &#39;ppl&#39;)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div class="col-md-5">
+<p>In Python, you can detect sub-strings using the <code>in</code> operator:</p>
+<pre class="python"><code>&#39;ppl&#39; in &#39;Apple&#39;</code></pre>
+<pre><code>## True</code></pre>
+</div>
+</div>
+<div id="functions-and-methods" class="section level2">
+<h2>Functions and methods</h2>
+<p>Because Python has both functions and object methods, it can sometimes be tricky to remember which to use for a specific purpose. For example, if you want to know how many characters are in a string, you use a function, just like in R:</p>
+<div class="row">
+<div class="col-md-2">
+
+</div>
+<div class="col-md-5">
+<p><strong>R</strong></p>
+</div>
+<div class="col-md-5">
+<p><strong>Python</strong></p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><strong>String length</strong>:</p>
+</div>
+<div class="col-md-5">
+<pre class="r"><code>str_length(&#39;foo&#39;)</code></pre>
+<pre><code>## [1] 3</code></pre>
+</div>
+<div class="col-md-5">
+<pre class="python"><code>len(&#39;foo&#39;)</code></pre>
+<pre><code>## 3</code></pre>
+</div>
+</div>
+<p>However, lots of basic string manipulations are done with string methods:</p>
+<div class="row">
+<div class="col-md-2">
+
+</div>
+<div class="col-md-5">
+<p><strong>R</strong></p>
+</div>
+<div class="col-md-5">
+<p><strong>Python</strong></p>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><strong>Case converstion</strong>:</p>
+</div>
+<div class="col-md-5">
+<pre class="r"><code>s &lt;- &quot;A longer string&quot;
+str_to_upper(s)</code></pre>
+<pre><code>## [1] &quot;A LONGER STRING&quot;</code></pre>
+<pre class="r"><code>str_to_lower(s)</code></pre>
+<pre><code>## [1] &quot;a longer string&quot;</code></pre>
+<pre class="r"><code>str_to_title(s)</code></pre>
+<pre><code>## [1] &quot;A Longer String&quot;</code></pre>
+</div>
+<div class="col-md-5">
+<pre class="python"><code>s = &quot;A longer string&quot;
+s.upper()</code></pre>
+<pre><code>## &#39;A LONGER STRING&#39;</code></pre>
+<pre class="python"><code>s.lower()</code></pre>
+<pre><code>## &#39;a longer string&#39;</code></pre>
+<pre class="python"><code>s.title()</code></pre>
+<pre><code>## &#39;A Longer String&#39;</code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><strong>Remove excess white space</strong>:</p>
+</div>
+<div class="col-md-5">
+<pre class="r"><code>s &lt;- &quot;     A string with space     &quot;
+str_trim(s)</code></pre>
+<pre><code>## [1] &quot;A string with space&quot;</code></pre>
+</div>
+<div class="col-md-5">
+<pre class="python"><code>s = &quot;     A string with space     &quot;
+s.strip()</code></pre>
+<pre><code>## &#39;A string with space&#39;</code></pre>
+</div>
+</div>
+<div class="row">
+<div class="col-md-2">
+<p><strong>Detect if string contains only numbers</strong>:</p>
+</div>
+<div class="col-md-5">
+<p>R doesn’t have a function for this, but you can convert it to a number and check if the result is not <code>NA</code>:</p>
+<pre class="r"><code>s &lt;- &quot;42&quot;
+!is.na(as.numeric(s))</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div class="col-md-5">
+<p>Python has some handy string methods!</p>
+<pre class="python"><code>s = &quot;42&quot;
+s.isnumeric()</code></pre>
+<pre><code>## True</code></pre>
+</div>
+</div>
+</div>
+<div id="slicing" class="section level2">
+<h2>Slicing</h2>
+<p>To extract a sub-string, in R we have to use the <code>str_sub()</code> function. But in Python, you can simply use the <code>[]</code> symbols. In either case, you have to provide indices of where to start and stop the “slice”.</p>
+<p>For example, here’s how to extract the sub-string <code>"App"</code> from <code>"Apple"</code> in each language:</p>
+<div class="row">
+<div class="col-md-6">
+<p><strong>R</strong>:</p>
+<pre class="r"><code>s &lt;- &quot;Apple&quot;
+str_sub(s, 1, 3)</code></pre>
+<pre><code>## [1] &quot;App&quot;</code></pre>
+</div>
+<div class="col-md-6">
+<p><strong>Python</strong>:</p>
+<pre class="python"><code>s = &quot;Apple&quot;
+s[0:3]</code></pre>
+<pre><code>## &#39;App&#39;</code></pre>
+</div>
+</div>
+<p>Note that we had to use a different starting index here to get the same sub-string in each language. That’s because <strong>indexing starts at 0 in Python</strong>.</p>
+<p>If this seems strange, just imagine “fence posts”. In Python, the elements in a sequence are like items sitting <em>between</em> fence posts. So the index of each character in the string <code>"Apple"</code> look like this:</p>
+<pre class="r"><code>index: 0     1     2     3     4     5
+       |     |     |     |     |     |
+       | &quot;A&quot; | &quot;p&quot; | &quot;p&quot; | &quot;l&quot; | &quot;e&quot; |
+       |     |     |     |     |     |</code></pre>
+<p>When you make a slice in Python, you slice at the <em>fence post</em> number to get the elements <em>between</em> the posts. So in this case, if we want to get the sub-string <code>"App"</code> from <code>"Apple"</code>, we need to slice from the post <code>0</code> to <code>3</code>.</p>
+<p>Negative indices are also handled differently.</p>
+<div class="row">
+<div class="col-md-6">
+<p><strong>R</strong>: Negative indices start from the end of the string <em>inclusively</em>:</p>
+<pre class="r"><code>str_sub(s, -1)</code></pre>
+<pre><code>## [1] &quot;e&quot;</code></pre>
+<pre class="r"><code>str_sub(s, -3)</code></pre>
+<pre><code>## [1] &quot;ple&quot;</code></pre>
+</div>
+<div class="col-md-6">
+<p><strong>Python</strong>: Negative indices start from the end of the string, but only return the <em>character at that index</em>:</p>
+<pre class="python"><code>s[-1]</code></pre>
+<pre><code>## &#39;e&#39;</code></pre>
+<pre class="python"><code>s[-3]</code></pre>
+<pre><code>## &#39;p&#39;</code></pre>
+<p>To get an inclusive string, you have to provide a starting and ending index:</p>
+<pre class="python"><code>s[-3:-1]</code></pre>
+<pre><code>## &#39;pl&#39;</code></pre>
+<pre class="python"><code>s[-3:5]</code></pre>
+<pre><code>## &#39;ple&#39;</code></pre>
+</div>
+</div>
+<p>You can get the index of a character or sub-string in Python using the <code>.index()</code> method:</p>
+<div class="row">
+<div class="col-md-6">
+<p><strong>R</strong>: Returns the starting and ending indices of the sub-string</p>
+<pre class="r"><code>str_locate(s, &quot;pp&quot;)</code></pre>
+<pre><code>##      start end
+## [1,]     2   3</code></pre>
+</div>
+<div class="col-md-6">
+<p><strong>Python</strong>: Returns only the starting index of the sub-string</p>
+<pre class="python"><code>s.index(&quot;pp&quot;)</code></pre>
+<pre><code>## 1</code></pre>
+</div>
+</div>
+</div>
+<div id="splitting-strings" class="section level2">
+<h2>Splitting strings</h2>
+<p>Like in R, splitting a string returns a list of strings. Python lists are similar to R lists, but they only have single brackets. Here’s an example:</p>
+<div class="row">
+<div class="col-md-6">
+<p><strong>R</strong>:</p>
+<pre class="r"><code>s &lt;- &quot;Apple&quot;
+str_split(s, &quot;pp&quot;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;A&quot;  &quot;le&quot;</code></pre>
+</div>
+<div class="col-md-6">
+<p><strong>Python</strong>:</p>
+<pre class="python"><code>s = &quot;Apple&quot;
+s.split(&quot;pp&quot;)</code></pre>
+<pre><code>## [&#39;A&#39;, &#39;le&#39;]</code></pre>
+</div>
+</div>
+<p>In both languages, the returned list contains the remaining characters after splitting the string (in this case, <code>"A"</code> and <code>"le"</code>). One main difference though is that R returns a list of <em>vectors</em>, so to access the returned vector containing <code>"A"</code> and <code>"le"</code> you have to access the first element in the list, like this:</p>
+<pre class="r"><code>str_split(s, &quot;pp&quot;)[[1]]</code></pre>
+<pre><code>## [1] &quot;A&quot;  &quot;le&quot;</code></pre>
+<p>This is because in R the <code>str_split()</code> function is <em>vectorized</em>, meaning that the function can also be performed on a <em>vector</em> of strings, like this:</p>
+<pre class="r"><code>s &lt;- c(&quot;Apple&quot;, &quot;Snapple&quot;)
+str_split(s, &quot;pp&quot;)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;A&quot;  &quot;le&quot;
+## 
+## [[2]]
+## [1] &quot;Sna&quot; &quot;le&quot;</code></pre>
+<p>In this example, it’s easier to see that R is returning a list of vectors. In contrast, Python cannot perform a split on multiple strings:</p>
+<pre class="python"><code>s = [&quot;Apple&quot;, &quot;Snapple&quot;]
+s.split(&quot;pp&quot;)</code></pre>
+<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: &#39;list&#39; object has no attribute &#39;split&#39;
+## 
+## Detailed traceback: 
+##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+<p>To handle this, you will need to import the <strong>numpy</strong> package, which has an “array” structure similar to R vectors (we’ll cover this in more detail on week 13). Here’s an example:</p>
+<pre class="python"><code>import numpy as np
+
+s = np.array([&quot;Apple&quot;, &quot;Snapple&quot;])
+np.char.split(s, &quot;pp&quot;)</code></pre>
+<pre><code>## array([list([&#39;A&#39;, &#39;le&#39;]), list([&#39;Sna&#39;, &#39;le&#39;])], dtype=object)</code></pre>
+</div>
+</div>
+<div id="running-a-python-script-in-r" class="section level1">
+<h1>Running a Python script in R</h1>
+<p>While R scripts end in <code>.R</code>, Python scripts end in <code>.py</code>. You can open up and save a blank Python script in RStudio by clicking</p>
+<blockquote>
+<p>File -&gt; New File -&gt; Python Script</p>
+</blockquote>
+<p>Save it as <code>foo.py</code> in your project folder. Now that it’s saved, let’s add some code to run. As a quick example, I’m going to add code defining the function <code>isOdd()</code> and then create a few values testing it:</p>
+<pre class="python"><code>def isOdd(n):
+    if (n % 2 == 1):
+        return(True)
+    return(False)
+
+n1 = isOdd(4)
+n2 = isOdd(3)</code></pre>
+<p>Now that you have this code stored in your <code>foo.py</code> file, you can source the file from inside R, like this:</p>
+<pre class="r"><code>reticulate::source_python(&#39;foo.py&#39;)</code></pre>
+<p>Magically, the function <code>isOdd()</code> and the objects we created (<code>n1</code> and <code>n2</code>) are now accessible from R!</p>
+<pre class="r"><code>isOdd(7)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>n1</code></pre>
+<pre><code>## [1] FALSE</code></pre>
+<pre class="r"><code>n2</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+</div>
+<div id="summary-of-rpython-differences" class="section level1">
+<h1>Summary of R/Python differences</h1>
+<ul>
+<li>Indexing starts at 0 in Python and 1 in R.</li>
+<li>Strings in Python can be manipulated with arithmetic operators.</li>
+<li>Python is more “object-oriented” whereas R is more “functional”.</li>
+</ul>
+</div>
+<div id="tips" class="section level1">
+<h1>Tips</h1>
+<div id="making-your-own-python-class" class="section level2">
+<h2>Making your own Python class</h2>
+<p>You can get really creative with object-oriented programming in Python by creating your own custom classes, allowing you to embed values and methods that belong only to objects of that class. For example, here’s how to create a class called <code>Animal</code>, which is defined by two values: <code>species</code> and <code>sound</code>. Note the white space indentations - without them Python will error:</p>
+<pre class="python"><code>class Animal:
+    def __init__(self, species, sound):
+        self.species = species
+        self.sound = sound</code></pre>
+<p>The first function in any custom class is the <code>__init__</code> function. This is where to define any arguments that must be input when defining an object of the custom class. The use of <code>self</code> here defines which methods and values will be stored in the object onces it’s created.</p>
+<p>Here’s a example of how we could use the <code>Animal</code> class:</p>
+<pre class="python"><code>riley = Animal(&quot;Dog&quot;, &quot;Woof&quot;)</code></pre>
+<p>Here I’ve defined an object named <code>riley</code> (my dog’s name), and it has two stored values: <code>"Dog"</code> (the species) and <code>"Woof"</code> (the sound). I can access these stored values by calling the <code>species</code> and <code>sound</code> values from the <code>riley</code> object:</p>
+<pre class="python"><code>riley.species</code></pre>
+<pre><code>## &#39;Dog&#39;</code></pre>
+<pre class="python"><code>riley.sound</code></pre>
+<pre><code>## &#39;Woof&#39;</code></pre>
+<p>I can also ask Python what type of object <code>riley</code> is, and it will tell me it’s of the <code>Animal</code> class:</p>
+<pre class="python"><code>type(riley)</code></pre>
+<pre><code>## &lt;class &#39;__main__.Animal&#39;&gt;</code></pre>
+<p>In addition to just storing values, you can create custom methods that will only be accessible to objects of the custom class. Here I’m adding the method <code>introduce()</code> to the class <code>Animal</code>:</p>
+<pre class="python"><code>class Animal:
+    def __init__(self, species, sound):
+        self.species = species
+        self.sound = sound
+
+    def introduce(self):
+        print(&quot;I&#39;m a &quot; + self.species + &quot; and I say &quot; + self.sound)</code></pre>
+<p>Now let’s re-define my <code>riley</code> object and try out our new method!</p>
+<pre class="python"><code>riley = Animal(&quot;Dog&quot;, &quot;Woof&quot;)
+riley.introduce()</code></pre>
+<pre><code>## I&#39;m a Dog and I say Woof</code></pre>
+</div>
+</div>
+
+
+<hr>
+
+<div>
+<center>
+    EMSE 4574: Programming for Analytics (Fall 2020) | <a href="https://github.com/emse-p4a-gwu/2020-Fall"><i class="fab fa-github"></i></a>
+    <br>
+    <i class="far fa-calendar-alt"></i> Tuesdays |
+    <i class="far fa-clock"></i> 12:45 - 3:15 PM |
+    <a href="https://www.jhelvy.com"><i class="fas fa-user"></i> Dr. John Paul Helveston</a> |
+    <a href="mailto:jph@gwu.edu"><i class="fas fa-envelope"></i> jph@gwu.edu</a>
+    <br>
+    Content <a href="https://creativecommons.org/licenses^/by/4.0/"><i class="fab fa-creative-commons"></i> 2020 </a><a href="https://www.jhelvy.com">John Paul Helveston.</a> See the <a href="LICENSE.html">licensing</a> page for details.
+</center>
+</div>
+
+<!-- Add function to open links to external links in new tab, from: -->
+<!-- https://yihui.name/en/2018/09/target-blank/ -->
+
+<script src="js/external-link.js"></script>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3,h4",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = false;
+    options.smoothScroll = false;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
