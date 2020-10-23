@@ -17,7 +17,6 @@ NEXT TIME:
 
 7-Strings:
 - Change last example problem to be about detecting and replacing (if you have one)
-- Expand on ^ and $ for regular expressions in []
 
 ------------------------------------
 OLD
