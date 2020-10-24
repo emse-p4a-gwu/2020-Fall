@@ -13,7 +13,6 @@ Encoding: UTF-8
 Imports:
     curl,
     yaml,
-    rmarkdown,
     knitr,
     tidyverse,
     testthat,
@@ -30,13 +29,14 @@ Imports:
     gsheet,
     googlesheets4,
     cowplot,
-    reticulate,
     janitor,
     GGally,
     HistData,
     shiny,
     shinythemes,
     shinyjs,
+    remotes,
+    rmarkdown,
     fontawesome,
     palmerpenguins
 Remotes:

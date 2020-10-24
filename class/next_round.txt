@@ -26,6 +26,7 @@ General:
 - Add strings to final review slides
 
 12-data-visualization:
+- Add "making_a_ggplot.jpeg" image
 - Add small mulitples in with faceting
 
 
