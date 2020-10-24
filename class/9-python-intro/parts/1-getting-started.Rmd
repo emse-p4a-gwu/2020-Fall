@@ -1,0 +1,104 @@
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] `r fontawesome::fa("python", fill = "white")`
+
+## 1. .orange[Getting started]
+## 2. Python basics
+## 3. Functions & methods
+## 4. Loops & lists
+## 5. Strings
+
+---
+class: center, middle
+
+## Why Python?
+
+<center>
+<img src="images/languages.png" width=750>
+</center>
+[image source](https://towardsdatascience.com/predicting-the-future-popularity-of-programming-languages-4f28c80bd36f)
+
+---
+class: center, middle
+
+.leftcol[
+# .center[`r fontawesome::fa("python", fill = "black")`]
+.noborder[<center>
+<img src="images/swiss_army_knife.png" width=350>
+</center>]
+]
+
+.rightcol[
+# .center[`r fontawesome::fa("r-project", fill = "black")`]
+.noborder[<center>
+<img src="images/data_analysis.jpg" width=400>
+</center>]
+]
+
+---
+.code90[
+## Install the `reticulate` library
+```{r, eval=FALSE}
+install.packages("reticulate")
+```
+(Only do this once)
+]
+--
+<br>
+.code90[
+## Load the `reticulate` library
+```{r, eval=FALSE}
+library(reticulate)
+```
+(Do this every time you use the package)
+]
+
+---
+## Do you have Python on your computer?
+
+If note, you may see the following message pop up:
+```{r, eval=FALSE}
+Would you like to install Miniconda? [Y/n]:
+```
+
+My recommendation: type `y` and press `enter`
+
+---
+## Starting Python
+
+Open a Python REPL ("**R**ead–**E**val–**P**rint-**L**oop"):
+```{r, eval=FALSE}
+repl_python()
+```
+
+--
+You should see the `>>>` symbol in the console. This means you're now using Python!
+(Remember, the R console has only one `>` symbol).
+
+
+--
+**You want to use Python 3, not Python 2**
+
+Above the `>>>` symbols, it should say `"Python 3...."`
+
+---
+## Exiting Python (but we just got started?)
+
+If you want to get back to good 'ol R, just type the command `exit` into the Python console:
+
+```{r, eval=FALSE}
+exit
+```
+
+(Note that you type `exit` and not `exit()` with parentheses).
+
+---
+# Open a Python script
+
+> File --> New File --> Python Script
+
+
+--
+When you run code from a Python script, R automatically opens a Python REPL
+

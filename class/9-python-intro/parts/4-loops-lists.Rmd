@@ -1,0 +1,243 @@
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] `r fontawesome::fa("python", fill = "white")`
+
+## 1. Getting started
+## 2. Python basics
+## 3. Functions & methods
+## 4. .orange[Loops & lists]
+## 5. Strings
+
+---
+## `for` loops
+
+.leftcol[
+.center[**R**]
+```{r}
+for (i in seq(1, 5, 2)) {
+    cat(i, '\n')
+}
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+for i in range(1, 5, 2):
+    print(i)
+```
+Notes:
+- `range()` leaves out stopping number
+- No `()` in `for` loop line
+]
+
+---
+## `while` loops
+
+.leftcol[
+.center[**R**]
+```{r}
+i <- 1
+while (i <= 5) {
+    print(i)
+    i <- i + 2
+}
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+i = 1
+while i <= 5:
+    print(i)
+    i += 2
+```
+Notes:
+
+- Could also use `i = i + 2` to increment
+- No `()` in `while` loop line
+]
+
+---
+# Python lists
+
+**Note**: These are not the same as R vectors! (They're equivalent to R lists)
+
+
+--
+Universal list creator: `[]`
+```{python}
+[1, 2, 3]
+```
+
+--
+Lists can store different types
+```{python}
+[1, "foo", True]
+```
+
+---
+## Adding and removing items
+
+--
+.leftcol[
+Add items with `list.append()`
+```{python}
+x = [1, 2, 3]
+x.append(7)
+x
+```
+**Note**: You don't have to overright `a`,<br>
+i.e. Don't do this: `x = x.append(7)`
+]
+--
+.rightcol[
+Remove items with `list.remove()`
+```{python}
+x = [1, 2, 3]
+x.remove(3)
+x
+```
+]
+
+---
+## Sorting lists
+
+```{python}
+x = [1, 5, 3]
+```
+--
+.leftcol[
+Sorting that returns a new object
+```{python}
+sorted(x)
+sorted(x, reverse = True)
+x
+```
+]
+--
+.rightcol[
+Sort the object `x` _without_ creating a new object
+```{python}
+x.sort()
+x
+```
+]
+
+---
+# Slicing lists with `[]`
+
+```{python}
+x = ['A', 'list', 'of', 'words']
+```
+--
+.leftcol[.code80[
+Indices start at 0:
+```{python}
+x[0] # Returns the first element
+```
+```{python}
+x[3] # Returns the third element
+```
+```{python}
+x[len(x)-1] # Returns the last element
+```
+]]
+--
+.rightcol[.code80[
+Slicing with a vector of indices:
+```{python}
+x[0:3]  # Returns the first 3 elements
+```
+]]
+
+---
+# Negative indices slice from the end
+
+```{python}
+x = ['A', 'list', 'of', 'words']
+```
+--
+.leftcol[.code80[
+Indices start at 0:
+```{python}
+x[-1] # Returns the last element
+```
+```{python}
+x[-2] # Returns 2nd-to-last element
+```
+```{python}
+x[-len(x)] # Returns first element
+```
+]]
+--
+.rightcol[.code80[
+Slicing with a vector of indices:
+```{python}
+x[-3:-1]  # Returns middle 2 elements
+```
+]]
+
+---
+## Note on 0 indexing
+
+```{python}
+x = ["A", "B", "C", "D", "E"]
+```
+--
+List items sit _between_ fence posts.
+```{python, eval=FALSE}
+index: 0     1     2     3     4
+       |     |     |     |     |     |
+item:  | "A" | "B" | "C" | "D" | "E" |
+       |     |     |     |     |     |
+```
+
+--
+You slice at the _fence post_ number to get elements _between_ the posts.
+.leftcol[
+```{python}
+x[0:1]
+```
+]
+.rightcol[
+```{python}
+x[0:3]
+```
+]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+# Think-Pair-Share
+
+Write the following two functions in Python code:
+
+1. `factorial(n)`: Returns the factorial of `n`, e.g. `3! = 3*2*1 = 6`. Note that `0` is a special case, and `0! = 1`. Assume `n >= 0`.
+
+2. `nthHighestValue(n, x)`: Returns the nth highest value in a list of numbers. For example, if `x = [5, 1, 3]`, then `nthHighestValue(1, x)` should return `5`, because `5` is the 1st highest value in `x`, and `nthHighestValue(2, x)` should return `3` because it's the 2nd highest value in `x`. Assume that `n <= len(x)`.
+
+```{python, echo=FALSE}
+def factorial(n):
+    if (n == 0):
+        return(1)
+    result = 1
+    for i in range(n-1):
+        result = result*i
+    return(result)
+
+def nthHighestValue(n, x):
+    y = sorted(x, reverse = True)
+    return(y[n - 1])
+```

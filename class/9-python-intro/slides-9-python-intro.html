@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Week 9: Intro to Python</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2020-10-27" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="https://emse-p4a-gwu.github.io/2020-Fall/class/class.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+.rightcol70[
+# Week 9: .fancy[Intro to Python] &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
+
+### EMSE 4574: Intro to Programming for Analytics
+### John Paul Helveston
+### October 27, 2020
+]
+
+---
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
+
+## 1. Getting started
+## 2. Python basics
+## 3. Functions &amp; methods
+## 4. Loops &amp; lists
+## 5. Strings
+
+---
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
+
+## 1. .orange[Getting started]
+## 2. Python basics
+## 3. Functions &amp; methods
+## 4. Loops &amp; lists
+## 5. Strings
+
+---
+class: center, middle
+
+## Why Python?
+
+&lt;center&gt;
+&lt;img src="images/languages.png" width=750&gt;
+&lt;/center&gt;
+[image source](https://towardsdatascience.com/predicting-the-future-popularity-of-programming-languages-4f28c80bd36f)
+
+---
+class: center, middle
+
+.leftcol[
+# .center[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:black;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;]
+.noborder[&lt;center&gt;
+&lt;img src="images/swiss_army_knife.png" width=350&gt;
+&lt;/center&gt;]
+]
+
+.rightcol[
+# .center[&lt;svg style="height:0.8em;top:.04em;position:relative;fill:black;" viewBox="0 0 581 512"&gt;&lt;path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"/&gt;&lt;/svg&gt;]
+.noborder[&lt;center&gt;
+&lt;img src="images/data_analysis.jpg" width=400&gt;
+&lt;/center&gt;]
+]
+
+---
+.code90[
+## Install the `reticulate` library
+
+```r
+install.packages("reticulate")
+```
+(Only do this once)
+]
+--
+&lt;br&gt;
+.code90[
+## Load the `reticulate` library
+
+```r
+library(reticulate)
+```
+(Do this every time you use the package)
+]
+
+---
+## Do you have Python on your computer?
+
+If note, you may see the following message pop up:
+
+```r
+Would you like to install Miniconda? [Y/n]:
+```
+
+My recommendation: type `y` and press `enter`
+
+---
+## Starting Python
+
+Open a Python REPL ("**R**ead–**E**val–**P**rint-**L**oop"):
+
+```r
+repl_python()
+```
+
+--
+You should see the `&gt;&gt;&gt;` symbol in the console. This means you're now using Python!
+(Remember, the R console has only one `&gt;` symbol).
+
+
+--
+**You want to use Python 3, not Python 2**
+
+Above the `&gt;&gt;&gt;` symbols, it should say `"Python 3...."`
+
+---
+## Exiting Python (but we just got started?)
+
+If you want to get back to good 'ol R, just type the command `exit` into the Python console:
+
+
+```r
+exit
+```
+
+(Note that you type `exit` and not `exit()` with parentheses).
+
+---
+# Open a Python script
+
+&gt; File --&gt; New File --&gt; Python Script
+
+
+--
+When you run code from a Python script, R automatically opens a Python REPL
+
+
+---
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
+
+## 1. Getting started
+## 2. .orange[Python basics]
+## 3. Functions &amp; methods
+## 4. Loops &amp; lists
+## 5. Strings
+
+---
+# Operators
+
+&lt;style type="text/css"&gt;
+    .remark-slide table{
+        width: 100%;
+    }
+&lt;/style&gt;
+
+--
+.leftcol[.left[
+## Arithmetic operators
+
+Operator | R      | Python
+-----------------|---------|-----------
+Integer division |  `%/%` | `//`
+Modulus          |  `%%`  | `%`
+Powers           |  `^`   | `**`
+]]
+--
+.rightcol[.left[
+## Logical operators
+
+Operator  | R         | Python
+----------|-----------|-----------
+And       |  `&amp;`      | `and`; `&amp;`
+Or        |  &amp;#124;   | `or`; &amp;#124;
+Not       |  `!`      | `not`; `!`
+
+You can do this in Python:
+
+```r
+(3 == 3) and (4 == 4)
+```
+]]
+
+---
+## Variable assignment
+
+Python only uses the `=` symbol to make assignments (no `&lt;-`):
+
+
+```python
+value = 3
+value
+```
+
+```
+## 3
+```
+
+---
+## Data types
+
+Same data types as R, but with more "Computer Science-y" names:
+
+.leftcol60[.left[
+Description          | R            | Python
+---------------------|--------------|-----------
+numeric (w/decimal)  | `double`   | `float`
+integer              | `integer`  | `int`
+character            | `character`| `str`
+logical              | `logical`  | `bool`
+]]
+
+
+---
+## Data types
+
+Three important distinctions:
+
+.left[
+Data type     | R                  | Python
+--------------|--------------------|-----------
+Logical       | `TRUE` or `FALSE` | `True` or `False`
+Numbers       | `double` by default  | `int` by default (unless has decimal)
+Nothing       | `NULL`| `None`
+]
+
+---
+.leftcol[
+.center[**R**: Get type with `typeof()`]
+
+```r
+typeof(3.14)
+```
+
+```
+## [1] "double"
+```
+
+```r
+typeof(3L)
+```
+
+```
+## [1] "integer"
+```
+
+```r
+typeof("3")
+```
+
+```
+## [1] "character"
+```
+
+```r
+typeof(TRUE)
+```
+
+```
+## [1] "logical"
+```
+]
+.rightcol[
+.center[**Python**: Get type with `type()`]
+
+```python
+type(3.14)
+```
+
+```
+## &lt;class 'float'&gt;
+```
+
+```python
+type(3)
+```
+
+```
+## &lt;class 'int'&gt;
+```
+
+```python
+type("3")
+```
+
+```
+## &lt;class 'str'&gt;
+```
+
+```python
+type(True)
+```
+
+```
+## &lt;class 'bool'&gt;
+```
+]
+
+---
+.leftcol[
+.center[**R**: _Check_ type with `is.type()`]
+
+```r
+is.double(3.14)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+is.integer(3L)
+```
+
+```
+## [1] TRUE
+```
+
+```r
+is.character("3")
+```
+
+```
+## [1] TRUE
+```
+
+```r
+is.logical(TRUE)
+```
+
+```
+## [1] TRUE
+```
+]
+.rightcol[
+.center[**Python**: _Check_ type with `type() == type`]
+
+```python
+type(3.14) == float
+```
+
+```
+## True
+```
+
+```python
+type(3) == int
+```
+
+```
+## True
+```
+
+```python
+type("3") == str
+```
+
+```
+## True
+```
+
+```python
+type(True) == bool
+```
+
+```
+## True
+```
+]
+
+---
+.leftcol[
+.center[**R**: _Convert_ type with `as.type()`]
+
+```r
+as.double("3")
+```
+
+```
+## [1] 3
+```
+
+```r
+as.integer(3.14)
+```
+
+```
+## [1] 3
+```
+
+```r
+as.character(3.14)
+```
+
+```
+## [1] "3.14"
+```
+
+```r
+as.logical(3.14)
+```
+
+```
+## [1] TRUE
+```
+]
+.rightcol[
+.center[**Python**: _Convert_ type with `type()`]
+
+```python
+float("3")
+```
+
+```
+## 3.0
+```
+
+```python
+int(3.14)
+```
+
+```
+## 3
+```
+
+```python
+str(3.14)
+```
+
+```
+## '3.14'
+```
+
+```python
+bool(3.14)
+```
+
+```
+## True
+```
+]
+
+---
+## Quick practice
+
+<div class="countdown" id="timer_5f94520c" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+Write Python code to do the following:
+
+1. Create an object `x` that stores the value `"123"`
+2. Create an object `y` that is `x` converted to an integer
+3. Write code to confirm that `y` is indeed an integer
+4. Write a logical statement to determine if `y` is odd or even
+
+---
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
+
+## 1. Getting started
+## 2. Python basics
+## 3. .orange[Functions &amp; methods]
+## 4. Loops &amp; lists
+## 5. Strings
+
+---
+# Python and R have many similar functions
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+abs(-1)
+```
+
+```
+## [1] 1
+```
+
+```r
+round(3.14)
+```
+
+```
+## [1] 3
+```
+
+```r
+round(3.14, 1)
+```
+
+```
+## [1] 3.1
+```
+]
+.rightcol[
+.center[**Python**]
+
+```python
+abs(-1)
+```
+
+```
+## 1
+```
+
+```python
+round(3.14)
+```
+
+```
+## 3
+```
+
+```python
+round(3.14, 1)
+```
+
+```
+## 3.1
+```
+]
+
+---
+# Writing functions
+
+.leftcol[
+.center[**R**]
+
+```r
+isEven &lt;- function(n) {
+    if (n %% 2 == 0) {
+        return(TRUE)
+    }
+    return(FALSE)
+}
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+def isEven(n):
+    if (n % 2 == 0):
+        return(True)
+    return(False)
+```
+Note:
+
+- Functions start with `def`
+- Use `:` and indentation instead of `{}`
+- **Indentation is precisely 4 spaces!**
+]
+
+---
+# Writing test functions
+
+.leftcol[
+.center[**R**]
+
+```r
+test_isEven &lt;- function() {
+    cat("Testing isEven(n)...")
+    stopifnot(isEven(2) == TRUE)
+    stopifnot(isEven(1) == FALSE)
+    cat("Passed!")
+}
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+def test_isEven():
+    print("Testing isEven(n)...")
+    assert(isEven(2) == True)
+    assert(isEven(1) == False)
+    print("Passed!")
+```
+Note:
+
+- Use `print()` instead of `cat()`
+- Use `assert()` instead of `stopifnot()`
+]
+
+---
+# Python Methods
+
+Python objects have "methods" - special functions that _belong_ to certain object classes.
+
+--
+Example: Make a string upper case
+
+.leftcol[
+.center[**R**]
+Use `str_to_upper()` function
+
+```r
+s &lt;- "foo"
+stringr::str_to_upper(s)
+```
+
+```
+## [1] "FOO"
+```
+]
+--
+.rightcol[
+.center[**Python**]
+Use `upper()` _method_
+
+```python
+s = "foo"
+s.upper()
+```
+
+```
+## 'FOO'
+```
+]
+
+---
+# Python Methods
+
+See all the available methods with `dir` function:
+
+```python
+s = "foo"
+dir(s)
+```
+
+```
+## ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
+```
+
+---
+# R-Python magic
+
+You can source a Python script from R, then use the Python function in R!
+
+
+--
+Inside your `notes.py` file, you have the following function defined:
+
+```python
+def isEven(n):
+    if (n % 2 == 0):
+        return(True)
+    return(False)
+```
+
+--
+Open your `notes.R` file and _source_ the `note.py` file:
+
+```r
+reticulate::source_python('notes.py')
+```
+
+--
+Magically, the function `isEven(n)` now works inside R!
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f94528d" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Think-Pair-Share
+
+Write the following two functions in Python code:
+
+1. `hypotenuse(a, b)`: Returns the hypotenuse of the two lines of length `a` and `b`.
+
+2. `isRightTriangle(a, b, c)`: Returns `True` if the triangle formed by the lines of length `a`, `b`, and `c` is a right triangle and `False` otherwise. **Hint**: you may not know which value (`a`, `b`, or `c`) is the hypotenuse.
+
+
+
+---
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
+
+## 1. Getting started
+## 2. Python basics
+## 3. Functions &amp; methods
+## 4. .orange[Loops &amp; lists]
+## 5. Strings
+
+---
+## `for` loops
+
+.leftcol[
+.center[**R**]
+
+```r
+for (i in seq(1, 5, 2)) {
+    cat(i, '\n')
+}
+```
+
+```
+## 1 
+## 3 
+## 5
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+for i in range(1, 5, 2):
+    print(i)
+```
+
+```
+## 1
+## 3
+```
+Notes:
+- `range()` leaves out stopping number
+- No `()` in `for` loop line
+]
+
+---
+## `while` loops
+
+.leftcol[
+.center[**R**]
+
+```r
+i &lt;- 1
+while (i &lt;= 5) {
+    print(i)
+    i &lt;- i + 2
+}
+```
+
+```
+## [1] 1
+## [1] 3
+## [1] 5
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+i = 1
+while i &lt;= 5:
+    print(i)
+    i += 2
+```
+
+```
+## 1
+## 3
+## 5
+```
+Notes:
+
+- Could also use `i = i + 2` to increment
+- No `()` in `while` loop line
+]
+
+---
+# Python lists
+
+**Note**: These are not the same as R vectors! (They're equivalent to R lists)
+
+
+--
+Universal list creator: `[]`
+
+```python
+[1, 2, 3]
+```
+
+```
+## [1, 2, 3]
+```
+
+--
+Lists can store different types
+
+```python
+[1, "foo", True]
+```
+
+```
+## [1, 'foo', True]
+```
+
+---
+## Adding and removing items
+
+--
+.leftcol[
+Add items with `list.append()`
+
+```python
+x = [1, 2, 3]
+x.append(7)
+x
+```
+
+```
+## [1, 2, 3, 7]
+```
+**Note**: You don't have to overright `a`,&lt;br&gt;
+i.e. Don't do this: `x = x.append(7)`
+]
+--
+.rightcol[
+Remove items with `list.remove()`
+
+```python
+x = [1, 2, 3]
+x.remove(3)
+x
+```
+
+```
+## [1, 2]
+```
+]
+
+---
+## Sorting lists
+
+
+```python
+x = [1, 5, 3]
+```
+--
+.leftcol[
+Sorting that returns a new object
+
+```python
+sorted(x)
+```
+
+```
+## [1, 3, 5]
+```
+
+```python
+sorted(x, reverse = True)
+```
+
+```
+## [5, 3, 1]
+```
+
+```python
+x
+```
+
+```
+## [1, 5, 3]
+```
+]
+--
+.rightcol[
+Sort the object `x` _without_ creating a new object
+
+```python
+x.sort()
+x
+```
+
+```
+## [1, 3, 5]
+```
+]
+
+---
+# Slicing lists with `[]`
+
+
+```python
+x = ['A', 'list', 'of', 'words']
+```
+--
+.leftcol[.code80[
+Indices start at 0:
+
+```python
+x[0] # Returns the first element
+```
+
+```
+## 'A'
+```
+
+```python
+x[3] # Returns the third element
+```
+
+```
+## 'words'
+```
+
+```python
+x[len(x)-1] # Returns the last element
+```
+
+```
+## 'words'
+```
+]]
+--
+.rightcol[.code80[
+Slicing with a vector of indices:
+
+```python
+x[0:3]  # Returns the first 3 elements
+```
+
+```
+## ['A', 'list', 'of']
+```
+]]
+
+---
+# Negative indices slice from the end
+
+
+```python
+x = ['A', 'list', 'of', 'words']
+```
+--
+.leftcol[.code80[
+Indices start at 0:
+
+```python
+x[-1] # Returns the last element
+```
+
+```
+## 'words'
+```
+
+```python
+x[-2] # Returns 2nd-to-last element
+```
+
+```
+## 'of'
+```
+
+```python
+x[-len(x)] # Returns first element
+```
+
+```
+## 'A'
+```
+]]
+--
+.rightcol[.code80[
+Slicing with a vector of indices:
+
+```python
+x[-3:-1]  # Returns middle 2 elements
+```
+
+```
+## ['list', 'of']
+```
+]]
+
+---
+## Note on 0 indexing
+
+
+```python
+x = ["A", "B", "C", "D", "E"]
+```
+--
+List items sit _between_ fence posts.
+
+```python
+index: 0     1     2     3     4
+       |     |     |     |     |     |
+item:  | "A" | "B" | "C" | "D" | "E" |
+       |     |     |     |     |     |
+```
+
+--
+You slice at the _fence post_ number to get elements _between_ the posts.
+.leftcol[
+
+```python
+x[0:1]
+```
+
+```
+## ['A']
+```
+]
+.rightcol[
+
+```python
+x[0:3]
+```
+
+```
+## ['A', 'B', 'C']
+```
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f945127" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Think-Pair-Share
+
+Write the following two functions in Python code:
+
+1. `factorial(n)`: Returns the factorial of `n`, e.g. `3! = 3*2*1 = 6`. Note that `0` is a special case, and `0! = 1`. Assume `n &gt;= 0`.
+
+2. `nthHighestValue(n, x)`: Returns the nth highest value in a list of numbers. For example, if `x = [5, 1, 3]`, then `nthHighestValue(1, x)` should return `5`, because `5` is the 1st highest value in `x`, and `nthHighestValue(2, x)` should return `3` because it's the 2nd highest value in `x`. Assume that `n &lt;= len(x)`.
+
+
+
+---
+class: inverse, center
+
+# .fancy[Break]
+
+<div class="countdown" id="timer_5f94504c" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] &lt;svg style="height:0.8em;top:.04em;position:relative;fill:white;" viewBox="0 0 448 512"&gt;&lt;path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3zM167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4zm-6.7-142.6c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4 11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3z"/&gt;&lt;/svg&gt;
+
+## 1. Getting started
+## 2. Python basics
+## 3. Functions &amp; methods
+## 4. Loops &amp; lists
+## 5. .orange[Strings]
+
+---
+## Doing "math" with strings
+
+--
+.leftcol[
+Concatenation:
+.center[**R**]
+
+```r
+paste("foo", "bar", sep = "")
+```
+
+```
+## [1] "foobar"
+```
+]
+--
+.rightcol[
+&lt;br&gt;
+.center[**Python**]
+
+```python
+"foo" + "bar"
+```
+
+```
+## 'foobar'
+```
+]
+--
+.leftcol[
+Repetition:
+.center[**R**]
+
+```r
+str_dup("foo", 3)
+```
+
+```
+## [1] "foofoofoo"
+```
+]
+--
+.rightcol[
+&lt;br&gt;
+.center[**Python**]
+
+```python
+"foo" * 3
+```
+
+```
+## 'foofoofoo'
+```
+]
+
+---
+## Using English with strings
+
+.leftcol[
+Sub-string detection:
+.center[**R**]
+
+```r
+str_detect('Apple', 'App')
+```
+
+```
+## [1] TRUE
+```
+]
+--
+.rightcol[
+&lt;br&gt;
+.center[**Python**]
+
+```python
+'App' in 'Apple'
+```
+
+```
+## True
+```
+]
+
+---
+class: inverse, middle, center
+
+## Most string manipulation is done with _methods_
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+str_function(s)
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s.method()
+```
+]
+
+---
+## Case conversion
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+s &lt;- "A longer string"
+str_to_upper(s)
+```
+
+```
+## [1] "A LONGER STRING"
+```
+
+```r
+str_to_lower(s)
+```
+
+```
+## [1] "a longer string"
+```
+
+```r
+str_to_title(s)
+```
+
+```
+## [1] "A Longer String"
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = "A longer string"
+s.upper()
+```
+
+```
+## 'A LONGER STRING'
+```
+
+```python
+s.lower()
+```
+
+```
+## 'a longer string'
+```
+
+```python
+s.title()
+```
+
+```
+## 'A Longer String'
+```
+]
+
+---
+## Trimming white space
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+s &lt;- "     A string with space     "
+str_trim(s)
+```
+
+```
+## [1] "A string with space"
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = "     A string with space     "
+s.strip()
+```
+
+```
+## 'A string with space'
+```
+]
+
+---
+## Replacing strings
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+s &lt;- "Hello world"
+str_replace(s, "o", "a")
+```
+
+```
+## [1] "Hella world"
+```
+
+```r
+str_replace_all(s, "o", "a")
+```
+
+```
+## [1] "Hella warld"
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = "Hello world"
+s.replace("o", "a")
+```
+
+```
+## 'Hella warld'
+```
+]
+
+---
+## Merge a vector / list of strings together
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+s &lt;- c("Hello", "world")
+paste(s, collapse = "")
+```
+
+```
+## [1] "Helloworld"
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = ["Hello", "world"]
+"".join(s)
+```
+
+```
+## 'Helloworld'
+```
+]
+
+---
+## Python has some super handy string methods
+
+--
+Detect if string contains only numbers:
+.leftcol[
+.center[**R**]
+R doesn't have a function for this...&lt;br&gt;here's one way to do it:
+
+```r
+s &lt;- "42"
+! is.na(as.numeric(s))
+```
+
+```
+## [1] TRUE
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = "42"
+s.isnumeric()
+```
+
+```
+## True
+```
+]
+
+---
+## Getting sub-strings with `[]`
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+s &lt;- "Apple"
+str_sub(s, 1, 3)
+```
+
+```
+## [1] "App"
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = "Apple"
+s[0:3]
+```
+
+```
+## 'App'
+```
+Notes:
+
+- Indexing is the same as lists
+]
+
+---
+## Getting sub-string indices
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+s &lt;- "Apple"
+str_locate(s, "pp")
+```
+
+```
+##      start end
+## [1,]     2   3
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = "Apple"
+s.index("pp")
+```
+
+```
+## 1
+```
+Note:
+
+- Only returns the starting index
+]
+
+---
+## String splitting
+
+Both languages return a list:
+
+--
+.leftcol[
+.center[**R**]
+
+```r
+s &lt;- "Apple"
+str_split(s, "pp")
+```
+
+```
+## [[1]]
+## [1] "A"  "le"
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = "Apple"
+s.split("pp")
+```
+
+```
+## ['A', 'le']
+```
+]
+
+---
+## Python can only split individual strings
+
+--
+.leftcol[
+R can split vectors of strings
+
+```r
+s &lt;- c("Apple", "Snapple")
+str_split(s, "pp")
+```
+
+```
+## [[1]]
+## [1] "A"  "le"
+## 
+## [[2]]
+## [1] "Sna" "le"
+```
+]
+--
+.rightcol[
+.center[**Python**]
+
+```python
+s = ["Apple", "Snapple"]
+s.split("pp")
+```
+
+```
+## Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: 'list' object has no attribute 'split'
+```
+]
+
+---
+## Need **numpy** package for this in Python
+
+
+```python
+import numpy as np
+
+s = np.array(["Apple", "Snapple"])
+np.char.split(s, "pp")
+```
+
+```
+## array([list(['A', 'le']), list(['Sna', 'le'])], dtype=object)
+```
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f94509c" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Think-Pair-Share
+
+.font80[
+Write the following two functions in Python code:
+
+1. `sortString(s)`: Takes a string `s` and returns back an alphabetically sorted string. **Hint**: Use `list(s)` to break a string into a list of letters.
+
+- `sortString("cba") == "abc"`
+- `sortString("abedhg") == "abdegh"`
+- `sortString("AbacBc") == "ABabcc"`
+
+2. `areAnagrams(s1, s2)`: Takes two strings, `s1` and `s2`, and returns `True` if the strings are [anagrams](https://en.wikipedia.org/wiki/Anagram), and `False` otherwise. **Treat lower and upper case as the same letters**.
+
+- `areAnagrams("", "") == True`
+- `areAnagrams("aabbccdd", "bbccddee") == False`
+- `areAnagrams("TomMarvoloRiddle", "IAmLordVoldemort") == True`
+]
+
+
+]
+
+---
+# [HW 8](https://p4a.seas.gwu.edu/2020-Fall/hw8-python.html)
+
+I suggest starting with `reticulate::repl_python()` to work in Python from RStudio.
+
+--
+- Submit your "hw8.py" file to the autograder - it will (hopefully) work
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

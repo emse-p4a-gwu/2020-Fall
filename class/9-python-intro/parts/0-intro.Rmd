@@ -1,0 +1,10 @@
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] `r fontawesome::fa("python", fill = "white")`
+
+## 1. Getting started
+## 2. Python basics
+## 3. Functions & methods
+## 4. Loops & lists
+## 5. Strings

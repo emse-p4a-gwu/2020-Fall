@@ -1,0 +1,198 @@
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] `r fontawesome::fa("python", fill = "white")`
+
+## 1. Getting started
+## 2. .orange[Python basics]
+## 3. Functions & methods
+## 4. Loops & lists
+## 5. Strings
+
+---
+# Operators
+
+```{css, echo=F}
+    .remark-slide table{
+        width: 100%;
+    }
+```
+
+--
+.leftcol[.left[
+## Arithmetic operators
+
+Operator | R      | Python
+-----------------|---------|-----------
+Integer division |  `%/%` | `//`
+Modulus          |  `%%`  | `%`
+Powers           |  `^`   | `**`
+]]
+--
+.rightcol[.left[
+## Logical operators
+
+Operator  | R         | Python
+----------|-----------|-----------
+And       |  `&`      | `and`; `&`
+Or        |  &#124;   | `or`; &#124;
+Not       |  `!`      | `not`; `!`
+
+You can do this in Python:
+```{r, eval=FALSE}
+(3 == 3) and (4 == 4)
+```
+]]
+
+---
+## Variable assignment
+
+Python only uses the `=` symbol to make assignments (no `<-`):
+
+```{python}
+value = 3
+value
+```
+
+---
+## Data types
+
+Same data types as R, but with more "Computer Science-y" names:
+
+.leftcol60[.left[
+Description          | R            | Python
+---------------------|--------------|-----------
+numeric (w/decimal)  | `double`   | `float`
+integer              | `integer`  | `int`
+character            | `character`| `str`
+logical              | `logical`  | `bool`
+]]
+
+
+---
+## Data types
+
+Three important distinctions:
+
+.left[
+Data type     | R                  | Python
+--------------|--------------------|-----------
+Logical       | `TRUE` or `FALSE` | `True` or `False`
+Numbers       | `double` by default  | `int` by default (unless has decimal)
+Nothing       | `NULL`| `None`
+]
+
+---
+.leftcol[
+.center[**R**: Get type with `typeof()`]
+```{r}
+typeof(3.14)
+```
+```{r}
+typeof(3L)
+```
+```{r}
+typeof("3")
+```
+```{r}
+typeof(TRUE)
+```
+]
+.rightcol[
+.center[**Python**: Get type with `type()`]
+```{python}
+type(3.14)
+```
+```{python}
+type(3)
+```
+```{python}
+type("3")
+```
+```{python}
+type(True)
+```
+]
+
+---
+.leftcol[
+.center[**R**: _Check_ type with `is.type()`]
+```{r}
+is.double(3.14)
+```
+```{r}
+is.integer(3L)
+```
+```{r}
+is.character("3")
+```
+```{r}
+is.logical(TRUE)
+```
+]
+.rightcol[
+.center[**Python**: _Check_ type with `type() == type`]
+```{python}
+type(3.14) == float
+```
+```{python}
+type(3) == int
+```
+```{python}
+type("3") == str
+```
+```{python}
+type(True) == bool
+```
+]
+
+---
+.leftcol[
+.center[**R**: _Convert_ type with `as.type()`]
+```{r}
+as.double("3")
+```
+```{r}
+as.integer(3.14)
+```
+```{r}
+as.character(3.14)
+```
+```{r}
+as.logical(3.14)
+```
+]
+.rightcol[
+.center[**Python**: _Convert_ type with `type()`]
+```{python}
+float("3")
+```
+```{python}
+int(3.14)
+```
+```{python}
+str(3.14)
+```
+```{python}
+bool(3.14)
+```
+]
+
+---
+## Quick practice
+
+```{r, echo=FALSE}
+countdown(minutes = 2,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+Write Python code to do the following:
+
+1. Create an object `x` that stores the value `"123"`
+2. Create an object `y` that is `x` converted to an integer
+3. Write code to confirm that `y` is indeed an integer
+4. Write a logical statement to determine if `y` is odd or even
