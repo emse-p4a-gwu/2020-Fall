@@ -1,0 +1,181 @@
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] `r fontawesome::fa("python", fill = "white")`
+
+## 1. Getting started
+## 2. Python basics
+## 3. .orange[Functions & methods]
+## 4. Loops & lists
+## 5. Strings
+
+---
+# Python and R have many similar functions
+
+--
+.leftcol[
+.center[**R**]
+```{r}
+abs(-1)
+round(3.14)
+round(3.14, 1)
+```
+]
+.rightcol[
+.center[**Python**]
+```{python}
+abs(-1)
+round(3.14)
+round(3.14, 1)
+```
+]
+
+---
+# Writing functions
+
+.leftcol[
+.center[**R**]
+```{r}
+isEven <- function(n) {
+    if (n %% 2 == 0) {
+        return(TRUE)
+    }
+    return(FALSE)
+}
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+def isEven(n):
+    if (n % 2 == 0):
+        return(True)
+    return(False)
+```
+Note:
+
+- Functions start with `def`
+- Use `:` and indentation instead of `{}`
+- **Indentation is precisely 4 spaces!**
+]
+
+---
+# Writing test functions
+
+.leftcol[
+.center[**R**]
+```{r}
+test_isEven <- function() {
+    cat("Testing isEven(n)...")
+    stopifnot(isEven(2) == TRUE)
+    stopifnot(isEven(1) == FALSE)
+    cat("Passed!")
+}
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+def test_isEven():
+    print("Testing isEven(n)...")
+    assert(isEven(2) == True)
+    assert(isEven(1) == False)
+    print("Passed!")
+```
+Note:
+
+- Use `print()` instead of `cat()`
+- Use `assert()` instead of `stopifnot()`
+]
+
+---
+# Python Methods
+
+Python objects have "methods" - special functions that _belong_ to certain object classes.
+
+--
+Example: Make a string upper case
+
+.leftcol[
+.center[**R**]
+Use `str_to_upper()` function
+```{r}
+s <- "foo"
+stringr::str_to_upper(s)
+```
+]
+--
+.rightcol[
+.center[**Python**]
+Use `upper()` _method_
+```{python}
+s = "foo"
+s.upper()
+```
+]
+
+---
+# Python Methods
+
+See all the available methods with `dir` function:
+```{python}
+s = "foo"
+dir(s)
+```
+
+---
+# R-Python magic
+
+You can source a Python script from R, then use the Python function in R!
+
+
+--
+Inside your `notes.py` file, you have the following function defined:
+```{python}
+def isEven(n):
+    if (n % 2 == 0):
+        return(True)
+    return(False)
+```
+
+--
+Open your `notes.R` file and _source_ the `note.py` file:
+```{r, eval=FALSE}
+reticulate::source_python('notes.py')
+```
+
+--
+Magically, the function `isEven(n)` now works inside R!
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+# Think-Pair-Share
+
+Write the following two functions in Python code:
+
+1. `hypotenuse(a, b)`: Returns the hypotenuse of the two lines of length `a` and `b`.
+
+2. `isRightTriangle(a, b, c)`: Returns `True` if the triangle formed by the lines of length `a`, `b`, and `c` is a right triangle and `False` otherwise. **Hint**: you may not know which value (`a`, `b`, or `c`) is the hypotenuse.
+
+```{python, echo=FALSE}
+def hypotenuse(a, b):
+    return((a**2 + b**2)**0.5)
+
+def isRightTriangle(a, b, c):
+    test1 = (c == hypotenuse(a, b))
+    test2 = (b == hypotenuse(a, c))
+    test3 = (a == hypotenuse(b, c))
+    return(test1 or test2 or test3)
+```

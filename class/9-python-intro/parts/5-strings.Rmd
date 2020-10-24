@@ -1,0 +1,340 @@
+
+class: inverse, middle
+
+# Week 9: .fancy[Intro to Python] `r fontawesome::fa("python", fill = "white")`
+
+## 1. Getting started
+## 2. Python basics
+## 3. Functions & methods
+## 4. Loops & lists
+## 5. .orange[Strings]
+
+---
+## Doing "math" with strings
+
+--
+.leftcol[
+Concatenation:
+.center[**R**]
+```{r}
+paste("foo", "bar", sep = "")
+```
+]
+--
+.rightcol[
+<br>
+.center[**Python**]
+```{python}
+"foo" + "bar"
+```
+]
+--
+.leftcol[
+Repetition:
+.center[**R**]
+```{r}
+str_dup("foo", 3)
+```
+]
+--
+.rightcol[
+<br>
+.center[**Python**]
+```{python}
+"foo" * 3
+```
+]
+
+---
+## Using English with strings
+
+.leftcol[
+Sub-string detection:
+.center[**R**]
+```{r}
+str_detect('Apple', 'App')
+```
+]
+--
+.rightcol[
+<br>
+.center[**Python**]
+```{python}
+'App' in 'Apple'
+```
+]
+
+---
+class: inverse, middle, center
+
+## Most string manipulation is done with _methods_
+
+--
+.leftcol[
+.center[**R**]
+```{r, eval=FALSE}
+str_function(s)
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python, eval=FALSE}
+s.method()
+```
+]
+
+---
+## Case conversion
+
+--
+.leftcol[
+.center[**R**]
+```{r}
+s <- "A longer string"
+str_to_upper(s)
+str_to_lower(s)
+str_to_title(s)
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+s = "A longer string"
+s.upper()
+s.lower()
+s.title()
+```
+]
+
+---
+## Trimming white space
+
+--
+.leftcol[
+.center[**R**]
+```{r}
+s <- "     A string with space     "
+str_trim(s)
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+s = "     A string with space     "
+s.strip()
+```
+]
+
+---
+## Replacing strings
+
+--
+.leftcol[
+.center[**R**]
+```{r}
+s <- "Hello world"
+str_replace(s, "o", "a")
+str_replace_all(s, "o", "a")
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+s = "Hello world"
+s.replace("o", "a")
+```
+]
+
+---
+## Merge a vector / list of strings together
+
+--
+.leftcol[
+.center[**R**]
+```{r}
+s <- c("Hello", "world")
+paste(s, collapse = "")
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+s = ["Hello", "world"]
+"".join(s)
+```
+]
+
+---
+## Python has some super handy string methods
+
+--
+Detect if string contains only numbers:
+.leftcol[
+.center[**R**]
+R doesn't have a function for this...<br>here's one way to do it:
+```{r}
+s <- "42"
+! is.na(as.numeric(s))
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+s = "42"
+s.isnumeric()
+```
+]
+
+---
+## Getting sub-strings with `[]`
+
+--
+.leftcol[
+.center[**R**]
+```{r}
+s <- "Apple"
+str_sub(s, 1, 3)
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+s = "Apple"
+s[0:3]
+```
+Notes:
+
+- Indexing is the same as lists
+]
+
+---
+## Getting sub-string indices
+
+--
+.leftcol[
+.center[**R**]
+```{r}
+s <- "Apple"
+str_locate(s, "pp")
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+s = "Apple"
+s.index("pp")
+```
+Note:
+
+- Only returns the starting index
+]
+
+---
+## String splitting
+
+Both languages return a list:
+
+--
+.leftcol[
+.center[**R**]
+```{r}
+s <- "Apple"
+str_split(s, "pp")
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python}
+s = "Apple"
+s.split("pp")
+```
+]
+
+---
+## Python can only split individual strings
+
+--
+.leftcol[
+R can split vectors of strings
+```{r}
+s <- c("Apple", "Snapple")
+str_split(s, "pp")
+```
+]
+--
+.rightcol[
+.center[**Python**]
+```{python, error=TRUE}
+s = ["Apple", "Snapple"]
+s.split("pp")
+```
+]
+
+---
+## Need **numpy** package for this in Python
+
+```{python}
+import numpy as np
+
+s = np.array(["Apple", "Snapple"])
+np.char.split(s, "pp")
+```
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+# Think-Pair-Share
+
+.font80[
+Write the following two functions in Python code:
+
+1. `sortString(s)`: Takes a string `s` and returns back an alphabetically sorted string. **Hint**: Use `list(s)` to break a string into a list of letters.
+
+- `sortString("cba") == "abc"`
+- `sortString("abedhg") == "abdegh"`
+- `sortString("AbacBc") == "ABabcc"`
+
+2. `areAnagrams(s1, s2)`: Takes two strings, `s1` and `s2`, and returns `True` if the strings are [anagrams](https://en.wikipedia.org/wiki/Anagram), and `False` otherwise. **Treat lower and upper case as the same letters**.
+
+- `areAnagrams("", "") == True`
+- `areAnagrams("aabbccdd", "bbccddee") == False`
+- `areAnagrams("TomMarvoloRiddle", "IAmLordVoldemort") == True`
+]
+
+```{python, echo=FALSE, eval = FALSE}
+def sortString(s):
+    chars = sorted(s)
+    return("".join(chars))
+
+def areAnagrams(s1, s2):
+    s1 = s1.lower()
+    s2 = s2.lower()
+    return(sortString(s1) == sortString(s2))
+```
+]
+
+---
+# [HW 8](https://p4a.seas.gwu.edu/2020-Fall/hw8-python.html)
+
+I suggest starting with `reticulate::repl_python()` to work in Python from RStudio.
+
+--
+- Submit your "hw8.py" file to the autograder - it will (hopefully) work
