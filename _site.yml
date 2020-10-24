@@ -73,7 +73,7 @@ navbar:
         - text: "HW 7 - Strings"
           href: hw7-strings.html
         - text: "HW 8 - Python"
-          href: hw8-data-frames.html
+          href: hw8-python.html
         - text: "HW 9 - Data Frames"
           href: hw9-data-frames.html
         - text: "HW 10 - Data Wrangling"
