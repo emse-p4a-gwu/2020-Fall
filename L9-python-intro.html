@@ -866,13 +866,13 @@ value</code></pre>
 <div class="col-md-6">
 <p><strong>Python</strong>:</p>
 <pre class="python"><code>type(3.14)</code></pre>
-<pre><code>## &lt;type &#39;float&#39;&gt;</code></pre>
+<pre><code>## &lt;class &#39;float&#39;&gt;</code></pre>
 <pre class="python"><code>type(3)</code></pre>
-<pre><code>## &lt;type &#39;int&#39;&gt;</code></pre>
+<pre><code>## &lt;class &#39;int&#39;&gt;</code></pre>
 <pre class="python"><code>type(&quot;3&quot;)</code></pre>
-<pre><code>## &lt;type &#39;str&#39;&gt;</code></pre>
+<pre><code>## &lt;class &#39;str&#39;&gt;</code></pre>
 <pre class="python"><code>type(True)</code></pre>
-<pre><code>## &lt;type &#39;bool&#39;&gt;</code></pre>
+<pre><code>## &lt;class &#39;bool&#39;&gt;</code></pre>
 </div>
 </div>
 </div>
@@ -1053,7 +1053,7 @@ while i &lt;= 5:
 <p>You can also see the different methods available for a particular object by calling the <code>dir</code> function on the object:</p>
 <pre class="python"><code>s = &quot;foo&quot;
 dir(s)</code></pre>
-<pre><code>## [&#39;__add__&#39;, &#39;__class__&#39;, &#39;__contains__&#39;, &#39;__delattr__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__getnewargs__&#39;, &#39;__getslice__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;_formatter_field_name_split&#39;, &#39;_formatter_parser&#39;, &#39;capitalize&#39;, &#39;center&#39;, &#39;count&#39;, &#39;decode&#39;, &#39;encode&#39;, &#39;endswith&#39;, &#39;expandtabs&#39;, &#39;find&#39;, &#39;format&#39;, &#39;index&#39;, &#39;isalnum&#39;, &#39;isalpha&#39;, &#39;isdigit&#39;, &#39;islower&#39;, &#39;isspace&#39;, &#39;istitle&#39;, &#39;isupper&#39;, &#39;join&#39;, &#39;ljust&#39;, &#39;lower&#39;, &#39;lstrip&#39;, &#39;partition&#39;, &#39;replace&#39;, &#39;rfind&#39;, &#39;rindex&#39;, &#39;rjust&#39;, &#39;rpartition&#39;, &#39;rsplit&#39;, &#39;rstrip&#39;, &#39;split&#39;, &#39;splitlines&#39;, &#39;startswith&#39;, &#39;strip&#39;, &#39;swapcase&#39;, &#39;title&#39;, &#39;translate&#39;, &#39;upper&#39;, &#39;zfill&#39;]</code></pre>
+<pre><code>## [&#39;__add__&#39;, &#39;__class__&#39;, &#39;__contains__&#39;, &#39;__delattr__&#39;, &#39;__dir__&#39;, &#39;__doc__&#39;, &#39;__eq__&#39;, &#39;__format__&#39;, &#39;__ge__&#39;, &#39;__getattribute__&#39;, &#39;__getitem__&#39;, &#39;__getnewargs__&#39;, &#39;__gt__&#39;, &#39;__hash__&#39;, &#39;__init__&#39;, &#39;__init_subclass__&#39;, &#39;__iter__&#39;, &#39;__le__&#39;, &#39;__len__&#39;, &#39;__lt__&#39;, &#39;__mod__&#39;, &#39;__mul__&#39;, &#39;__ne__&#39;, &#39;__new__&#39;, &#39;__reduce__&#39;, &#39;__reduce_ex__&#39;, &#39;__repr__&#39;, &#39;__rmod__&#39;, &#39;__rmul__&#39;, &#39;__setattr__&#39;, &#39;__sizeof__&#39;, &#39;__str__&#39;, &#39;__subclasshook__&#39;, &#39;capitalize&#39;, &#39;casefold&#39;, &#39;center&#39;, &#39;count&#39;, &#39;encode&#39;, &#39;endswith&#39;, &#39;expandtabs&#39;, &#39;find&#39;, &#39;format&#39;, &#39;format_map&#39;, &#39;index&#39;, &#39;isalnum&#39;, &#39;isalpha&#39;, &#39;isdecimal&#39;, &#39;isdigit&#39;, &#39;isidentifier&#39;, &#39;islower&#39;, &#39;isnumeric&#39;, &#39;isprintable&#39;, &#39;isspace&#39;, &#39;istitle&#39;, &#39;isupper&#39;, &#39;join&#39;, &#39;ljust&#39;, &#39;lower&#39;, &#39;lstrip&#39;, &#39;maketrans&#39;, &#39;partition&#39;, &#39;replace&#39;, &#39;rfind&#39;, &#39;rindex&#39;, &#39;rjust&#39;, &#39;rpartition&#39;, &#39;rsplit&#39;, &#39;rstrip&#39;, &#39;split&#39;, &#39;splitlines&#39;, &#39;startswith&#39;, &#39;strip&#39;, &#39;swapcase&#39;, &#39;title&#39;, &#39;translate&#39;, &#39;upper&#39;, &#39;zfill&#39;]</code></pre>
 <p>Wow, strings have a lot of methods!</p>
 <p>The concept of using methods is a major part of the “object-oriented” way of programming, since it’s the <em>object</em> that is the center of attention. The <em>object</em> in Python is more than just a stored value - it’s a source of other methods (depending on the object’s class).</p>
 <p>Now that you’ve seen a little about how Python methods work, we’ll get to use some working with strings!</p>
@@ -1307,16 +1307,13 @@ str_split(s, &quot;pp&quot;)</code></pre>
 <p>In this example, it’s easier to see that R is returning a list of vectors. In contrast, Python cannot perform a split on multiple strings:</p>
 <pre class="python"><code>s = [&quot;Apple&quot;, &quot;Snapple&quot;]
 s.split(&quot;pp&quot;)</code></pre>
-<pre><code>## Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: &#39;list&#39; object has no attribute &#39;split&#39;
-## 
-## Detailed traceback: 
-##   File &quot;&lt;string&gt;&quot;, line 1, in &lt;module&gt;</code></pre>
+<pre><code>## AttributeError: &#39;list&#39; object has no attribute &#39;split&#39;</code></pre>
 <p>To handle this, you will need to import the <strong>numpy</strong> package, which has an “array” structure similar to R vectors (we’ll cover this in more detail on week 13). Here’s an example:</p>
 <pre class="python"><code>import numpy as np
 
 s = np.array([&quot;Apple&quot;, &quot;Snapple&quot;])
 np.char.split(s, &quot;pp&quot;)</code></pre>
-<pre><code>## array([[&#39;A&#39;, &#39;le&#39;], [&#39;Sna&#39;, &#39;le&#39;]], dtype=object)</code></pre>
+<pre><code>## array([list([&#39;A&#39;, &#39;le&#39;]), list([&#39;Sna&#39;, &#39;le&#39;])], dtype=object)</code></pre>
 </div>
 </div>
 <div id="running-a-python-script-in-r" class="section level1">
@@ -1370,7 +1367,7 @@ n2 = isOdd(3)</code></pre>
 <pre><code>## &#39;Woof&#39;</code></pre>
 <p>I can also ask Python what type of object <code>riley</code> is, and it will tell me it’s of the <code>Animal</code> class:</p>
 <pre class="python"><code>type(riley)</code></pre>
-<pre><code>## &lt;type &#39;instance&#39;&gt;</code></pre>
+<pre><code>&lt;class &#39;__main__.Animal&#39;&gt;</code></pre>
 <p>In addition to just storing values, you can create custom methods that will only be accessible to objects of the custom class. Here I’m adding the method <code>introduce()</code> to the class <code>Animal</code>:</p>
 <pre class="python"><code>class Animal:
     def __init__(self, species, sound):

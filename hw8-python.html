@@ -608,7 +608,71 @@ $(document).ready(function () {
 </div>
 
 
-<p>Coming soon!</p>
+<blockquote>
+<p><strong>Due</strong>: 02 November by 11:00 pm</p>
+<p><strong>Weight</strong>: This assignment is worth <strong>4%</strong> of your final grade.</p>
+<p><strong>Purpose, Skills, &amp; Knowledge</strong>: The purposes of this assignment are:</p>
+<ul>
+<li>To practice the same problem-solving skills we’ve learning thus far, but in Python.</li>
+<li>To practice running Python scripts from R.</li>
+</ul>
+<p><strong>Assessment</strong>: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:</p>
+<ul>
+<li>0% for not attempting a response.</li>
+<li>50% for attempting the question but with <em>major</em> errors.</li>
+<li>75% for attempting the question but with <em>minor</em> errors.</li>
+<li>100% for correctly answering the question.</li>
+</ul>
+<p><strong>Rules</strong>:</p>
+<ul>
+<li>Problems marked <strong>SOLO</strong> may not be worked on with other classmates, though you may consult instructors for help.</li>
+<li>For problems marked <strong>COLLABORATIVE</strong>, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work – everyone must work on every problem. And you may not simply copy any code but rather truly work together.</li>
+<li>Even though you work collaboratively, you still must submit your own solutions.</li>
+</ul>
+</blockquote>
+<div id="staying-organized-solo-5" class="section level3">
+<h3>1) Staying organized [SOLO, 5%]</h3>
+<p>Download and use <a href="templates/hw8.zip">this template</a> for your assignment. Inside the “hw8” folder, open and edit the R script called “hw8.py” and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.</p>
+<blockquote>
+<h3 id="writing-test-functions"><strong>Writing test functions</strong></h3>
+<p>For each of the following functions, write a test function first, and then write the function. <strong>Your test functions will count for half of the available credit for each problem</strong>. Think carefully about the test cases to include in your test functions.</p>
+</blockquote>
+</div>
+<div id="kthdigitx-k-solo-15" class="section level3">
+<h3>2) <code>kthDigit(x, k)</code> [SOLO, 15%]</h3>
+<p>Given two integers, <code>x</code> and <code>k</code>, return the kth digit of <code>x</code>, counting from the right. So:</p>
+<ul>
+<li><code>kthDigit(789, 1)</code> returns <code>9</code></li>
+<li><code>kthDigit(789, 2)</code> returns <code>8</code></li>
+<li><code>kthDigit(789, 3)</code> returns <code>7</code></li>
+<li><code>kthDigit(789, 4)</code> returns <code>0</code></li>
+</ul>
+<p>Negative numbers should work, too, so <code>kthDigit(-789, 1)</code> returns <code>9</code>.</p>
+</div>
+<div id="isevenpositiveintx-solo-15" class="section level3">
+<h3>3) <code>isEvenPositiveInt(x)</code> [SOLO, 15%]</h3>
+<p>Given an arbitrary value <code>x</code>, return <code>True</code> if it is an integer, and it is positive, and it is even (all 3 must be true), or <code>False</code> otherwise. If the value <code>x</code> is not an integer, the function should return <code>False</code> rather than error. So, <code>isEvenPositiveInt("yikes!")</code> returns <code>False</code>, and <code>isEvenPositiveInt(123456)</code> returns <code>True</code>.</p>
+</div>
+<div id="getthecentsn-solo-15" class="section level3">
+<h3>4) <code>getTheCents(n)</code> [SOLO, 15%]</h3>
+<p>Write the function <code>getTheCents(n)</code> which takes a value <code>n</code> that represents a payment in US dollars and returns the number of cents in the payment. For example, if <code>n</code> is <code>2.45</code>, the function should return <code>45</code>. If <code>n</code> is an integer, the function should return <code>0</code>, as it has <code>0</code> cents; if it isn’t a number, it should return <code>None</code>, because a non-number payment make no cents (ha!). If the payment has partial cents (for example, <code>3.953</code>), it should be rounded to the nearest cent (in this case, <code>95</code> cents).</p>
+<div id="isprimen-collaborative-15" class="section level4">
+<h4>5) <code>isPrime(n)</code> [COLLABORATIVE, 15%]</h4>
+<p>Write the function <code>isPrime(n)</code> which takes a non-negative integer, <code>n</code>, and returns <code>True</code> if it is a prime number and <code>False</code> otherwise.</p>
+</div>
+</div>
+<div id="numdigitsn-solo-15" class="section level3">
+<h3>6) <code>numDigits(n)</code> [SOLO, 15%]</h3>
+<p>Write the function <code>numDigits(n)</code> that takes a <em>possibly-negative</em> integer and returns the number of digits in it. So, <code>numDigits(12345)</code> returns <code>5</code>, <code>numDigits(0)</code> returns <code>1</code>, and <code>numDigits(-111)</code> returns <code>3</code>. One way you could solve this is to convert <code>n</code> to a string and use <code>str_length()</code>, but you cannot do that since you may not use strings here.</p>
+</div>
+<div id="reversestrings-collaborative-15" class="section level3">
+<h3>7) <code>reverseString(s)</code> [COLLABORATIVE, 15%]</h3>
+<p>Write a function that returns the string in reverse order. So if <code>s</code> equals <code>"abcde"</code>, <code>reverseString(s)</code> should equal <code>"edcba"</code>. You may assume that <code>s</code> only contains upper and/or lower case letters, but your solution must correctly return capital letters in their appropriate order. For example, <code>reverseString("aWordWithCaps")</code> should return <code>"spaChtiWdroWa"</code>.</p>
+</div>
+<div id="submit-your-files-solo-5" class="section level3">
+<h3>8) Submit your files [SOLO, 5%]</h3>
+<p>Create a zip file of all the files in your R project folder for this assignment and submit the zip file on Blackboard.</p>
+</div>
 
 
 <hr>
