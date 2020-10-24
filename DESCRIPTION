@@ -20,7 +20,6 @@ Imports:
     roxygen2,
     here,
     nycflights13,
-    kableExtra,
     wikifacts,
     TurtleGraphics,
     DAAG,
@@ -38,8 +37,10 @@ Imports:
     remotes,
     rmarkdown,
     fontawesome,
-    palmerpenguins
+    palmerpenguins,
+    kableExtra
 Remotes:
     jhelvy/rmarkdown,
     allisonhorst/palmerpenguins,
-    rstudio/fontawesome
+    rstudio/fontawesome,
+    haozhu233/kableExtra
