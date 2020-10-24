@@ -1,0 +1,35 @@
+NEXT TIME:
+
+1 - add some practice in hw1 about mod and int division
+  - Add R Tips to start of each lecture
+
+4-Testing & debugging:
+- Include Jenny's meme about ignoring the error messages, from this video: https://resources.rstudio.com/rstudio-conf-2020/object-of-type-closure-is-not-subsettable-jenny-bryan
+
+5-Loops:
+- This class needs more time...would be good to not have a quiz this day.
+- Use the walkThroughDigits(n) function first before going on to isPrime
+
+6-Vectors:
+- Cover example of building a vector inside a loop!
+- Move slide on naming vectors up to part on making vectors
+- Add %in% after which() slide
+
+7-Strings:
+- Change last example problem to be about detecting and replacing (if you have one)
+- Expand on ^ and $ for regular expressions in []
+
+------------------------------------
+OLD
+
+General:
+- Add strings to final review slides
+
+12-data-visualization:
+- Add small mulitples in with faceting
+
+
+Potential New Topics:
+- Lecture on building a program. Abstracting away functions that can be repeatedly used, and otherwise good programming practices: https://www.thoughtworks.com/insights/blog/coding-habits-data-scientists
+- Lecture on building a package (potentially instead of monte carlo lecture).
+- If time, add lecture on tidy data and joins

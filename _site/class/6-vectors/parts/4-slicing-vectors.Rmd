@@ -1,0 +1,230 @@
+
+class: inverse, middle
+
+# Week 6: .fancy[Vectors]
+
+## 1. Making vectors
+## 2. Vector operations
+## 3. Comparing vectors
+## 4. .orange[Slicing vectors]
+## 5. Lists
+
+---
+# Use brackets `[]` to get elements from a vector
+
+```{r}
+x <- seq(1, 10)
+```
+--
+.leftcol[
+Indices start at 1:
+```{r}
+x[1] # Returns the first element
+```
+```{r}
+x[3] # Returns the third element
+```
+```{r}
+x[length(x)] # Returns the last element
+```
+]
+--
+.rightcol[
+Slicing with a vector of indices:
+```{r}
+x[1:3]  # Returns the first three elements
+```
+```{r}
+x[c(2, 7)] # Returns the 2nd and 7th elements
+```
+]
+
+---
+# Use negative integers to _remove_ elements
+
+```{r}
+x <- seq(1, 10)
+```
+--
+```{r}
+x[-1] # Drops the first element
+```
+--
+```{r}
+x[-1:-3] # Drops the first three elements
+```
+--
+```{r}
+x[-c(2, 7)] # Drops the 2nd and 7th elements
+```
+--
+```{r}
+x[-length(x)] # Drops the last element
+```
+
+---
+# Slicing with logical indices
+
+--
+```{r}
+x <- seq(1, 20, 3)
+x
+```
+--
+Create a logical vector based on some condition:
+```{r}
+x > 10
+```
+--
+Slice `x` with logical vector - only `TRUE` indices will be returned:
+```{r}
+x[x > 10]
+```
+
+---
+# You can also use `which()` to find indices
+
+```{r}
+x <- seq(1, 20, 3)
+x
+```
+--
+Use `which()` around a condition to get the indices where condition is `TRUE`:
+```{r}
+which(x > 10)
+```
+--
+```{r}
+x[which(x > 10)]
+```
+
+---
+# You can name vector elements
+
+```{r}
+x <- seq(5)
+x
+```
+
+--
+.leftcol[
+1) Add names with the `names()` function:
+```{r}
+names(x) <- c('a', 'b', 'c', 'd', 'e')
+x
+```
+]
+--
+.rightcol[
+2) Create a named vector:
+```{r}
+y <- c('a'=1, 'b'=2, 'c'=3, 'd'=4, 'e'=5)
+y
+```
+]
+
+---
+# Using names to slice a vector
+
+```{r}
+x
+```
+--
+```{r}
+x['a']
+```
+--
+```{r}
+x[c('a', 'c')]
+```
+
+---
+# Sorting vectors with `sort()`
+--
+```{r}
+a = c(2, 4, 6, 3, 1, 5)
+a
+```
+--
+```{r}
+sort(a)
+```
+--
+```{r}
+sort(a, decreasing = TRUE)
+```
+
+---
+## `order()` returns the indices of the sorted vector
+
+```{r}
+a
+order(a)
+```
+
+--
+This does the same thing as `sort(a)`:
+```{r}
+a[order(a)]
+```
+
+---
+# Quick code tracing
+
+```{r, echo=FALSE}
+countdown(minutes = 2,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+.leftcol[.code80[
+Consider this function:
+```{r, eval=FALSE}
+f <- function(x) {
+    for (i in seq(length(x))) {
+        x[i] <- x[i] + sum(x) + max(x)
+    }
+    return(x)
+}
+```
+]]
+.rightcol[.code80[
+What will this code return?
+```{r, eval=FALSE}
+x <- c(1, 2, 3)
+f(x)
+```
+]]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think-Pair-Share
+
+.font80[
+1) `reverse(x)`: Write a function that returns the vector in reverse order. You cannot use the `rev()` function.
+
+- `all(reverseVector(c(5, 1, 3)) == c(3, 1, 5))`
+- `all(reverseVector(c('a', 'b', 'c')) == c('c', 'b', 'a'))`
+- `all(reverseVector(c(FALSE, TRUE, TRUE)) == c(TRUE, TRUE, FALSE))`
+
+
+2) `alternatingSum(a)`: Write a function that takes a vector of numbers `a` and returns the alternating sum, where the sign alternates from positive to negative or vice versa.
+
+- `alternatingSum(c(5,3,8,4)) == (5 - 3 + 8 - 4)`
+- `alternatingSum(c(1,2,3)) == (1 - 2 + 3)`
+- `alternatingSum(c(0,0,0)) == 0`
+- `alternatingSum(c(-7,5,3)) == (-7 - 5 + 3)`
+]

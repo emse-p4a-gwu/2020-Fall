@@ -1,0 +1,149 @@
+
+class: inverse, middle
+
+# Week 3: .fancy[Creating Functions]
+
+## 1. Function syntax
+## 2. .orange[Local vs global variables]
+## 3. Top-down design
+## 4. Coding style
+
+---
+# Local objects
+
+### All objects inside function are **"local"** - they don't exist in the _global_ environment
+
+--
+.leftcol[.code90[
+### Example:
+```{r}
+squareOfX <- function(x) {
+  y <- x^2     # y here is "local" #<<
+  return(y)
+}
+```
+]]
+--
+.rightcol[
+```{r}
+squareOfX(3)
+```
+If you try to call `y`, you'll get an error:
+```{r, eval=FALSE}
+y
+```
+```
+Error: object 'y' not found
+```
+]
+
+---
+# Global objects
+
+### **Global** objects exist in the main environment.
+
+--
+### **NEVER, NEVER, NEVER** call global objects inside functions.
+
+--
+.leftcol[
+```{r}
+print_x <- function(x) {
+    cat(x)
+    cat(n)  # n is global! #<<
+}
+
+n <- 5 # Define n in the *global* environment
+
+print_x(5)
+```
+]
+--
+.rightcol[
+
+```{r}
+n <- 6
+
+print_x(5)
+```
+Function behavior shouldn't change with the same arguments!
+]
+
+---
+# Global objects
+
+### All objects inside functions should be **arguments** to that function
+
+--
+.leftcol[
+```{r error=TRUE}
+print_x <- function(x, n = NULL) {
+    cat(x)
+    cat(n)  # n is local! #<<
+}
+
+n <- 5 # Define n in the *global* environment
+
+print_x(5)
+```
+]
+--
+.rightcol[
+```{r}
+n <- 6
+
+print_x(5)
+```
+Use `n` as argument:
+```{r}
+print_x(5, n)
+```
+]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 2,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Code tracing practice
+
+.leftcol[.code70[
+Consider this code:
+```{r}
+x <- 7
+y <- NULL
+f1 <- function(x) {
+    cat(x^3)
+    cat(y, x)
+}
+f2 <- function(x, y = 7) {
+    cat(x^3, y)
+}
+f3 <- function(x, y) {
+    cat(x^3)
+    cat(y)
+}
+f4 <- function(x) {
+    return(x^3)
+    cat(x^4)
+}
+```
+]]
+.rightcol[.code70[
+What will these lines of code produce?
+
+Write your answer down first, _then_ run the code to check.
+```{r, eval=FALSE}
+f1(2)
+f2(2)
+f3(2)
+f4(2)
+```
+]]

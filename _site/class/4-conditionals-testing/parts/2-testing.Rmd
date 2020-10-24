@@ -1,0 +1,335 @@
+
+class: inverse, middle
+
+# Week 4: .fancy[Conditionals & Testing]
+
+## 1. Conditionals
+## 2. .orange[Testing]
+## 3. Tips
+
+---
+# Why write test functions?
+<br>
+
+--
+## 1. They help you understand the problem
+
+--
+## 2. They verify that a function is working as expected
+
+---
+# Test function "syntax"
+
+--
+.leftcol[.code80[
+### Function:
+```{r, eval=FALSE}
+functionName <- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]]
+--
+.rightcol[.code80[
+### Test function:
+```{r, eval=FALSE}
+test_functionName <- function() {
+    cat("Testing functionName()...")
+    # Put test cases here
+    cat("Passed!\n")
+}
+```
+]]
+
+---
+# Writing test cases with `stopifnot()`
+
+`stopifnot()` stops the function if whatever is inside the `()` is not `TRUE`.
+
+--
+.leftcol[.code80[
+### Function:
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+- `isEven(1)` should be `FALSE`
+- `isEven(2)` should be `TRUE`
+- `isEven(-7)` should be `FALSE`
+]]
+--
+.rightcol[.code80[
+### Test function:
+```{r}
+test_isEven <- function() {
+    cat("Testing isEven()...")
+    stopifnot(isEven(1) == FALSE)
+    stopifnot(isEven(2) == TRUE)
+    stopifnot(isEven(-7) == FALSE)
+    cat("Passed!\n")
+}
+```
+]]
+
+---
+# Writing test cases with `stopifnot()`
+
+`stopifnot()` stops the function if whatever is inside the `()` is not `TRUE`.
+
+.leftcol[.code80[
+### Function:
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+- `isEven(1)` should be `FALSE`
+- `isEven(2)` should be `TRUE`
+- `isEven(-7)` should be `FALSE`
+]]
+.rightcol[.code80[
+### Test function:
+```{r}
+test_isEven <- function() {
+    cat("Testing isEven()...")
+    stopifnot(isEven(1) == FALSE)
+    stopifnot(isEven(2) == TRUE)
+    stopifnot(isEven(-7) == FALSE)
+    cat("Passed!\n")
+}
+```
+```{r}
+test_isEven()
+```
+]]
+
+---
+# Write the test function _first_!
+
+.leftcol[.code80[
+### Step 1: Write the test function
+```{r}
+test_isEven <- function() {
+    cat("Testing isEven()...")
+    stopifnot(isEven(1) == FALSE)
+    stopifnot(isEven(2) == TRUE)
+    stopifnot(isEven(-7) == FALSE)
+    cat("Passed!\n")
+}
+```
+]]
+--
+.rightcol[.code80[
+### Step 2: Write the function
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+### Step 3: Test the function
+```{r}
+test_isEven()
+```
+]]
+
+---
+# Test cases to consider: NOLES
+
+.leftcol40[
+- ### **N**ormal cases
+- ### **O**pposites
+- ### **L**arge & small cases
+- ### **E**dge cases
+- ### **S**pecial cases
+]
+
+---
+# Test cases to consider: NOLES
+
+.leftcol40[
+- ### .red[**N**ormal cases]
+- ### **O**pposites
+- ### **L**arge & small cases
+- ### **E**dge cases
+- ### **S**pecial cases
+]
+.rightcol60[.code80[
+### Example:
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+]
+- `isEven(1) == FALSE`
+- `isEven(2) == TRUE`
+- `isEven(-7) == FALSE`
+]
+
+---
+# Test cases to consider: NOLES
+
+.leftcol40[
+- ### **N**ormal cases
+- ### .red[**O**pposites]
+- ### **L**arge & small cases
+- ### **E**dge cases
+- ### **S**pecial cases
+]
+.rightcol60[.code80[
+### Example:
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+]
+Need cases that return both `TRUE` and `FALSE`
+- `isEven(52) == TRUE`
+- `isEven(53) == FALSE`
+]
+
+---
+# Test cases to consider: NOLES
+
+.leftcol40[
+- ### **N**ormal cases
+- ### **O**pposites
+- ### .red[**L**arge & small cases]
+- ### **E**dge cases
+- ### **S**pecial cases
+]
+.rightcol60[.code80[
+### Example:
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+]
+- `isEven(8675309) == FALSE`
+- `isEven(-8675309) == FALSE`
+]
+
+---
+# Test cases to consider: NOLES
+
+.leftcol40[
+- ### **N**ormal cases
+- ### **O**pposites
+- ### **L**arge & small cases
+- ### .red[**E**dge cases]
+- ### **S**pecial cases
+]
+.rightcol60[.code80[
+### Example:
+```{r}
+isPositive <- function(n) {
+    return(n > 0)
+}
+```
+]
+- `isPositive(0.000001) == TRUE`
+- `isPositive(0) == FALSE`
+- `isPositive(-0.000001) == FALSE`
+]
+
+---
+# Test cases to consider: NOLES
+
+.leftcol40[
+- ### **N**ormal cases
+- ### **O**pposites
+- ### **L**arge & small cases
+- ### **E**dge cases
+- ### .red[**S**pecial cases]
+]
+.rightcol60[
+- Negative numbers
+- `0` and `1` for integers
+- The empty string, `""`
+- Strange input _types_, e.g. `"2"` instead of `2`.
+]
+
+---
+# Testing function inputs
+
+--
+.leftcol45[.code80[
+What if we gave `isEven()` the wrong input type?
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+```{r error=TRUE}
+isEven('42')
+```
+]]
+--
+.rightcol55[.code80[
+An improved function that checks inputs:
+```{r}
+isEven <- function(n) {
+    if (! is.numeric(n)) {
+        return(NaN)
+    }
+    return((n %% 2) == 0)
+}
+```
+]]
+
+---
+# Testing function inputs
+
+.leftcol45[.code80[
+What if we gave `isEven()` the wrong input type?
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+```{r error=TRUE}
+isEven('42')
+```
+]]
+.rightcol55[.code80[
+An improved function that checks inputs:
+```{r}
+isEven <- function(n) {
+    if (! is.numeric(n)) {
+        return(NaN)
+    }
+    return((n %% 2) == 0)
+}
+```
+```{r}
+isEven('42')
+isEven(TRUE)
+```
+]]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+# Think-Pair-Share
+
+For each of the following functions, start by writing a test function that tests the function for a variety of values of inputs. Consider cases that you might not expect!
+
+.leftcol[
+1. Write the function `isFactor(f, n)` that takes two integer values and returns `TRUE` if `f` is a factor of `n`, and `FALSE` otherwise. Note that every integer is a factor of `0`. Assume `f` and `n` will only be numeric values, e.g. `2` is a factor of `6`.
+]
+.rightcol[
+2. Write the function `isMultiple(m, n)` that takes two integer values and returns `TRUE` if `m` is a multiple of `n` and `FALSE` otherwise. Note that `0` is a multiple of every integer other than itself. Hint: You may want to use the `isFactor(f, n)` function you just wrote above. Assume `m` and `n` will only be numeric values.
+]

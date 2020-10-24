@@ -1,0 +1,201 @@
+
+class: inverse, middle
+
+# Week 6: .fancy[Vectors]
+
+## 1. Making vectors
+## 2. .orange[Vector operations]
+## 3. Comparing vectors
+## 4. Slicing vectors
+## 5. Lists
+
+---
+## Math on vectors is done **by element**
+
+```{r}
+x <- 1:10
+```
+--
+```{r}
+x + 2
+```
+--
+```{r}
+x - 2
+```
+--
+```{r}
+x * 2
+```
+--
+```{r}
+x / 2
+```
+
+---
+## Math on vectors is done **by element**
+
+--
+```{r}
+x1 <- c(1, 2, 3)
+x2 <- c(4, 5, 6)
+```
+--
+```{r}
+x1 + x2 # Returns (1+4, 2+5, 3+6)
+```
+--
+```{r}
+x1 - x2 # Returns (1-4, 2-5, 3-6)
+```
+--
+```{r}
+x1 * x2 # Returns (1*4, 2*5, 3*6)
+```
+--
+```{r}
+x1 / x2 # Returns (1/4, 2/5, 3/6)
+```
+
+---
+# If dimensions don't match, R "wraps" the vector
+
+--
+```{r}
+x1 <- c(1, 2, 3, 4)
+x2 <- c(4, 5)
+```
+```{r, eval=FALSE}
+x1 + x2
+```
+--
+```{r, echo=FALSE}
+x1 + x2
+```
+
+--
+```{r}
+x1 <- c(1, 2, 3, 4)
+x2 <- c(1)
+```
+```{r, eval=FALSE}
+x1 + x2
+```
+--
+```{r, echo=FALSE}
+x1 + x2
+```
+
+---
+# Most R functions work on vectors
+
+--
+.leftcol[.code80[
+```{r}
+x <- c(3.1415, 1.618, 2.718)
+x
+```
+```{r}
+round(x, 2)
+```
+```{r}
+sqrt(x)
+```
+]]
+--
+.rightcol[.code80[
+Works with your own functions too:
+```{r}
+isEven <- function(x) {
+    return((x %% 2) == 0)
+}
+```
+```{r}
+x <- c(1, 4, 5, 10)
+isEven(x)
+```
+]]
+
+---
+# Using vectors instead of a loop: **Summation**
+
+Example: Sum the integers from 1 to 10
+--
+.leftcol[.code80[
+Summing with a loop:
+```{r}
+x <- seq(1, 10)
+total <- 0
+for (item in x) {
+    total <- total + item
+}
+total
+```
+]]
+--
+.rightcol[.code80[
+Use a _summary function_ on the vector:
+```{r}
+sum(x)
+```
+]]
+
+---
+## "Summary" functions take a vector and return one value
+
+--
+```{r}
+x <- 1:10
+```
+--
+.leftcol[
+```{r}
+length(x)
+sum(x)
+prod(x)
+```
+]
+--
+.rightcol[
+```{r}
+min(x)
+max(x)
+mean(x)
+median(x)
+```
+]
+
+---
+# Quick code tracing
+
+```{r, echo=FALSE}
+countdown(minutes = 3,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+.leftcol[.code80[
+Consider this function:
+```{r}
+f <- function(x) {
+    m <- x
+    n <- sum(x + 4)
+    m <- m + 5
+    return(c(m, n))
+}
+```
+]]
+.rightcol[.code80[
+What will this return?
+```{r, eval=FALSE}
+x <- c(1, 3)
+f(x)
+```
+```{r, eval=FALSE}
+y <- c(TRUE, FALSE, 1)
+f(y)
+```
+]]

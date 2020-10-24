@@ -6,6 +6,8 @@ output:
     toc: yes
 ---
 
+<!-- Note: None of the Python chunks evaluate. Outputs are all hard-coded so that rmarkdown doesn't have to call Python. This is because the page will be build with Github Actions and Python is having problems for some reason with that -->
+
 ```{r setup, echo=FALSE, message=FALSE, warning=FALSE}
 rm(list=objects()) # start with a clean workspace
 source("knitr_setup.R")
@@ -40,7 +42,7 @@ install.package('reticulate')
 
 Once installed, load the package:
 
-```{r}
+```{r, eval=FALSE}
 library(reticulate)
 ```
 
@@ -100,21 +102,30 @@ Not                |  `!`      | `!` or `not`
 
 Python uses the same symbols `&`, `|`, and `!` for assessing logical statements, but Python also supports the use of the English words `and`, `or`, and `not`. For example, the following statements will both return `True`
 
-```{python}
+```{python, eval=FALSE}
 (3 == 3) & (4 == 4)
 ```
+```
+## True
+```
 
-```{python}
+```{python, eval=FALSE}
 (3 == 3) and (4 == 4)
+```
+```
+## True
 ```
 
 ## Variable assignment
 
 While in R you can use either `=` or `<-` to assign values to objects, in Python only the `=` symbol can be used:
 
-```{python}
+```{python, eval=FALSE}
 value = 3
 value
+```
+```
+## 3
 ```
 
 ## Data types
@@ -156,17 +167,29 @@ typeof(TRUE)
 </div>
 <div class = "col-md-6">
 **Python**:
-```{python}
+```{python, eval=FALSE}
 type(3.14)
 ```
-```{python}
+```
+## <class 'float'>
+```
+```{python, eval=FALSE}
 type(3)
 ```
-```{python}
+```
+## <class 'int'>
+```
+```{python, eval=FALSE}
 type("3")
 ```
-```{python}
+```
+## <class 'str'>
+```
+```{python, eval=FALSE}
 type(True)
+```
+```
+## <class 'bool'>
 ```
 </div>
 </div>
@@ -196,8 +219,11 @@ as.double(3)
 ```
 </div>
 <div class = "col-md-4">
-```{python}
+```{python, eval=FALSE}
 float(3)
+```
+```
+## 3.0
 ```
 </div>
 </div>
@@ -212,8 +238,11 @@ as.integer(3.14)
 ```
 </div>
 <div class = "col-md-4">
-```{python}
+```{python, eval=FALSE}
 int(3.14)
+```
+```
+## 3
 ```
 </div>
 </div>
@@ -228,8 +257,11 @@ as.character(3.14)
 ```
 </div>
 <div class = "col-md-4">
-```{python}
+```{python, eval=FALSE}
 str(3.14)
+```
+```
+## '3.14'
 ```
 </div>
 </div>
@@ -244,8 +276,11 @@ as.logical(3.14)
 ```
 </div>
 <div class = "col-md-4">
-```{python}
+```{python, eval=FALSE}
 bool(3.14)
+```
+```
+## True
 ```
 </div>
 </div>
@@ -283,9 +318,14 @@ for (i in c(1,3,5)) {
 ```
 </div>
 <div class = "col-md-5">
-```{python}
+```{python, eval=FALSE}
 for i in [1,3,5]:
     print(i)
+```
+```
+## 1
+## 3
+## 5
 ```
 </div>
 </div>
@@ -304,11 +344,16 @@ while (i <= 5) {
 ```
 </div>
 <div class = "col-md-5">
-```{python}
+```{python, eval=FALSE}
 i = 1
 while i <= 5:
     print(i)
     i = i + 2
+```
+```
+## 1
+## 3
+## 5
 ```
 </div>
 </div>
@@ -364,8 +409,11 @@ stringr::str_to_upper("foo")
 </div>
 <div class = "col-md-6">
 **Python**: we use the `.upper()` _method_ that belongs to the string `"foo"`, which returns `"FOO"`. All strings in Python have this method.
-```{python}
+```{python, eval=FALSE}
 "foo".upper()
+```
+```
+## 'FOO'
 ```
 </div>
 </div>
@@ -376,9 +424,12 @@ object.method()
 ```
 
 You can also see the different methods available for a particular object by calling the `dir` function on the object:
-```{python}
+```{python, eval=FALSE}
 s = "foo"
 dir(s)
+```
+```
+## ['__add__', '__class__', '__contains__', '__delattr__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__iter__', '__le__', '__len__', '__lt__', '__mod__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmod__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'capitalize', 'casefold', 'center', 'count', 'encode', 'endswith', 'expandtabs', 'find', 'format', 'format_map', 'index', 'isalnum', 'isalpha', 'isdecimal', 'isdigit', 'isidentifier', 'islower', 'isnumeric', 'isprintable', 'isspace', 'istitle', 'isupper', 'join', 'ljust', 'lower', 'lstrip', 'maketrans', 'partition', 'replace', 'rfind', 'rindex', 'rjust', 'rpartition', 'rsplit', 'rstrip', 'split', 'splitlines', 'startswith', 'strip', 'swapcase', 'title', 'translate', 'upper', 'zfill']
 ```
 
 Wow, strings have a lot of methods!
@@ -416,8 +467,11 @@ paste("foo", "bar", sep = "")
 </div>
 <div class = "col-md-5">
 In Python, you can combine strings by "adding" them together. The default is to merge them with no space in between:
-```{python}
+```{python, eval=FALSE}
 "foo" + "bar"
+```
+```
+## 'foobar'
 ```
 </div>
 </div>
@@ -434,8 +488,11 @@ paste(rep("foo", 3), collapse = '')
 </div>
 <div class = "col-md-5">
 In Python, you can just "multiply" the string, like this:
-```{python}
+```{python, eval=FALSE}
 "foo" * 3
+```
+```
+## 'foofoofoo'
 ```
 </div>
 </div>
@@ -452,8 +509,11 @@ str_detect('Apple', 'ppl')
 </div>
 <div class = "col-md-5">
 In Python, you can detect sub-strings using the `in` operator:
-```{python}
+```{python, eval=FALSE}
 'ppl' in 'Apple'
+```
+```
+## True
 ```
 </div>
 </div>
@@ -483,8 +543,11 @@ str_length('foo')
 ```
 </div>
 <div class = "col-md-5">
-```{python}
+```{python, eval=FALSE}
 len('foo')
+```
+```
+## 3
 ```
 </div>
 </div>
@@ -515,11 +578,24 @@ str_to_title(s)
 ```
 </div>
 <div class = "col-md-5">
-```{python}
+```{python, eval=FALSE}
 s = "A longer string"
 s.upper()
+```
+```
+## 'A LONGER STRING'
+```
+```{python, eval=FALSE}
 s.lower()
+```
+```
+## 'a longer string'
+```
+```{python, eval=FALSE}
 s.title()
+```
+```
+## 'A Longer String'
 ```
 </div>
 </div>
@@ -535,9 +611,12 @@ str_trim(s)
 ```
 </div>
 <div class = "col-md-5">
-```{python}
+```{python, eval=FALSE}
 s = "     A string with space     "
 s.strip()
+```
+```
+## 'A string with space'
 ```
 </div>
 </div>
@@ -581,9 +660,12 @@ str_sub(s, 1, 3)
 </div>
 <div class = "col-md-6">
 **Python**:
-```{python}
+```{python, eval=FALSE}
 s = "Apple"
 s[0:3]
+```
+```
+## 'App'
 ```
 </div>
 </div>
@@ -612,14 +694,30 @@ str_sub(s, -3)
 </div>
 <div class = "col-md-6">
 **Python**: Negative indices start from the end of the string, but only return the _character at that index_:
-```{python}
+```{python, eval=FALSE}
 s[-1]
+```
+```
+## 'e'
+```
+```{python, eval=FALSE}
 s[-3]
 ```
+```
+## 'p'
+```
 To get an inclusive string, you have to provide a starting and ending index:
-```{python}
+```{python, eval=FALSE}
 s[-3:-1]
+```
+```
+## 'pl'
+```
+```{python, eval=FALSE}
 s[-3:5]
+```
+```
+## 'ple'
 ```
 </div>
 </div>
@@ -635,8 +733,11 @@ str_locate(s, "pp")
 </div>
 <div class = "col-md-6">
 **Python**: Returns only the starting index of the sub-string
-```{python}
+```{python, eval=FALSE}
 s.index("pp")
+```
+```
+## 1
 ```
 </div>
 </div>
@@ -655,9 +756,12 @@ str_split(s, "pp")
 </div>
 <div class = "col-md-6">
 **Python**:
-```{python}
+```{python, eval=FALSE}
 s = "Apple"
 s.split("pp")
+```
+```
+## ['A', 'le']
 ```
 </div>
 </div>
@@ -674,17 +778,23 @@ str_split(s, "pp")
 ```
 
 In this example, it's easier to see that R is returning a list of vectors. In contrast, Python cannot perform a split on multiple strings:
-```{python, error=TRUE}
+```{python, eval=FALSE}
 s = ["Apple", "Snapple"]
 s.split("pp")
 ```
+```
+## AttributeError: 'list' object has no attribute 'split'
+```
 
 To handle this, you will need to import the **numpy** package, which has an "array" structure similar to R vectors (we'll cover this in more detail on week 13). Here's an example:
-```{python}
+```{python, eval=FALSE}
 import numpy as np
 
 s = np.array(["Apple", "Snapple"])
 np.char.split(s, "pp")
+```
+```
+## array([list(['A', 'le']), list(['Sna', 'le'])], dtype=object)
 ```
 
 # Running a Python script in R
@@ -694,7 +804,7 @@ While R scripts end in `.R`, Python scripts end in `.py`. You can open up and sa
 > File -> New File -> Python Script
 
 Save it as `foo.py` in your project folder. Now that it's saved, let's add some code to run. As a quick example, I'm going to add code defining the function `isOdd()` and then create a few values testing it:
-```{python}
+```{python, eval=FALSE}
 def isOdd(n):
     if (n % 2 == 1):
         return(True)
@@ -705,15 +815,28 @@ n2 = isOdd(3)
 ```
 
 Now that you have this code stored in your `foo.py` file, you can source the file from inside R, like this:
-```{r}
+```{r, eval=FALSE}
 reticulate::source_python('foo.py')
 ```
 
 Magically, the function `isOdd()` and the objects we created (`n1` and `n2`) are now accessible from R!
-```{r}
+```{r, eval=FALSE}
 isOdd(7)
+```
+```
+## [1] TRUE
+```
+```{r, eval=FALSE}
 n1
+```
+```
+## [1] FALSE
+```
+```{r, eval=FALSE}
 n2
+```
+```
+## [1] TRUE
 ```
 
 # Summary of R/Python differences
@@ -728,7 +851,7 @@ n2
 
 You can get really creative with object-oriented programming in Python by creating your own custom classes, allowing you to embed values and methods that belong only to objects of that class. For example, here's how to create a class called `Animal`, which is defined by two values: `species` and `sound`. Note the white space indentations - without them Python will error:
 
-```{python}
+```{python, eval=FALSE}
 class Animal:
     def __init__(self, species, sound):
         self.species = species
@@ -738,23 +861,34 @@ class Animal:
 The first function in any custom class is the `__init__` function. This is where to define any arguments that must be input when defining an object of the custom class. The use of `self` here defines which methods and values will be stored in the object onces it's created.
 
 Here's a example of how we could use the `Animal` class:
-```{python}
+```{python, eval=FALSE}
 riley = Animal("Dog", "Woof")
 ```
 
 Here I've defined an object named `riley` (my dog's name), and it has two stored values: `"Dog"` (the species) and `"Woof"` (the sound). I can access these stored values by calling the `species` and `sound` values from the `riley` object:
-```{python}
+```{python, eval=FALSE}
 riley.species
+```
+```
+## 'Dog'
+```
+```{python, eval=FALSE}
 riley.sound
+```
+```
+## 'Woof'
 ```
 
 I can also ask Python what type of object `riley` is, and it will tell me it's of the `Animal` class:
-```{python}
+```{python, eval=FALSE}
 type(riley)
+```
+```
+<class '__main__.Animal'>
 ```
 
 In addition to just storing values, you can create custom methods that will only be accessible to objects of the custom class. Here I'm adding the method `introduce()` to the class `Animal`:
-```{python}
+```{python, eval=FALSE}
 class Animal:
     def __init__(self, species, sound):
         self.species = species
@@ -765,7 +899,10 @@ class Animal:
 ```
 
 Now let's re-define my `riley` object and try out our new method!
-```{python}
+```{python, eval=FALSE}
 riley = Animal("Dog", "Woof")
 riley.introduce()
+```
+```
+## I'm a Dog and I say Woof
 ```

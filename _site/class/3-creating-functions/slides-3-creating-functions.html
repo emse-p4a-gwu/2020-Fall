@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Week 3: Creating Functions</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2020-09-15" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="https://emse-p4a-gwu.github.io/2020-Fall/class/class.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+
+class: title-slide, middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+.rightcol70[
+# Week 3: .fancy[Creating Functions]
+
+### EMSE 4574: Intro to Programming for Analytics
+### John Paul Helveston
+### September 15, 2020
+]
+
+---
+
+
+class: inverse
+
+# Quiz 2
+
+# Go to `#classroom` channel in Slack for link
+
+<div class="countdown" id="timer_5f60c799" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">06</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+### Thanks for the cute animals:
+
+### Olivia Z., Kyara M., Eliese O., Helena R., David R., Carolyne I., Omar A.
+
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+}
+.column {
+  float: left;
+  width: 16.66%;
+  padding: 5px;
+}
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+&lt;/style&gt;
+
+&lt;div class="row"&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="images/animals/olivia_z.JPG" alt="Snow" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="images/animals/kyara_m.jpg" alt="Forest" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="images/animals/eliese_o.gif" alt="Mountains" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="images/animals/helena_r.jpg" alt="Mountains" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="images/animals/david_r.JPG" alt="Mountains" style="width:100%"&gt;
+  &lt;/div&gt;
+  &lt;div class="column"&gt;
+    &lt;img src="images/animals/carolyne_i.jpg" alt="Mountains" style="width:100%"&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+---
+...and [Alfie the alpaca](https://www.instagram.com/alfie_the_alpaca_in_adelaide/?hl=en): 
+
+&lt;img src="images/animals/omar_a.jpg" width="500px"&gt;
+
+---
+class: center
+
+# Video on?
+
+It's nice to see your faces :)
+.leftcol[
+&lt;center&gt;
+&lt;img src="images/zoom_video.jpg" width="500px"&gt;
+&lt;/center&gt;
+]
+.rightcol[.left[
+If you're okay with it, please turn on your camera - it creates a more engaging discussion environment and an opportunity for us to get to know each other better. Your privacy is important though, and I understand if you wish to keep it off. No pressure.
+]]
+
+---
+
+class: inverse, middle
+
+# Week 3: .fancy[Creating Functions]
+
+## 1. Function syntax
+## 2. Local vs global variables
+## 3. Top-down design
+## 4. Coding style
+
+---
+
+
+class: inverse, middle
+
+# Week 3: .fancy[Creating Functions]
+
+## 1. .orange[Function syntax]
+## 2. Local vs global variables
+## 3. Top-down design
+## 4. Coding style
+
+---
+# Basic function syntax
+
+.code90[
+
+```r
+functionName &lt;- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+
+---
+# Basic function syntax
+In English:
+
+&gt; "`functionName` is a `function` of `arguments` that does..."
+
+.code90[
+
+```r
+functionName &lt;- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+
+---
+# Basic function syntax
+Example:
+
+&gt; "`squareRoot` is a `function` of `n` that...returns the square root of `n`"
+
+.code90[
+
+```r
+squareRoot &lt;- function(n) {
+    return(n^0.5)
+}
+```
+]
+--
+.code90[
+
+```r
+squareRoot(64)
+```
+
+```
+## [1] 8
+```
+]
+
+---
+# `return()` and `cat()` statements
+
+--
+.leftcol[.code90[
+
+```r
+isPositive &lt;- function(n) {
+    return(n &gt; 0)
+}
+```
+]]
+--
+.rightcol[.code90[
+
+```r
+isPositive &lt;- function(n) {
+    cat(n &gt; 0)
+}
+```
+]]
+
+---
+# `return()` and `cat()` statements
+
+.leftcol[.code90[
+
+```r
+isPositive &lt;- function(n) {
+    return(n &gt; 0)
+}
+```
+`return()` _returns_ back a value
+
+```r
+test &lt;- isPositive(7)
+test
+```
+```
+TRUE
+```
+]]
+.rightcol[.code90[
+
+```r
+isPositive &lt;- function(n) {
+    cat(n &gt; 0)
+}
+```
+`cat()` _prints_ a value as a string
+
+```r
+test &lt;- isPositive(7)
+```
+```
+TRUE
+```
+
+```r
+test
+```
+```
+Error: object 'test' not found
+```
+]]
+
+---
+## `cat()` is short for "concatenating"
+
+--
+
+```r
+print_x &lt;- function(x) {
+    cat("The value of x is", x)
+}
+```
+--
+
+```r
+print_x(7)
+```
+
+```
+## The value of x is 7
+```
+--
+
+```r
+print_x_squared &lt;- function(x) {
+    cat("The value of x is", x, "and the value of x^2 is", x^2)
+}
+```
+--
+
+```r
+print_x_squared(7)
+```
+
+```
+## The value of x is 7 and the value of x^2 is 49
+```
+
+---
+## `cat()` adds a space between values by default
+
+--
+
+```r
+print_x &lt;- function(x) {
+    cat("The value of x is", x)
+}
+```
+--
+
+```r
+print_x(7)
+```
+
+```
+## The value of x is 7
+```
+--
+Modify separator with the `sep` argument:
+
+```r
+print_x &lt;- function(x) {
+    cat("The value of x is", x, sep = ": ")
+}
+```
+--
+
+```r
+print_x(7)
+```
+
+```
+## The value of x is: 7
+```
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f60caf4" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Code tracing practice
+
+.leftcol[.code80[
+Consider these functions:
+
+```r
+f1 &lt;- function(x) {
+    return(x^3)
+}
+f2 &lt;- function(x) {
+    cat(x^3)
+}
+f3 &lt;- function(x) {
+    cat(x^3)
+    return(x^4)
+}
+f4 &lt;- function(x) {
+    return(x^3)
+    cat(x^4)
+}
+```
+]]
+.rightcol[.code80[
+What will these lines of code produce?
+
+Write your answer down first, _then_ run the code to check.
+
+```r
+f1(2)
+f2(2)
+f3(2)
+f4(2)
+```
+]]
+
+---
+
+
+class: inverse, middle
+
+# Week 3: .fancy[Creating Functions]
+
+## 1. Function syntax
+## 2. .orange[Local vs global variables]
+## 3. Top-down design
+## 4. Coding style
+
+---
+# Local objects
+
+### All objects inside function are **"local"** - they don't exist in the _global_ environment
+
+--
+.leftcol[.code90[
+### Example:
+
+```r
+squareOfX &lt;- function(x) {
+* y &lt;- x^2     # y here is "local"
+  return(y)
+}
+```
+]]
+--
+.rightcol[
+
+```r
+squareOfX(3)
+```
+
+```
+## [1] 9
+```
+If you try to call `y`, you'll get an error:
+
+```r
+y
+```
+```
+Error: object 'y' not found
+```
+]
+
+---
+# Global objects
+
+### **Global** objects exist in the main environment.
+
+--
+### **NEVER, NEVER, NEVER** call global objects inside functions.
+
+--
+.leftcol[
+
+```r
+print_x &lt;- function(x) {
+    cat(x)
+*   cat(n)  # n is global!
+}
+
+n &lt;- 5 # Define n in the *global* environment
+
+print_x(5)
+```
+
+```
+## 55
+```
+]
+--
+.rightcol[
+
+
+```r
+n &lt;- 6
+
+print_x(5)
+```
+
+```
+## 56
+```
+Function behavior shouldn't change with the same arguments!
+]
+
+---
+# Global objects
+
+### All objects inside functions should be **arguments** to that function
+
+--
+.leftcol[
+
+```r
+print_x &lt;- function(x, n = NULL) {
+    cat(x)
+*   cat(n)  # n is local!
+}
+
+n &lt;- 5 # Define n in the *global* environment
+
+print_x(5)
+```
+
+```
+## 5
+```
+]
+--
+.rightcol[
+
+```r
+n &lt;- 6
+
+print_x(5)
+```
+
+```
+## 5
+```
+Use `n` as argument:
+
+```r
+print_x(5, n)
+```
+
+```
+## 56
+```
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f60c99d" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Code tracing practice
+
+.leftcol[.code70[
+Consider this code:
+
+```r
+x &lt;- 7
+y &lt;- NULL
+f1 &lt;- function(x) {
+    cat(x^3)
+    cat(y, x)
+}
+f2 &lt;- function(x, y = 7) {
+    cat(x^3, y)
+}
+f3 &lt;- function(x, y) {
+    cat(x^3)
+    cat(y)
+}
+f4 &lt;- function(x) {
+    return(x^3)
+    cat(x^4)
+}
+```
+]]
+.rightcol[.code70[
+What will these lines of code produce?
+
+Write your answer down first, _then_ run the code to check.
+
+```r
+f1(2)
+f2(2)
+f3(2)
+f4(2)
+```
+]]
+
+---
+class: inverse, center
+
+# .fancy[Break]
+
+<div class="countdown" id="timer_5f60c93a" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+
+class: inverse, middle
+
+# Week 3: .fancy[Creating Functions]
+
+## 1. Function syntax
+## 2. Local vs global variables
+## 3. .orange[Top-down design]
+## 4. Coding style
+
+---
+# "Top Down" design
+&lt;br&gt;
+
+--
+## 1. Break the problem into pieces
+
+--
+## 2. Solve the "highest level" problem first
+
+--
+## 3. Then solve the smaller pieces
+
+---
+.leftcol40[
+**Example**: Given values `a` and `b`, find the value `c` such that the triangle formed by lines of length `a`, `b`, and `c` is a right triangle (in short, find hypotenuse)
+
+&lt;br&gt;
+.noborder[&lt;img src="images/right-triangle-hypotenuse.png" width="250"&gt;]
+&lt;br&gt;
+]
+
+---
+.leftcol40[
+**Example**: Given values `a` and `b`, find the value `c` such that the triangle formed by lines of length `a`, `b`, and `c` is a right triangle (in short, find hypotenuse)
+
+&lt;br&gt;
+.noborder[&lt;img src="images/right-triangle-hypotenuse.png" width="250"&gt;]
+]
+.rightcol55[
+### Hypotenuse: `\(c = \sqrt{a^2 + b^2}\)`
+### Break the problem into two pieces:
+### `\(c = \sqrt{x}\)`
+### `\(x = a^2 + b^2\)`
+]
+
+---
+.leftcol40[
+**Example**: Given values `a` and `b`, find the value `c` such that the triangle formed by lines of length `a`, `b`, and `c` is a right triangle (in short, find hypotenuse)
+
+&lt;br&gt;
+.noborder[&lt;img src="images/right-triangle-hypotenuse.png" width="250"&gt;]
+]
+.rightcol55[
+### Hypotenuse: `\(c = \sqrt{a^2 + b^2}\)`
+### Break the problem into two pieces:
+### `\(c = \sqrt{x}\)`
+
+```r
+hypotenuse &lt;- function(a, b) {
+    return(sqrt(sumOfSquares(a, b)))
+}
+```
+### `\(x = a^b + b^2\)`
+
+```r
+sumOfSquares &lt;- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f60cb07" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Think-Pair-Share
+
+Create a function, `isRightTriangle(a, b, c)` that returns `TRUE` if the triangle formed by the lines of length `a`, `b`, and `c` is a right triangle and `FALSE` otherwise. Use the `hypotenuse(a, b)` function in your solution. **Hint**: you may not know which value (`a`, `b`, or `c`) is the hypotenuse.
+
+.leftcol[.code80[
+
+```r
+hypotenuse &lt;- function(a, b) {
+    return(sqrt(sumOfSquares(a, b)))
+}
+```
+
+```r
+sumOfSquares &lt;- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]]
+
+
+
+---
+
+
+class: inverse, middle
+
+.leftcol60[
+# Week 3: .fancy[Creating Functions]
+
+## 1. Function syntax
+## 2. Local vs global variables
+## 3. Top-down design
+## 4. .orange[Coding style]
+]
+.rightcol40[
+&lt;img src="images/code_style.jpg" width="370px"&gt;
+]
+
+---
+# Style matters!
+
+--
+## Which is easier to read?
+
+.leftcol60[.code80[
+V1:
+
+```r
+sumofsquares&lt;-function(a,b)return(a^2 + b^2)
+```
+V2:
+
+```r
+sum_of_squares &lt;- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]]
+
+---
+# Style matters!
+
+## Which is easier to read?
+
+.leftcol60[.code80[
+V1:
+
+```r
+sumofsquares&lt;-function(a,b)return(a^2 + b^2)
+```
+V2: &lt;- **This one is _much_ better!**
+
+```r
+sum_of_squares &lt;- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]]
+
+---
+# Use the "Advanced R" style guide:
+
+## http://adv-r.had.co.nz/Style.html
+&lt;br&gt;
+
+--
+## Other good style tips on [this blog post](https://www.r-bloggers.com/%F0%9F%96%8A-r-coding-style-guide/)
+
+---
+# Style guide: **Objects**
+
+.leftcol[
+&lt;img src="images/assignment.jpg" width="500px"&gt;
+]
+--
+.rightcol[
+- Use ` &lt;- ` for assignment, not ` = `
+- Put spacing around operators&lt;br&gt;(e.g. `x &lt;- 1`, not `x&lt;-1`)
+- Use [meaningful variable names](https://p4a.seas.gwu.edu/2020-Fall/L1.2-getting-started.html#Use_meaningful_variable_names)
+- This applies to file names too&lt;br&gt;(e.g. "`hw1.R`" vs. "`untitled.R`")
+]
+
+---
+# Style guide: **Functions**
+
+Generally, function names should be verbs:
+
+```r
+add()      # Good
+addition() # Bad
+```
+
+--
+Avoid using the "`.`" symbol:
+
+```r
+get_hypotenuse()  # Good
+get.hypotenuse()  # Bad
+```
+
+--
+Use curly braces, with indented code inside:
+
+```r
+sum_of_squares &lt;- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+---
+class: center
+.leftcol[
+## Indent by 4 spaces
+&lt;center&gt;
+&lt;img src="images/indent.png" width="550px"&gt;
+&lt;/center&gt;
+]
+.rightcol[
+## Set line length to 80
+&lt;center&gt;
+&lt;img src="images/length.png" width="550px"&gt;
+&lt;/center&gt;
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f60c9d7" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+# Think-Pair-Share
+
+.leftcol[
+`onesDigit(x)`: Write a function that takes an integer and returns its ones digit.
+
+Tests:
+- onesDigit(123) == 3
+- onesDigit(7890) == 0
+- onesDigit(6) == 6
+- onesDigit(-54) == 4
+]
+.rightcol[
+`tensDigit(x)`: Write a function that takes an integer and returns its tens digit.
+
+Tests:
+- tensDigit(456) == 5
+- tensDigit(23) == 2
+- tensDigit(1) == 0
+- tensDigit(-7890) == 9
+]
+
+---
+class: inverse
+
+### Hint #1:
+You may want to use `onesDigit(x)` as a helper function for `tensDigit(x)`
+
+### Hint #2:
+.leftcol[
+The mod operator (`%%`) "chops" a number and returns everything to the _right_
+
+```r
+123456 %% 1
+```
+
+```
+## [1] 0
+```
+
+```r
+123456 %% 10
+```
+
+```
+## [1] 6
+```
+]
+.rightcol[
+The integer divide operator (`%/%`) "chops" a number and returns everything to the _left_
+
+```r
+123456 %/% 1
+```
+
+```
+## [1] 123456
+```
+
+```r
+123456 %/% 10
+```
+
+```
+## [1] 12345
+```
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5f60c98f" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Think-Pair-Share
+
+.leftcol[
+`eggCartons(eggs)`: Write a function that reads in a non-negative number of eggs and prints the number of egg cartons required to hold that many eggs. Each egg carton holds one dozen eggs, and you cannot buy fractional egg cartons.
+
+- eggCartons(0) == 0
+- eggCartons(1) == 1
+- eggCartons(12) == 1
+- eggCartons(25) == 3
+]
+.rightcol[
+`militaryTimeToStandardTime(n)`: Write a function that takes an integer between 0 and 23 (representing the hour in [military time](http://militarytimechart.com/)), and returns the same hour in standard time.
+
+- militaryTimeToStandardTime(0) == 12
+- militaryTimeToStandardTime(3) == 3
+- militaryTimeToStandardTime(12) == 12
+- militaryTimeToStandardTime(13) == 1
+- militaryTimeToStandardTime(23) == 11
+]
+
+---
+# [HW 3](https://p4a.seas.gwu.edu/2020-Fall/hw3-creating-functions.html)
+
+--
+- ### Use the template
+
+--
+- ### Use Polya's problem solving technique: 
+    1. Understand the problem
+    2. Devise a plan
+    3. Carry out the plan
+    4. Check your work
+
+--
+- ### Try out the autograder (Saurav will DM you your password on Slack)
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+
+class: inverse, middle
+
+# Week 2: .fancy[Functions & Packages]
+
+## 1. .orange[Functions]
+## 2. Manipulating data types
+## 3. Packages
+## 4. Polya’s Problem Solving Technique
+
+---
+# Funtions take this form:
+
+## `name(argument)`
+
+--
+&zwj;Example:
+```{r}
+sqrt(225)
+```
+--
+Not every function has an argument:
+```{r}
+date()
+```
+
+---
+### Some functions have multiple arguments:
+```{r}
+round(3.1415, 2)
+```
+--
+### Arguments have names too:
+```{r}
+round(x = 3.1415, digits = 2)
+```
+--
+### If you don't include all arguments, default values will be used:
+```{r}
+round(x = 3.1415)
+```
+
+---
+# For arguments, use "`=`" , not "`<-`"
+
+--
+.leftcol[
+### `=`<br>Arguments are "local" to the function
+```{r}
+round(x = 3.1415, digits = 2)
+```
+```{r, eval=FALSE}
+x
+```
+```
+Error: object 'x' not found
+```
+]
+--
+.rightcol[
+### `<-`<br>Arguments also get created "globally"
+```{r}
+round(x <- 3.1415, digits <- 2)
+x
+digits
+```
+]
+---
+# Use `?` to get help
+
+```{r, eval=FALSE}
+?round()
+```
+
+--
+```
+Rounding of Numbers
+Description
+ceiling takes a single numeric argument x and returns a numeric vector containing the smallest integers not less than the corresponding elements of x.
+
+floor takes a single numeric argument x and returns a numeric vector containing the largest integers not greater than the corresponding elements of x.
+
+trunc takes a single numeric argument x and returns a numeric vector containing the integers formed by truncating the values in x toward 0.
+
+round rounds the values in its first argument to the specified number of decimal places (default 0). See ‘Details’ about “round to even” when rounding off a 5.
+
+signif rounds the values in its first argument to the specified number of significant digits.
+
+Usage
+ceiling(x)
+floor(x)
+trunc(x, ...)
+
+round(x, digits = 0)
+signif(x, digits = 6)
+Arguments
+x          a numeric vector. Or, for round and signif, a complex vector.
+digits    integer indicating the number of decimal places (round) or significant digits (signif) to be used. Negative values are allowed (see ‘Details’).
+
+```
+
+---
+# Combining functions
+
+--
+You can use functions as arguments to other functions:
+```{r}
+round(sqrt(7), digits = 2)
+```
+--
+This is the same as doing this:
+```{r}
+temp <- sqrt(7)
+round(temp, digits = 2)
+```
+
+---
+# Combining functions
+
+Ex: What do you think this would return:
+```{r, eval=FALSE}
+sqrt(1 + abs(-8))
+```
+--
+```{r, echo=FALSE}
+sqrt(1 + abs(-8))
+```
+
+---
+## Frequently used **math** functions
+
+.font90[
+Function   | Description       | Example input    | Example output
+---------- | ------------------|------------------|---------------
+`sqrt()`   | Square root       | `sqrt(64)`       | `r sqrt(64)`
+`round(x, digits=0)` | Round `x` to the `digits` decimal place | `round(3.1415, digits=2)` | `r round(3.1415, digits=2)`
+`floor(x)` | Round `x` **down** the nearest integer | `floor(3.1415)` | `r floor(3.1415)`
+`ceiling(x)` | Round `x` **up** the nearest integer | `ceiling(3.1415)` | `r ceiling(3.1415)`
+`abs()`    | Absolute value    | `abs(-42)`   | `r abs(-42)`
+`min()`    | Minimum value     | `min(1, 2, 3)`   | `r min(1, 2, 3)`
+`max()`    | Maximum value     | `max(1, 2, 3)`   | `r max(1, 2, 3)`
+]
+
+---
+class: inverse
+
+# Think-Pair-Share
+
+```{r, echo=FALSE}
+countdown(minutes = 8,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+.leftcol[
+Consider the following code (don't run it):
+```{r, eval=FALSE}
+val <- sqrt(y = abs(-10))
+val <- abs(x <- log(10))
+result <- round(x, digits <- sqrt(abs(-4)))
+result*digits
+```
+
+.orange[NOTE: This is just for practice - you should always use "=" for function arguments.]
+
+]
+.rightcol[
+Now follow these steps:
+
+1. Type out what you expect R will return when all the lines are run at once.
+2. Compare your expectations with each other.
+3. Run the code and compare the results with your expectations.
+]
