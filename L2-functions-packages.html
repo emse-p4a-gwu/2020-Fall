@@ -481,10 +481,10 @@ div.tocify {
       </a>
     </li>
     <li>
-      <a href="L11.1-data-analysis-prelude.html">Week 11.1: Data Analysis Prelude</a>
+      <a href="L11.1-data-analysis-prelude.html">Week 11-1: Data Analysis Prelude</a>
     </li>
     <li>
-      <a href="L11.2-data-frames.html">Week 11.2: Data Frames</a>
+      <a href="L11.2-data-frames.html">Week 11-2: Data Frames</a>
     </li>
     <li>
       <a href="L12-data-wrangling.html">Week 12: Data Wrangling</a>
@@ -496,11 +496,7 @@ div.tocify {
       <a href="L14-reproducible-reporting.html">Week 14: Reproducible Reporting</a>
     </li>
     <li>
-      <a href="L15-python-data-structures.html">
-        <span class="fab fa-python"></span>
-         
-        Week 15: Python Data Structures
-      </a>
+      <a href="L15-monte-carlo-methods.html">Week 15: Monte Carlo Methods</a>
     </li>
   </ul>
 </li>
@@ -715,7 +711,7 @@ div.tocify {
 <p>Here the letters <code>sqrt</code> are short for “square root,” and the value inside the <code>()</code> is the “argument” to the function. In the example above, the value <code>225</code> is the “argument”.</p>
 <p>Keep in mind that not all functions have (or require) arguments:</p>
 <pre class="r"><code>date() # Returns the current date and time</code></pre>
-<pre><code>## [1] &quot;Tue Oct 27 19:23:17 2020&quot;</code></pre>
+<pre><code>## [1] &quot;Wed Nov  4 10:30:32 2020&quot;</code></pre>
 <p>(the date above is the date this page was last built)</p>
 <div id="multiple-arguments" class="section level2">
 <h2>Multiple arguments</h2>
@@ -934,9 +930,9 @@ library(packagename)   # This also works</code></pre>
 <p>Now that you have the package installed on your computer, try loading it using <code>library(wikifacts)</code>, then trying using some of it’s functions:</p>
 <pre class="r"><code>library(wikifacts) # Load the library</code></pre>
 <pre class="r"><code>wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Did you know that the splash tetra (pictured) lays its eggs on a leaf above the surface of the water? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that on October 29 in 1948 – Arab–Israeli War: As the Israel Defense Forces captured the Palestinian Arab village of Safsaf, they massacred at least 52 villagers. (Courtesy of Wikipedia)&quot;</code></pre>
 <pre class="r"><code>wiki_didyouknow()</code></pre>
-<pre><code>## [1] &quot;Did you know that the export of used cars from China was legalized in 2019 to increase domestic sales and trade in the Chinese automotive industry? (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that Chris Morocco has reverse-engineered dishes by Gordon Ramsay, Jamie Oliver, and Guy Fieri from taste, touch, and smell alone? (Courtesy of Wikipedia)&quot;</code></pre>
 <p>In case you’re wondering, the only thing this package does is generate messages containing random facts from <a href="https://www.wikipedia.org/">Wikipedia</a>.</p>
 </div>
 <div id="using-only-some-package-functions" class="section level2">
@@ -947,7 +943,7 @@ library(packagename)   # This also works</code></pre>
 </blockquote>
 <p>Here I use the name of the <em>package</em> followed by <code>::</code> to tell R that I’m looking for a function that is in that package. For example, if I didn’t want to load the whole <strong>wikifacts</strong> library but still wanted to use the <code>wiki_randomfact()</code> function, I could do this:</p>
 <pre class="r"><code>wikifacts::wiki_randomfact()</code></pre>
-<pre><code>## [1] &quot;Here&#39;s some news from 27 November 2017. Former Republika Srpska military leader Ratko Mladić is sentenced to life imprisonment by the ICTY for genocide and war crimes in the Bosnian War. (Courtesy of Wikipedia)&quot;</code></pre>
+<pre><code>## [1] &quot;Did you know that on February 5 in 1869 – Prospectors in Moliagul, Victoria, Australia, discovered the largest alluvial gold nugget ever found, known as the \&quot;Welcome Stranger\&quot; (pictured). (Courtesy of Wikipedia)&quot;</code></pre>
 <p>Where this is particularly handy is when two packages have a function with the same name. If you load both library, R might not know which function to use. In those cases, it’s best to also provide the <strong>package</strong> name. For example, let’s say there was a package called <strong>apples</strong> and another called <strong>bananas</strong>, and each had a function named <code>fruitName()</code>. If I wanted to use each of them in my code, I would need to specify the package names like this:</p>
 <pre class="r"><code>apples::fruitName()
 bananas::fruitName()</code></pre>
