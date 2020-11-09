@@ -1,0 +1,32 @@
+
+# Before we start
+
+Make sure you have these packages installed and loaded:
+```{r, eval=FALSE}
+install.packages("stringr")
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("readr")
+```
+
+(they're at the top of the notes.R file)
+
+Remember: you only need to install them once!
+
+---
+.leftcol[
+## "The purpose of computing is insight, not numbers"
+### - [Richard Hamming](https://en.wikipedia.org/wiki/Richard_Hamming)
+]
+.rightcol[
+<img src="images/Richard_Hamming.jpg" width="400">
+]
+
+---
+class: inverse, middle
+
+# Week 11: .fancy[Data Frames]
+
+## 1. Basics
+## 2. Slicing
+## 3. External data

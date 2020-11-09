@@ -6,4 +6,66 @@ output:
     toc: no
 ---
 
-Coming soon!
+> **Due**: 16 November by 11:00 pm
+>
+> **Weight**: This assignment is worth **4%** of your final grade.
+>
+> **Purpose, Skills, & Knowledge**: The purposes of this assignment are:
+>
+> - To practice creating data frames in R.
+> - To practice merging and slicing data frames in R.
+>
+> **Assessment**: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:
+>
+> - 0% for not attempting a response.
+> - 50% for attempting the question but with _major_ errors.
+> - 75% for attempting the question but with _minor_ errors.
+> - 100% for correctly answering the question.
+>
+> **Rules**:
+>
+> - Problems marked **SOLO** may not be worked on with other classmates, though you may consult instructors for help.
+> - For problems marked **COLLABORATIVE**, you may work in groups of up to 3 students who are in this course this semester. You may not split up the work -- everyone must work on every problem. And you may not simply copy any code but rather truly work together.
+> - Even though you work collaboratively, you still must submit your own solutions.
+
+### 1) Staying organized [SOLO, 5%]
+
+Download and use [this template](templates/hw9.zip) for your assignment. Inside the "hw9" folder, open and edit the R script called "hw09.R" and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.
+
+### 2) Inspect package data [SOLO, 20%]
+
+Write R code to install the **dslabs** package from CRAN, then write code to load the library. Write some code to preview and inspect the `movielens` data frame that gets loaded when you load the library using some of the techniques we saw in class. For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- What is this dataset about?
+- How many observations are in the data frame?
+- What is the original source of the data?
+- What type of data is each variable?
+- What are the years of the earliest and most recent observations in the data set?
+
+### 3) Answer questions about the data [COLLABORATIVE, 25%]
+
+For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- What is the min, mean, and max rating in the data set?
+- How many observations received the maximum rating? 
+- What percentage of total observations received the maximum rating?
+- What is the title of the observation with the longest `title` (in terms of numbers of letters in the title)?
+
+### 4) Loading and inspecting external data [SOLO, 20%]
+
+Write R code to read in the `prisoners2019.csv` file located in the `data` folder. Store the object as `df`. Write some code to preview and inspect the `df` data frame using some of the techniques we saw in class. For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- What do you think this dataset is about?
+- How many observations are in the data frame?
+- What type of data is each variable?
+
+### 5) Answer questions about the data [COLLABORATIVE, 25%]
+
+For each of the following questions, write code to find your answer and leave a detailed response in a comment:
+
+- Which states have the highest and lowest total prison population? 
+- Which states have the highest and lowest total prison population _as a percentage of the total state population_? 
+
+### 6) Submit your files [SOLO, 5%]
+
+Create a zip file of all the files in your R project folder for this assignment and submit the zip file on Blackboard (note: to receive full credit, your submission must follow the above format of using a correctly-named R Project and `.R` script).
