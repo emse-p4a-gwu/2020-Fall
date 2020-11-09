@@ -1,0 +1,268 @@
+
+class: inverse, middle
+
+# Week 11: .fancy[Data Frames]
+
+## 1. Basics
+## 2. Slicing
+## 3. .orange[External data]
+
+---
+# Getting data into R
+
+<br>
+## 1. Load external packages
+## 2. Read in external files (usually .csv files)
+
+---
+## Getting the data from an R package
+
+```{r, eval=FALSE, message=FALSE}
+library(ggplot2)
+```
+--
+```{r, eval=FALSE}
+data(package = "ggplot2")
+```
+
+```
+Data sets in package ‘ggplot2’:
+
+diamonds                Prices of over 50,000 round cut diamonds
+economics               US economic time series
+economics_long          US economic time series
+faithfuld               2d density estimate of Old Faithful data
+luv_colours             'colors()' in Luv space
+midwest                 Midwest demographics
+mpg                     Fuel economy data from 1999 to 2008 for 38
+                        popular models of cars
+msleep                  An updated and expanded version of the mammals
+                        sleep dataset
+presidential            Terms of 11 presidents from Eisenhower to Obama
+seals                   Vector field of seal movements
+txhousing               Housing sales in TX
+```
+
+---
+# Find out about package data sets with `?`
+
+```{r, eval=FALSE}
+?msleep
+```
+
+```
+msleep {ggplot2}
+
+An updated and expanded version of the mammals sleep dataset
+
+Description
+
+This is an updated and expanded version of the mammals sleep dataset. Updated sleep times and weights were taken from V. M. Savage and G. B. West. A quantitative, theoretical framework for understanding mammalian sleep. Proceedings of the National Academy of Sciences, 104 (3):1051-1056, 2007.
+```
+
+---
+# Previewing data frames: `msleep`
+
+--
+Look at the data in a "spreadsheet"-like way:
+```{r, eval = FALSE}
+View(msleep)
+```
+This is "read-only" so you can't corrupt the data `r emo::ji("smile")`
+
+---
+# My favorite quick summary: `glimpse()`
+
+Preview each variable with `str()` or `glimpse()`
+
+```{r, eval=FALSE}
+glimpse(msleep)
+```
+.code80[
+```{r, echo=FALSE}
+glimpse(msleep)
+```
+]
+
+---
+## Also very useful for quick checks: `head()` and `tail()`
+
+.leftcol[
+View the **first** 6 rows with `head()`
+```{r, eval=FALSE}
+head(msleep)
+```
+.code40[
+```{r, echo=FALSE}
+head(msleep)
+```
+]]
+.rightcol[
+View the **last** 6 rows with `tail()`
+```{r, eval=FALSE}
+tail(msleep)
+```
+.code40[
+```{r, echo=FALSE}
+tail(msleep)
+```
+]]
+
+---
+# Importing an external data file
+
+<br>
+Note the `data.csv` file in your `data` folder.
+
+- **DO NOT** double-click it!
+- **DO NOT** open it in Excel!
+
+PSA: Excel can **corrupt** your data
+
+---
+# Steps to importing external data files
+
+--
+## 1. Create a path to the data
+
+```{r}
+library(here)
+pathToData <- here('data', 'data.csv') #<<
+pathToData
+```
+--
+## 2. Import the data
+```{r, eval=FALSE}
+library(readr)
+df <- read_csv(pathToData)#<<
+```
+
+---
+## PSA: Use the **here** package to make file paths
+
+The `here()` function builds the path to your **root** to your _working directory_ <br>(this is where your `.Rproj` file lives!)
+```{r}
+here()
+```
+--
+The `here()` function builds the path to files _inside_ your working directory
+```{r}
+pathToData <- here('data', 'data.csv')
+pathToData
+```
+
+---
+# Avoid hard-coding file paths!
+
+### (they can break on different computers)
+```{r}
+pathToData <- 'data/data.csv'
+pathToData
+```
+# `r emo::ji("poop")``r emo::ji("poop")``r emo::ji("poop")`
+
+---
+class: center
+
+.leftcol40[.left[
+## PSA:<br>Use the **here** package to make file paths
+]]
+.rightcol60[
+<center><br>
+<img src="images/horst_monsters_here.png">
+</center>Art by [Allison Horst](https://www.allisonhorst.com/)
+]
+
+---
+# Back to reading in data
+
+```{r, eval=FALSE}
+pathToData <- here('data', 'data.csv')
+wildlife_impacts <- read_csv(pathToData) #<<
+```
+
+**Important**: Note the use of `read_csv()` instead of `read.csv()`
+
+I recommend `read_csv()`...it is usually more robust
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think-Pair-Share
+
+.font90[
+1) Use the `here()` and `read_csv()` functions to load the `data.csv` file that is in the `data` folder. Name the data frame object `df`.
+
+2) Use the `df` object to answer the following questions:
+
+- How many rows and columns are in the data frame?
+- What type of data is each column?
+- Preview the different columns - what do you think this data is about? What might one row represent?
+- How many unique airports are in the data frame?
+- What is the earliest and latest observation in the data frame?
+- What is the lowest and highest cost of any one repair in the data frame?
+]
+
+---
+class: center
+## Next week: better data wrangling with **dplyr**
+
+<center>
+<img src="images/horst_monsters_data_wrangling.png" width="650">
+</center>
+
+---
+# Select rows with `filter()`
+
+Example: Filter rows to find which Beatles members are still alive?
+
+
+--
+Base R:
+```{r, eval=FALSE}
+beatles[beatles$deceased == FALSE,]
+```
+
+--
+&zwj;**dplyr**:
+```{r, eval=FALSE}
+filter(beatles, deceased == FALSE)
+```
+
+---
+# In 2 weeks: plotting with **ggplot2**
+
+.leftcol[
+## Translate _data_...
+```{r, echo=FALSE}
+msleep[15:25, c('brainwt', 'bodywt')]
+```
+]
+.rightcol[
+## ...into _information_
+```{r fig.height=4.5, fig.width=6.5, message=FALSE, warning=FALSE, echo=FALSE}
+library(ggplot2)
+ggplot(msleep, aes(x=brainwt, y=bodywt)) +
+    geom_point(alpha=0.6) +
+    stat_smooth(method='lm', col='red', se=F, size=0.7) +
+    scale_x_log10() +
+    scale_y_log10() +
+    labs(x='log(brain weight) in g', y='log(body weight) in kg') +
+    theme_minimal()
+```
+]
+
+---
+# A note about HW9
+
+- You have what you need to start now.
+- It will be _much_ easier if you use the **dplyr** functions (i.e. read ahead).

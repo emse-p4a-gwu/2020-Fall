@@ -1,0 +1,177 @@
+
+class: inverse, middle
+
+# Week 11: .fancy[Data Frames]
+
+## 1. Basics
+## 2. .orange[Slicing]
+## 3. External data
+
+---
+## &zwj; Access data frame columns using the `$` symbol
+
+```{r, echo=FALSE}
+beatles <- beatles_reset
+```
+
+```{r}
+beatles$firstName
+```
+--
+```{r}
+beatles$lastName
+```
+
+---
+# Creating new variables with the `$` symbol
+
+--
+Add the hometown of the bandmembers:
+```{r}
+beatles$hometown <- 'Liverpool'
+beatles
+```
+
+---
+# Creating new variables with the `$` symbol
+
+--
+Add a new `alive` variable:
+```{r}
+beatles$alive <- c(FALSE, TRUE, TRUE, FALSE)
+beatles
+```
+
+---
+## You can compute new variables from current ones
+
+--
+Compute and add the age of the bandmembers:
+```{r}
+beatles$age <- 2020 - beatles$yearOfBirth
+beatles
+```
+
+---
+## Access elements by index: `DF[row, column]`
+
+```{r, echo=FALSE}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+```
+
+General form for indexing elements:
+```{r, eval=FALSE}
+DF[row, column]
+```
+--
+.leftcol[
+Select the element in row 1, column 2:
+```{r}
+beatles[1, 2]
+```
+]
+--
+.rightcol[
+Select the elements in rows 1 & 2 and columns 2 & 3:
+```{r}
+beatles[c(1, 2), c(2, 3)]
+```
+]
+
+---
+## Leave row or column "blank" to select all
+
+--
+```{r}
+beatles[c(1, 2),] # Selects all COLUMNS for rows 1 & 2
+```
+--
+```{r}
+beatles[,c(1, 2)] # Selects all ROWS for columns 1 & 2
+```
+
+---
+## Negative indices exclude row / column
+
+--
+```{r}
+beatles[-1, ] # Select all ROWS except the first
+```
+--
+```{r}
+beatles[,-1] # Select all COLUMNS except the first
+```
+
+---
+# You can select columns by their names
+
+Note: you don't need the comma to select an entire column
+
+--
+.leftcol[
+One column
+```{r}
+beatles['firstName']
+```
+]
+--
+<br>Multiple columns
+.rightcol[
+```{r}
+beatles[c('firstName', 'lastName')]
+```
+]
+
+---
+## Use logical indices to _filter_ rows
+
+--
+**Which Beatles members are still alive?**<br>Create a logical vector using the `deceased` column:
+```{r}
+beatles$deceased == FALSE
+```
+--
+Insert this logical vector in the ROW position of `beatles[,]`:
+```{r}
+beatles[beatles$deceased == FALSE,]
+```
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think-Pair-Share
+
+Answer these questions using the `beatles` data frame:
+
+1. Create a new column, `playsGuitar`, which is `TRUE` if the band member plays the guitar and `FALSE` otherwise.
+2. Filter the data frame to select only the rows for the band members who have four-letter first names.
+3. Create a new column, `fullName`, which contains the band member's first and last name separated by a space (e.g. `"John Lennon"`)
+
+```{r, echo=FALSE, eval=FALSE}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+beatles$playsGuitar <- beatles$instrument == 'guitar'
+library(stringr)
+beatles[str_length(beatles$firstName) == 4,]
+beatles$fullName <- paste(beatles$firstName, beatles$lastName, sep = ' ')
+```

@@ -1,0 +1,278 @@
+
+class: inverse, middle
+
+# Week 11: .fancy[Data Frames]
+
+## 1. .orange[Basics]
+## 2. Slicing
+## 3. External data
+
+---
+# The data frame...in Excel
+
+<img src="images/spreadsheet.png" width="600">
+
+---
+# The data frame...in R
+
+```{r}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+beatles
+```
+
+---
+# The data frame...in RStudio
+
+.leftcol[
+```{r, eval=FALSE}
+View(beatles)
+```
+]
+<img src="images/dataframe.png" width="700">
+
+---
+## **Columns**: _Vectors_ of values (must be same data type)
+```{r}
+beatles
+```
+
+---
+## **Rows**: Information about individual observations
+```{r}
+beatles
+```
+Information about John Lennon is in the first row:
+```{r, echo=FALSE}
+beatles[1,]
+```
+
+---
+## Make a data frame with `data.frame()`
+
+```{r}
+beatles <- data.frame(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+```
+--
+```{r}
+beatles
+```
+
+---
+## Make a data frame with `tibble()`
+
+```{r, eval=FALSE}
+library(dplyr)
+```
+```{r}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+```
+--
+```{r}
+beatles
+```
+
+---
+## Why I use `tibble()` instead of `data.frame()`
+
+--
+1. The `tibble()` shows the **dimensions** and **data type**.
+
+--
+2. A tibble will only print the first few rows of data when you enter the object name
+Example: `faithful` vs. `as_tibble(faithful)`
+
+--
+3. Columns of class `character` are _never_ converted into factors (don't worry about this for now...just know that tibbles make life easier when dealing with character type columns).
+
+**Note**: I use the word **"data frame"** to refer to both `tibble()` and `data.frame()` objects
+
+---
+## Data frame vectors must have the same length
+
+```{r, eval=FALSE}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George", "Bob"), # Added "Bob" #<<
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+```
+```{r, error=TRUE, echo=FALSE}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George", "BOB"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+```
+
+---
+## Use `NA` for missing values
+
+```{r}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George", "Bob"), # Added "Bob"
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison", NA), #<<
+    instrument  = c("guitar", "bass", "drums", "guitar", NA), #<<
+    yearOfBirth = c(1940, 1942, 1940, 1943, NA), #<<
+    deceased    = c(TRUE, FALSE, FALSE, TRUE, NA) #<<
+)
+```
+--
+```{r}
+beatles
+```
+
+---
+# Dimensions: `nrow()`, `ncol()`, & `dim()`
+
+```{r}
+nrow(beatles) # Number of rows
+ncol(beatles) # Number of columns
+dim(beatles)  # Number of rows and columns
+```
+
+---
+## Use `names()` to see which variables a data frame has
+
+Get the names of columns:
+```{r}
+names(beatles)
+colnames(beatles)
+```
+--
+Get the names of rows (rarely needed):
+```{r}
+rownames(beatles)
+```
+
+---
+# Changing the column names
+
+Change the column names with `names()` or `colnames()`:
+```{r, eval=FALSE}
+names(beatles) <- c('one', 'two', 'three', 'four', 'five')
+beatles
+```
+```{r, echo=FALSE}
+df <- beatles
+colnames(df) <- c('one', 'two', 'three', 'four', 'five')
+df
+```
+
+---
+# Changing the column names
+
+Make all the column names upper-case:
+```{r, eval=FALSE}
+colnames(beatles) <- stringr::str_to_upper(colnames(beatles))
+beatles
+```
+```{r, echo=FALSE}
+colnames(df) <- str_to_upper(colnames(beatles))
+df
+```
+
+---
+## Combine data frames by columns using `bind_cols()`
+
+Note: `bind_cols()` is from the **dplyr** library
+```{r}
+names <- tibble(
+    firstName = c("John", "Paul", "Ringo", "George"),
+    lastName  = c("Lennon", "McCartney", "Starr", "Harrison"))
+
+instruments <- tibble(
+    instrument = c("guitar", "bass", "drums", "guitar"))
+```
+--
+```{r}
+bind_cols(names, instruments)
+```
+
+---
+## Combine data frames by rows using `bind_rows()`
+
+Note: `bind_rows()` is from the **dplyr** library
+
+```{r}
+members1 <- tibble(
+    firstName = c("John", "Paul"),
+    lastName  = c("Lennon", "McCartney"))
+
+members2 <- tibble(
+    firstName = c("Ringo", "George"),
+    lastName  = c("Starr", "Harrison"))
+```
+--
+```{r}
+bind_rows(members1, members2)
+```
+
+---
+## Note: `bind_rows()` requires the **same** columns names:
+
+```{r}
+colnames(members2) <- c("firstName", "LastName") #<<
+bind_rows(members1, members2)
+```
+Note how `<NA>`s were created
+
+---
+
+```{r, echo=FALSE}
+countdown(minutes = 3,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Quick practice
+
+Answer these questions using the `animals_farm` and `animals_pet` data frames:
+
+1. Write code to find how many _rows_ are in the `animals_farm` data frame?
+2. Write code to find how many _columns_ are in the `animals_pet` data frame?
+3. Create a new data frame, `animals`, by combining `animals_farm` and `animals_pet`.
+4. Change the column names of `animals` to title case.
+
+```{r, echo=FALSE, eval=FALSE}
+animals_farm <- tibble(
+    name           = c("cow", "horse"),
+    sound          = c("moo", "neigh"),
+    aveWeightLbs   = c(2400, 1500),
+    aveLifeSpanYrs = c(20, 25)
+)
+animals_pet <- tibble(
+    name           = c("dog", "cat"),
+    sound          = c("woof", "meow"),
+    aveWeightLbs   = c(40, 8),
+    aveLifeSpanYrs = c(10, 12)
+)
+nrow(animals_farm)
+ncol(animals_pet)
+animals <- bind_rows(animals_farm, animals_pet)
+colnames(animals) <- stringr::str_to_title(colnames(animals))
+```

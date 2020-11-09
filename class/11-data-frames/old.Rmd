@@ -1,0 +1,60 @@
+
+---
+# Next week: better data wrangling with **dplyr**
+
+<center>
+<img src="images/horst_monsters_data_wrangling.png" width="650">
+</center>
+
+---
+# Select rows with `filter()`
+
+Example: Filter rows to find which Beatles members are still alive?
+<br>
+<br>
+
+--
+Base R:
+```{r, eval=FALSE}
+beatles[beatles$deceased == FALSE,]
+```
+
+---
+# Select rows with `filter()`
+
+Example: Filter rows to find which Beatles members are still alive?
+<br>
+<br>
+
+Base R:
+```{r, eval=FALSE}
+beatles[beatles$deceased == FALSE,]
+```
+<br>
+
+dplyr:
+```{r, eval=FALSE}
+filter(beatles, deceased == FALSE)
+```
+
+---
+# In 2 weeks: plotting with **ggplot2**
+
+Translating _data_ into _insight_:
+
+```{r fig.height=4, fig.width=6, message=FALSE, warning=FALSE}
+library(ggplot2)
+ggplot(msleep, aes(x=brainwt, y=bodywt)) +
+    geom_point(alpha=0.6) +
+    stat_smooth(method='lm', col='red', se=F, size=0.7) +
+    scale_x_log10() +
+    scale_y_log10() +
+    labs(x='log(brain weight) in g', y='log(body weight) in kg') +
+    theme_minimal()
+```
+
+---
+# A note about HW5
+
+- You have what you need to start now.
+- It will be _much_ easier if you use the **dplyr** functions (i.e. read ahead).
