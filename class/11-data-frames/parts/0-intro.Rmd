@@ -1,4 +1,28 @@
 
+class: inverse
+
+# Quiz 5
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          bottom = 0,
+          left = 0,
+          font_size = '4em')
+```
+
+.leftcol[
+- ### Go to `#classroom` channel in Slack for link
+- ### Open up RStudio before you start - you'll probably want to use it.
+]
+.rightcol[
+<center>
+<img src="images/quiz_doge.png" width="400">
+</center>
+]
+
+---
 # Before we start
 
 Make sure you have these packages installed and loaded:
