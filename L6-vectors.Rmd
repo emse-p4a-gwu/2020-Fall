@@ -92,20 +92,22 @@ length(z)
 Each element in a vector must have the **same type**. If you mix types in a vector, R will _coerce_ all the elements to either a numeric or character type.
 
 If a vector has a _single_ character element, R makes everything a **character**:
+
 ```{r}
 c(1, 2, "3")
 c(TRUE, FALSE, "TRUE")
 ```
 
 If a vector has numeric and logical elements, R makes everything a **number**:
+
 ```{r}
 c(1, 2, TRUE, FALSE)
 ```
 
 If a vector has integers and floats, R makes everything a **float**:
+
 ```{r}
 c(1L, 2, pi)
-```
 ```
 
 ## Deleting vectors
