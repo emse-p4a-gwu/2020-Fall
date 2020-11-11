@@ -758,14 +758,11 @@ z &lt;- rep(10, 5) # The number 10 five times</code></pre>
 <p>If a vector has integers and floats, R makes everything a <strong>float</strong>:</p>
 <pre class="r"><code>c(1L, 2, pi)</code></pre>
 <pre><code>## [1] 1.000000 2.000000 3.141593</code></pre>
-<pre><code>
-## Deleting vectors
-
-You can delete a vector by assigning `NULL` to it:
-
-
-```r
-x &lt;- seq(1, 10)
+</div>
+<div id="deleting-vectors" class="section level2">
+<h2>Deleting vectors</h2>
+<p>You can delete a vector by assigning <code>NULL</code> to it:</p>
+<pre class="r"><code>x &lt;- seq(1, 10)
 x</code></pre>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <pre class="r"><code>x &lt;- NULL
