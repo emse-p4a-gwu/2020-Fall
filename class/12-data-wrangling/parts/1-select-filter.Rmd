@@ -1,0 +1,207 @@
+
+class: inverse, middle
+
+# Week 12: .fancy[Data Wrangling]
+
+## 1. .orange[Selecting & filtering]
+## 2. Sequences with pipes
+## 3. Creating new variables
+## 4. Grouped operations
+
+---
+# Before we start
+
+Make sure you have the "tidyverse" installed
+```{r, eval=FALSE}
+install.packages('tidyverse')
+```
+
+(this is at the top of the notes.R file)
+
+Remember: you only need to install packages once!
+
+---
+### The tidyverse: `stringr` + `dplyr` + `readr` +  `ggplot2` + ...
+
+<center>
+<img src="images/horst_monsters_tidyverse.jpeg" width="950">
+</center>
+
+---
+class: center
+
+# Today: better data wrangling with **dplyr**
+
+<center>
+<img src="images/horst_monsters_data_wrangling.png" width="600">
+</center>
+
+---
+class: center
+
+# 80% of the job is data wrangling
+
+.noborder[<center>
+<img src="images/data-wrangle.png" width="800">
+</center>]
+
+---
+# The main `dplyr` verbs
+
+- `select()`: subset columns
+- `filter()`: subset rows on conditions
+- `arrange()`: sort data frame
+- `mutate()`: create new columns by using information from other columns
+- `group_by()`: group data to perform grouped operations
+- `summarize()`: create summary statistics (usually on grouped data)
+- `count()`: count discrete rows
+
+---
+# This week's British Band: **The Spice Girls**
+
+```{r}
+spicegirls <- tibble(
+    firstName   = c("Melanie", "Melanie", "Emma", "Geri", "Victoria"),
+    lastName    = c("Brown", "Chisholm", "Bunton", "Halliwell", "Beckham"),
+    spice       = c("Scary", "Sporty", "Baby", "Ginger", "Posh"),
+    yearOfBirth = c(1975, 1974, 1976, 1972, 1974),
+    deceased    = c(FALSE, FALSE, FALSE, FALSE, FALSE)
+)
+spicegirls
+```
+
+---
+# Select columns with `select()`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-select.png" width="900">
+</center>
+
+---
+# Select columns with `select()`
+
+Example: Select the columns `firstName` & `lastName`
+
+
+--
+&zwj;**Base R**:
+```{r}
+spicegirls[c('firstName', 'lastName')]
+```
+
+---
+# Select columns with `select()`
+
+Example: Select the columns `firstName` & `lastName`
+
+
+**dplyr**: (note that you don't need `""` around names)
+```{r}
+select(spicegirls, firstName, lastName)
+```
+
+---
+# Select columns with `select()`
+
+Use the `-` sign to drop columns:
+```{r}
+select(spicegirls, -firstName, -lastName)
+```
+
+---
+# Select columns with `select()`
+
+Select columns based on name criteria:
+
+- `ends_with()` = Select columns that end with a character string
+- `contains()` = Select columns that contain a character string
+- `matches()` = Select columns that match a regular expression
+- `one_of()` = Select column names that are from a group of names
+
+---
+# Select columns with `select()`
+
+Select only the "name" columns
+
+```{r}
+select(spicegirls, ends_with('name'))
+```
+
+---
+# Select rows with `filter()`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-filter.png" width="900">
+</center>
+
+---
+# Select rows with `filter()`
+
+Example: Filter the band members born after 1974
+
+```{r, eval=FALSE}
+## # A tibble: 5 x 5
+##   firstName lastName  spice  yearOfBirth deceased
+##   <chr>     <chr>     <chr>        <dbl> <lgl>   
+## 1 Melanie   Brown     Scary         1975 FALSE #<<
+## 2 Melanie   Chisholm  Sporty        1974 FALSE   
+## 3 Emma      Bunton    Baby          1976 FALSE #<<   
+## 4 Geri      Halliwell Ginger        1972 FALSE   
+## 5 Victoria  Beckham   Posh          1974 FALSE
+```
+
+---
+# Select rows with `filter()`
+
+Example: Filter the band members born after 1974
+
+**Base R**:
+```{r}
+spicegirls[spicegirls$yearOfBirth > 1974,]
+```
+
+---
+# Select rows with `filter()`
+
+Example: Filter the band members born after 1974
+
+**dplyr**:
+```{r}
+filter(spicegirls, yearOfBirth > 1974)
+```
+
+---
+# Select rows with `filter()`
+
+Example: Filter the band members named "Melanie"
+--
+```{r}
+filter(spicegirls, firstName == "Melanie")
+```
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think pair share: wildlife impacts data
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `wildlife_impacts.csv` file in the `data` folder.
+
+2) Use the `df` object and the `select()` and `filter()` functions to answer the following questions:
+
+- Create a new data frame, `df_birds`, that contains only the variables (columns) about the species of bird.
+- Create a new data frame, `dc`, that contains only the observations (rows) from DC airports.
+- Create a new data frame, `dc_birds_known`, that contains only the observations (rows) from DC airports and those where the species of bird is known.
+- How many _known_ unique species of birds have been involved in accidents at DC airports?
+]

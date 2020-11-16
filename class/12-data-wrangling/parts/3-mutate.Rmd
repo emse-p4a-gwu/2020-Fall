@@ -1,0 +1,100 @@
+
+class: inverse, middle
+
+# Week 12: .fancy[Data Wrangling]
+
+## 1. Selecting & filtering
+## 2. Sequences with pipes
+## 3. .orange[Creating new variables]
+## 4. Grouped operations
+
+---
+class: center
+
+## Create new variables with `mutate()`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-mutate.png" width="900">
+</center>
+
+---
+class: center
+
+## Create new variables with `mutate()`
+
+<center>
+<img src="images/horst_monsters_mutate.jpg" width="550">
+</center>
+
+---
+# Create new variables with `mutate()`
+
+Example: Use the `yearOfBirth` variable to compute the age of each band member
+
+
+--
+**Base R**:
+```{r, eval=FALSE}
+spicegirls$age <- 2019 - spicegirls$yearOfBirth
+```
+
+--
+**dplyr**:
+```{r}
+spicegirls %>%
+    mutate(age = 2019 - yearOfBirth)
+```
+
+---
+# You can _immediately_ use new variables
+
+```{r}
+spicegirls %>%
+    select(firstName, lastName, yearOfBirth) %>%
+    mutate(
+        age = 2019 - yearOfBirth,
+        meanAge  = mean(age)) # Immediately using the "age" variable #<<
+```
+
+---
+# Handle if/else conditions with `ifelse()`
+
+--
+### `ifelse(<condition>, <if TRUE>, <else>)`
+
+--
+```{r}
+spicegirls %>%
+    mutate(
+        yobEvenOdd = ifelse(yearOfBirth %% 2 == 0, 'even', 'odd'))
+```
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think pair share
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `wildlife_impacts.csv` file in the `data` folder.
+
+2) Use the `df` object with `%>%` and `mutate()` to create the following new variables:
+
+- `height_miles`: The `height` variable converted to miles (Hint: there are 5,280 feet in a mile).
+- `cost_mil`: Is `TRUE` if the repair costs was greater or equal to $1 million, `FALSE` otherwise.
+- `season`: One of four seasons based on the `incident_month` variable:
+
+  - `spring`: March, April, May
+  - `summer`: June, July, August
+  - `fall`: September, October, November
+  - `winter`: December, January, February
+]

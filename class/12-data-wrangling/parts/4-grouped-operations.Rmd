@@ -1,0 +1,214 @@
+
+class: inverse, middle
+
+# Week 12: .fancy[Data Wrangling]
+
+## 1. Selecting & filtering
+## 2. Sequences with pipes
+## 3. Creating new variables
+## 4. .orange[Grouped operations]
+
+---
+# Split-apply-combine with `group_by`
+
+<br>
+### 1. **Split** the data into groups
+### 2. **Apply** some analysis to each group
+### 3. **Combine** the results
+
+---
+class: center
+
+# Split-apply-combine with `group_by`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-group_by.png" width="900">
+</center>
+
+---
+## Split-apply-combine with `group_by`
+
+```{r}
+bands
+```
+
+---
+## Split-apply-combine with `group_by`
+
+Compute the mean band member age for **each band**
+```{r}
+bands %>%
+    mutate(
+        age = 2019 - yearOfBirth,
+        mean_age = mean(age)) # This is the mean across both bands #<<
+```
+
+---
+## Split-apply-combine with `group_by`
+
+Compute the mean band member age for each band
+```{r}
+bands %>%
+    mutate(age = 2019 - yearOfBirth) %>%
+    group_by(band) %>% # Everything after this will be done each band #<<
+    mutate(mean_age = mean(age))
+```
+
+---
+class: center
+
+# Summarize data frames with `summarise()`
+
+<br>
+<center>
+<img src="images/rstudio-cheatsheet-summarise.png" width="900">
+</center>
+
+---
+## Summarize data frames with `summarise()`
+
+Compute the mean band member age for **each band**
+```{r}
+bands %>%
+    mutate(age = 2019 - yearOfBirth) %>%
+    group_by(band) %>%
+    summarise(mean_age = mean(age)) # Drops all variables except for group #<<
+```
+
+---
+## Summarize data frames with `summarise()`
+
+Compute the mean, min, and max band member age for **each band**
+```{r}
+bands %>%
+    mutate(age = 2019 - yearOfBirth) %>%
+    group_by(band) %>%
+    summarise(
+        mean_age = mean(age),
+        min_age = min(age),
+        max_age = max(age))
+```
+
+---
+## Computing counts of observations with `n()`
+
+How many members are in each band?
+```{r}
+bands %>%
+    mutate(age = 2019 - yearOfBirth) %>%
+    group_by(band) %>%
+    summarise(
+        mean_age = mean(age),
+        min_age = min(age),
+        max_age = max(age),
+        numMembers = n()) #<<
+```
+
+---
+## If you only want a quick count, use `count()`
+
+These do the same thing:
+
+.leftcol[
+```{r}
+bands %>%
+    group_by(band) %>% 
+    summarise(n = n())
+```
+]
+.rightcol[
+```{r}
+bands %>%
+    count(band) 
+```
+]
+
+---
+## If you only want a quick count, use `count()`
+
+You can count multiple combinations
+```{r}
+bands %>%
+    mutate(nameStartsWithG = str_detect(firstName, '^G')) %>%
+    count(band, nameStartsWithG)
+```
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think pair share
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `wildlife_impacts.csv` file in the `data` folder.
+
+2) Use the `df` object and `group_by()`, `summarise()`, `count()`, and `%>%` to answer the following questions:
+
+- Create a summary data frame that contains the mean `height` for each different time of day.
+- Create a summary data frame that contains the maximum `cost_repairs_infl_adj` for each year.
+- Which _month_ has had the greatest number of reported incidents?
+- Which _year_ has had the greatest number of reported incidents?
+]
+
+---
+# Exporting data
+
+```{r}
+ageSummary <- bands %>%
+    mutate(age = 2019 - yearOfBirth) %>%
+    group_by(band) %>%
+    summarise(
+        mean_age = mean(age),
+        min_age = min(age),
+        max_age = max(age), 
+        numMembers = n())
+ageSummary
+```
+
+---
+# Exporting data: `here()` + `write_csv()`
+
+Save the `ageSummary` data frame in your "data" folder:
+
+
+--
+1) Create a path to where you want to save the data
+```{r}
+library(here)
+savePath <- here('data', 'ageSummary.csv')
+```
+--
+2) Export the data
+```{r, eval=FALSE}
+library(readr)
+write_csv(ageSummary, savePath)
+```
+
+---
+# HW 10
+
+--
+Make sure you install the package `nycflights13`
+```{r, eval=FALSE}
+install.packages('nycflights13')
+```
+
+--
+This package includes **5 data frames**:
+
+```{r, eval=FALSE}
+airlines
+airports
+flights
+planes
+weather
+```
