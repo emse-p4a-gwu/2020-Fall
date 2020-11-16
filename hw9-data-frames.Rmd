@@ -30,7 +30,7 @@ output:
 
 ### 1) Staying organized [SOLO, 5%]
 
-Download and use [this template](templates/hw9.zip) for your assignment. Inside the "hw9" folder, open and edit the R script called "hw09.R" and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.
+Download and use [this template](templates/hw9.zip) for your assignment. Inside the "hw9" folder, open and edit the R script called "hw9.R" and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.
 
 ### 2) Inspect package data [SOLO, 20%]
 
@@ -47,7 +47,7 @@ Write R code to install the **dslabs** package from CRAN, then write code to loa
 For each of the following questions, write code to find your answer and leave a detailed response in a comment:
 
 - What is the min, mean, and max rating in the data set?
-- How many observations received the maximum rating? 
+- How many observations received the maximum rating?
 - What percentage of total observations received the maximum rating?
 - What is the title of the observation with the longest `title` (in terms of numbers of letters in the title)?
 
@@ -63,8 +63,8 @@ Write R code to read in the `prisoners2019.csv` file located in the `data` folde
 
 For each of the following questions, write code to find your answer and leave a detailed response in a comment:
 
-- Which states have the highest and lowest total prison population? 
-- Which states have the highest and lowest total prison population _as a percentage of the total state population_? 
+- Which states have the highest and lowest total prison population?
+- Which states have the highest and lowest total prison population _as a percentage of the total state population_?
 
 ### 6) Submit your files [SOLO, 5%]
 
