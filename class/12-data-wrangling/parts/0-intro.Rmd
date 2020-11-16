@@ -1,0 +1,9 @@
+
+class: inverse, middle
+
+# Week 12: .fancy[Data Wrangling]
+
+## 1. Selecting & filtering
+## 2. Sequences with pipes
+## 3. Creating new variables
+## 4. Grouped operations

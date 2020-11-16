@@ -1,0 +1,147 @@
+
+class: inverse, middle
+
+# Week 12: .fancy[Data Wrangling]
+
+## 1. Selecting & filtering
+## 2. .orange[Sequences with pipes]
+## 3. Creating new variables
+## 4. Grouped operations
+
+---
+# Create sequences of operations with "pipes"
+
+--
+.leftcol[
+<br>
+<center>
+<img src="images/magrittePipe.jpg" width="400">
+</center>
+[The Treachery of Images](https://en.wikipedia.org/wiki/The_Treachery_of_Images), René Magritte
+]
+--
+<center>
+.rightcol[.noborder[
+<img src="images/magrittr.png" width="350">
+</center>
+]]
+
+---
+# Think of `%>%` as the words "...and then..."
+
+--
+**Without Pipes** (read from inside-out):
+```{r, eval=FALSE}
+leave_house(get_dressed(get_out_of_bed(wake_up(me))))
+```
+
+--
+**With Pipes**:
+```{r, eval=FALSE}
+me %>%
+    wake_up %>%
+    get_out_of_bed %>%
+    get_dressed %>%
+    leave_house
+```
+
+---
+# Sequence operations with pipes: `%>%`
+
+--
+&zwj;Example:
+1. Filter the band members born after 1974
+2. Select only the columns `firstName` & `lastName`
+
+
+--
+**Without Pipes**:
+```{r}
+select(filter(spicegirls, yearOfBirth > 1974), firstName, lastName)
+```
+
+---
+# Sequence operations with pipes: `%>%`
+
+&zwj;Example:
+1. Filter the band members born after 1974
+2. Select only the columns `firstName` & `lastName`
+
+
+**With Pipes**:
+```{r}
+spicegirls %>%
+    filter(yearOfBirth > 1974) %>%
+    select(firstName, lastName)
+```
+
+---
+# Think of the words "...and then..."
+
+**Without Pipes**:
+```{r, eval=FALSE}
+select(filter(spicegirls, yearOfBirth > 1974), firstName, lastName)
+```
+
+**With Pipes**: Note that you don't need to repeat the dataframe name
+```{r, eval=FALSE}
+spicegirls %>%
+    filter(yearOfBirth > 1974) %>%
+    select(firstName, lastName)
+```
+
+---
+# Sort rows with `arrange()`
+
+--
+Sort the data frame by year of birth:
+```{r}
+spicegirls %>%
+    arrange(yearOfBirth)
+```
+
+---
+# Sort rows with `arrange()`
+
+Use the `desc()` function to sort in descending order:
+```{r}
+spicegirls %>%
+    arrange(desc(yearOfBirth))
+```
+
+---
+# Sort rows with `arrange()`
+
+Example of filtering, arranging, and selecting:
+
+```{r}
+spicegirls %>%
+    filter(yearOfBirth < 1975) %>%
+    arrange(desc(yearOfBirth)) %>%
+    select(ends_with('name'))
+```
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think pair share
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `wildlife_impacts.csv` file in the `data` folder.
+
+2) Use the `df` object and `select()`, `filter()`, and `%>%` to answer the following questions:
+
+- Create a new data frame, `dc_dawn`, that contains only the observations (rows) from DC airports that occurred at dawn.
+- Create a new data frame, `dc_dawn_birds`, that contains only the observations (rows) from DC airports that occurred at dawn and only the variables (columns) about the species of bird.
+- Create a new data frame, `dc_dawn_birds_known`, that contains only the observations (rows) from DC airports that occurred at dawn and only the variables (columns) about the KNOWN species of bird.
+- How many _known_ unique species of birds have been involved in accidents at DC airports at dawn?
+]

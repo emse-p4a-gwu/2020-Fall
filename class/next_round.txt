@@ -5,6 +5,7 @@ NEXT TIME:
 
 4-Testing & debugging:
 - Include Jenny's meme about ignoring the error messages, from this video: https://resources.rstudio.com/rstudio-conf-2020/object-of-type-closure-is-not-subsettable-jenny-bryan
+- Add horst_monsters_debugging.jpg image
 
 5-Loops:
 - This class needs more time...would be good to not have a quiz this day.
