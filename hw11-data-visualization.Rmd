@@ -6,4 +6,89 @@ output:
     toc: no
 ---
 
-Coming soon!
+> **Due**: 30 November by 11:00 pm
+>
+> **Weight**: This assignment is worth **4%** of your final grade.
+>
+> **Purpose, Skills, & Knowledge**: The purposes of this assignment are:
+>
+> - To practice exploring and data frames in R using the **dplyr** library
+> - To practice generating plots using the **ggplot2** library
+>
+> **Assessment**: Each question indicates the % of the assignment grade, summing to 100%. The credit for each question will be assigned as follows:
+>
+> - 0% for not attempting a response.
+> - 50% for attempting the question but with _major_ errors.
+> - 75% for attempting the question but with _minor_ errors.
+> - 100% for correctly answering the question.
+>
+> **Rules**: This entire assignment is **SOLO**. You may not work with other classmates, though you may consult instructors for help.
+
+### 1) Staying organized [5%]
+
+Download and use [this template](templates/hw11.zip) for your assignment. Inside the "hw11" folder, open and edit the R script called "hw11.R" and fill out your name, GW Net ID, and the names of anyone you worked with on this assignment.
+
+### 2) Choose and load some data [5%]
+
+For this assignment, you will need to find a dataset of your choosing and create **three** summary visualizations. To keep things manageable, choose one of the following datasets from the following libraries. Note that to load any of these data frames, all you need to do is install and load the library.
+
+**dplyr**:
+
+- `storms`
+- `starwars`
+
+**ggplot2**:
+
+- `diamonds`
+- `economics`
+- `midwest`
+- `mpg`
+- `msleep`
+- `txhousing`
+
+**dslabs**:
+
+- `gapminder`
+- `movielens`
+- `murders`
+- `stars`
+
+### 3) Inspect your data [10%]
+
+Once you've chosen a data set, open your `hw11.R` file and begin exploring the data (be sure to load the library that contains the dataset at the top of your file).
+
+Write some code to preview and summarize each of these data frames using some of the methods we've used in class. You should be able to quickly get an understanding of what variables are included in each data frame and their nature. Consider the following questions in your exploration (you don't have to write out answers to these questions - just write code to help you answer them by previewing the data in different ways):
+
+- What is the total size of the data frame?
+- What type of data is each variable (numeric, character, logical, date)?
+- Do any variables have missing values? Why might that be?
+- What are the "boundaries" of each period of observation:
+    - For numeric variables, what are the min and max values?
+    - For character variables, what are the unique values in the variable?
+    - For date variables, what time period do the observations in these data frames span?
+
+**Do not brush this step off** - the more thoroughly you inspect your dataset, the easier (and better) you data exploration will be. This will be absolutely critical for making your plots. Make sure you take the time to develop an understanding of the variables in your dataset as it is nearly impossible to imagine what different plots might be worth creating otherwise.
+
+### 5) Make plots [50%]
+
+Now that you have a basic understanding of the dataset, make some plots to explore the variables in the data and their potential relationships. You may use base R plotting functions or the **ggplot2** library to make your figures, but you must make at least two different types of figures, including:
+
+1. A scatterplot of involving at least two variables.
+2. A bar chart involving at least one variable.
+
+You can choose to plot whichever variables you wish, but you must be able to interpret the results of your plot.
+
+### 6) Interpret your plots [15%]
+
+Below the plot code for each of your plots, write a description and interpretation of your plot in a comment. Make sure you address at least the following questions:
+
+1. Describe what variables you are plotting and why.
+2. Describe the primary relationship / trend / information you hope the reader will gain from your visualization.
+
+### 7) Save your plots [10%]
+
+At the bottom of your `hw11.R` file, write code to save each of your three plots in the `plots` folder. Save them as .png files.
+
+### 8) Submit your files on Blackboard [5%]
+
+Create a zip file of all files in your R project folder for this assignment and submit the zip file on Blackboard by the due deadline.
