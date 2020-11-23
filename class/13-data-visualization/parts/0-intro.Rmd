@@ -1,0 +1,93 @@
+
+class: inverse
+
+# Quiz 6
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          bottom = 0,
+          left = 0,
+          font_size = '4em')
+```
+
+.leftcol[
+- ### Go to `#classroom` channel in Slack for link
+- ### Open up RStudio before you start - you'll probably want to use it.
+]
+.rightcol[
+<center>
+<img src="images/quiz_doge.png" width="400">
+</center>
+]
+
+---
+# Before we start
+
+Make sure you have the "tidyverse" installed and loaded, and import these two data frames
+```{r, eval=FALSE}
+library(tidyverse)
+library(here)
+
+birds <- read_csv(here('data', 'wildlife_impacts.csv'))
+bears <- read_csv(here('data', 'bear_killings.csv'))
+```
+
+(this is at the top of the notes.R file)
+
+---
+# The Challenger disaster
+
+On January 28, 1986 the space shuttle Challenger exploded
+
+.leftcol[
+<img src="images/challenger_crew.jpg">
+]
+
+.rightcol[
+<img src="images/explosion.jpg">
+]
+
+---
+# The Challenger disaster
+
+NASA Engineers had the data on temperature & o-ring failure
+
+.leftcol60[
+<img src="images/oring_data.png" width=600>
+]
+
+.rightcol40[
+<img src="images/orings.png">
+]
+
+---
+class: center
+
+## What NASA was shown
+
+.leftcol60[
+<img src="images/rockets_chart.png" width=600>
+]
+.rightcol40[.left[
+<br><br><br><br><br><br><br><br>
+Tufte, Edward R. (1997) _Visual Explanations: Images and Quantities, Evidence and Narrative_, Graphics Press, Cheshire, Connecticut.]]
+
+---
+class: center
+
+# What NASA _should_ have been shown
+
+<img src="images/tufte_plot.png" width=1000>
+
+.left[Tufte, Edward R. (1997) _Visual Explanations: Images and Quantities,<br> Evidence and Narrative_, Graphics Press, Cheshire, Connecticut.]
+
+---
+class: inverse, middle
+
+# Week 13: .fancy[Data Visualization]
+
+## 1. Plotting with Base R
+## 2. Plotting with **ggplot2**
+## 3. Tweaking your ggplot

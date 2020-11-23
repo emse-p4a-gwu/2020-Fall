@@ -1,0 +1,73 @@
+---
+title: "Week 13: Data Visualization"
+subtitle: "EMSE 4574: Intro to Programming for Analytics"
+author: "John Paul Helveston"
+date: November 24, 2020
+output:
+  xaringan::moon_reader:
+    css: 'https://emse-p4a-gwu.github.io/2020-Fall/class/class.css'
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+      beforeInit: "https://platform.twitter.com/widgets.js"
+    seal: false
+---
+
+```{r setup, include=FALSE}
+source('setup.R')
+xaringanExtra::use_tile_view()
+bears <- read_csv(here::here('data', 'bear_killings.csv'))
+birds <- read_csv(here::here('data', 'wildlife_impacts.csv'))
+```
+
+class: title-slide, middle, inverse
+
+.leftcol30[
+<center>
+<img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250>
+</center>
+]
+.rightcol70[
+# Week 13: .fancy[Data Visualization]
+
+### EMSE 4574: Intro to Programming for Analytics
+### John Paul Helveston
+### November 24, 2020
+]
+
+---
+```{r child = here::here('parts', '0-intro.Rmd')}
+```
+
+---
+```{r child = here::here('parts', '1-base.Rmd')}
+```
+
+---
+```{r child = here::here('parts', '2-ggplot-1.Rmd')}
+```
+
+---
+class: inverse, center
+
+# .fancy[Break]
+
+```{r, echo=FALSE}
+countdown(minutes = 5,
+          warn_when = 30,
+          update_every = 1,
+          left = 0, right = 0, top = 1, bottom = 0,
+          margin = "5%",
+          font_size = "8em")
+```
+
+---
+```{r child = here::here('parts', '3-ggplot-2.Rmd')}
+```
+
+---
+```{r child = here::here('parts', '4-ggplot-3.Rmd')}
+```

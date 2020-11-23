@@ -1,0 +1,234 @@
+
+class: inverse, middle
+
+# Week 13: .fancy[Data Visualization]
+
+## 1. .orange[Plotting with Base R]
+## 2. Plotting with **ggplot2**
+## 3. Tweaking your ggplot
+
+---
+# Today's data:
+## Bear attacks in North America
+
+Explore the `bears` data frame:
+```{r, eval=FALSE}
+glimpse(bears)
+head(bears)
+```
+
+---
+class: center
+
+## Two basic plots in R
+
+.leftcol[
+### Scatterplots
+```{r, base_scatter, echo=FALSE, fig.height=5, fig.width=7, message=FALSE, warning=FALSE}
+plot(x    = bears$year,
+     y    = bears$age,
+     col  = 'darkblue', # "col" changes the point color
+     pch  = 19, # "pch" changes the point shape
+     main = "Age of bear killing victims over time",
+     xlab = "Year",
+     ylab = "Age")
+box()
+```
+]
+.rightcol[
+### Histograms
+```{r, base_hist, echo=FALSE, fig.height=5, fig.width=7, message=FALSE, warning=FALSE, class = "thin-outline"}
+hist(x      = bears$month,
+     breaks = 12,
+     col    = 'darkred',
+     main   = "Distribution of bear killings by month",
+     xlab   = "Month",
+     ylab   = "Count")
+```
+]
+
+---
+# Scatterplots with `plot()`
+
+### Plot relationship between two variables
+
+--
+.leftcol[
+General syntax:
+```{r, eval=FALSE}
+plot(x = x_vector, y = y_vector)
+```
+]
+
+---
+# Scatterplots with `plot()`
+
+### Plot relationship between two variables
+
+.leftcol[
+General syntax:
+```{r, eval=FALSE}
+plot(x = x_vector, y = y_vector)
+```
+
+Example:
+```{r scatterplot, fig.show='hide'}
+var1 <- seq(1, 5)
+var2 <- 2*var1
+plot(x = var1, y = var2)
+```
+]
+.rightcol[
+```{r ref.label='scatterplot', echo=FALSE, fig.height=5, fig.width=6}
+```
+]
+
+---
+# Scatterplots with `plot()`
+
+### `x` and `y` must have the same length!
+
+--
+```{r}
+var2 <- var2[-1]
+```
+--
+```{r}
+length(var1) == length(var2)
+```
+--
+```{r, message=FALSE, warning=FALSE, error=TRUE}
+plot(x = var1, y = var2)
+```
+
+---
+# Scatterplots with `plot()`
+
+### Plotting variables from a data frame:
+
+--
+.leftcol[
+Plot `year` vs. `age`:
+```{r bear_scatterplot, fig.show='hide'}
+plot(x = bears$year, y = bears$age)
+```
+]
+--
+.rightcol[
+```{r ref.label='bear_scatterplot', echo=FALSE, fig.height=5, fig.width=7}
+```
+]
+
+---
+# Making `plot()` pretty
+
+.leftcol[.code80[
+```{r bear_prettyPlot, fig.show='hide'}
+plot(x    = bears$year,
+     y    = bears$age,
+     col  = 'darkblue', # Point color
+     pch  = 19, # Point shape
+     main = "Age of victims over time",
+     xlab = "Year",
+     ylab = "Age of victim")
+```
+]]
+.rightcol[
+```{r ref.label='bear_prettyPlot', echo=FALSE, fig.height=5, fig.width=7}
+```
+]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think pair share: `plot()`
+
+Does the annual number of bird impacts appear to be changing over time?
+
+Make a plot using the `birds` data frame to justify your answer
+
+Hint: You may need to create a summary data frame to answer this question!
+
+**Bonus points**: Make your plot pretty
+
+---
+# Histograms with `hist()`
+
+### Plot the _distribution_ of a single variable
+
+.leftcol[
+General syntax:
+```{r, eval=FALSE}
+hist(x = x_vector)
+```
+]
+
+---
+# Histograms with `hist()`
+
+### Plot the _distribution_ of a single variable
+
+.leftcol[
+General syntax:
+```{r, eval=FALSE}
+hist(x = x_vector)
+```
+
+Example:
+```{r bearHist, fig.show='hide'}
+hist(bears$month)
+```
+]
+.rightcol[
+```{r ref.label='bearHist', echo=FALSE, fig.height=5, fig.width=6}
+```
+]
+
+---
+# Making `hist()` pretty
+
+.leftcol[.code80[
+```{r prettyHist, fig.show='hide'}
+hist(x      = bears$month,
+     breaks = 12,
+     col    = 'darkred',
+     main   = "Bear killings by month",
+     xlab   = "Month",
+     ylab   = "Count")
+```
+]]
+.rightcol[
+```{r ref.label='prettyHist', echo=FALSE, fig.height=5, fig.width=6}
+```
+]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think pair share: `hist()`
+
+Make plots using the `birds` data frame to answer these questions
+
+- Which months have the highest and lowest number of bird impacts in the dataset?
+- Which aircrafts experience more impacts: 2-engine, 3-engine, or 4-engine?
+- At what height do most impacts occur?
+
+**Bonus points**: Make your plots pretty

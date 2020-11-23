@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Week 13: Data Visualization</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2020-11-24" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link href="libs/countdown/countdown.css" rel="stylesheet" />
+    <script src="libs/countdown/countdown.js"></script>
+    <link rel="stylesheet" href="https://emse-p4a-gwu.github.io/2020-Fall/class/class.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+.rightcol70[
+# Week 13: .fancy[Data Visualization]
+
+### EMSE 4574: Intro to Programming for Analytics
+### John Paul Helveston
+### November 24, 2020
+]
+
+---
+
+
+class: inverse
+
+# Quiz 6
+
+<div class="countdown" id="timer_5fbbee9a" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+.leftcol[
+- ### Go to `#classroom` channel in Slack for link
+- ### Open up RStudio before you start - you'll probably want to use it.
+]
+.rightcol[
+&lt;center&gt;
+&lt;img src="images/quiz_doge.png" width="400"&gt;
+&lt;/center&gt;
+]
+
+---
+# Before we start
+
+Make sure you have the "tidyverse" installed and loaded, and import these two data frames
+
+```r
+library(tidyverse)
+library(here)
+
+birds &lt;- read_csv(here('data', 'wildlife_impacts.csv'))
+bears &lt;- read_csv(here('data', 'bear_killings.csv'))
+```
+
+(this is at the top of the notes.R file)
+
+---
+# The Challenger disaster
+
+On January 28, 1986 the space shuttle Challenger exploded
+
+.leftcol[
+&lt;img src="images/challenger_crew.jpg"&gt;
+]
+
+.rightcol[
+&lt;img src="images/explosion.jpg"&gt;
+]
+
+---
+# The Challenger disaster
+
+NASA Engineers had the data on temperature &amp; o-ring failure
+
+.leftcol60[
+&lt;img src="images/oring_data.png" width=600&gt;
+]
+
+.rightcol40[
+&lt;img src="images/orings.png"&gt;
+]
+
+---
+class: center
+
+## What NASA was shown
+
+.leftcol60[
+&lt;img src="images/rockets_chart.png" width=600&gt;
+]
+.rightcol40[.left[
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+Tufte, Edward R. (1997) _Visual Explanations: Images and Quantities, Evidence and Narrative_, Graphics Press, Cheshire, Connecticut.]]
+
+---
+class: center
+
+# What NASA _should_ have been shown
+
+&lt;img src="images/tufte_plot.png" width=1000&gt;
+
+.left[Tufte, Edward R. (1997) _Visual Explanations: Images and Quantities,&lt;br&gt; Evidence and Narrative_, Graphics Press, Cheshire, Connecticut.]
+
+---
+class: inverse, middle
+
+# Week 13: .fancy[Data Visualization]
+
+## 1. Plotting with Base R
+## 2. Plotting with **ggplot2**
+## 3. Tweaking your ggplot
+
+---
+
+
+class: inverse, middle
+
+# Week 13: .fancy[Data Visualization]
+
+## 1. .orange[Plotting with Base R]
+## 2. Plotting with **ggplot2**
+## 3. Tweaking your ggplot
+
+---
+# Today's data:
+## Bear attacks in North America
+
+Explore the `bears` data frame:
+
+```r
+glimpse(bears)
+head(bears)
+```
+
+---
+class: center
+
+## Two basic plots in R
+
+.leftcol[
+### Scatterplots
+&lt;img src="slides-13-data-visualization_files/figure-html/base_scatter-1.png" width="504" /&gt;
+]
+.rightcol[
+### Histograms
+&lt;img src="slides-13-data-visualization_files/figure-html/base_hist-1.png" width="504" /&gt;
+]
+
+---
+# Scatterplots with `plot()`
+
+### Plot relationship between two variables
+
+--
+.leftcol[
+General syntax:
+
+```r
+plot(x = x_vector, y = y_vector)
+```
+]
+
+---
+# Scatterplots with `plot()`
+
+### Plot relationship between two variables
+
+.leftcol[
+General syntax:
+
+```r
+plot(x = x_vector, y = y_vector)
+```
+
+Example:
+
+```r
+var1 &lt;- seq(1, 5)
+var2 &lt;- 2*var1
+plot(x = var1, y = var2)
+```
+]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-12-1.png" width="432" /&gt;
+]
+
+---
+# Scatterplots with `plot()`
+
+### `x` and `y` must have the same length!
+
+--
+
+```r
+var2 &lt;- var2[-1]
+```
+--
+
+```r
+length(var1) == length(var2)
+```
+
+```
+## [1] FALSE
+```
+--
+
+```r
+plot(x = var1, y = var2)
+```
+
+```
+## Error in xy.coords(x, y, xlabel, ylabel, log): 'x' and 'y' lengths differ
+```
+
+---
+# Scatterplots with `plot()`
+
+### Plotting variables from a data frame:
+
+--
+.leftcol[
+Plot `year` vs. `age`:
+
+```r
+plot(x = bears$year, y = bears$age)
+```
+]
+--
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-16-1.png" width="504" /&gt;
+]
+
+---
+# Making `plot()` pretty
+
+.leftcol[.code80[
+
+```r
+plot(x    = bears$year,
+     y    = bears$age,
+     col  = 'darkblue', # Point color
+     pch  = 19, # Point shape
+     main = "Age of victims over time",
+     xlab = "Year",
+     ylab = "Age of victim")
+```
+]]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-17-1.png" width="504" /&gt;
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5fbbedc7" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Think pair share: `plot()`
+
+Does the annual number of bird impacts appear to be changing over time?
+
+Make a plot using the `birds` data frame to justify your answer
+
+Hint: You may need to create a summary data frame to answer this question!
+
+**Bonus points**: Make your plot pretty
+
+---
+# Histograms with `hist()`
+
+### Plot the _distribution_ of a single variable
+
+.leftcol[
+General syntax:
+
+```r
+hist(x = x_vector)
+```
+]
+
+---
+# Histograms with `hist()`
+
+### Plot the _distribution_ of a single variable
+
+.leftcol[
+General syntax:
+
+```r
+hist(x = x_vector)
+```
+
+Example:
+
+```r
+hist(bears$month)
+```
+]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-21-1.png" width="432" /&gt;
+]
+
+---
+# Making `hist()` pretty
+
+.leftcol[.code80[
+
+```r
+hist(x      = bears$month,
+     breaks = 12,
+     col    = 'darkred',
+     main   = "Bear killings by month",
+     xlab   = "Month",
+     ylab   = "Count")
+```
+]]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-22-1.png" width="432" /&gt;
+]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5fbbef4e" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Think pair share: `hist()`
+
+Make plots using the `birds` data frame to answer these questions
+
+- Which months have the highest and lowest number of bird impacts in the dataset?
+- Which aircrafts experience more impacts: 2-engine, 3-engine, or 4-engine?
+- At what height do most impacts occur?
+
+**Bonus points**: Make your plots pretty
+
+---
+
+
+class: inverse, middle
+
+# Week 13: .fancy[Data Visualization]
+
+## 1. Plotting with Base R
+## 2. .orange[Plotting with **ggplot2**]
+## 3. Tweaking your ggplot
+
+---
+class: center
+## Advanced figures with `ggplot2`
+
+&lt;center&gt;
+&lt;img src="images/horst_monsters_ggplot2.png" width=650&gt;
+&lt;/center&gt;
+
+---
+.leftcol[
+&lt;img src="images/making_a_ggplot.jpeg" width=600&gt;
+]
+.rightcol[
+# "Grammar of Graphics"
+
+Concept developed by Leland Wilkinson (1999)
+
+**ggplot2** package developed by Hadley Wickham (2005)
+]
+
+---
+# Making plot layers with ggplot2
+
+&lt;br&gt;
+### 1. The data (we'll use `bears`)
+### 2. The aesthetic mapping (what goes on the axes?)
+### 3. The geometries (points? bars? etc.)
+
+---
+# Layer 1: The data
+
+The `ggplot()` function initializes the plot with whatever data you're using
+
+.leftcol[
+
+```r
+ggplot(data = bears)
+```
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-24-1.png" width="504" /&gt;
+]]
+
+---
+# Layer 2: The aesthetic mapping
+
+The `aes()` function determines which variables will be _mapped_ to the geometries&lt;br&gt;(e.g. the axes)
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age))
+```
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-25-1.png" width="504" /&gt;
+]]
+
+---
+# Layer 3: The geometries
+
+Use `+` to add geometries (e.g. points)
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+*   geom_point()
+```
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-26-1.png" width="504" /&gt;
+]]
+
+---
+# Other common geometries
+
+- `geom_point()`: scatter plots
+- `geom_line()`: lines connecting data points
+- `geom_col()`: bar charts
+- `geom_boxplot()`: boxes for boxplots
+
+---
+# Scatterplots with `geom_point()`
+
+Add points:
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+*   geom_point()
+```
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-27-1.png" width="504" /&gt;
+]]
+
+---
+# Scatterplots with `geom_point()`
+
+Change the color of all points:
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+*   geom_point(color = 'blue')
+```
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-28-1.png" width="504" /&gt;
+]]
+
+---
+# Scatterplots with `geom_point()`
+
+Map the point color to a **variable**:
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+*   geom_point(aes(color = gender))
+```
+Note that `color = gender` is _inside_ `aes()`
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-29-1.png" width="504" /&gt;
+]]
+
+---
+# Scatterplots with `geom_point()`
+
+Adjust labels with `labs()` layer:
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point(aes(color = gender)) +
+*   labs(x = "Year",
+*        y = "Age",
+*        title = "Bear victim age over time",
+*        color = "Gender")
+```
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-30-1.png" width="504" /&gt;
+]]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5fbbed9a" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Think pair share: `geom_point()`
+
+Use the `birds` data frame to create the following plots
+
+.leftcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/ggpoint_p1-1.png" width="504" /&gt;
+]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/ggpoint_p2-1.png" width="504" /&gt;
+]
+
+---
+class: inverse, center
+
+# .fancy[Break]
+
+<div class="countdown" id="timer_5fbbec8e" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+---
+
+## Make bar charts with `geom_col()`
+
+With bar charts, you'll often need to create summary variables to plot
+
+--
+.leftcol[
+Step 1: Summarize the data
+
+```r
+bear_months &lt;- bears %&gt;%
+* count(month)
+```
+
+Step 2: Make the plot
+
+
+```r
+ggplot(bear_months) +
+* geom_col(aes(x = month, y = n))
+```
+]
+.rightcol[
+Example: count of attacks by month
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-33-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Make bar charts with `geom_col()`
+
+Alternative approach: piping directly into ggplot
+.leftcol[
+
+```r
+bears %&gt;%
+* count(month) %&gt;%  # Pipe into ggplot
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-34-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+## Be careful with `geom_col()` vs. `geom_bar()`
+
+.leftcol[
+### .center[`geom_col()`]
+
+Map both `x` and `y`
+
+
+```r
+bears %&gt;%
+* count(month) %&gt;%
+  ggplot() +
+* geom_col(aes(x = month, y = n))
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-35-1.png" width="288" /&gt;
+]
+.rightcol[
+### .center[`geom_bar()`]
+
+Only map `x` (`y` is computed)
+
+
+```r
+bears %&gt;%
+  ggplot() +
+* geom_bar(aes(x = month))
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-36-1.png" width="288" /&gt;
+]
+
+---
+## Make bar charts with `geom_col()`
+
+.leftcol[
+Another example:&lt;br&gt;Mean age of victim in each year
+
+
+```r
+bears %&gt;%
+  filter(!is.na(age)) %&gt;%
+  group_by(year) %&gt;%
+* summarise(meanAge = mean(age)) %&gt;%
+  ggplot() +
+* geom_col(aes(x = year, y = meanAge))
+```
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-37-1.png" width="504" /&gt;
+]]
+
+---
+### Change bar width:  `width`
+### Change bar color: `fill`
+### Change bar outline: `color`
+
+.leftcol[
+
+```r
+bears %&gt;%
+  count(month) %&gt;%
+  ggplot() +
+  geom_col(aes(x = month, y = n),
+*          width = 0.7,
+*          fill = "blue",
+*          color = "red")
+```
+]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-38-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+### Map the `fill` to `bearType`
+
+.leftcol[.code70[
+
+```r
+bears %&gt;%
+* count(month, bearType) %&gt;%
+  ggplot() +
+  geom_col(aes(x = month, y = n,
+*              fill = bearType))
+```
+]
+
+Note that I had to summarize the count by both `month` and `bearType`
+
+.code70[
+
+```r
+bears %&gt;%
+  count(month, bearType)
+```
+]
+.code60[
+
+```
+## # A tibble: 27 x 3
+##    month bearType     n
+##    &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt;
+##  1     1 Brown        1
+##  2     1 Polar        2
+##  3     2 Brown        1
+##  4     3 Brown        1
+##  5     4 Black        1
+##  6     4 Brown        3
+##  7     5 Black       15
+##  8     5 Brown        2
+##  9     5 Polar        1
+## 10     6 Black       10
+## # … with 17 more rows
+```
+]]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-41-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+# "Factors" = Categorical variables
+
+By default, R makes numeric variables _continuous_
+
+.leftcol[
+
+```r
+bears %&gt;%
+  count(month) %&gt;%
+  ggplot() +
+  geom_col(aes(x = month, y = n)) 
+```
+**The variable `month` is a _number_**
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-43-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+# "Factors" = Categorical variables
+
+You can make a continuous variable _categorical_ using `as.factor()`
+
+.leftcol[.code80[
+
+```r
+bears %&gt;%
+  count(month) %&gt;%
+  ggplot() +
+* geom_col(aes(x = as.factor(month),
+               y = n)) 
+```
+]
+
+**The variable `month` is a _factor_**
+]
+.rightcol[.blackborder[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-44-1.png" width="504" /&gt;
+]]
+
+---
+class: inverse
+
+<div class="countdown" id="timer_5fbbee03" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<code class="countdown-time"><span class="countdown-digits minutes">15</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+
+## Think pair share: `geom_col()`
+
+Use the `bears` and `birds` data frame to create the following plots
+
+.leftcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/ggbar_p1-1.png" width="504" /&gt;
+]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/ggbar_p2-1.png" width="504" /&gt;
+]
+
+---
+
+class: inverse, middle
+
+# Week 13: .fancy[Data Visualization]
+
+## 1. Plotting with Base R
+## 2. Plotting with **ggplot2**
+## 3. .orange[Tweaking your ggplot]
+
+---
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+--
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point()
+```
+]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-46-1.png" width="504" /&gt;
+]
+
+---
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_bw()
+```
+]
+.rightcol[
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-47-1.png" width="504" /&gt;
+]
+
+---
+### Common themes
+
+.leftcol[
+`theme_bw()`
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_bw()
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-48-1.png" width="432" /&gt;
+]
+.rightcol[
+`theme_minimal()`
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_minimal()
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-49-1.png" width="432" /&gt;
+]
+
+---
+### Common themes
+
+.leftcol[
+`theme_classic()`
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_classic()
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-50-1.png" width="432" /&gt;
+]
+.rightcol[
+`theme_void()`
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_void()
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-51-1.png" width="432" /&gt;
+]
+
+---
+### Other themes: [**hrbrthemes**](https://github.com/hrbrmstr/hrbrthemes)
+
+.leftcol[
+
+```r
+*library(hrbrthemes)
+
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_ipsum()
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-52-1.png" width="432" /&gt;
+]
+.rightcol[
+
+```r
+*library(hrbrthemes)
+
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_ft_rc()
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-53-1.png" width="432" /&gt;
+]
+
+---
+### Other themes: **ggthemes**
+
+.leftcol[
+
+```r
+*library(ggthemes)
+
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_economist()
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-54-1.png" width="432" /&gt;
+]
+.rightcol[
+
+```r
+*library(ggthemes)
+
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_economist_white()
+```
+
+&lt;img src="slides-13-data-visualization_files/figure-html/unnamed-chunk-55-1.png" width="432" /&gt;
+]
+
+---
+# Save figures with `ggsave()`
+
+--
+First, assign the plot to an object name:
+
+```r
+scatterPlot &lt;- ggplot(data = bears) +
+    geom_point(aes(x = year, y = age))
+```
+
+--
+Then use `ggsave()` to save the plot:
+
+```r
+ggsave(filename = here('plots', 'scatterPlot.png'),
+       plot   = scatterPlot,
+       width  = 6, # inches
+       height = 4)
+```
+
+---
+class: inverse
+
+# Extra practice 1
+
+Use the `mtcars` data frame to create the following plots
+
+.cols3[
+&lt;img src="slides-13-data-visualization_files/figure-html/mtcars_1-1.png" width="324" /&gt;
+]
+.cols3[
+&lt;img src="slides-13-data-visualization_files/figure-html/mtcars_2-1.png" width="324" /&gt;
+]
+.cols3[
+&lt;img src="slides-13-data-visualization_files/figure-html/mtcars_3-1.png" width="324" /&gt;
+]
+
+---
+class: inverse
+
+# Extra practice 2
+
+Use the `mpg` data frame to create the following plot
+
+&lt;img src="slides-13-data-visualization_files/figure-html/mtcars_4-1.png" width="576" /&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

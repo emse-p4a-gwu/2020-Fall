@@ -1,0 +1,196 @@
+
+class: inverse, middle
+
+# Week 13: .fancy[Data Visualization]
+
+## 1. Plotting with Base R
+## 2. .orange[Plotting with **ggplot2**]
+## 3. Tweaking your ggplot
+
+---
+class: center
+## Advanced figures with `ggplot2`
+
+<center>
+<img src="images/horst_monsters_ggplot2.png" width=650>
+</center>
+
+---
+.leftcol[
+<img src="images/making_a_ggplot.jpeg" width=600>
+]
+.rightcol[
+# "Grammar of Graphics"
+
+Concept developed by Leland Wilkinson (1999)
+
+**ggplot2** package developed by Hadley Wickham (2005)
+]
+
+---
+# Making plot layers with ggplot2
+
+<br>
+### 1. The data (we'll use `bears`)
+### 2. The aesthetic mapping (what goes on the axes?)
+### 3. The geometries (points? bars? etc.)
+
+---
+# Layer 1: The data
+
+The `ggplot()` function initializes the plot with whatever data you're using
+
+.leftcol[
+```{r ggblank, fig.show='hide'}
+ggplot(data = bears)
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggblank', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+# Layer 2: The aesthetic mapping
+
+The `aes()` function determines which variables will be _mapped_ to the geometries<br>(e.g. the axes)
+
+.leftcol[
+```{r ggaes, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age))
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggaes', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+# Layer 3: The geometries
+
+Use `+` to add geometries (e.g. points)
+
+.leftcol[
+```{r ggpoint, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggpoint', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+# Other common geometries
+
+- `geom_point()`: scatter plots
+- `geom_line()`: lines connecting data points
+- `geom_col()`: bar charts
+- `geom_boxplot()`: boxes for boxplots
+
+---
+# Scatterplots with `geom_point()`
+
+Add points:
+
+.leftcol[
+```{r ggbears, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggbears', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+# Scatterplots with `geom_point()`
+
+Change the color of all points:
+
+.leftcol[
+```{r ggbearsblue, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point(color = 'blue') #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggbearsblue', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+# Scatterplots with `geom_point()`
+
+Map the point color to a **variable**:
+
+.leftcol[
+```{r ggbearsage, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point(aes(color = gender)) #<<
+```
+Note that `color = gender` is _inside_ `aes()`
+]
+.rightcol[.blackborder[
+```{r ref.label='ggbearsage', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+# Scatterplots with `geom_point()`
+
+Adjust labels with `labs()` layer:
+
+.leftcol[
+```{r ggbearsagelabs, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point(aes(color = gender)) +
+    labs(x = "Year", #<<
+         y = "Age",  #<<
+         title = "Bear victim age over time", #<<
+         color = "Gender") #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggbearsagelabs', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 10,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think pair share: `geom_point()`
+
+Use the `birds` data frame to create the following plots
+
+.leftcol[
+```{r, ggpoint_p1, echo=FALSE, fig.height=5, fig.width=7}
+ggplot(birds, aes(x=cost_repairs_infl_adj, y=height)) +
+  geom_point()
+```
+]
+.rightcol[
+```{r, ggpoint_p2, echo=FALSE, fig.height=5, fig.width=7}
+birds %>%
+  mutate(phase_of_flt = str_to_lower(phase_of_flt)) %>%
+  ggplot(aes(x=speed, y=height)) +
+  geom_point(aes(color = phase_of_flt))
+```
+]
