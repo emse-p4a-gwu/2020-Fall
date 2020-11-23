@@ -1,0 +1,225 @@
+## Make bar charts with `geom_col()`
+
+With bar charts, you'll often need to create summary variables to plot
+
+--
+.leftcol[
+Step 1: Summarize the data
+```{r}
+bear_months <- bears %>%
+  count(month) #<<
+```
+
+Step 2: Make the plot
+
+```{r bears_geom_col, fig.show='hide'}
+ggplot(bear_months) +
+  geom_col(aes(x = month, y = n)) #<<
+```
+]
+.rightcol[
+Example: count of attacks by month
+```{r ref.label='bears_geom_col', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+## Make bar charts with `geom_col()`
+
+Alternative approach: piping directly into ggplot
+.leftcol[
+```{r bears_geom_col_pipe, fig.show='hide'}
+bears %>%
+  count(month) %>%  # Pipe into ggplot #<<
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+]
+.rightcol[
+```{r ref.label='bears_geom_col_pipe', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+## Be careful with `geom_col()` vs. `geom_bar()`
+
+.leftcol[
+### .center[`geom_col()`]
+
+Map both `x` and `y`
+
+```{r, fig.height=3, fig.width=4}
+bears %>%
+  count(month) %>% #<<
+  ggplot() +
+  geom_col(aes(x = month, y = n)) #<<
+```
+]
+.rightcol[
+### .center[`geom_bar()`]
+
+Only map `x` (`y` is computed)
+
+```{r, fig.height=3, fig.width=4}
+bears %>%
+  ggplot() +
+  geom_bar(aes(x = month)) #<<
+```
+]
+
+---
+## Make bar charts with `geom_col()`
+
+.leftcol[
+Another example:<br>Mean age of victim in each year
+
+```{r bears_mean_age, fig.show='hide'}
+bears %>%
+  filter(!is.na(age)) %>%
+  group_by(year) %>%
+  summarise(meanAge = mean(age)) %>% #<<
+  ggplot() +
+  geom_col(aes(x = year, y = meanAge)) #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='bears_mean_age', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+### Change bar width:  `width`
+### Change bar color: `fill`
+### Change bar outline: `color`
+
+.leftcol[
+```{r bears_geom_col_colors, fig.show='hide'}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(aes(x = month, y = n),
+           width = 0.7, #<<
+           fill = "blue", #<<
+           color = "red") #<<
+```
+]
+.rightcol[
+```{r ref.label='bears_geom_col_colors', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+### Map the `fill` to `bearType`
+
+.leftcol[.code70[
+```{r bears_geom_col_fill, fig.show='hide'}
+bears %>%
+  count(month, bearType) %>% #<<
+  ggplot() +
+  geom_col(aes(x = month, y = n,
+               fill = bearType)) #<<
+```
+]
+
+Note that I had to summarize the count by both `month` and `bearType`
+
+.code70[
+```{r, eval=FALSE}
+bears %>%
+  count(month, bearType)
+```
+]
+.code60[
+```{r, echo=FALSE}
+bears %>%
+  count(month, bearType) %>%
+  arrange(month, bearType)
+```
+]]
+.rightcol[
+```{r ref.label='bears_geom_col_fill', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+# "Factors" = Categorical variables
+
+By default, R makes numeric variables _continuous_
+
+.leftcol[
+```{r, eval=FALSE}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(aes(x = month, y = n)) 
+```
+**The variable `month` is a _number_**
+]
+.rightcol[.blackborder[
+```{r ref.label='bears_geom_col_pipe', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]]
+
+---
+# "Factors" = Categorical variables
+
+You can make a continuous variable _categorical_ using `as.factor()`
+
+.leftcol[.code80[
+```{r bears_geom_col_factor, fig.show='hide'}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(aes(x = as.factor(month), #<<
+               y = n)) 
+```
+]
+
+**The variable `month` is a _factor_**
+]
+.rightcol[.blackborder[
+```{r ref.label='bears_geom_col_factor', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+class: inverse
+
+```{r, echo=FALSE}
+countdown(minutes = 15,
+          warn_when = 30,
+          update_every = 1,
+          top = 0,
+          right = 0,
+          font_size = '2em')
+```
+
+## Think pair share: `geom_col()`
+
+Use the `bears` and `birds` data frame to create the following plots
+
+.leftcol[
+```{r, ggbar_p1, echo=FALSE, fig.height=5, fig.width=7}
+bears %>% 
+  count(year, gender) %>% 
+  ggplot() +
+  geom_col(aes(x = year, y = n, fill = gender)) +
+  labs(x     = "Year",
+       y     = 'Number of killings',
+       fill  = "Victim gender",
+       title = "Annual deadly bear attacks over time")
+```
+]
+.rightcol[
+```{r, ggbar_p2, echo=FALSE, fig.height=5, fig.width=7}
+birds %>%
+  filter(!is.na(cost_repairs_infl_adj)) %>%
+  group_by(incident_year) %>%
+  summarise(maxCost = max(cost_repairs_infl_adj)) %>% 
+  ggplot() +
+  geom_col(aes(x = incident_year, y = maxCost)) +
+  labs(x     = "Year",
+       y     = 'Maximum cost ($)',
+       title = "Max annual cost from wildlife impact")
+```
+]

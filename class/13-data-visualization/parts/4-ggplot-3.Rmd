@@ -1,0 +1,213 @@
+class: inverse, middle
+
+# Week 13: .fancy[Data Visualization]
+
+## 1. Plotting with Base R
+## 2. Plotting with **ggplot2**
+## 3. .orange[Tweaking your ggplot]
+
+---
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+--
+.leftcol[
+```{r ggbears_basic, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point()
+```
+]
+.rightcol[
+```{r ref.label='ggbears_basic', echo=FALSE, fig.height=5, fig.width=7}
+```
+]
+
+---
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+.leftcol[
+```{r ggbears_theme, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_bw() #<<
+```
+]
+.rightcol[
+```{r ref.label='ggbears_theme', echo=FALSE, fig.height=5, fig.width=7}
+```
+]
+
+---
+### Common themes
+
+.leftcol[
+`theme_bw()`
+```{r, fig.height=4, fig.width=6}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_bw() #<<
+```
+]
+.rightcol[
+`theme_minimal()`
+```{r, fig.height=4, fig.width=6}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_minimal() #<<
+```
+]
+
+---
+### Common themes
+
+.leftcol[
+`theme_classic()`
+```{r, fig.height=4, fig.width=6}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_classic() #<<
+```
+]
+.rightcol[
+`theme_void()`
+```{r, fig.height=4, fig.width=6}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_void() #<<
+```
+]
+
+---
+### Other themes: [**hrbrthemes**](https://github.com/hrbrmstr/hrbrthemes)
+
+.leftcol[
+```{r, fig.height=4, fig.width=6}
+library(hrbrthemes) #<<
+
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_ipsum() #<<
+```
+]
+.rightcol[
+```{r, fig.height=4, fig.width=6}
+library(hrbrthemes) #<<
+
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_ft_rc() #<<
+```
+]
+
+---
+### Other themes: **ggthemes**
+
+.leftcol[
+```{r, fig.height=4, fig.width=6}
+library(ggthemes) #<<
+
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_economist() #<<
+```
+]
+.rightcol[
+```{r, fig.height=4, fig.width=6}
+library(ggthemes) #<<
+
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_economist_white() #<<
+```
+]
+
+---
+# Save figures with `ggsave()`
+
+--
+First, assign the plot to an object name:
+```{r, eval=FALSE}
+scatterPlot <- ggplot(data = bears) +
+    geom_point(aes(x = year, y = age))
+```
+
+--
+Then use `ggsave()` to save the plot:
+```{r, eval=FALSE}
+ggsave(filename = here('plots', 'scatterPlot.png'),
+       plot   = scatterPlot,
+       width  = 6, # inches
+       height = 4)
+```
+
+---
+class: inverse
+
+# Extra practice 1
+
+Use the `mtcars` data frame to create the following plots
+
+.cols3[
+```{r, mtcars_1, echo=FALSE, fig.height=4, fig.width=4.5}
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Weight",
+         y = 'Fuel Economy (mpg)')
+```
+]
+.cols3[
+```{r, mtcars_2, echo=FALSE, fig.height=4, fig.width=4.5}
+ggplot(mtcars, aes(x=hp, y=mpg)) +
+    geom_point(aes(color=as.factor(cyl))) +
+    theme_bw() +
+    labs(x = "Horsepower (hp)",
+         y = 'Fuel Economy (mpg)',
+         color = 'Num. Cylinders')
+```
+]
+.cols3[
+```{r, mtcars_3, echo=FALSE, fig.height=4, fig.width=4.5}
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(meanMpg = mean(mpg)) %>%
+  ggplot(aes(x=cyl, y=meanMpg)) +
+    geom_bar(stat = 'identity') +
+    labs(x = "Num. Cylinders",
+         y = 'Mean Fuel Economy (mpg)')
+```
+]
+
+---
+class: inverse
+
+# Extra practice 2
+
+Use the `mpg` data frame to create the following plot
+
+```{r, mtcars_4, echo=FALSE, fig.height=6, fig.width=8}
+mpg %>%
+    mutate(manufacturer = str_to_title(manufacturer)) %>%
+    group_by(manufacturer) %>%
+    summarise(meanHwy = mean(hwy)) %>%
+    mutate(manufacturer = fct_reorder(manufacturer, meanHwy)) %>%
+    ggplot(aes(x=manufacturer, y=meanHwy)) +
+    geom_bar(stat='identity') +
+    coord_flip() +
+    labs(
+        x='Vehicle manufacturer',
+        y='Highway fuel economy (mpg)')
+```
