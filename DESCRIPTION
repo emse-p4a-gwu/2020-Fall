@@ -40,10 +40,13 @@ Imports:
     rmarkdown,
     fontawesome,
     palmerpenguins,
-    kableExtra
+    kableExtra,
+    emo
 Remotes:
     jhelvy/rmarkdown,
     allisonhorst/palmerpenguins,
     rstudio/fontawesome,
     haozhu233/kableExtra,
-    hrbrmstr/hrbrthemes
+    hadley/emo,
+    hrbrmstr/hrbrthemes,
+    jrnold/ggthemes
