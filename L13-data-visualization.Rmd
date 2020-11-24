@@ -283,20 +283,29 @@ ggplot(data = df) +
 
 There are LOTS of other themes from external packages as well. Some of my favorites are `theme_ipsum()` and `theme_ft_rc()` from the [**hrbrthemes**](https://github.com/hrbrmstr/hrbrthemes) package:
 
-```{r, fig.height=4, fig.width=6}
+```{r, eval=FALSE}
 library(hrbrthemes)
 
 ggplot(data = df) +
     geom_point(aes(x = year, y = age)) +
     theme_ipsum()
 ```
-```{r, fig.height=4, fig.width=6}
+
+<center>
+<img src="images/hrbrthemes_theme_ipsum.png" width=600>
+</center>
+
+```{r, eval=FALSE}
 library(hrbrthemes)
 
 ggplot(data = df) +
     geom_point(aes(x = year, y = age)) +
     theme_ft_rc()
 ```
+
+<center>
+<img src="images/hrbrthemes_theme_ft_rc.png" width=600>
+</center>
 
 Want to make a plot look fancy like those in the Economist magazine? Try `theme_economist()` from the [ggthemes](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) library:
 
