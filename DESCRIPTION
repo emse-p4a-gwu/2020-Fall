@@ -30,6 +30,8 @@ Imports:
     cowplot,
     janitor,
     GGally,
+    ggthemes,
+    hrbrthemes,
     HistData,
     shiny,
     shinythemes,
