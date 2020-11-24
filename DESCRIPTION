@@ -45,4 +45,5 @@ Remotes:
     jhelvy/rmarkdown,
     allisonhorst/palmerpenguins,
     rstudio/fontawesome,
-    haozhu233/kableExtra
+    haozhu233/kableExtra,
+    hrbrmstr/hrbrthemes
