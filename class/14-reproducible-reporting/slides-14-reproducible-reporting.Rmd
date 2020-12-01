@@ -5,7 +5,7 @@ author: "John Paul Helveston"
 date: December 01, 2020
 output:
   xaringan::moon_reader:
-    css: "assets/lexis.css"
+    css: ["default", "css/lexis.css", "css/lexis-fonts.css"]
     seal: false
     lib_dir: libs
     nature:
@@ -13,8 +13,6 @@ output:
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-    includes:
-      in_header: assets/header.html
 ---
 
 ```{r setup, include=FALSE}
@@ -690,7 +688,7 @@ Simple **url link** to another site:
 
 .leftcol70[.code80[
 ```markdown
-![](https://p4a.seas.gwu.edu/images/p4a_hex_sticker.png)
+![](https://p4a.seas.gwu.edu/2020-Fall/images/helveston.jpg)
 ```
 ]]
 .rightcol30[
@@ -1484,7 +1482,7 @@ countdown(minutes = 15,
           font_size = '2em')
 ```
 
-## Think pair share 1: College Majors
+## Think pair share 2: College Majors
 
 .font90[
 1) Create a new R Markdown file (`.Rmd`) in RStudio - title it _"College Majors Analysis"_
