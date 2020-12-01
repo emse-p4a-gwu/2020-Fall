@@ -1493,8 +1493,9 @@ countdown(minutes = 15,
 
 3) Use text, code, and plots to find answers each of the following questions - show your code and results to justify each answer:
 
-- What categories of majors make more money than others?
-- What categories of majors have the best employment rate?
-- What are the highest earning majors?
+- What are the highest earning engineering majors?
+- Within the engineering majors, which ones have better employment rates?
 - Within the engineering majors, which ones have a better gender balance?
+
+(Use good code chunk names for your figures!)
 ]
