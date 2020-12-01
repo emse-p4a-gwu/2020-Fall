@@ -960,14 +960,13 @@ monthlyCount
 ]
 
 --
-.rightcol[
-
+.rightcol[.code80[
 ```{r}
 monthlyCount <- bears %>%
   count(month)
 monthlyCount
 ```
-]
+]]
 
 ---
 
@@ -1488,7 +1487,7 @@ countdown(minutes = 15,
 ## Think pair share 1: College Majors
 
 .font90[
-1) Create a new R Markdown file (`.Rmd`) in RStudio - title it _"Birds and Bears Analysis"_
+1) Create a new R Markdown file (`.Rmd`) in RStudio - title it _"College Majors Analysis"_
 
 2) Create a "setup" code chunk to load the `tidyverse` library and the `recent_grads.csv` file.
 
