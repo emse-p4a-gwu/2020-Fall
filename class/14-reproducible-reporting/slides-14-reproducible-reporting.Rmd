@@ -5,15 +5,16 @@ author: "John Paul Helveston"
 date: December 01, 2020
 output:
   xaringan::moon_reader:
-    css: 'https://emse-p4a-gwu.github.io/2020-Fall/class/class.css'
+    css: "assets/lexis.css"
+    seal: false
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-      beforeInit: "https://platform.twitter.com/widgets.js"
-    seal: false
+    includes:
+      in_header: assets/header.html
 ---
 
 ```{r setup, include=FALSE}
@@ -266,6 +267,19 @@ background-size: contain
 ???
 
 And we have this nice table of contents floating off to the side...
+
+---
+class: center
+
+## Preview bootswatch themes
+
+.noborder[
+```{r echo=FALSE, out.width="55%", fig.align='center', fig.link="https://bootswatch.com/default/"}
+knitr::include_graphics("images/bootswatch.png")
+```
+]
+
+https://bootswatch.com/
 
 ---
 class: inverse
@@ -1388,7 +1402,7 @@ class: inverse, middle
 
 # Two more important chunks:
 
-- ## Images 
+- ## Images
 - ## Tables
 
 ---
