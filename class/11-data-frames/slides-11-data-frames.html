@@ -5,11 +5,13 @@
     <meta charset="utf-8" />
     <meta name="author" content="John Paul Helveston" />
     <meta name="date" content="2020-11-10" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
     <script src="libs/tile-view/tile-view.js"></script>
     <link href="libs/countdown/countdown.css" rel="stylesheet" />
     <script src="libs/countdown/countdown.js"></script>
-    <link rel="stylesheet" href="https://emse-p4a-gwu.github.io/2020-Fall/class/class.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -39,7 +41,7 @@ class: inverse
 
 # Quiz 5
 
-<div class="countdown" id="timer_5faaa5b1" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
+<div class="countdown" id="timer_5fc810eb" style="bottom:0;left:0;font-size:4em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -490,7 +492,7 @@ Note how `&lt;NA&gt;`s were created
 
 ---
 
-<div class="countdown" id="timer_5faaa578" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_5fc811aa" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">03</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -594,12 +596,18 @@ beatles
 
 ```
 ## # A tibble: 4 x 8
-##   firstName lastName  instrument yearOfBirth deceased hometown  alive   age
-##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;     &lt;lgl&gt; &lt;dbl&gt;
-## 1 John      Lennon    guitar            1940 TRUE     Liverpool FALSE    80
-## 2 Paul      McCartney bass              1942 FALSE    Liverpool TRUE     78
-## 3 Ringo     Starr     drums             1940 FALSE    Liverpool TRUE     80
-## 4 George    Harrison  guitar            1943 TRUE     Liverpool FALSE    77
+##   firstName lastName  instrument yearOfBirth deceased hometown  alive
+##   &lt;chr&gt;     &lt;chr&gt;     &lt;chr&gt;            &lt;dbl&gt; &lt;lgl&gt;    &lt;chr&gt;     &lt;lgl&gt;
+## 1 John      Lennon    guitar            1940 TRUE     Liverpool FALSE
+## 2 Paul      McCartney bass              1942 FALSE    Liverpool TRUE 
+## 3 Ringo     Starr     drums             1940 FALSE    Liverpool TRUE 
+## 4 George    Harrison  guitar            1943 TRUE     Liverpool FALSE
+##     age
+##   &lt;dbl&gt;
+## 1    80
+## 2    78
+## 3    80
+## 4    77
 ```
 
 ---
@@ -782,7 +790,7 @@ beatles[beatles$deceased == FALSE,]
 ---
 class: inverse
 
-<div class="countdown" id="timer_5faaa503" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_5fc811c8" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -801,7 +809,7 @@ class: inverse, center
 
 # .fancy[Break]
 
-<div class="countdown" id="timer_5faaa282" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
+<div class="countdown" id="timer_5fc80f2d" style="top:1;right:0;bottom:0;left:0;margin:5%;font-size:8em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -897,17 +905,17 @@ glimpse(msleep)
 ```
 ## Rows: 83
 ## Columns: 11
-## $ name         &lt;chr&gt; "Cheetah", "Owl monkey", "Mountain beaver", "Greater sho…
-## $ genus        &lt;chr&gt; "Acinonyx", "Aotus", "Aplodontia", "Blarina", "Bos", "Br…
-## $ vore         &lt;chr&gt; "carni", "omni", "herbi", "omni", "herbi", "herbi", "car…
-## $ order        &lt;chr&gt; "Carnivora", "Primates", "Rodentia", "Soricomorpha", "Ar…
-## $ conservation &lt;chr&gt; "lc", NA, "nt", "lc", "domesticated", NA, "vu", NA, "dom…
-## $ sleep_total  &lt;dbl&gt; 12.1, 17.0, 14.4, 14.9, 4.0, 14.4, 8.7, 7.0, 10.1, 3.0, …
-## $ sleep_rem    &lt;dbl&gt; NA, 1.8, 2.4, 2.3, 0.7, 2.2, 1.4, NA, 2.9, NA, 0.6, 0.8,…
-## $ sleep_cycle  &lt;dbl&gt; NA, NA, NA, 0.1333333, 0.6666667, 0.7666667, 0.3833333, …
-## $ awake        &lt;dbl&gt; 11.9, 7.0, 9.6, 9.1, 20.0, 9.6, 15.3, 17.0, 13.9, 21.0, …
-## $ brainwt      &lt;dbl&gt; NA, 0.01550, NA, 0.00029, 0.42300, NA, NA, NA, 0.07000, …
-## $ bodywt       &lt;dbl&gt; 50.000, 0.480, 1.350, 0.019, 600.000, 3.850, 20.490, 0.0…
+## $ name         &lt;chr&gt; "Cheetah", "Owl monkey", "Mountain beaver", "Grea…
+## $ genus        &lt;chr&gt; "Acinonyx", "Aotus", "Aplodontia", "Blarina", "Bo…
+## $ vore         &lt;chr&gt; "carni", "omni", "herbi", "omni", "herbi", "herbi…
+## $ order        &lt;chr&gt; "Carnivora", "Primates", "Rodentia", "Soricomorph…
+## $ conservation &lt;chr&gt; "lc", NA, "nt", "lc", "domesticated", NA, "vu", N…
+## $ sleep_total  &lt;dbl&gt; 12.1, 17.0, 14.4, 14.9, 4.0, 14.4, 8.7, 7.0, 10.1…
+## $ sleep_rem    &lt;dbl&gt; NA, 1.8, 2.4, 2.3, 0.7, 2.2, 1.4, NA, 2.9, NA, 0.…
+## $ sleep_cycle  &lt;dbl&gt; NA, NA, NA, 0.1333333, 0.6666667, 0.7666667, 0.38…
+## $ awake        &lt;dbl&gt; 11.9, 7.0, 9.6, 9.1, 20.0, 9.6, 15.3, 17.0, 13.9,…
+## $ brainwt      &lt;dbl&gt; NA, 0.01550, NA, 0.00029, 0.42300, NA, NA, NA, 0.…
+## $ bodywt       &lt;dbl&gt; 50.000, 0.480, 1.350, 0.019, 600.000, 3.850, 20.4…
 ```
 ]
 
@@ -952,22 +960,22 @@ tail(msleep)
 
 ```
 ## # A tibble: 6 x 11
-##   name                 genus    vore  order        conservation sleep_total
-##   &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;              &lt;dbl&gt;
-## 1 Tenrec               Tenrec   omni  Afrosoricida &lt;NA&gt;                15.6
-## 2 Tree shrew           Tupaia   omni  Scandentia   &lt;NA&gt;                 8.9
-## 3 Bottle-nosed dolphin Tursiops carni Cetacea      &lt;NA&gt;                 5.2
-## 4 Genet                Genetta  carni Carnivora    &lt;NA&gt;                 6.3
-## 5 Arctic fox           Vulpes   carni Carnivora    &lt;NA&gt;                12.5
-## 6 Red fox              Vulpes   carni Carnivora    &lt;NA&gt;                 9.8
-##   sleep_rem sleep_cycle awake brainwt  bodywt
-##       &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
-## 1       2.3      NA       8.4  0.0026   0.9  
-## 2       2.6       0.233  15.1  0.0025   0.104
-## 3      NA        NA      18.8 NA      173.   
-## 4       1.3      NA      17.7  0.0175   2    
-## 5      NA        NA      11.5  0.0445   3.38 
-## 6       2.4       0.35   14.2  0.0504   4.23
+##   name                 genus    vore  order        conservation
+##   &lt;chr&gt;                &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;       
+## 1 Tenrec               Tenrec   omni  Afrosoricida &lt;NA&gt;        
+## 2 Tree shrew           Tupaia   omni  Scandentia   &lt;NA&gt;        
+## 3 Bottle-nosed dolphin Tursiops carni Cetacea      &lt;NA&gt;        
+## 4 Genet                Genetta  carni Carnivora    &lt;NA&gt;        
+## 5 Arctic fox           Vulpes   carni Carnivora    &lt;NA&gt;        
+## 6 Red fox              Vulpes   carni Carnivora    &lt;NA&gt;        
+##   sleep_total sleep_rem sleep_cycle awake brainwt  bodywt
+##         &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1        15.6       2.3      NA       8.4  0.0026   0.9  
+## 2         8.9       2.6       0.233  15.1  0.0025   0.104
+## 3         5.2      NA        NA      18.8 NA      173.   
+## 4         6.3       1.3      NA      17.7  0.0175   2    
+## 5        12.5      NA        NA      11.5  0.0445   3.38 
+## 6         9.8       2.4       0.35   14.2  0.0504   4.23
 ```
 ]]
 
@@ -1063,7 +1071,7 @@ class: center
 
 ```r
 pathToData &lt;- here('data', 'data.csv')
-*wildlife_impacts &lt;- read_csv(pathToData)
+*df &lt;- read_csv(pathToData)
 ```
 
 **Important**: Note the use of `read_csv()` instead of `read.csv()`
@@ -1073,7 +1081,7 @@ I recommend `read_csv()`...it is usually more robust
 ---
 class: inverse
 
-<div class="countdown" id="timer_5faaa5b0" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
+<div class="countdown" id="timer_5fc811c3" style="top:0;right:0;font-size:2em;" data-warnwhen="30">
 <code class="countdown-time"><span class="countdown-digits minutes">10</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
 
@@ -1097,8 +1105,8 @@ class: center
 ## Next week: better data wrangling with **dplyr**
 
 &lt;center&gt;
-&lt;img src="images/horst_monsters_data_wrangling.png" width="650"&gt;
-&lt;/center&gt;
+&lt;img src="images/horst_monsters_data_wrangling.png" width="600"&gt;
+&lt;/center&gt;Art by [Allison Horst](https://www.allisonhorst.com/)
 
 ---
 # Select rows with `filter()`
@@ -1156,7 +1164,6 @@ filter(beatles, deceased == FALSE)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script src="https://platform.twitter.com/widgets.js"></script>
 <script>var slideshow = remark.create({
 "highlightStyle": "github",
 "highlightLines": true,

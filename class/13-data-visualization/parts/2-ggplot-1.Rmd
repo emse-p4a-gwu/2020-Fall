@@ -12,8 +12,8 @@ class: center
 ## Advanced figures with `ggplot2`
 
 <center>
-<img src="images/horst_monsters_ggplot2.png" width=650>
-</center>
+<img src="images/horst_monsters_ggplot2.png" width=600>
+</center>Art by [Allison Horst](https://www.allisonhorst.com/)
 
 ---
 .leftcol[

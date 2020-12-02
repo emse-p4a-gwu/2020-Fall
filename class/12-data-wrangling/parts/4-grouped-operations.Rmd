@@ -40,7 +40,7 @@ Compute the mean band member age for **each band**
 ```{r}
 bands %>%
     mutate(
-        age = 2019 - yearOfBirth,
+        age = 2020 - yearOfBirth,
         mean_age = mean(age)) # This is the mean across both bands #<<
 ```
 
@@ -50,7 +50,7 @@ bands %>%
 Compute the mean band member age for each band
 ```{r}
 bands %>%
-    mutate(age = 2019 - yearOfBirth) %>%
+    mutate(age = 2020 - yearOfBirth) %>%
     group_by(band) %>% # Everything after this will be done each band #<<
     mutate(mean_age = mean(age))
 ```
@@ -71,7 +71,7 @@ class: center
 Compute the mean band member age for **each band**
 ```{r}
 bands %>%
-    mutate(age = 2019 - yearOfBirth) %>%
+    mutate(age = 2020 - yearOfBirth) %>%
     group_by(band) %>%
     summarise(mean_age = mean(age)) # Drops all variables except for group #<<
 ```
@@ -82,7 +82,7 @@ bands %>%
 Compute the mean, min, and max band member age for **each band**
 ```{r}
 bands %>%
-    mutate(age = 2019 - yearOfBirth) %>%
+    mutate(age = 2020 - yearOfBirth) %>%
     group_by(band) %>%
     summarise(
         mean_age = mean(age),
@@ -96,7 +96,7 @@ bands %>%
 How many members are in each band?
 ```{r}
 bands %>%
-    mutate(age = 2019 - yearOfBirth) %>%
+    mutate(age = 2020 - yearOfBirth) %>%
     group_by(band) %>%
     summarise(
         mean_age = mean(age),
@@ -113,14 +113,14 @@ These do the same thing:
 .leftcol[
 ```{r}
 bands %>%
-    group_by(band) %>% 
+    group_by(band) %>%
     summarise(n = n())
 ```
 ]
 .rightcol[
 ```{r}
 bands %>%
-    count(band) 
+    count(band)
 ```
 ]
 
@@ -164,12 +164,12 @@ countdown(minutes = 10,
 
 ```{r}
 ageSummary <- bands %>%
-    mutate(age = 2019 - yearOfBirth) %>%
+    mutate(age = 2020 - yearOfBirth) %>%
     group_by(band) %>%
     summarise(
         mean_age = mean(age),
         min_age = min(age),
-        max_age = max(age), 
+        max_age = max(age),
         numMembers = n())
 ageSummary
 ```
