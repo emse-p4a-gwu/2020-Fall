@@ -5,15 +5,14 @@ author: "John Paul Helveston"
 date: November 10, 2020
 output:
   xaringan::moon_reader:
-    css: 'https://emse-p4a-gwu.github.io/2020-Fall/class/class.css'
+    css: ["default", "css/lexis.css", "css/lexis-fonts.css"]
+    seal: false
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
       ratio: "16:9"
-      beforeInit: "https://platform.twitter.com/widgets.js"
-    seal: false
 ---
 
 ```{r setup, include=FALSE}

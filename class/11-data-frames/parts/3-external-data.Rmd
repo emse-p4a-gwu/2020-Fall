@@ -178,7 +178,7 @@ class: center
 
 ```{r, eval=FALSE}
 pathToData <- here('data', 'data.csv')
-wildlife_impacts <- read_csv(pathToData) #<<
+df <- read_csv(pathToData) #<<
 ```
 
 **Important**: Note the use of `read_csv()` instead of `read.csv()`
@@ -217,8 +217,8 @@ class: center
 ## Next week: better data wrangling with **dplyr**
 
 <center>
-<img src="images/horst_monsters_data_wrangling.png" width="650">
-</center>
+<img src="images/horst_monsters_data_wrangling.png" width="600">
+</center>Art by [Allison Horst](https://www.allisonhorst.com/)
 
 ---
 # Select rows with `filter()`
