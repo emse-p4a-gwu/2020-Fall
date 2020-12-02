@@ -67,7 +67,7 @@ Once you've chosen a data set, open your `hw11.R` file and begin exploring the d
 
 **Do not brush this step off** - the more thoroughly you inspect your dataset, the easier (and better) you data exploration will be. This will be absolutely critical for making your plots. Make sure you take the time to develop an understanding of the variables in your dataset as it is nearly impossible to imagine what different plots might be worth creating otherwise.
 
-### 5) Make plots [50%]
+### 4) Make plots [50%]
 
 Now that you have a basic understanding of the dataset, make some plots to explore the variables in the data and their potential relationships. You may use base R plotting functions or the **ggplot2** library to make your figures, but you must make at least two different types of figures, including:
 
@@ -76,17 +76,17 @@ Now that you have a basic understanding of the dataset, make some plots to explo
 
 You can choose to plot whichever variables you wish, but you must be able to interpret the results of your plot.
 
-### 6) Interpret your plots [15%]
+### 5) Interpret your plots [15%]
 
 Below the plot code for each of your plots, write a description and interpretation of your plot in a comment. Make sure you address at least the following questions:
 
 1. Describe what variables you are plotting and why.
 2. Describe the primary relationship / trend / information you hope the reader will gain from your visualization.
 
-### 7) Save your plots [10%]
+### 6) Save your plots [10%]
 
 At the bottom of your `hw11.R` file, write code to save each of your three plots in the `plots` folder. Save them as .png files.
 
-### 8) Submit your files on Blackboard [5%]
+### 7) Submit your files on Blackboard [5%]
 
 Create a zip file of all files in your R project folder for this assignment and submit the zip file on Blackboard by the due deadline.
