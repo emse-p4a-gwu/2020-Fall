@@ -1,5 +1,9 @@
 NEXT TIME:
 
+General:
+- Move Rmd lecture to the first class of EDA.
+- Move up Monte Carlo for everyone - it's a good wrap up.
+
 1 - add some practice in hw1 about mod and int division
   - Add R Tips to start of each lecture
 
