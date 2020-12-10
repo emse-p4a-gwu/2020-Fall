@@ -1,0 +1,271 @@
+
+class: inverse, middle
+
+# .fancy[Final Exam Review]
+
+## 1. R basics
+## 2. .orange[Data wrangling]
+## 3. Data visualization
+
+---
+
+## Steps to importing external data files
+
+--
+
+### 1. Open your .RProj file! (not the .R file)
+
+--
+
+### 2. Use `here()` to create the file paths
+
+```{r}
+library(here)
+pathToData <- here('data', 'data.csv') #<<
+pathToData
+```
+
+--
+
+### 3. Use `read_csv()` to import the data
+
+```{r, eval=FALSE}
+library(readr)
+df <- read_csv(pathToData) #<<
+```
+
+---
+
+# Previewing all variables
+
+```{r}
+glimpse(msleep)
+```
+
+---
+
+# Previewing *first* 6 rows
+
+```{r}
+head(msleep)
+```
+
+---
+
+# Previewing *last* 6 rows
+
+```{r}
+tail(msleep)
+```
+
+---
+
+# Slicing data frames: `$` and `[row, col]`
+
+--
+Data frame _columns_ are vectors:
+```{r}
+msleep$name
+```
+
+---
+
+# Slicing data frames: `$` and `[row, col]`
+
+--
+Data frame _rows_ are observations:
+```{r}
+msleep[1,]
+```
+
+---
+class: center
+
+### The tidyverse: `stringr` + `dplyr` + `readr` +  `ggplot2` + ...
+
+<center>
+<img src="images/horst_monsters_tidyverse.jpeg" width="950">
+</center>Art by [Allison Horst](https://www.allisonhorst.com/)
+
+---
+
+# Know the main `dplyr` verbs
+
+- `select()`: subset columns
+- `filter()`: subset rows on conditions
+- `arrange()`: sort results
+- `mutate()`: create new columns by using information from other columns
+- `group_by()`: group data to perform grouped operations
+- `summarize()`: create summary statistics (usually on grouped data)
+- `count()`: count how many rows (like `nrow()` by group)
+
+---
+
+# Select columns with `select()`
+
+.leftcol[
+```{r}
+birds %>%
+    select(state, airport)
+```
+]
+--
+.rightcol[
+Search by column name:<br>`starts_with()`, `ends_with()`, `contains()`
+```{r}
+birds %>%
+    select(starts_with('incident'))
+```
+]
+
+---
+
+# Sort rows with `arrange()`
+
+What is the highest recorded incident?
+
+--
+```{r}
+birds %>%
+    select(height) %>%
+    arrange(desc(height)) #<<
+```
+
+---
+
+# Select rows with `filter()`
+
+--
+**Common task**: drop missing values
+
+--
+.leftcol[
+```{r}
+birds %>%
+    select(height)
+```
+]
+--
+.rightcol[
+```{r}
+birds %>%
+    filter(! is.na(height)) %>% #<<
+    select(height)
+```
+]
+
+---
+
+# Drop `NA` for `mean()`, `min()`, `max()`
+
+What is the mean incident height?
+
+--
+```{r}
+birds %>%
+    summarise(meanHeight = mean(height))
+```
+--
+```{r}
+birds %>%
+    filter(! is.na(height)) %>% #<<
+    summarise(meanHeight = mean(height))
+```
+
+---
+
+# Create new variables with `mutate()`
+
+How many years ago did each attack occur?
+
+--
+```{r}
+bears %>%
+    mutate(event_age = 2020 - year) %>% #<<
+    select(year, event_age)
+```
+
+---
+
+# `mutate()` vs. `summarise()`
+
+What is the mean age of bear attack victims?
+
+--
+.leftcol[
+```{r}
+bears %>%
+    filter(!is.na(age)) %>%
+    mutate(mean_age = mean(age)) %>% #<<
+    select(age, mean_age)
+```
+]
+--
+.rightcol[
+```{r}
+bears %>%
+    filter(!is.na(age)) %>%
+    summarise(mean_age = mean(age)) #<<
+```
+]
+
+---
+
+# Grouped calculations
+
+What is the mean age of bear attack victims **by gender**?
+
+--
+.leftcol[
+```{r}
+bears %>%
+    filter(!is.na(age)) %>%
+    group_by(gender) %>% #<<
+    mutate(mean_age = mean(age)) %>%
+    select(age, mean_age)
+```
+]
+--
+.rightcol[
+```{r}
+bears %>%
+    filter(!is.na(age)) %>%
+    group_by(gender) %>% #<<
+    summarise(mean_age = mean(age))
+```
+]
+
+---
+
+# Use `ifelse()` for conditionals
+
+```{r}
+birds %>%
+    mutate(speciesUnknown = ifelse(
+      str_detect(str_to_lower(species), "unknown"), 1, 0)) %>% #<<
+    select(species, speciesUnknown)
+```
+
+---
+
+# Count observations with `count()`
+
+How many victims were killed by grizzly bears?
+
+--
+.leftcol[
+### Method 1:<br>`group_by()` + `summarise()`
+```{r}
+bears %>%
+    group_by(grizzly) %>%
+    summarise(n = n())
+```
+]
+--
+.rightcol[
+### Method 2:<br>`count()`
+```{r}
+bears %>%
+    count(grizzly)
+```
+]

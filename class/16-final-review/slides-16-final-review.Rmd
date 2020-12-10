@@ -1,0 +1,78 @@
+---
+title: "Final Exam Review"
+subtitle: "EMSE 4574: Intro to Programming for Analytics"
+author: "John Paul Helveston"
+date: December 10, 2020
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/lexis.css", "css/lexis-fonts.css"]
+    seal: false
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning    = FALSE,
+  message    = FALSE,
+  comment    = "#>",
+  fig.path   = "man/figures/",
+  fig.retina = 3
+)
+library(tidyverse)
+library(knitr)
+library(here)
+library(fontawesome)
+xaringanExtra::use_tile_view()
+options(
+    htmltools.dir.version = FALSE,
+    knitr.table.format = "html",
+    knitr.kable.NA = '')
+theme_set(theme_gray(base_size = 20))
+birds <- read_csv(here::here('data', 'birds.csv'))
+bears <- read_csv(here::here('data', 'bears.csv'))
+```
+
+class: title-slide, middle, inverse
+
+.leftcol30[
+<center>
+<img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250>
+</center>
+]
+.rightcol70[
+# .fancy[Final Exam Review]
+
+### EMSE 4574: Intro to Programming for Analytics
+### John Paul Helveston
+### December 10, 2020
+]
+
+---
+
+```{r child = here::here('parts', '0-intro.Rmd')}
+```
+
+---
+
+```{r child = here::here('parts', '1-basics.Rmd')}
+```
+
+---
+
+```{r child = here::here('parts', '2-data-wranging.Rmd')}
+```
+
+---
+
+```{r child = here::here('parts', '3-data-viz.Rmd')}
+```
+
+---
+
+```{r child = here::here('parts', '4-problems.Rmd')}
+```

@@ -1,0 +1,43 @@
+
+class: left, middle
+
+### Download the `p4a-final-review.zip` file for class today
+
+### Link in `slack/classroom`
+
+---
+
+.leftcol[
+
+## Things to review
+
+- All lecture slides<br>(esp. exercises covered in class)
+- All HWs and quizzes
+- Memorize syntax<br>(functions, test functions, tidyverse)
+- Practice your weaknesses!<br>(where did you struggle on a quiz or hw?)
+]
+--
+.rightcol[
+
+## Things **not** on the final
+
+- Python
+- Monte Carlo Methods
+]
+
+---
+
+# Format
+
+- Similar to midterm (I'll email you a PDF)
+- You will have **100** minutes (1 hr, 40 min)
+- You'll be working in a templated .Rmd file
+
+---
+class: inverse, middle
+
+# .fancy[Final Exam Review]
+
+## 1. R basics
+## 2. Data wrangling
+## 3. Data visualization
