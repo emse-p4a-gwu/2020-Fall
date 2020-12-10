@@ -1,0 +1,348 @@
+
+class: inverse, middle
+
+# .fancy[Final Exam Review]
+
+## 1. R basics
+## 2. Data wrangling
+## 3. .orange[Data visualization]
+
+---
+
+# Making plot layers with ggplot2
+
+<br>
+### 1. The data
+### 2. The aesthetic mapping (what goes on the axes?)
+### 3. The geometries (points? bars? etc.)
+
+---
+
+# Layer 1: The data
+
+The `ggplot()` function initializes the plot with whatever data you're using
+
+.leftcol[
+```{r ggblank, fig.show='hide'}
+ggplot(data = bears)
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggblank', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+
+# Layer 2: The aesthetic mapping
+
+The `aes()` function determines which variables will be _mapped_ to the geometries<br>(e.g. the axes)
+
+.leftcol[
+```{r ggaes, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age))
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggaes', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+
+# Layer 3: The geometries
+
+Use `+` to add geometries (e.g. points)
+
+.leftcol[
+```{r ggpoint, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggpoint', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+
+# Layer 3: The geometries
+
+Can also map aesthetics within the geom
+
+.leftcol[
+```{r ggpoint_aes, fig.show='hide'}
+ggplot(data = bears) +
+    geom_point(aes(x = year, y = age)) #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggpoint_aes', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+
+## Change the point color
+
+.leftcol[
+```{r ggbearsblue, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point(color = 'blue') #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggbearsblue', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+
+## Change the point color<br>**based on another variable**:
+
+.leftcol[
+```{r ggbearsage, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point(aes(color = gender)) #<<
+```
+]
+.rightcol[.blackborder[
+```{r ref.label='ggbearsage', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+
+## Make bar charts with `geom_col()`
+
+Piping directly into ggplot
+
+.leftcol[
+```{r bears_geom_col_pipe, fig.show='hide'}
+bears %>%
+  count(month) %>%  # Pipe into ggplot #<<
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+]
+.rightcol[
+```{r ref.label='bears_geom_col_pipe', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+
+## If you can't read the axes...flip them
+
+.leftcol[
+```{r birds_geom_col, fig.show='hide'}
+birds %>%
+  mutate(phase =
+    str_to_lower(phase_of_flt)) %>%
+  count(phase) %>%
+  ggplot() +
+  geom_col(aes(x = phase, y = n)) #<<
+```
+]
+.rightcol[
+```{r ref.label='birds_geom_col', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+
+## If you can't read the axes...flip them
+
+.leftcol[
+```{r birds_geom_col_flip, fig.show='hide'}
+birds %>%
+  mutate(phase =
+    str_to_lower(phase_of_flt)) %>%
+  count(phase) %>%
+  ggplot() +
+  geom_col(aes(y = phase, x = n)) #<<
+```
+]
+.rightcol[
+```{r ref.label='birds_geom_col_flip', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+
+## Use `reorder()` to sort an axis
+
+.leftcol[
+```{r birds_geom_col_sort, fig.show='hide'}
+birds %>%
+  mutate(phase =
+    str_to_lower(phase_of_flt)) %>%
+  count(phase) %>%
+  ggplot() +
+  geom_col(aes(y = reorder(phase, n), x = n)) #<<
+```
+]
+.rightcol[
+```{r ref.label='birds_geom_col_sort', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+
+### Change bar width:  `width`
+### Change bar color: `fill`
+### Change bar outline: `color`
+
+.leftcol[
+```{r bears_geom_col_colors, fig.show='hide'}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(aes(x = month, y = n),
+           width = 0.7, #<<
+           fill = "blue", #<<
+           color = "red") #<<
+```
+]
+.rightcol[
+```{r ref.label='bears_geom_col_colors', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+
+### Map the `fill` to `bearType`
+
+.leftcol[.code70[
+```{r bears_geom_col_fill, fig.show='hide'}
+bears %>%
+  count(month, bearType) %>% #<<
+  ggplot() +
+  geom_col(aes(x = month, y = n,
+               fill = bearType)) #<<
+```
+]
+
+Note that I had to summarize the count by both `month` and `bearType`
+
+.code70[
+```{r, eval=FALSE}
+bears %>%
+  count(month, bearType)
+```
+]
+.code60[
+```{r, echo=FALSE}
+bears %>%
+  count(month, bearType) %>%
+  arrange(month, bearType)
+```
+]]
+.rightcol[
+```{r ref.label='bears_geom_col_fill', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]
+
+---
+
+# "Factors" = Categorical variables
+
+By default, R makes numeric variables _continuous_
+
+.leftcol[
+```{r, eval=FALSE}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+**The variable `month` is a _number_**
+]
+.rightcol[.blackborder[
+```{r ref.label='bears_geom_col_pipe', echo=FALSE, fig.height=5, fig.width=7, fig.align='center'}
+```
+]]
+
+---
+
+# "Factors" = Categorical variables
+
+You can make a continuous variable _categorical_ using `as.factor()`
+
+.leftcol[.code80[
+```{r bears_geom_col_factor, fig.show='hide'}
+bears %>%
+  count(month) %>%
+  ggplot() +
+  geom_col(aes(x = as.factor(month), #<<
+               y = n))
+```
+]
+
+**The variable `month` is a _factor_**
+]
+.rightcol[.blackborder[
+```{r ref.label='bears_geom_col_factor', echo=FALSE, fig.height=5, fig.width=7}
+```
+]]
+
+---
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+--
+.leftcol[
+```{r ggbears_basic, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point()
+```
+]
+.rightcol[
+```{r ref.label='ggbears_basic', echo=FALSE, fig.height=5, fig.width=7}
+```
+]
+
+---
+
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+.leftcol[
+```{r ggbears_theme, fig.show='hide'}
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+    theme_bw() #<<
+```
+]
+.rightcol[
+```{r ref.label='ggbears_theme', echo=FALSE, fig.height=5, fig.width=7}
+```
+]
+---
+
+# Save ggplots with `ggsave()`
+
+--
+First, assign the plot to an object name:
+```{r, eval=FALSE}
+scatterPlot <- ggplot(data = bears) +
+    geom_point(aes(x = year, y = age))
+```
+
+--
+Then use `ggsave()` to save the plot:
+```{r, eval=FALSE}
+ggsave(filename = here('plots', 'scatterPlot.png'),
+       plot   = scatterPlot,
+       width  = 6, # inches
+       height = 4)
+```

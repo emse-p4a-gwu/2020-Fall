@@ -1,0 +1,440 @@
+
+class: inverse, center, middle
+
+# Begin list of all problems solved in class
+
+---
+class: inverse
+
+## General function writing
+
+.leftcol[
+`eggCartons(eggs)`: Write a function that reads in a non-negative number of eggs and prints the number of egg cartons required to hold that many eggs. Each egg carton holds one dozen eggs, and you cannot buy fractional egg cartons.
+
+- eggCartons(0) == 0
+- eggCartons(1) == 1
+- eggCartons(12) == 1
+- eggCartons(25) == 3
+]
+.rightcol[
+`militaryTimeToStandardTime(n)`: Write a function that takes an integer between 0 and 23 (representing the hour in [military time](http://militarytimechart.com/)), and returns the same hour in standard time.
+
+- militaryTimeToStandardTime(0) == 12
+- militaryTimeToStandardTime(3) == 3
+- militaryTimeToStandardTime(12) == 12
+- militaryTimeToStandardTime(13) == 1
+- militaryTimeToStandardTime(23) == 11
+]
+
+---
+class: inverse
+
+# Number chopping
+
+.leftcol[
+`onesDigit(x)`: Write a function that takes an integer and returns its ones digit.
+
+Tests:
+- onesDigit(123) == 3
+- onesDigit(7890) == 0
+- onesDigit(6) == 6
+- onesDigit(-54) == 4
+]
+.rightcol[
+`tensDigit(x)`: Write a function that takes an integer and returns its tens digit.
+
+Tests:
+- tensDigit(456) == 5
+- tensDigit(23) == 2
+- tensDigit(1) == 0
+- tensDigit(-7890) == 9
+]
+
+---
+class: inverse
+
+# Top-down design
+
+Create a function, `isRightTriangle(a, b, c)` that returns `TRUE` if the triangle formed by the lines of length `a`, `b`, and `c` is a right triangle and `FALSE` otherwise. Use the `hypotenuse(a, b)` function in your solution. **Hint**: you may not know which value (`a`, `b`, or `c`) is the hypotenuse.
+
+.leftcol[.code80[
+```{r}
+hypotenuse <- function(a, b) {
+    return(sqrt(sumOfSquares(a, b)))
+}
+```
+```{r}
+sumOfSquares <- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]]
+
+---
+class: inverse
+
+# Conditionals (if / else)
+
+`getType(x)`: Write the function `getType(x)` that returns the type of the data (either `integer`, `double`, `character`, or `logical`). Basically, it does the same thing as the `typeof()` function (but you can't use `typeof()` in your solution).
+
+- `getType(3) == "double"`
+- `getType(3L) == "integer"`
+- `getType("foo") == "character"`
+- `getType(TRUE) == "logical"`
+
+---
+class: inverse
+
+# Conditionals (if / else)
+
+For each of the following functions, start by writing a test function that tests the function for a variety of values of inputs. Consider cases that you might not expect!
+
+.leftcol[
+`isFactor(f, n)`: Write the function `isFactor(f, n)` that takes two integer values and returns `TRUE` if `f` is a factor of `n`, and `FALSE` otherwise. Note that every integer is a factor of `0`. Assume `f` and `n` will only be numeric values, e.g. `2` is a factor of `6`.
+]
+.rightcol[
+`isMultiple(m, n)`: Write the function `isMultiple(m, n)` that takes two integer values and returns `TRUE` if `m` is a multiple of `n` and `FALSE` otherwise. Note that `0` is a multiple of every integer other than itself. Hint: You may want to use the `isFactor(f, n)` function you just wrote above. Assume `m` and `n` will only be numeric values.
+]
+
+---
+class: inverse
+
+# Conditionals (if / else)
+
+Write the function `getInRange(x, bound1, bound2)` which takes 3 numeric values: `x`, `bound1`, and `bound2` (`bound1` is not necessarily less than `bound2`). If `x` is between the two bounds, just return `x`, but if `x` is less than the lower bound, return the lower bound, or if `x` is greater than the upper bound, return the upper bound. For example:
+
+- `getInRange(1, 3, 5)` returns `3` (the lower bound, since 1 is below [3,5])
+- `getInRange(4, 3, 5)` returns `4` (the original value, since 4 is between [3,5])
+- `getInRange(6, 3, 5)` returns `5` (the upper bound, since 6 is above [3,5])
+- `getInRange(6, 5, 3)` returns `5` (the upper bound, since 6 is above [3,5])
+
+**Bonus**: Re-write `getInRange(x, bound1, bound2)` without using conditionals
+
+---
+class: inverse
+
+## `for` loops
+
+.font80[
+`sumFromMToN(m, n)`: Write a function that sums the total of the integers between `m` and `n`.<br>**Challenge**: Try solving this without a loop!
+
+- `sumFromMToN(5, 10) == (5 + 6 + 7 + 8 + 9 + 10)`
+- `sumFromMToN(1, 1) == 1`
+
+`sumEveryKthFromMToN(m, n, k)`: Write a function to sum every kth integer from `m` to `n`.
+
+- `sumEveryKthFromMToN(1, 10, 2) == (1 + 3 + 5 + 7 + 9)`
+- `sumEveryKthFromMToN(5, 20, 7) == (5 + 12 + 19)`
+- `sumEveryKthFromMToN(0, 0, 1) == 0`
+
+`sumOfOddsFromMToN(m, n)`: Write a function that sums every _odd_ integer between `m` and `n`.
+
+- `sumOfOddsFromMToN(4, 10) == (5 + 7 + 9)`
+- `sumOfOddsFromMToN(5, 9) == (5 + 7 + 9)`
+]
+
+---
+class: inverse
+
+## `for` loop with `break` & `next`
+
+`sumOfOddsFromMToNMax(m, n, max)`: Write a function that sums every _odd_ integer from `m` to `n` until the sum is less than the value `max`. Your solution should use both `break` and `next` statements.
+
+- `sumOfOddsFromMToNMax(1, 5, 4) == (1 + 3)`
+- `sumOfOddsFromMToNMax(1, 5, 3) == (1)`
+- `sumOfOddsFromMToNMax(1, 5, 10) == (1 + 3 + 5)`
+
+---
+class: inverse
+
+## `while` loops
+
+.leftcol[
+`isMultipleOf4Or7(n)`: Write a function that returns `TRUE` if `n` is a multiple of 4 or 7 and `FALSE` otherwise.
+
+- `isMultipleOf4Or7(0) == FALSE`
+- `isMultipleOf4Or7(1) == FALSE`
+- `isMultipleOf4Or7(4) == TRUE`
+- `isMultipleOf4Or7(7) == TRUE`
+- `isMultipleOf4Or7(28) == TRUE`
+]
+.rightcol[
+`nthMultipleOf4Or7(n)`: Write a function that returns the nth positive integer that is a multiple of either 4 or 7.
+
+- `nthMultipleOf4Or7(1) == 4`
+- `nthMultipleOf4Or7(2) == 7`
+- `nthMultipleOf4Or7(3) == 8`
+- `nthMultipleOf4Or7(4) == 12`
+- `nthMultipleOf4Or7(5) == 14`
+- `nthMultipleOf4Or7(6) == 16`
+]
+
+---
+class: inverse
+
+## Loops / Vectors
+
+.leftcol[
+`isPrime(n)`: Write a function that takes a non-negative integer, `n`, and returns `TRUE` if it is a prime number and `FALSE` otherwise. Use a loop or vector:
+
+- `isPrime(1) == FALSE`
+- `isPrime(2) == TRUE`
+- `isPrime(7) == TRUE`
+- `isPrime(13) == TRUE`
+- `isPrime(14) == FALSE`
+]
+.rightcol[
+`nthPrime(n)`: Write a function that takes a non-negative integer, `n`, and returns the nth prime number, where `nthPrime(1)` returns the first prime number (2). Hint: use a while loop!
+
+- `nthPrime(1) == 2`
+- `nthPrime(2) == 3`
+- `nthPrime(3) == 5`
+- `nthPrime(4) == 7`
+- `nthPrime(7) == 17`
+]
+
+---
+class: inverse
+
+# Vectors
+
+.font80[
+`reverse(x)`: Write a function that returns the vector in reverse order. You cannot use the `rev()` function.
+
+- `all(reverseVector(c(5, 1, 3)) == c(3, 1, 5))`
+- `all(reverseVector(c('a', 'b', 'c')) == c('c', 'b', 'a'))`
+- `all(reverseVector(c(FALSE, TRUE, TRUE)) == c(TRUE, TRUE, FALSE))`
+
+
+`alternatingSum(a)`: Write a function that takes a vector of numbers `a` and returns the alternating sum, where the sign alternates from positive to negative or vice versa.
+
+- `alternatingSum(c(5,3,8,4)) == (5 - 3 + 8 - 4)`
+- `alternatingSum(c(1,2,3)) == (1 - 2 + 3)`
+- `alternatingSum(c(0,0,0)) == 0`
+- `alternatingSum(c(-7,5,3)) == (-7 - 5 + 3)`
+]
+
+---
+class: inverse
+
+## Data frames
+
+Answer these questions using the `beatles` data frame:
+
+1. Create a new column, `playsGuitar`, which is `TRUE` if the band member plays the guitar and `FALSE` otherwise.
+2. Filter the data frame to select only the rows for the band members who have four-letter first names.
+3. Create a new column, `fullName`, which contains the band member's first and last name separated by a space (e.g. `"John Lennon"`)
+
+```{r, echo=FALSE, eval=FALSE}
+beatles <- tibble(
+    firstName   = c("John", "Paul", "Ringo", "George"),
+    lastName    = c("Lennon", "McCartney", "Starr", "Harrison"),
+    instrument  = c("guitar", "bass", "drums", "guitar"),
+    yearOfBirth = c(1940, 1942, 1940, 1943),
+    deceased    = c(TRUE, FALSE, FALSE, TRUE)
+)
+beatles$playsGuitar <- beatles$instrument == 'guitar'
+library(stringr)
+beatles[str_length(beatles$firstName) == 4,]
+beatles$fullName <- paste(beatles$firstName, beatles$lastName, sep = ' ')
+```
+
+---
+class: inverse
+
+## Think-Pair-Share
+
+.font90[
+1) Use the `here()` and `read_csv()` functions to load the `birds.csv` file that is in the `data` folder. Name the data frame object `df`.
+
+2) Use the `df` object to answer the following questions:
+
+- How many rows and columns are in the data frame?
+- What type of data is each column?
+- Preview the different columns - what do you think this data is about? What might one row represent?
+- How many unique airports are in the data frame?
+- What is the earliest and latest observation in the data frame?
+- What is the lowest and highest cost of any one repair in the data frame?
+]
+
+---
+class: inverse
+
+## Think pair share: wildlife impacts data
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `birds.csv` file in the `data` folder.
+
+2) Use the `df` object and the `select()` and `filter()` functions to answer the following questions:
+
+- Create a new data frame, `df_birds`, that contains only the variables (columns) about the species of bird.
+- Create a new data frame, `dc`, that contains only the observations (rows) from DC airports.
+- Create a new data frame, `dc_birds_known`, that contains only the observations (rows) from DC airports and those where the species of bird is known.
+- How many _known_ unique species of birds have been involved in accidents at DC airports?
+]
+
+---
+class: inverse
+
+## Think pair share: wildlife impacts data
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `birds.csv` file in the `data` folder.
+
+2) Use the `df` object and `select()`, `filter()`, and `%>%` to answer the following questions:
+
+- Create a new data frame, `dc_dawn`, that contains only the observations (rows) from DC airports that occurred at dawn.
+- Create a new data frame, `dc_dawn_birds`, that contains only the observations (rows) from DC airports that occurred at dawn and only the variables (columns) about the species of bird.
+- Create a new data frame, `dc_dawn_birds_known`, that contains only the observations (rows) from DC airports that occurred at dawn and only the variables (columns) about the KNOWN species of bird.
+- How many _known_ unique species of birds have been involved in accidents at DC airports at dawn?
+]
+
+---
+class: inverse
+
+## Think pair share: wildlife impacts data
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `birds.csv` file in the `data` folder.
+
+2) Use the `df` object with `%>%` and `mutate()` to create the following new variables:
+
+- `height_miles`: The `height` variable converted to miles (Hint: there are 5,280 feet in a mile).
+- `cost_mil`: Is `TRUE` if the repair costs was greater or equal to $1 million, `FALSE` otherwise.
+- `season`: One of four seasons based on the `incident_month` variable:
+
+  - `spring`: March, April, May
+  - `summer`: June, July, August
+  - `fall`: September, October, November
+  - `winter`: December, January, February
+]
+
+---
+class: inverse
+
+## Think pair share
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `birds.csv` file in the `data` folder.
+
+2) Use the `df` object and `group_by()`, `summarise()`, `count()`, and `%>%` to answer the following questions:
+
+- Create a summary data frame that contains the mean `height` for each different time of day.
+- Create a summary data frame that contains the maximum `cost_repairs_infl_adj` for each year.
+- Which _month_ has had the greatest number of reported incidents?
+- Which _year_ has had the greatest number of reported incidents?
+]
+
+---
+class: inverse
+
+## Think pair share: `geom_point()`
+
+Use the `birds` data frame to create the following plots
+
+.leftcol[
+```{r, ggpoint_p1, echo=FALSE, fig.height=5, fig.width=7}
+ggplot(birds, aes(x=cost_repairs_infl_adj, y=height)) +
+  geom_point()
+```
+]
+.rightcol[
+```{r, ggpoint_p2, echo=FALSE, fig.height=5, fig.width=7}
+birds %>%
+  mutate(phase_of_flt = str_to_lower(phase_of_flt)) %>%
+  ggplot(aes(x=speed, y=height)) +
+  geom_point(aes(color = phase_of_flt))
+```
+]
+
+---
+class: inverse
+
+## Think pair share: `geom_col()`
+
+Use the `bears` and `birds` data frame to create the following plots
+
+.leftcol[
+```{r, ggbar_p1, echo=FALSE, fig.height=5, fig.width=7}
+bears %>%
+  count(year, gender) %>%
+  ggplot() +
+  geom_col(aes(x = year, y = n, fill = gender)) +
+  labs(x     = "Year",
+       y     = 'Number of killings',
+       fill  = "Victim gender",
+       title = "Annual deadly bear attacks over time")
+```
+]
+.rightcol[
+```{r, ggbar_p2, echo=FALSE, fig.height=5, fig.width=7}
+birds %>%
+  filter(!is.na(cost_repairs_infl_adj)) %>%
+  group_by(incident_year) %>%
+  summarise(maxCost = max(cost_repairs_infl_adj)) %>%
+  ggplot() +
+  geom_col(aes(x = incident_year, y = maxCost)) +
+  labs(x     = "Year",
+       y     = 'Maximum cost ($)',
+       title = "Max annual cost from wildlife impact")
+```
+]
+
+---
+class: inverse
+
+# Extra practice 1
+
+Use the `mtcars` data frame to create the following plots
+
+.cols3[
+```{r, mtcars_1, echo=FALSE, fig.height=4, fig.width=4.5}
+ggplot(mtcars, aes(x=wt, y=mpg)) +
+    geom_point() +
+    theme_bw() +
+    labs(x = "Weight",
+         y = 'Fuel Economy (mpg)')
+```
+]
+.cols3[
+```{r, mtcars_2, echo=FALSE, fig.height=4, fig.width=4.5}
+ggplot(mtcars, aes(x=hp, y=mpg)) +
+    geom_point(aes(color=as.factor(cyl))) +
+    theme_bw() +
+    labs(x = "Horsepower (hp)",
+         y = 'Fuel Economy (mpg)',
+         color = 'Num. Cylinders')
+```
+]
+.cols3[
+```{r, mtcars_3, echo=FALSE, fig.height=4, fig.width=4.5}
+mtcars %>%
+  group_by(cyl) %>%
+  summarise(meanMpg = mean(mpg)) %>%
+  ggplot(aes(x=cyl, y=meanMpg)) +
+    geom_bar(stat = 'identity') +
+    labs(x = "Num. Cylinders",
+         y = 'Mean Fuel Economy (mpg)')
+```
+]
+
+---
+class: inverse
+
+# Extra practice 2
+
+Use the `mpg` data frame to create the following plot
+
+```{r, mtcars_4, echo=FALSE, fig.height=6, fig.width=8}
+mpg %>%
+    mutate(manufacturer = str_to_title(manufacturer)) %>%
+    group_by(manufacturer) %>%
+    summarise(meanHwy = mean(hwy)) %>%
+    mutate(manufacturer = fct_reorder(manufacturer, meanHwy)) %>%
+    ggplot(aes(x=manufacturer, y=meanHwy)) +
+    geom_bar(stat='identity') +
+    coord_flip() +
+    labs(
+        x='Vehicle manufacturer',
+        y='Highway fuel economy (mpg)')
+```

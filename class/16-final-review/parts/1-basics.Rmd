@@ -1,0 +1,422 @@
+
+class: inverse, middle
+
+# .fancy[Final Exam Review]
+
+## 1. .orange[R basics]
+## 2. Data wrangling
+## 3. Data visualization
+
+---
+
+## Operators: Relational (`=`, `<`, `>`, `<=`, `>=`) and Logical (`&`, `|`, `!`)
+
+```{r}
+x <- FALSE
+y <- FALSE
+z <- TRUE
+```
+
+a Write a logical statement that compares the objects `x`, `y`, and `z` and returns `TRUE`
+
+b) Fill in **relational** operators to make this statement return `TRUE`:
+
+`! (x __ y) & ! (z __ y)`
+
+c) Fill in **logical** operators to make this statement return `FALSE`:
+
+`! (x __ y) | (z __ y)`
+
+---
+# Numeric Data
+
+--
+.leftcol[
+Doubles:
+```{r}
+typeof(3.14)
+```
+]
+--
+.rightcol[
+"Integers":
+```{r}
+typeof(3)
+```
+]
+
+---
+
+# Actual Integers
+
+```{r}
+typeof(3L)
+```
+--
+Check if a number is an "integer":
+```{r}
+n <- 3
+is.integer(n) # Doesn't work!
+```
+--
+```{r}
+n == as.integer(n) # Compare n to a converted version of itself
+```
+
+---
+
+# Logical Data
+
+`TRUE` or `FALSE`
+
+--
+```{r}
+x <- 1
+y <- 2
+```
+
+--
+```{r}
+x > y # Is x greater than y?
+```
+
+--
+```{r}
+x == y
+```
+
+---
+
+## Tricky data type stuff
+
+--
+.leftcol[
+Logicals become numbers when doing math
+```{r}
+TRUE + 1 # TRUE becomes 1
+```
+```{r}
+FALSE + 1 # FALSE becomes 0
+```
+```{r}
+sum(c(TRUE, FALSE, TRUE))
+```
+
+]
+--
+.rightcol[
+Be careful of accidental strings
+```{r}
+typeof("3.14")
+typeof("TRUE")
+```
+]
+
+---
+
+# Basic function syntax
+
+.code90[
+```{r eval=FALSE}
+functionName <- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+
+---
+
+# Basic function syntax
+
+In English:
+
+> "`functionName` is a `function` of `arguments` that does..."
+
+.code90[
+```{r eval=FALSE}
+functionName <- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+
+---
+
+# Basic function syntax
+
+Example:
+
+> "`squareRoot` is a `function` of `n` that...returns the square root of `n`"
+
+```{r}
+squareRoot <- function(n) {
+    return(n^0.5)
+}
+```
+
+--
+
+```{r}
+squareRoot(64)
+```
+
+---
+
+# Test function syntax
+
+--
+.leftcol[
+### Function:
+```{r, eval=FALSE}
+functionName <- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+--
+.rightcol[
+### Test function:
+```{r, eval=FALSE}
+test_functionName <- function() {
+    cat("Testing functionName()...")
+    # Put test cases here
+    cat("Passed!\n")
+}
+```
+]
+
+---
+
+# Writing test cases with `stopifnot()`
+
+`stopifnot()` stops the function if whatever is inside the `()` is not `TRUE`.
+
+--
+.leftcol[
+### Function:
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+```
+- `isEven(1)` should be `FALSE`
+- `isEven(2)` should be `TRUE`
+- `isEven(-7)` should be `FALSE`
+]
+--
+.rightcol[
+### Test function:
+```{r}
+test_isEven <- function() {
+    cat("Testing isEven()...")
+    stopifnot(isEven(1) == FALSE)
+    stopifnot(isEven(2) == TRUE)
+    stopifnot(isEven(-7) == FALSE)
+    cat("Passed!\n")
+}
+```
+]
+
+---
+
+# When testing _numbers_, use `almostEqual()`
+
+```{r}
+addTwo <- function(n1, n2) {
+    return(n1 + n2)
+}
+```
+
+--
+.leftcol[
+A **bad** test function
+```{r, error=TRUE}
+test_addTwo <- function() {
+    cat("Testing addTwo()...")
+    stopifnot(addTwo(0.1, 0.2) == 0.3) #<<
+    cat("Passed!\n")
+}
+
+test_addTwo()
+```
+]
+--
+.rightcol[
+A **good** test function
+```{r, include=FALSE}
+almostEqual <- function(n1, n2, threshold = 0.00001) {
+    return(abs(n1 - n2) <= threshold)
+}
+```
+```{r}
+test_addTwo <- function() {
+    cat("Testing addTwo()...")
+    stopifnot(almostEqual( #<<
+      addTwo(0.1, 0.2), 0.3)) #<<
+    cat("Passed!\n")
+}
+
+test_addTwo()
+```
+]
+
+---
+
+.leftcol[
+### Use `for` loops when the number of iterations is **_known_**.
+
+1. Build the sequence
+2. Iterate over it
+```{r}
+for (i in 1:5) { # Define the sequence #<<
+    cat(i, '\n')
+}
+```
+]
+--
+.rightcol[
+### Use `while` loops when the number of iterations is **_unknown_**.
+
+1. Define stopping condition
+2. Manually increase condition
+```{r}
+i <- 1
+while (i <= 5) { # Define stopping condition #<<
+    cat(i, '\n')
+    i <- i + 1 # Increase condition #<<
+}
+```
+]
+
+---
+
+# The universal vector generator: `c()`
+
+--
+.cols3[
+## Numeric vectors
+```{r}
+x <- c(1, 2, 3)
+x
+```
+]
+--
+.cols3[
+## Character vectors
+```{r}
+y <- c('one', 'two', 'three')
+y
+```
+]
+--
+.cols3[
+## Logical vectors
+```{r}
+z <- c(TRUE, FALSE, TRUE)
+z
+```
+]
+
+---
+
+# Elements in vectors must be the same type
+
+### Type hierarchy:
+- `character` > `numeric` > `logical`
+- `double` > `integer`
+
+
+--
+.cols3[
+Coverts to characters:
+```{r}
+c(1, "foo", TRUE)
+```
+]
+--
+.cols3[
+Coverts to numbers:
+```{r}
+c(7, TRUE, FALSE)
+```
+]
+--
+.cols3[
+Coverts to double:
+```{r}
+c(1L, 2, pi)
+```
+]
+
+---
+
+# Most functions operate on vector _elements_
+
+--
+```{r}
+x <- c(3.14, 7, 10, 15)
+round(x)
+```
+--
+Works on custom functions too:
+```{r}
+isEven <- function(n) {
+    return((n %% 2) == 0)
+}
+
+isEven(x)
+```
+
+---
+
+# Comparing vectors
+
+Check if 2 vectors are the same:
+
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+```
+```{r, eval=FALSE}
+x == y
+```
+--
+```{r, echo=FALSE}
+x == y
+```
+
+---
+
+# Comparing vectors with `all()` and `any()`
+
+--
+.leftcol[
+`all()`: Check if _all_ elements are the same
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+all(x == y)
+```
+```{r}
+x <- c(1, 2, 3)
+y <- c(-1, 2, 3)
+all(x == y)
+```
+]
+--
+.rightcol[
+`any()`: Check if _any_ elements are the same
+```{r}
+x <- c(1, 2, 3)
+y <- c(1, 2, 3)
+any(x == y)
+```
+```{r}
+x <- c(1, 2, 3)
+y <- c(-1, 2, 3)
+any(x == y)
+```
+]

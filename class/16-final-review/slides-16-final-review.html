@@ -1,0 +1,2135 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Final Exam Review</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="John Paul Helveston" />
+    <meta name="date" content="2020-12-10" />
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
+    <link href="libs/tile-view/tile-view.css" rel="stylesheet" />
+    <script src="libs/tile-view/tile-view.js"></script>
+    <link rel="stylesheet" href="css/lexis.css" type="text/css" />
+    <link rel="stylesheet" href="css/lexis-fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+
+
+
+class: title-slide, middle, inverse
+
+.leftcol30[
+&lt;center&gt;
+&lt;img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250&gt;
+&lt;/center&gt;
+]
+.rightcol70[
+# .fancy[Final Exam Review]
+
+### EMSE 4574: Intro to Programming for Analytics
+### John Paul Helveston
+### December 10, 2020
+]
+
+---
+
+
+
+class: left, middle
+
+### Download the `p4a-final-review.zip` file for class today
+
+### Link in `slack/classroom`
+
+---
+
+.leftcol[
+
+## Things to review
+
+- All lecture slides&lt;br&gt;(esp. exercises covered in class)
+- All HWs and quizzes
+- Memorize syntax&lt;br&gt;(functions, test functions, tidyverse)
+- Practice your weaknesses!&lt;br&gt;(where did you struggle on a quiz or hw?)
+]
+--
+.rightcol[
+
+## Things **not** on the final
+
+- Python
+- Monte Carlo Methods
+]
+
+---
+
+# Format
+
+- Similar to midterm (I'll email you a PDF)
+- You will have **100** minutes (1 hr, 40 min)
+- You'll be working in a templated .Rmd file
+
+---
+class: inverse, middle
+
+# .fancy[Final Exam Review]
+
+## 1. R basics
+## 2. Data wrangling
+## 3. Data visualization
+
+---
+
+
+
+class: inverse, middle
+
+# .fancy[Final Exam Review]
+
+## 1. .orange[R basics]
+## 2. Data wrangling
+## 3. Data visualization
+
+---
+
+## Operators: Relational (`=`, `&lt;`, `&gt;`, `&lt;=`, `&gt;=`) and Logical (`&amp;`, `|`, `!`)
+
+
+```r
+x &lt;- FALSE
+y &lt;- FALSE
+z &lt;- TRUE
+```
+
+a Write a logical statement that compares the objects `x`, `y`, and `z` and returns `TRUE`
+
+b) Fill in **relational** operators to make this statement return `TRUE`:
+
+`! (x __ y) &amp; ! (z __ y)`
+
+c) Fill in **logical** operators to make this statement return `FALSE`:
+
+`! (x __ y) | (z __ y)`
+
+---
+# Numeric Data
+
+--
+.leftcol[
+Doubles:
+
+```r
+typeof(3.14)
+```
+
+```
+#&gt; [1] "double"
+```
+]
+--
+.rightcol[
+"Integers":
+
+```r
+typeof(3)
+```
+
+```
+#&gt; [1] "double"
+```
+]
+
+---
+
+# Actual Integers
+
+
+```r
+typeof(3L)
+```
+
+```
+#&gt; [1] "integer"
+```
+--
+Check if a number is an "integer":
+
+```r
+n &lt;- 3
+is.integer(n) # Doesn't work!
+```
+
+```
+#&gt; [1] FALSE
+```
+--
+
+```r
+n == as.integer(n) # Compare n to a converted version of itself
+```
+
+```
+#&gt; [1] TRUE
+```
+
+---
+
+# Logical Data
+
+`TRUE` or `FALSE`
+
+--
+
+```r
+x &lt;- 1
+y &lt;- 2
+```
+
+--
+
+```r
+x &gt; y # Is x greater than y?
+```
+
+```
+#&gt; [1] FALSE
+```
+
+--
+
+```r
+x == y
+```
+
+```
+#&gt; [1] FALSE
+```
+
+---
+
+## Tricky data type stuff
+
+--
+.leftcol[
+Logicals become numbers when doing math
+
+```r
+TRUE + 1 # TRUE becomes 1
+```
+
+```
+#&gt; [1] 2
+```
+
+```r
+FALSE + 1 # FALSE becomes 0
+```
+
+```
+#&gt; [1] 1
+```
+
+```r
+sum(c(TRUE, FALSE, TRUE))
+```
+
+```
+#&gt; [1] 2
+```
+
+]
+--
+.rightcol[
+Be careful of accidental strings
+
+```r
+typeof("3.14")
+```
+
+```
+#&gt; [1] "character"
+```
+
+```r
+typeof("TRUE")
+```
+
+```
+#&gt; [1] "character"
+```
+]
+
+---
+
+# Basic function syntax
+
+.code90[
+
+```r
+functionName &lt;- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+
+---
+
+# Basic function syntax
+
+In English:
+
+&gt; "`functionName` is a `function` of `arguments` that does..."
+
+.code90[
+
+```r
+functionName &lt;- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+
+---
+
+# Basic function syntax
+
+Example:
+
+&gt; "`squareRoot` is a `function` of `n` that...returns the square root of `n`"
+
+
+```r
+squareRoot &lt;- function(n) {
+    return(n^0.5)
+}
+```
+
+--
+
+
+```r
+squareRoot(64)
+```
+
+```
+#&gt; [1] 8
+```
+
+---
+
+# Test function syntax
+
+--
+.leftcol[
+### Function:
+
+```r
+functionName &lt;- function(arguments) {
+    # Do stuff here
+    return(something)
+}
+```
+]
+--
+.rightcol[
+### Test function:
+
+```r
+test_functionName &lt;- function() {
+    cat("Testing functionName()...")
+    # Put test cases here
+    cat("Passed!\n")
+}
+```
+]
+
+---
+
+# Writing test cases with `stopifnot()`
+
+`stopifnot()` stops the function if whatever is inside the `()` is not `TRUE`.
+
+--
+.leftcol[
+### Function:
+
+```r
+isEven &lt;- function(n) {
+    return((n %% 2) == 0)
+}
+```
+- `isEven(1)` should be `FALSE`
+- `isEven(2)` should be `TRUE`
+- `isEven(-7)` should be `FALSE`
+]
+--
+.rightcol[
+### Test function:
+
+```r
+test_isEven &lt;- function() {
+    cat("Testing isEven()...")
+    stopifnot(isEven(1) == FALSE)
+    stopifnot(isEven(2) == TRUE)
+    stopifnot(isEven(-7) == FALSE)
+    cat("Passed!\n")
+}
+```
+]
+
+---
+
+# When testing _numbers_, use `almostEqual()`
+
+
+```r
+addTwo &lt;- function(n1, n2) {
+    return(n1 + n2)
+}
+```
+
+--
+.leftcol[
+A **bad** test function
+
+```r
+test_addTwo &lt;- function() {
+    cat("Testing addTwo()...")
+*   stopifnot(addTwo(0.1, 0.2) == 0.3)
+    cat("Passed!\n")
+}
+
+test_addTwo()
+```
+
+```
+#&gt; Testing addTwo()...
+```
+
+```
+#&gt; Error in test_addTwo(): addTwo(0.1, 0.2) == 0.3 is not TRUE
+```
+]
+--
+.rightcol[
+A **good** test function
+
+
+```r
+test_addTwo &lt;- function() {
+    cat("Testing addTwo()...")
+*   stopifnot(almostEqual(
+*     addTwo(0.1, 0.2), 0.3))
+    cat("Passed!\n")
+}
+
+test_addTwo()
+```
+
+```
+#&gt; Testing addTwo()...Passed!
+```
+]
+
+---
+
+.leftcol[
+### Use `for` loops when the number of iterations is **_known_**.
+
+1. Build the sequence
+2. Iterate over it
+
+```r
+*for (i in 1:5) { # Define the sequence
+    cat(i, '\n')
+}
+```
+
+```
+#&gt; 1 
+#&gt; 2 
+#&gt; 3 
+#&gt; 4 
+#&gt; 5
+```
+]
+--
+.rightcol[
+### Use `while` loops when the number of iterations is **_unknown_**.
+
+1. Define stopping condition
+2. Manually increase condition
+
+```r
+i &lt;- 1
+*while (i &lt;= 5) { # Define stopping condition
+    cat(i, '\n')
+*   i &lt;- i + 1 # Increase condition
+}
+```
+
+```
+#&gt; 1 
+#&gt; 2 
+#&gt; 3 
+#&gt; 4 
+#&gt; 5
+```
+]
+
+---
+
+# The universal vector generator: `c()`
+
+--
+.cols3[
+## Numeric vectors
+
+```r
+x &lt;- c(1, 2, 3)
+x
+```
+
+```
+#&gt; [1] 1 2 3
+```
+]
+--
+.cols3[
+## Character vectors
+
+```r
+y &lt;- c('one', 'two', 'three')
+y
+```
+
+```
+#&gt; [1] "one"   "two"   "three"
+```
+]
+--
+.cols3[
+## Logical vectors
+
+```r
+z &lt;- c(TRUE, FALSE, TRUE)
+z
+```
+
+```
+#&gt; [1]  TRUE FALSE  TRUE
+```
+]
+
+---
+
+# Elements in vectors must be the same type
+
+### Type hierarchy:
+- `character` &gt; `numeric` &gt; `logical`
+- `double` &gt; `integer`
+
+
+--
+.cols3[
+Coverts to characters:
+
+```r
+c(1, "foo", TRUE)
+```
+
+```
+#&gt; [1] "1"    "foo"  "TRUE"
+```
+]
+--
+.cols3[
+Coverts to numbers:
+
+```r
+c(7, TRUE, FALSE)
+```
+
+```
+#&gt; [1] 7 1 0
+```
+]
+--
+.cols3[
+Coverts to double:
+
+```r
+c(1L, 2, pi)
+```
+
+```
+#&gt; [1] 1.000000 2.000000 3.141593
+```
+]
+
+---
+
+# Most functions operate on vector _elements_
+
+--
+
+```r
+x &lt;- c(3.14, 7, 10, 15)
+round(x)
+```
+
+```
+#&gt; [1]  3  7 10 15
+```
+--
+Works on custom functions too:
+
+```r
+isEven &lt;- function(n) {
+    return((n %% 2) == 0)
+}
+
+isEven(x)
+```
+
+```
+#&gt; [1] FALSE FALSE  TRUE FALSE
+```
+
+---
+
+# Comparing vectors
+
+Check if 2 vectors are the same:
+
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(1, 2, 3)
+```
+
+```r
+x == y
+```
+--
+
+```
+#&gt; [1] TRUE TRUE TRUE
+```
+
+---
+
+# Comparing vectors with `all()` and `any()`
+
+--
+.leftcol[
+`all()`: Check if _all_ elements are the same
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(1, 2, 3)
+all(x == y)
+```
+
+```
+#&gt; [1] TRUE
+```
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(-1, 2, 3)
+all(x == y)
+```
+
+```
+#&gt; [1] FALSE
+```
+]
+--
+.rightcol[
+`any()`: Check if _any_ elements are the same
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(1, 2, 3)
+any(x == y)
+```
+
+```
+#&gt; [1] TRUE
+```
+
+```r
+x &lt;- c(1, 2, 3)
+y &lt;- c(-1, 2, 3)
+any(x == y)
+```
+
+```
+#&gt; [1] TRUE
+```
+]
+
+---
+
+
+
+class: inverse, middle
+
+# .fancy[Final Exam Review]
+
+## 1. R basics
+## 2. .orange[Data wrangling]
+## 3. Data visualization
+
+---
+
+## Steps to importing external data files
+
+--
+
+### 1. Open your .RProj file! (not the .R file)
+
+--
+
+### 2. Use `here()` to create the file paths
+
+
+```r
+library(here)
+*pathToData &lt;- here('data', 'data.csv')
+pathToData
+```
+
+```
+#&gt; [1] "/Users/jhelvy/gh/0gw/P4A/p4a_planning/class/16-final-review/data/data.csv"
+```
+
+--
+
+### 3. Use `read_csv()` to import the data
+
+
+```r
+library(readr)
+*df &lt;- read_csv(pathToData)
+```
+
+---
+
+# Previewing all variables
+
+
+```r
+glimpse(msleep)
+```
+
+```
+#&gt; Rows: 83
+#&gt; Columns: 11
+#&gt; $ name         &lt;chr&gt; "Cheetah", "Owl monkey", "Mountain beaver", "Great…
+#&gt; $ genus        &lt;chr&gt; "Acinonyx", "Aotus", "Aplodontia", "Blarina", "Bos…
+#&gt; $ vore         &lt;chr&gt; "carni", "omni", "herbi", "omni", "herbi", "herbi"…
+#&gt; $ order        &lt;chr&gt; "Carnivora", "Primates", "Rodentia", "Soricomorpha…
+#&gt; $ conservation &lt;chr&gt; "lc", NA, "nt", "lc", "domesticated", NA, "vu", NA…
+#&gt; $ sleep_total  &lt;dbl&gt; 12.1, 17.0, 14.4, 14.9, 4.0, 14.4, 8.7, 7.0, 10.1,…
+#&gt; $ sleep_rem    &lt;dbl&gt; NA, 1.8, 2.4, 2.3, 0.7, 2.2, 1.4, NA, 2.9, NA, 0.6…
+#&gt; $ sleep_cycle  &lt;dbl&gt; NA, NA, NA, 0.1333333, 0.6666667, 0.7666667, 0.383…
+#&gt; $ awake        &lt;dbl&gt; 11.9, 7.0, 9.6, 9.1, 20.0, 9.6, 15.3, 17.0, 13.9, …
+#&gt; $ brainwt      &lt;dbl&gt; NA, 0.01550, NA, 0.00029, 0.42300, NA, NA, NA, 0.0…
+#&gt; $ bodywt       &lt;dbl&gt; 50.000, 0.480, 1.350, 0.019, 600.000, 3.850, 20.49…
+```
+
+---
+
+# Previewing *first* 6 rows
+
+
+```r
+head(msleep)
+```
+
+```
+#&gt; # A tibble: 6 x 11
+#&gt;   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1 Chee… Acin… carni Carn… lc                  12.1      NA        NA    
+#&gt; 2 Owl … Aotus omni  Prim… &lt;NA&gt;                17         1.8      NA    
+#&gt; 3 Moun… Aplo… herbi Rode… nt                  14.4       2.4      NA    
+#&gt; 4 Grea… Blar… omni  Sori… lc                  14.9       2.3       0.133
+#&gt; 5 Cow   Bos   herbi Arti… domesticated         4         0.7       0.667
+#&gt; 6 Thre… Brad… herbi Pilo… &lt;NA&gt;                14.4       2.2       0.767
+#&gt; # … with 3 more variables: awake &lt;dbl&gt;, brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;
+```
+
+---
+
+# Previewing *last* 6 rows
+
+
+```r
+tail(msleep)
+```
+
+```
+#&gt; # A tibble: 6 x 11
+#&gt;   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1 Tenr… Tenr… omni  Afro… &lt;NA&gt;                15.6       2.3      NA    
+#&gt; 2 Tree… Tupa… omni  Scan… &lt;NA&gt;                 8.9       2.6       0.233
+#&gt; 3 Bott… Turs… carni Ceta… &lt;NA&gt;                 5.2      NA        NA    
+#&gt; 4 Genet Gene… carni Carn… &lt;NA&gt;                 6.3       1.3      NA    
+#&gt; 5 Arct… Vulp… carni Carn… &lt;NA&gt;                12.5      NA        NA    
+#&gt; 6 Red … Vulp… carni Carn… &lt;NA&gt;                 9.8       2.4       0.35 
+#&gt; # … with 3 more variables: awake &lt;dbl&gt;, brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;
+```
+
+---
+
+# Slicing data frames: `$` and `[row, col]`
+
+--
+Data frame _columns_ are vectors:
+
+```r
+msleep$name
+```
+
+```
+#&gt;  [1] "Cheetah"                        "Owl monkey"                    
+#&gt;  [3] "Mountain beaver"                "Greater short-tailed shrew"    
+#&gt;  [5] "Cow"                            "Three-toed sloth"              
+#&gt;  [7] "Northern fur seal"              "Vesper mouse"                  
+#&gt;  [9] "Dog"                            "Roe deer"                      
+#&gt; [11] "Goat"                           "Guinea pig"                    
+#&gt; [13] "Grivet"                         "Chinchilla"                    
+#&gt; [15] "Star-nosed mole"                "African giant pouched rat"     
+#&gt; [17] "Lesser short-tailed shrew"      "Long-nosed armadillo"          
+#&gt; [19] "Tree hyrax"                     "North American Opossum"        
+#&gt; [21] "Asian elephant"                 "Big brown bat"                 
+#&gt; [23] "Horse"                          "Donkey"                        
+#&gt; [25] "European hedgehog"              "Patas monkey"                  
+#&gt; [27] "Western american chipmunk"      "Domestic cat"                  
+#&gt; [29] "Galago"                         "Giraffe"                       
+#&gt; [31] "Pilot whale"                    "Gray seal"                     
+#&gt; [33] "Gray hyrax"                     "Human"                         
+#&gt; [35] "Mongoose lemur"                 "African elephant"              
+#&gt; [37] "Thick-tailed opposum"           "Macaque"                       
+#&gt; [39] "Mongolian gerbil"               "Golden hamster"                
+#&gt; [41] "Vole "                          "House mouse"                   
+#&gt; [43] "Little brown bat"               "Round-tailed muskrat"          
+#&gt; [45] "Slow loris"                     "Degu"                          
+#&gt; [47] "Northern grasshopper mouse"     "Rabbit"                        
+#&gt; [49] "Sheep"                          "Chimpanzee"                    
+#&gt; [51] "Tiger"                          "Jaguar"                        
+#&gt; [53] "Lion"                           "Baboon"                        
+#&gt; [55] "Desert hedgehog"                "Potto"                         
+#&gt; [57] "Deer mouse"                     "Phalanger"                     
+#&gt; [59] "Caspian seal"                   "Common porpoise"               
+#&gt; [61] "Potoroo"                        "Giant armadillo"               
+#&gt; [63] "Rock hyrax"                     "Laboratory rat"                
+#&gt; [65] "African striped mouse"          "Squirrel monkey"               
+#&gt; [67] "Eastern american mole"          "Cotton rat"                    
+#&gt; [69] "Mole rat"                       "Arctic ground squirrel"        
+#&gt; [71] "Thirteen-lined ground squirrel" "Golden-mantled ground squirrel"
+#&gt; [73] "Musk shrew"                     "Pig"                           
+#&gt; [75] "Short-nosed echidna"            "Eastern american chipmunk"     
+#&gt; [77] "Brazilian tapir"                "Tenrec"                        
+#&gt; [79] "Tree shrew"                     "Bottle-nosed dolphin"          
+#&gt; [81] "Genet"                          "Arctic fox"                    
+#&gt; [83] "Red fox"
+```
+
+---
+
+# Slicing data frames: `$` and `[row, col]`
+
+--
+Data frame _rows_ are observations:
+
+```r
+msleep[1,]
+```
+
+```
+#&gt; # A tibble: 1 x 11
+#&gt;   name  genus vore  order conservation sleep_total sleep_rem sleep_cycle
+#&gt;   &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;              &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt;
+#&gt; 1 Chee… Acin… carni Carn… lc                  12.1        NA          NA
+#&gt; # … with 3 more variables: awake &lt;dbl&gt;, brainwt &lt;dbl&gt;, bodywt &lt;dbl&gt;
+```
+
+---
+class: center
+
+### The tidyverse: `stringr` + `dplyr` + `readr` +  `ggplot2` + ...
+
+&lt;center&gt;
+&lt;img src="images/horst_monsters_tidyverse.jpeg" width="950"&gt;
+&lt;/center&gt;Art by [Allison Horst](https://www.allisonhorst.com/)
+
+---
+
+# Know the main `dplyr` verbs
+
+- `select()`: subset columns
+- `filter()`: subset rows on conditions
+- `arrange()`: sort results
+- `mutate()`: create new columns by using information from other columns
+- `group_by()`: group data to perform grouped operations
+- `summarize()`: create summary statistics (usually on grouped data)
+- `count()`: count how many rows (like `nrow()` by group)
+
+---
+
+# Select columns with `select()`
+
+.leftcol[
+
+```r
+birds %&gt;%
+    select(state, airport)
+```
+
+```
+#&gt; # A tibble: 56,978 x 2
+#&gt;    state airport                       
+#&gt;    &lt;chr&gt; &lt;chr&gt;                         
+#&gt;  1 FL    MIAMI INTL                    
+#&gt;  2 IN    INDIANAPOLIS INTL ARPT        
+#&gt;  3 N/A   UNKNOWN                       
+#&gt;  4 N/A   UNKNOWN                       
+#&gt;  5 N/A   UNKNOWN                       
+#&gt;  6 FL    MIAMI INTL                    
+#&gt;  7 FL    ORLANDO INTL                  
+#&gt;  8 N/A   UNKNOWN                       
+#&gt;  9 N/A   UNKNOWN                       
+#&gt; 10 FL    FORT LAUDERDALE/HOLLYWOOD INTL
+#&gt; # … with 56,968 more rows
+```
+]
+--
+.rightcol[
+Search by column name:&lt;br&gt;`starts_with()`, `ends_with()`, `contains()`
+
+```r
+birds %&gt;%
+    select(starts_with('incident'))
+```
+
+```
+#&gt; # A tibble: 56,978 x 3
+#&gt;    incident_date       incident_month incident_year
+#&gt;    &lt;dttm&gt;                       &lt;dbl&gt;         &lt;dbl&gt;
+#&gt;  1 2018-12-31 00:00:00             12          2018
+#&gt;  2 2018-12-29 00:00:00             12          2018
+#&gt;  3 2018-12-29 00:00:00             12          2018
+#&gt;  4 2018-12-27 00:00:00             12          2018
+#&gt;  5 2018-12-27 00:00:00             12          2018
+#&gt;  6 2018-12-27 00:00:00             12          2018
+#&gt;  7 2018-12-27 00:00:00             12          2018
+#&gt;  8 2018-12-26 00:00:00             12          2018
+#&gt;  9 2018-12-23 00:00:00             12          2018
+#&gt; 10 2018-12-23 00:00:00             12          2018
+#&gt; # … with 56,968 more rows
+```
+]
+
+---
+
+# Sort rows with `arrange()`
+
+What is the highest recorded incident?
+
+--
+
+```r
+birds %&gt;%
+    select(height) %&gt;%
+*   arrange(desc(height))
+```
+
+```
+#&gt; # A tibble: 56,978 x 1
+#&gt;    height
+#&gt;     &lt;dbl&gt;
+#&gt;  1  25000
+#&gt;  2  25000
+#&gt;  3  24300
+#&gt;  4  23000
+#&gt;  5  22000
+#&gt;  6  21000
+#&gt;  7  20000
+#&gt;  8  20000
+#&gt;  9  20000
+#&gt; 10  20000
+#&gt; # … with 56,968 more rows
+```
+
+---
+
+# Select rows with `filter()`
+
+--
+**Common task**: drop missing values
+
+--
+.leftcol[
+
+```r
+birds %&gt;%
+    select(height)
+```
+
+```
+#&gt; # A tibble: 56,978 x 1
+#&gt;    height
+#&gt;     &lt;dbl&gt;
+#&gt;  1    700
+#&gt;  2      0
+#&gt;  3     NA
+#&gt;  4     NA
+#&gt;  5     NA
+#&gt;  6     NA
+#&gt;  7    600
+#&gt;  8     NA
+#&gt;  9     NA
+#&gt; 10      0
+#&gt; # … with 56,968 more rows
+```
+]
+--
+.rightcol[
+
+```r
+birds %&gt;%
+*   filter(! is.na(height)) %&gt;%
+    select(height)
+```
+
+```
+#&gt; # A tibble: 38,940 x 1
+#&gt;    height
+#&gt;     &lt;dbl&gt;
+#&gt;  1    700
+#&gt;  2      0
+#&gt;  3    600
+#&gt;  4      0
+#&gt;  5      0
+#&gt;  6      0
+#&gt;  7    500
+#&gt;  8    100
+#&gt;  9      0
+#&gt; 10   1000
+#&gt; # … with 38,930 more rows
+```
+]
+
+---
+
+# Drop `NA` for `mean()`, `min()`, `max()`
+
+What is the mean incident height?
+
+--
+
+```r
+birds %&gt;%
+    summarise(meanHeight = mean(height))
+```
+
+```
+#&gt; # A tibble: 1 x 1
+#&gt;   meanHeight
+#&gt;        &lt;dbl&gt;
+#&gt; 1         NA
+```
+--
+
+```r
+birds %&gt;%
+*   filter(! is.na(height)) %&gt;%
+    summarise(meanHeight = mean(height))
+```
+
+```
+#&gt; # A tibble: 1 x 1
+#&gt;   meanHeight
+#&gt;        &lt;dbl&gt;
+#&gt; 1       984.
+```
+
+---
+
+# Create new variables with `mutate()`
+
+How many years ago did each attack occur?
+
+--
+
+```r
+bears %&gt;%
+*   mutate(event_age = 2020 - year) %&gt;%
+    select(year, event_age)
+```
+
+```
+#&gt; # A tibble: 166 x 2
+#&gt;     year event_age
+#&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+#&gt;  1  1901       119
+#&gt;  2  1901       119
+#&gt;  3  1901       119
+#&gt;  4  1906       114
+#&gt;  5  1908       112
+#&gt;  6  1916       104
+#&gt;  7  1922        98
+#&gt;  8  1929        91
+#&gt;  9  1929        91
+#&gt; 10  1929        91
+#&gt; # … with 156 more rows
+```
+
+---
+
+# `mutate()` vs. `summarise()`
+
+What is the mean age of bear attack victims?
+
+--
+.leftcol[
+
+```r
+bears %&gt;%
+    filter(!is.na(age)) %&gt;%
+*   mutate(mean_age = mean(age)) %&gt;%
+    select(age, mean_age)
+```
+
+```
+#&gt; # A tibble: 164 x 2
+#&gt;      age mean_age
+#&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+#&gt;  1     3     36.1
+#&gt;  2     5     36.1
+#&gt;  3     7     36.1
+#&gt;  4    18     36.1
+#&gt;  5     1     36.1
+#&gt;  6    61     36.1
+#&gt;  7    60     36.1
+#&gt;  8     9     36.1
+#&gt;  9    52     36.1
+#&gt; 10    60     36.1
+#&gt; # … with 154 more rows
+```
+]
+--
+.rightcol[
+
+```r
+bears %&gt;%
+    filter(!is.na(age)) %&gt;%
+*   summarise(mean_age = mean(age))
+```
+
+```
+#&gt; # A tibble: 1 x 1
+#&gt;   mean_age
+#&gt;      &lt;dbl&gt;
+#&gt; 1     36.1
+```
+]
+
+---
+
+# Grouped calculations
+
+What is the mean age of bear attack victims **by gender**?
+
+--
+.leftcol[
+
+```r
+bears %&gt;%
+    filter(!is.na(age)) %&gt;%
+*   group_by(gender) %&gt;%
+    mutate(mean_age = mean(age)) %&gt;%
+    select(age, mean_age)
+```
+
+```
+#&gt; # A tibble: 164 x 3
+#&gt; # Groups:   gender [3]
+#&gt;    gender   age mean_age
+#&gt;    &lt;chr&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+#&gt;  1 female     3     31.2
+#&gt;  2 male       5     38.2
+#&gt;  3 male       7     38.2
+#&gt;  4 male      18     38.2
+#&gt;  5 &lt;NA&gt;       1      1  
+#&gt;  6 male      61     38.2
+#&gt;  7 male      60     38.2
+#&gt;  8 female     9     31.2
+#&gt;  9 male      52     38.2
+#&gt; 10 male      60     38.2
+#&gt; # … with 154 more rows
+```
+]
+--
+.rightcol[
+
+```r
+bears %&gt;%
+    filter(!is.na(age)) %&gt;%
+*   group_by(gender) %&gt;%
+    summarise(mean_age = mean(age))
+```
+
+```
+#&gt; # A tibble: 3 x 2
+#&gt;   gender mean_age
+#&gt;   &lt;chr&gt;     &lt;dbl&gt;
+#&gt; 1 female     31.2
+#&gt; 2 male       38.2
+#&gt; 3 &lt;NA&gt;        1
+```
+]
+
+---
+
+# Use `ifelse()` for conditionals
+
+
+```r
+birds %&gt;%
+    mutate(speciesUnknown = ifelse(
+*     str_detect(str_to_lower(species), "unknown"), 1, 0)) %&gt;%
+    select(species, speciesUnknown)
+```
+
+```
+#&gt; # A tibble: 56,978 x 2
+#&gt;    species              speciesUnknown
+#&gt;    &lt;chr&gt;                         &lt;dbl&gt;
+#&gt;  1 Unknown bird - large              1
+#&gt;  2 Owls                              0
+#&gt;  3 Short-eared owl                   0
+#&gt;  4 Southern lapwing                  0
+#&gt;  5 Lesser scaup                      0
+#&gt;  6 Unknown bird                      1
+#&gt;  7 Unknown bird - small              1
+#&gt;  8 Eastern meadowlark                0
+#&gt;  9 Red-winged blackbird              0
+#&gt; 10 Cattle egret                      0
+#&gt; # … with 56,968 more rows
+```
+
+---
+
+# Count observations with `count()`
+
+How many victims were killed by grizzly bears?
+
+--
+.leftcol[
+### Method 1:&lt;br&gt;`group_by()` + `summarise()`
+
+```r
+bears %&gt;%
+    group_by(grizzly) %&gt;%
+    summarise(n = n())
+```
+
+```
+#&gt; # A tibble: 2 x 2
+#&gt;   grizzly     n
+#&gt;     &lt;dbl&gt; &lt;int&gt;
+#&gt; 1       0   139
+#&gt; 2       1    27
+```
+]
+--
+.rightcol[
+### Method 2:&lt;br&gt;`count()`
+
+```r
+bears %&gt;%
+    count(grizzly)
+```
+
+```
+#&gt; # A tibble: 2 x 2
+#&gt;   grizzly     n
+#&gt;     &lt;dbl&gt; &lt;int&gt;
+#&gt; 1       0   139
+#&gt; 2       1    27
+```
+]
+
+---
+
+
+
+class: inverse, middle
+
+# .fancy[Final Exam Review]
+
+## 1. R basics
+## 2. Data wrangling
+## 3. .orange[Data visualization]
+
+---
+
+# Making plot layers with ggplot2
+
+&lt;br&gt;
+### 1. The data
+### 2. The aesthetic mapping (what goes on the axes?)
+### 3. The geometries (points? bars? etc.)
+
+---
+
+# Layer 1: The data
+
+The `ggplot()` function initializes the plot with whatever data you're using
+
+.leftcol[
+
+```r
+ggplot(data = bears)
+```
+]
+.rightcol[.blackborder[
+&lt;img src="man/figures/unnamed-chunk-70-1.png" width="504" /&gt;
+]]
+
+---
+
+# Layer 2: The aesthetic mapping
+
+The `aes()` function determines which variables will be _mapped_ to the geometries&lt;br&gt;(e.g. the axes)
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age))
+```
+]
+.rightcol[.blackborder[
+&lt;img src="man/figures/unnamed-chunk-71-1.png" width="504" /&gt;
+]]
+
+---
+
+# Layer 3: The geometries
+
+Use `+` to add geometries (e.g. points)
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+*   geom_point()
+```
+]
+.rightcol[.blackborder[
+&lt;img src="man/figures/unnamed-chunk-72-1.png" width="504" /&gt;
+]]
+
+---
+
+# Layer 3: The geometries
+
+Can also map aesthetics within the geom
+
+.leftcol[
+
+```r
+ggplot(data = bears) +
+*   geom_point(aes(x = year, y = age))
+```
+]
+.rightcol[.blackborder[
+&lt;img src="man/figures/unnamed-chunk-73-1.png" width="504" /&gt;
+]]
+
+---
+
+## Change the point color
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+*   geom_point(color = 'blue')
+```
+]
+.rightcol[.blackborder[
+&lt;img src="man/figures/unnamed-chunk-74-1.png" width="504" /&gt;
+]]
+
+---
+
+## Change the point color&lt;br&gt;**based on another variable**:
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+*   geom_point(aes(color = gender))
+```
+]
+.rightcol[.blackborder[
+&lt;img src="man/figures/unnamed-chunk-75-1.png" width="504" /&gt;
+]]
+
+---
+
+## Make bar charts with `geom_col()`
+
+Piping directly into ggplot
+
+.leftcol[
+
+```r
+bears %&gt;%
+* count(month) %&gt;%  # Pipe into ggplot
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+]
+.rightcol[
+&lt;img src="man/figures/unnamed-chunk-76-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## If you can't read the axes...flip them
+
+.leftcol[
+
+```r
+birds %&gt;%
+  mutate(phase =
+    str_to_lower(phase_of_flt)) %&gt;%
+  count(phase) %&gt;%
+  ggplot() +
+* geom_col(aes(x = phase, y = n))
+```
+]
+.rightcol[
+&lt;img src="man/figures/unnamed-chunk-77-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## If you can't read the axes...flip them
+
+.leftcol[
+
+```r
+birds %&gt;%
+  mutate(phase =
+    str_to_lower(phase_of_flt)) %&gt;%
+  count(phase) %&gt;%
+  ggplot() +
+* geom_col(aes(y = phase, x = n))
+```
+]
+.rightcol[
+&lt;img src="man/figures/unnamed-chunk-78-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+## Use `reorder()` to sort an axis
+
+.leftcol[
+
+```r
+birds %&gt;%
+  mutate(phase =
+    str_to_lower(phase_of_flt)) %&gt;%
+  count(phase) %&gt;%
+  ggplot() +
+* geom_col(aes(y = reorder(phase, n), x = n))
+```
+]
+.rightcol[
+&lt;img src="man/figures/unnamed-chunk-79-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+### Change bar width:  `width`
+### Change bar color: `fill`
+### Change bar outline: `color`
+
+.leftcol[
+
+```r
+bears %&gt;%
+  count(month) %&gt;%
+  ggplot() +
+  geom_col(aes(x = month, y = n),
+*          width = 0.7,
+*          fill = "blue",
+*          color = "red")
+```
+]
+.rightcol[
+&lt;img src="man/figures/unnamed-chunk-80-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+### Map the `fill` to `bearType`
+
+.leftcol[.code70[
+
+```r
+bears %&gt;%
+* count(month, bearType) %&gt;%
+  ggplot() +
+  geom_col(aes(x = month, y = n,
+*              fill = bearType))
+```
+]
+
+Note that I had to summarize the count by both `month` and `bearType`
+
+.code70[
+
+```r
+bears %&gt;%
+  count(month, bearType)
+```
+]
+.code60[
+
+```
+#&gt; # A tibble: 27 x 3
+#&gt;    month bearType     n
+#&gt;    &lt;dbl&gt; &lt;chr&gt;    &lt;int&gt;
+#&gt;  1     1 Brown        1
+#&gt;  2     1 Polar        2
+#&gt;  3     2 Brown        1
+#&gt;  4     3 Brown        1
+#&gt;  5     4 Black        1
+#&gt;  6     4 Brown        3
+#&gt;  7     5 Black       15
+#&gt;  8     5 Brown        2
+#&gt;  9     5 Polar        1
+#&gt; 10     6 Black       10
+#&gt; # … with 17 more rows
+```
+]]
+.rightcol[
+&lt;img src="man/figures/unnamed-chunk-83-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]
+
+---
+
+# "Factors" = Categorical variables
+
+By default, R makes numeric variables _continuous_
+
+.leftcol[
+
+```r
+bears %&gt;%
+  count(month) %&gt;%
+  ggplot() +
+  geom_col(aes(x = month, y = n))
+```
+**The variable `month` is a _number_**
+]
+.rightcol[.blackborder[
+&lt;img src="man/figures/unnamed-chunk-85-1.png" width="504" style="display: block; margin: auto;" /&gt;
+]]
+
+---
+
+# "Factors" = Categorical variables
+
+You can make a continuous variable _categorical_ using `as.factor()`
+
+.leftcol[.code80[
+
+```r
+bears %&gt;%
+  count(month) %&gt;%
+  ggplot() +
+* geom_col(aes(x = as.factor(month),
+               y = n))
+```
+]
+
+**The variable `month` is a _factor_**
+]
+.rightcol[.blackborder[
+&lt;img src="man/figures/unnamed-chunk-86-1.png" width="504" /&gt;
+]]
+
+---
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+--
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point()
+```
+]
+.rightcol[
+&lt;img src="man/figures/unnamed-chunk-87-1.png" width="504" /&gt;
+]
+
+---
+
+# Working with themes
+
+Themes change _global_ features of your plot, like the background color, grid lines, etc.
+
+.leftcol[
+
+```r
+ggplot(data = bears,
+       aes(x = year, y = age)) +
+    geom_point() +
+*   theme_bw()
+```
+]
+.rightcol[
+&lt;img src="man/figures/unnamed-chunk-88-1.png" width="504" /&gt;
+]
+---
+
+# Save ggplots with `ggsave()`
+
+--
+First, assign the plot to an object name:
+
+```r
+scatterPlot &lt;- ggplot(data = bears) +
+    geom_point(aes(x = year, y = age))
+```
+
+--
+Then use `ggsave()` to save the plot:
+
+```r
+ggsave(filename = here('plots', 'scatterPlot.png'),
+       plot   = scatterPlot,
+       width  = 6, # inches
+       height = 4)
+```
+
+---
+
+
+
+class: inverse, center, middle
+
+# Begin list of all problems solved in class
+
+---
+class: inverse
+
+## General function writing
+
+.leftcol[
+`eggCartons(eggs)`: Write a function that reads in a non-negative number of eggs and prints the number of egg cartons required to hold that many eggs. Each egg carton holds one dozen eggs, and you cannot buy fractional egg cartons.
+
+- eggCartons(0) == 0
+- eggCartons(1) == 1
+- eggCartons(12) == 1
+- eggCartons(25) == 3
+]
+.rightcol[
+`militaryTimeToStandardTime(n)`: Write a function that takes an integer between 0 and 23 (representing the hour in [military time](http://militarytimechart.com/)), and returns the same hour in standard time.
+
+- militaryTimeToStandardTime(0) == 12
+- militaryTimeToStandardTime(3) == 3
+- militaryTimeToStandardTime(12) == 12
+- militaryTimeToStandardTime(13) == 1
+- militaryTimeToStandardTime(23) == 11
+]
+
+---
+class: inverse
+
+# Number chopping
+
+.leftcol[
+`onesDigit(x)`: Write a function that takes an integer and returns its ones digit.
+
+Tests:
+- onesDigit(123) == 3
+- onesDigit(7890) == 0
+- onesDigit(6) == 6
+- onesDigit(-54) == 4
+]
+.rightcol[
+`tensDigit(x)`: Write a function that takes an integer and returns its tens digit.
+
+Tests:
+- tensDigit(456) == 5
+- tensDigit(23) == 2
+- tensDigit(1) == 0
+- tensDigit(-7890) == 9
+]
+
+---
+class: inverse
+
+# Top-down design
+
+Create a function, `isRightTriangle(a, b, c)` that returns `TRUE` if the triangle formed by the lines of length `a`, `b`, and `c` is a right triangle and `FALSE` otherwise. Use the `hypotenuse(a, b)` function in your solution. **Hint**: you may not know which value (`a`, `b`, or `c`) is the hypotenuse.
+
+.leftcol[.code80[
+
+```r
+hypotenuse &lt;- function(a, b) {
+    return(sqrt(sumOfSquares(a, b)))
+}
+```
+
+```r
+sumOfSquares &lt;- function(a, b) {
+    return(a^2 + b^2)
+}
+```
+]]
+
+---
+class: inverse
+
+# Conditionals (if / else)
+
+`getType(x)`: Write the function `getType(x)` that returns the type of the data (either `integer`, `double`, `character`, or `logical`). Basically, it does the same thing as the `typeof()` function (but you can't use `typeof()` in your solution).
+
+- `getType(3) == "double"`
+- `getType(3L) == "integer"`
+- `getType("foo") == "character"`
+- `getType(TRUE) == "logical"`
+
+---
+class: inverse
+
+# Conditionals (if / else)
+
+For each of the following functions, start by writing a test function that tests the function for a variety of values of inputs. Consider cases that you might not expect!
+
+.leftcol[
+`isFactor(f, n)`: Write the function `isFactor(f, n)` that takes two integer values and returns `TRUE` if `f` is a factor of `n`, and `FALSE` otherwise. Note that every integer is a factor of `0`. Assume `f` and `n` will only be numeric values, e.g. `2` is a factor of `6`.
+]
+.rightcol[
+`isMultiple(m, n)`: Write the function `isMultiple(m, n)` that takes two integer values and returns `TRUE` if `m` is a multiple of `n` and `FALSE` otherwise. Note that `0` is a multiple of every integer other than itself. Hint: You may want to use the `isFactor(f, n)` function you just wrote above. Assume `m` and `n` will only be numeric values.
+]
+
+---
+class: inverse
+
+# Conditionals (if / else)
+
+Write the function `getInRange(x, bound1, bound2)` which takes 3 numeric values: `x`, `bound1`, and `bound2` (`bound1` is not necessarily less than `bound2`). If `x` is between the two bounds, just return `x`, but if `x` is less than the lower bound, return the lower bound, or if `x` is greater than the upper bound, return the upper bound. For example:
+
+- `getInRange(1, 3, 5)` returns `3` (the lower bound, since 1 is below [3,5])
+- `getInRange(4, 3, 5)` returns `4` (the original value, since 4 is between [3,5])
+- `getInRange(6, 3, 5)` returns `5` (the upper bound, since 6 is above [3,5])
+- `getInRange(6, 5, 3)` returns `5` (the upper bound, since 6 is above [3,5])
+
+**Bonus**: Re-write `getInRange(x, bound1, bound2)` without using conditionals
+
+---
+class: inverse
+
+## `for` loops
+
+.font80[
+`sumFromMToN(m, n)`: Write a function that sums the total of the integers between `m` and `n`.&lt;br&gt;**Challenge**: Try solving this without a loop!
+
+- `sumFromMToN(5, 10) == (5 + 6 + 7 + 8 + 9 + 10)`
+- `sumFromMToN(1, 1) == 1`
+
+`sumEveryKthFromMToN(m, n, k)`: Write a function to sum every kth integer from `m` to `n`.
+
+- `sumEveryKthFromMToN(1, 10, 2) == (1 + 3 + 5 + 7 + 9)`
+- `sumEveryKthFromMToN(5, 20, 7) == (5 + 12 + 19)`
+- `sumEveryKthFromMToN(0, 0, 1) == 0`
+
+`sumOfOddsFromMToN(m, n)`: Write a function that sums every _odd_ integer between `m` and `n`.
+
+- `sumOfOddsFromMToN(4, 10) == (5 + 7 + 9)`
+- `sumOfOddsFromMToN(5, 9) == (5 + 7 + 9)`
+]
+
+---
+class: inverse
+
+## `for` loop with `break` &amp; `next`
+
+`sumOfOddsFromMToNMax(m, n, max)`: Write a function that sums every _odd_ integer from `m` to `n` until the sum is less than the value `max`. Your solution should use both `break` and `next` statements.
+
+- `sumOfOddsFromMToNMax(1, 5, 4) == (1 + 3)`
+- `sumOfOddsFromMToNMax(1, 5, 3) == (1)`
+- `sumOfOddsFromMToNMax(1, 5, 10) == (1 + 3 + 5)`
+
+---
+class: inverse
+
+## `while` loops
+
+.leftcol[
+`isMultipleOf4Or7(n)`: Write a function that returns `TRUE` if `n` is a multiple of 4 or 7 and `FALSE` otherwise.
+
+- `isMultipleOf4Or7(0) == FALSE`
+- `isMultipleOf4Or7(1) == FALSE`
+- `isMultipleOf4Or7(4) == TRUE`
+- `isMultipleOf4Or7(7) == TRUE`
+- `isMultipleOf4Or7(28) == TRUE`
+]
+.rightcol[
+`nthMultipleOf4Or7(n)`: Write a function that returns the nth positive integer that is a multiple of either 4 or 7.
+
+- `nthMultipleOf4Or7(1) == 4`
+- `nthMultipleOf4Or7(2) == 7`
+- `nthMultipleOf4Or7(3) == 8`
+- `nthMultipleOf4Or7(4) == 12`
+- `nthMultipleOf4Or7(5) == 14`
+- `nthMultipleOf4Or7(6) == 16`
+]
+
+---
+class: inverse
+
+## Loops / Vectors
+
+.leftcol[
+`isPrime(n)`: Write a function that takes a non-negative integer, `n`, and returns `TRUE` if it is a prime number and `FALSE` otherwise. Use a loop or vector:
+
+- `isPrime(1) == FALSE`
+- `isPrime(2) == TRUE`
+- `isPrime(7) == TRUE`
+- `isPrime(13) == TRUE`
+- `isPrime(14) == FALSE`
+]
+.rightcol[
+`nthPrime(n)`: Write a function that takes a non-negative integer, `n`, and returns the nth prime number, where `nthPrime(1)` returns the first prime number (2). Hint: use a while loop!
+
+- `nthPrime(1) == 2`
+- `nthPrime(2) == 3`
+- `nthPrime(3) == 5`
+- `nthPrime(4) == 7`
+- `nthPrime(7) == 17`
+]
+
+---
+class: inverse
+
+# Vectors
+
+.font80[
+`reverse(x)`: Write a function that returns the vector in reverse order. You cannot use the `rev()` function.
+
+- `all(reverseVector(c(5, 1, 3)) == c(3, 1, 5))`
+- `all(reverseVector(c('a', 'b', 'c')) == c('c', 'b', 'a'))`
+- `all(reverseVector(c(FALSE, TRUE, TRUE)) == c(TRUE, TRUE, FALSE))`
+
+
+`alternatingSum(a)`: Write a function that takes a vector of numbers `a` and returns the alternating sum, where the sign alternates from positive to negative or vice versa.
+
+- `alternatingSum(c(5,3,8,4)) == (5 - 3 + 8 - 4)`
+- `alternatingSum(c(1,2,3)) == (1 - 2 + 3)`
+- `alternatingSum(c(0,0,0)) == 0`
+- `alternatingSum(c(-7,5,3)) == (-7 - 5 + 3)`
+]
+
+---
+class: inverse
+
+## Data frames
+
+Answer these questions using the `beatles` data frame:
+
+1. Create a new column, `playsGuitar`, which is `TRUE` if the band member plays the guitar and `FALSE` otherwise.
+2. Filter the data frame to select only the rows for the band members who have four-letter first names.
+3. Create a new column, `fullName`, which contains the band member's first and last name separated by a space (e.g. `"John Lennon"`)
+
+
+
+---
+class: inverse
+
+## Think-Pair-Share
+
+.font90[
+1) Use the `here()` and `read_csv()` functions to load the `birds.csv` file that is in the `data` folder. Name the data frame object `df`.
+
+2) Use the `df` object to answer the following questions:
+
+- How many rows and columns are in the data frame?
+- What type of data is each column?
+- Preview the different columns - what do you think this data is about? What might one row represent?
+- How many unique airports are in the data frame?
+- What is the earliest and latest observation in the data frame?
+- What is the lowest and highest cost of any one repair in the data frame?
+]
+
+---
+class: inverse
+
+## Think pair share: wildlife impacts data
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `birds.csv` file in the `data` folder.
+
+2) Use the `df` object and the `select()` and `filter()` functions to answer the following questions:
+
+- Create a new data frame, `df_birds`, that contains only the variables (columns) about the species of bird.
+- Create a new data frame, `dc`, that contains only the observations (rows) from DC airports.
+- Create a new data frame, `dc_birds_known`, that contains only the observations (rows) from DC airports and those where the species of bird is known.
+- How many _known_ unique species of birds have been involved in accidents at DC airports?
+]
+
+---
+class: inverse
+
+## Think pair share: wildlife impacts data
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `birds.csv` file in the `data` folder.
+
+2) Use the `df` object and `select()`, `filter()`, and `%&gt;%` to answer the following questions:
+
+- Create a new data frame, `dc_dawn`, that contains only the observations (rows) from DC airports that occurred at dawn.
+- Create a new data frame, `dc_dawn_birds`, that contains only the observations (rows) from DC airports that occurred at dawn and only the variables (columns) about the species of bird.
+- Create a new data frame, `dc_dawn_birds_known`, that contains only the observations (rows) from DC airports that occurred at dawn and only the variables (columns) about the KNOWN species of bird.
+- How many _known_ unique species of birds have been involved in accidents at DC airports at dawn?
+]
+
+---
+class: inverse
+
+## Think pair share: wildlife impacts data
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `birds.csv` file in the `data` folder.
+
+2) Use the `df` object with `%&gt;%` and `mutate()` to create the following new variables:
+
+- `height_miles`: The `height` variable converted to miles (Hint: there are 5,280 feet in a mile).
+- `cost_mil`: Is `TRUE` if the repair costs was greater or equal to $1 million, `FALSE` otherwise.
+- `season`: One of four seasons based on the `incident_month` variable:
+
+  - `spring`: March, April, May
+  - `summer`: June, July, August
+  - `fall`: September, October, November
+  - `winter`: December, January, February
+]
+
+---
+class: inverse
+
+## Think pair share
+
+.font90[
+1) Create the data frame object `df` by using `here()` and `read_csv()` to load the `birds.csv` file in the `data` folder.
+
+2) Use the `df` object and `group_by()`, `summarise()`, `count()`, and `%&gt;%` to answer the following questions:
+
+- Create a summary data frame that contains the mean `height` for each different time of day.
+- Create a summary data frame that contains the maximum `cost_repairs_infl_adj` for each year.
+- Which _month_ has had the greatest number of reported incidents?
+- Which _year_ has had the greatest number of reported incidents?
+]
+
+---
+class: inverse
+
+## Think pair share: `geom_point()`
+
+Use the `birds` data frame to create the following plots
+
+.leftcol[
+&lt;img src="man/figures/ggpoint_p1-1.png" width="504" /&gt;
+]
+.rightcol[
+&lt;img src="man/figures/ggpoint_p2-1.png" width="504" /&gt;
+]
+
+---
+class: inverse
+
+## Think pair share: `geom_col()`
+
+Use the `bears` and `birds` data frame to create the following plots
+
+.leftcol[
+&lt;img src="man/figures/ggbar_p1-1.png" width="504" /&gt;
+]
+.rightcol[
+&lt;img src="man/figures/ggbar_p2-1.png" width="504" /&gt;
+]
+
+---
+class: inverse
+
+# Extra practice 1
+
+Use the `mtcars` data frame to create the following plots
+
+.cols3[
+&lt;img src="man/figures/mtcars_1-1.png" width="324" /&gt;
+]
+.cols3[
+&lt;img src="man/figures/mtcars_2-1.png" width="324" /&gt;
+]
+.cols3[
+&lt;img src="man/figures/mtcars_3-1.png" width="324" /&gt;
+]
+
+---
+class: inverse
+
+# Extra practice 2
+
+Use the `mpg` data frame to create the following plot
+
+&lt;img src="man/figures/mtcars_4-1.png" width="576" /&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false,
+"ratio": "16:9"
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
