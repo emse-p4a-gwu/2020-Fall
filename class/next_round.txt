@@ -1,7 +1,9 @@
 NEXT TIME:
 
 General:
-- Move Rmd lecture to the first class of EDA.
+- Post all class notes both blank and with solutions BEFORE class so that they can look at the solutions if they want ahead of time.
+- Consider adding some self-reflection homeworks where they view the solutions and then re-submit?
+- Move Rmd lecture to the first class of EDA?
 - Move up Monte Carlo for everyone - it's a good wrap up.
 
 1 - add some practice in hw1 about mod and int division
