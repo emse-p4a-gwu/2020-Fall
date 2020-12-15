@@ -1,0 +1,65 @@
+---
+title: "P4A Final Exam"
+subtitle: "EMSE 4574: Intro to Programming for Analytics"
+author: "John Paul Helveston"
+date: December 15, 2020
+output:
+  xaringan::moon_reader:
+    css: ["default", "css/lexis.css", "css/lexis-fonts.css"]
+    seal: false
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+      countIncrementalSlides: false
+      ratio: "16:9"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  warning    = FALSE,
+  message    = FALSE,
+  comment    = "#>",
+  fig.path   = "man/figures/",
+  fig.retina = 3
+)
+xaringanExtra::use_tile_view()
+```
+
+class: title-slide, middle, inverse
+
+.leftcol30[
+<center>
+<img src="https://github.com/emse-p4a-gwu/emse-p4a-gwu.github.io/raw/master/images/p4a_hex_sticker.png" width=250>
+</center>
+]
+.rightcol70[
+# .fancy[Final Exam]
+
+### EMSE 4574: Intro to Programming for Analytics
+### John Paul Helveston
+### December 15, 2020
+]
+
+---
+class: inverse, middle
+
+## .center[You got this `r fontawesome::fa("thumbs-up", fill = "white")`!]
+
+.leftcol[.text80[
+### You may use...
+
+- RStudio
+- Your notes
+- Class slides / notes
+
+### You may **not** use...
+
+- Any other resources (e.g. the internet, solution sites, etc.)
+- Anyone else (e.g. your classmates, people who took this class last year)
+]]
+.rightcol[
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KY9zTslyIdo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+When you are finished, **create a zip file of all the files in your "p4a_final" folder and submit it on Blackboard**
+]
