@@ -340,7 +340,7 @@ x1 - x2 # Returns (1-4, 2-5, 3-6)
 # Multiplicattion
 x1 * x2 # Returns (1*4, 2*5, 3*6)
 
-# Addition
+# Division
 x1 / x2 # Returns (1/4, 2/5, 3/6)
 ```
 
