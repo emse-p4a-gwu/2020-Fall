@@ -42,3 +42,5 @@ Imports:
     palmerpenguins,
     kableExtra,
     emo
+Remotes:
+    hadley/emo
