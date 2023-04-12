@@ -39,3 +39,4 @@ website](https://p4a.seas.gwu.edu/2020-Fall).
 This course was inspired by many other courses / resources that cover
 similar material - see the course [about
 page](http://p4a.seas.gwu.edu/about.html) for more details.
+
