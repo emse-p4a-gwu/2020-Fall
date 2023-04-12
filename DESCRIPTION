@@ -42,9 +42,3 @@ Imports:
     palmerpenguins,
     kableExtra,
     emo
-Remotes:
-    rstudio/fontawesome,
-    haozhu233/kableExtra,
-    hadley/emo,
-    hrbrmstr/hrbrthemes,
-    jrnold/ggthemes
